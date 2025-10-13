@@ -1,0 +1,17 @@
+---
+title: "Data Source"
+---
+
+## Data Source
+
+Describe your data sources here.  
+Include tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.
+
+### Example Data Table
+
+```
+| File            | Description               |
+|-----------------|--------------------------|
+| mydata.csv      | Sample dashboard dataset |
+| anotherdata.json| JSON data for dashboard  |
+```

@@ -1,0 +1,166 @@
+/*-- scss:defaults --*/
+
+
+// Define Color variables `$var-name: value;`
+$textblue: #16222b;
+$darkblue: #183e7f; 
+$darkred: #7f173d; 
+$brightburgundy: #9b2339;
+$teal: #17717f;
+$cream: #FDFBF7;
+$lightgrey : #d3d3d3;
+$darkgray: #a9a9a9;
+
+// Schema R4Biostats
+/* $theme_main_dark: #0a222e; */
+/* $theme_main: #23749b; */
+/* $theme_main_light: #BDD5E1; */
+/* $theme_main_extralight:#f6f9fb; */
+
+// Schema R4stats
+$theme_main_dark: #3E0E17;
+$theme_main: #9b2339;
+$theme_main_lig: #B96574;
+$theme_main_light: #D7A7B0;
+$theme_main_extralight:#f5e9eb;
+
+$theme_related1: #3b7697;
+$theme_related1_light: #c4d5df;
+$theme_related2: #3d8085;
+$gold:#7f6b00;
+
+$theme_comp: #239b85;
+
+/*-- use vars in CSS rules (we'll learn more about how to write CSS soon!) --*/
+h1 {
+  font-color: $darkblue;
+}
+
+.button-styling {
+  background: $teal;
+  color: $darkblue; 
+  border-color: $darkgray;
+}
+
+
+// use litera as the base
+$theme: "litera" !default;
+
+// import google fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+@import url('https://fonts.googleapis.com/css2?family=Chivo');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Inconsolata:wght@200&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Andrew Heiss 
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// use Lato font if available
+$font-family-sans-serif:  "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+/*-- scss:rules --*/
+
+// litera is serif by default: revert to san-serif
+p {
+  font-family: $font-family-sans-serif;
+}
+
+// Navbar (solo website name)
+.navbar-brand {
+  font-family: "Overpass", mono;
+  font-size: 2rem;
+  font-weight: 900;
+  white-space: nowrap;
+  color: $textblue;
+}
+
+//* START -------------  Navbar (all)  -------------  *// 
+.navbar {
+  font-family: "Overpass", mono;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background-color: $theme_main;
+
+  /* General link styles (excluding specific cases) */
+  a {
+    color: #D7A7B0; // Default text color
+     &:hover {
+      color: #ebd3d7; // Hover text color
+      text-decoration: underline; 
+    }
+  }
+  
+  // Dropdown menu inside NAVBAR styling
+  .dropdown {
+    position: relative;
+
+    .dropdown-toggle {
+      color: #D7A7B0; // Default color for dropdown toggle
+      &:hover {
+        color: #ebd3d7; // Hover color for dropdown toggle
+      }
+    }
+
+    .dropdown-menu {
+      background-color: #6a5357; // Background of dropdown menu
+      padding: 10px;
+      display: none; // Hidden by default
+
+      a {
+        color: #f5d5db; // Default color for dropdown links
+        &:hover {
+          color: #536a65; // Darker hover color for dropdown links
+        }
+      }
+    }
+    // Show the dropdown menu on hover
+    &:hover .dropdown-menu {
+      display: block;
+    }
+  }
+
+  
+} //* END -------------  Navbar (all)  -------------  *// 
+
+
+// Base document colors
+// $navbar-dark-hover-color:           "#ff6700" !default;
+// $navbar-light-hover-color:          "#ff6700" !default;
+
+// footer background
+.nav-footer {
+  background-color: #E1BDC4;
+}
+
+//  -------------  footer link -------------  //
+.footer {
+  background-color: #f8f9fa; // Subtle light gray for footer background
+//  padding: 20px; // Add some padding for spacing
+
+  // Footer text (non-link)
+  p {
+    color: #6c757d; // Neutral gray for footer text
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.6; // Slightly increased line-height for readability
+  }
+
+  // Footer links
+  a {
+    color: #007b83; // Muted teal for default link color
+    text-decoration: none; // Remove underline by default
+    font-weight: 500; // Slightly bold for emphasis
+
+    &:hover {
+      color: #7f6b00; // Darker teal on hover for subtle contrast
+      text-decoration: underline; // Add underline on hover for clarity
+    }
+
+    &:active {
+      color: #7f6b00; // Slightly brighter color when active
+      text-decoration: none;
+      
+    }
+  }
+}
+ 

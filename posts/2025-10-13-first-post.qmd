@@ -1,0 +1,7 @@
+---
+title: "First Blog Post"
+date: 2025-10-13
+---
+
+Welcome to the Parma Dash blog!  
+This is your first post. Feel free to add more posts in the `posts/` directory.

@@ -1,0 +1,10 @@
+---
+title: "Blog"
+---
+
+## Blog
+
+Welcome to the blog!  
+Share updates, analysis, and insights here.
+
+To add blog posts, create additional `.qmd` files in the `/posts/` folder.

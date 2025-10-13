@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
+  },
+  {
+    "objectID": "blog.html#blog",
+    "href": "blog.html#blog",
+    "title": "Blog",
+    "section": "",
+    "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for Parma Dash."
+  },
+  {
+    "objectID": "posts/2025-10-13-first-post.html",
+    "href": "posts/2025-10-13-first-post.html",
+    "title": "First Blog Post",
+    "section": "",
+    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Parma Dash",
+    "section": "",
+    "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
+  },
+  {
+    "objectID": "data-source.html",
+    "href": "data-source.html",
+    "title": "Data Source",
+    "section": "",
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.\n\n\n| File            | Description               |\n|-----------------|--------------------------|\n| mydata.csv      | Sample dashboard dataset |\n| anotherdata.json| JSON data for dashboard  |"
+  },
+  {
+    "objectID": "data-source.html#data-source",
+    "href": "data-source.html#data-source",
+    "title": "Data Source",
+    "section": "",
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.\n\n\n| File            | Description               |\n|-----------------|--------------------------|\n| mydata.csv      | Sample dashboard dataset |\n| anotherdata.json| JSON data for dashboard  |"
+  }
+]

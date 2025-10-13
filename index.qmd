@@ -1,0 +1,6 @@
+---
+title: "Welcome to Parma Dash"
+---
+
+Welcome to the Parma Dash website!  
+This site showcases data and interactive dashboards built with Quarto.
