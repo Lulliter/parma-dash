@@ -5,6 +5,7 @@ project:
 website:
   title: "Parma Dash"
   description: "A dashboard for Parma, Italy"
+  site-url: "https://lulliter.github.io/parma-dash/"
   # favicon: assets/favicon.ico
   
   page-footer:
