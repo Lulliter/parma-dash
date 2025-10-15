@@ -14,18 +14,18 @@
     "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "source.html",
+    "href": "source.html",
+    "title": "Data Source",
     "section": "",
-    "text": "This is the about page for Parma Dash."
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.\n\n\n| File            | Description               |\n|-----------------|--------------------------|\n| mydata.csv      | Sample dashboard dataset |\n| anotherdata.json| JSON data for dashboard  |"
   },
   {
-    "objectID": "posts/2025-10-13-first-post.html",
-    "href": "posts/2025-10-13-first-post.html",
-    "title": "First Blog Post",
+    "objectID": "source.html#data-source",
+    "href": "source.html#data-source",
+    "title": "Data Source",
     "section": "",
-    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.\n\n\n| File            | Description               |\n|-----------------|--------------------------|\n| mydata.csv      | Sample dashboard dataset |\n| anotherdata.json| JSON data for dashboard  |"
   },
   {
     "objectID": "index.html",
@@ -35,17 +35,87 @@
     "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
   },
   {
-    "objectID": "data-source.html",
-    "href": "data-source.html",
-    "title": "Data Source",
+    "objectID": "posts/2025-10-13-first-post.html",
+    "href": "posts/2025-10-13-first-post.html",
+    "title": "First Blog Post",
     "section": "",
-    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.\n\n\n| File            | Description               |\n|-----------------|--------------------------|\n| mydata.csv      | Sample dashboard dataset |\n| anotherdata.json| JSON data for dashboard  |"
+    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
   },
   {
-    "objectID": "data-source.html#data-source",
-    "href": "data-source.html#data-source",
-    "title": "Data Source",
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Mappa",
     "section": "",
-    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.\n\n\n| File            | Description               |\n|-----------------|--------------------------|\n| mydata.csv      | Sample dashboard dataset |\n| anotherdata.json| JSON data for dashboard  |"
+    "text": "Mappa dei comuni (usando dati ISTAT )"
+  },
+  {
+    "objectID": "map.html#lettura-dei-dati-cartografici-istat",
+    "href": "map.html#lettura-dei-dati-cartografici-istat",
+    "title": "Mappa",
+    "section": "Lettura dei dati cartografici ISTAT",
+    "text": "Lettura dei dati cartografici ISTAT\n\n\n        layer   n  epsg\n1  regioni_er   1 32632\n2 province_er   9 32632\n3   comuni_er 330 32632\n\n\n\nCoordinate Reference System (CRS)\nGeneralmente, si usano coordinate geografiche (long/lat) in WGS84 (EPSG:4326). Ma in questo caso i dati ISTAT sono in UTM 32N (EPSG:32632), che è un sistema di coordinate proiettate (in metri).\nLavorando con mappe di piccole aree (come una regione), è preferibile usare un sistema di coordinate proiettate, che mantiene meglio le distanze e le aree."
+  },
+  {
+    "objectID": "map.html#fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie",
+    "href": "map.html#fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie",
+    "title": "Mappa",
+    "section": "[Fig 1] Mappa amministrativa dell’Emilia-Romagna con comuni e provincie",
+    "text": "[Fig 1] Mappa amministrativa dell’Emilia-Romagna con comuni e provincie\n\n\nCoordinate system already present.\nℹ Adding new coordinate system, which will replace the existing one.\n\n\n\n\n\nBase cartografica: Comuni (grigio), Province (blu), Regione (blu scuro)."
+  },
+  {
+    "objectID": "map.html#fig-2-con-parma-in-rosso",
+    "href": "map.html#fig-2-con-parma-in-rosso",
+    "title": "Mappa",
+    "section": "[Fig 2] … con Parma in rosso",
+    "text": "[Fig 2] … con Parma in rosso\n\n\nCoordinate system already present.\nℹ Adding new coordinate system, which will replace the existing one.\n\n\n\n\n\nProvincia di Parma evidenziata (bordo rosso)."
+  },
+  {
+    "objectID": "map.html#fig-3-con-parma-in-rosso-etichetta",
+    "href": "map.html#fig-3-con-parma-in-rosso-etichetta",
+    "title": "Mappa",
+    "section": "[Fig 3] … con Parma in rosso (etichetta)",
+    "text": "[Fig 3] … con Parma in rosso (etichetta)\n\n\n\n\n\nProvincia di Parma evidenziata (bordo rosso)."
+  },
+  {
+    "objectID": "map.html#fig-4-mappa-comuni-di-parma",
+    "href": "map.html#fig-4-mappa-comuni-di-parma",
+    "title": "Mappa",
+    "section": "[Fig 4] Mappa comuni di Parma",
+    "text": "[Fig 4] Mappa comuni di Parma\n\n\n\n\n\nComuni della Provincia di Parma."
+  },
+  {
+    "objectID": "map.html#salva-dati-e-mappa-di-parma-in-file-rds",
+    "href": "map.html#salva-dati-e-mappa-di-parma-in-file-rds",
+    "title": "Mappa",
+    "section": "Salva dati e mappa di Parma in file RDS",
+    "text": "Salva dati e mappa di Parma in file RDS\nIl driver indica il formato di output (qui GeoJSON, oppure ESRI Shapefile, GPKG, KML, ecc.). Di per se sf potrebbe estrapolarlo dal suffisso del file, ma è meglio specificarlo esplicitamente."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for Parma Dash."
+  },
+  {
+    "objectID": "data_map/Limiti01012025/source.html",
+    "href": "data_map/Limiti01012025/source.html",
+    "title": "Fonti",
+    "section": "",
+    "text": "Fonti\n\nISTAT - Confini delle unità amministrative a fini statistici"
+  },
+  {
+    "objectID": "data_map/source.html",
+    "href": "data_map/source.html",
+    "title": "Source",
+    "section": "",
+    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains\n\n`├── data_map │   ├── Limiti01012025 │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
+  },
+  {
+    "objectID": "data_map/source.html#subfolder-limiti01012025",
+    "href": "data_map/source.html#subfolder-limiti01012025",
+    "title": "Source",
+    "section": "",
+    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains\n\n`├── data_map │   ├── Limiti01012025 │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
   }
 ]

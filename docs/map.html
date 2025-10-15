@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Parma Dash</title>
+<title>Mappa – Parma Dash</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
   }
 }</script>
 
@@ -84,8 +84,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Parma Dash</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -95,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./map.html"> 
+    <a class="nav-link active" href="./map.html" aria-current="page"> 
 <span class="menu-text">Map</span></a>
   </li>  
   <li class="nav-item">
@@ -121,15 +121,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#lettura-dei-dati-cartografici-istat" id="toc-lettura-dei-dati-cartografici-istat" class="nav-link active" data-scroll-target="#lettura-dei-dati-cartografici-istat">Lettura dei dati cartografici ISTAT</a>
+  <ul class="collapse">
+  <li><a href="#coordinate-reference-system-crs" id="toc-coordinate-reference-system-crs" class="nav-link" data-scroll-target="#coordinate-reference-system-crs">Coordinate Reference System (CRS)</a></li>
+  </ul></li>
+  <li><a href="#fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie" id="toc-fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie" class="nav-link" data-scroll-target="#fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie">[Fig 1] Mappa amministrativa dell’Emilia-Romagna con comuni e provincie</a></li>
+  <li><a href="#fig-2-con-parma-in-rosso" id="toc-fig-2-con-parma-in-rosso" class="nav-link" data-scroll-target="#fig-2-con-parma-in-rosso">[Fig 2] … con Parma in rosso</a></li>
+  <li><a href="#fig-3-con-parma-in-rosso-etichetta" id="toc-fig-3-con-parma-in-rosso-etichetta" class="nav-link" data-scroll-target="#fig-3-con-parma-in-rosso-etichetta">[Fig 3] … con Parma in rosso (etichetta)</a></li>
+  <li><a href="#fig-4-mappa-comuni-di-parma" id="toc-fig-4-mappa-comuni-di-parma" class="nav-link" data-scroll-target="#fig-4-mappa-comuni-di-parma">[Fig 4] Mappa comuni di Parma</a></li>
+  <li><a href="#salva-dati-e-mappa-di-parma-in-file-rds" id="toc-salva-dati-e-mappa-di-parma-in-file-rds" class="nav-link" data-scroll-target="#salva-dati-e-mappa-di-parma-in-file-rds">Salva dati e mappa di Parma in file RDS</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Mappa</h1>
 </div>
 
 
@@ -137,6 +151,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">15-ottobre-2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -146,9 +166,89 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is the about page for Parma Dash.</p>
+<p>Mappa dei comuni (usando dati ISTAT )</p>
+<section id="lettura-dei-dati-cartografici-istat" class="level2">
+<h2 class="anchored" data-anchor-id="lettura-dei-dati-cartografici-istat">Lettura dei dati cartografici ISTAT</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>        layer   n  epsg
+1  regioni_er   1 32632
+2 province_er   9 32632
+3   comuni_er 330 32632</code></pre>
+</div>
+</div>
+<section id="coordinate-reference-system-crs" class="level3">
+<h3 class="anchored" data-anchor-id="coordinate-reference-system-crs">Coordinate Reference System (CRS)</h3>
+<p>Generalmente, si usano coordinate geografiche (long/lat) in <code>WGS84 (EPSG:4326)</code>. Ma in questo caso i dati ISTAT sono in <code>UTM 32N (EPSG:32632)</code>, che è un sistema di coordinate proiettate (in metri).</p>
+<p>Lavorando con mappe di piccole aree (come una regione), è preferibile usare un sistema di coordinate proiettate, che mantiene meglio le distanze e le aree.</p>
+</section>
+</section>
+<section id="fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie" class="level2">
+<h2 class="anchored" data-anchor-id="fig-1-mappa-amministrativa-dellemilia-romagna-con-comuni-e-provincie">[Fig 1] Mappa amministrativa dell’Emilia-Romagna con comuni e provincie</h2>
+<div class="cell" data-ouptput="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Coordinate system already present.
+ℹ Adding new coordinate system, which will replace the existing one.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="map_files/figure-html/map-base-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Mappa amministrativa dell'Emilia-Romagna con comuni, confini provinciali e regionali."></p>
+<figcaption>Base cartografica: Comuni (grigio), Province (blu), Regione (blu scuro).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fig-2-con-parma-in-rosso" class="level2">
+<h2 class="anchored" data-anchor-id="fig-2-con-parma-in-rosso">[Fig 2] … con Parma in rosso</h2>
+<div class="cell" data-ouptput="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Coordinate system already present.
+ℹ Adding new coordinate system, which will replace the existing one.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="map_files/figure-html/map-parma-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Confine della Provincia di Parma evidenziato su base dei comuni."></p>
+<figcaption>Provincia di Parma evidenziata (bordo rosso).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fig-3-con-parma-in-rosso-etichetta" class="level2">
+<h2 class="anchored" data-anchor-id="fig-3-con-parma-in-rosso-etichetta">[Fig 3] … con Parma in rosso (etichetta)</h2>
+<div class="cell" data-ouptput="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="map_files/figure-html/label-parma-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Confine della Provincia di Parma evidenziato su base dei comuni."></p>
+<figcaption>Provincia di Parma evidenziata (bordo rosso).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fig-4-mappa-comuni-di-parma" class="level2">
+<h2 class="anchored" data-anchor-id="fig-4-mappa-comuni-di-parma">[Fig 4] Mappa comuni di Parma</h2>
+<div class="cell" data-ouptput="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="map_files/figure-html/map-comuni-parma-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Mappa dei comuni della Provincia di Parma."></p>
+<figcaption>Comuni della Provincia di Parma.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="salva-dati-e-mappa-di-parma-in-file-rds" class="level2">
+<h2 class="anchored" data-anchor-id="salva-dati-e-mappa-di-parma-in-file-rds">Salva dati e mappa di Parma in file RDS</h2>
+<p>Il <code>driver</code> indica il formato di output (qui <code>GeoJSON</code>, oppure <code>ESRI Shapefile</code>, <code>GPKG</code>, <code>KML</code>, ecc.). Di per se <code>sf</code> potrebbe estrapolarlo dal suffisso del file, ma è meglio specificarlo esplicitamente.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -176,12 +276,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiato!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiato!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

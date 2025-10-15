@@ -25,10 +25,12 @@ website:
     right:
       - text: Home
         href: index.qmd
+      - text: Map
+        href: map.qmd
       - text: Dashboard
         href: dashboard.qmd
       - text: Data Source
-        href: data-source.qmd
+        href: source.qmd
       - text: Blog
         href: blog.qmd
 

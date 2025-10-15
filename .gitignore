@@ -1,23 +1,42 @@
-_quarto/
-*.html
-*.log
-
-# ---- Default ----
-.Rproj.user
+# ---- R & RStudio noise
+.Rproj.user/
 .Rhistory
 .RData
+.Ruserdata
 .DS_Store
+# knitr and R markdown default cache directories
+/*_cache/
+/cache/
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
 
-/.quarto/
+*.log
+
+# ---- Quarto output ----
+_site/
+_freeze/
+.quarto/
+_quarto/
 
 
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
 
-# knitr and R markdown default cache directories
-/*_cache/
-/cache/
+# ----- Input data MAPS (might be big bc its GIS)
+# Ignore everything INSIDE data_map/
+data_map/**
+# …but unignore Markdown notes anywhere inside data_map/
+!data_map/**/*.md
+!data_map/*.md
 
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
+# ----- Input data DASH (might be big bc ......)
+# Ignore everything INSIDE data_dash/
+data_dash/**
+# …but unignore Markdown notes anywhere inside data_dash/
+!data_dash/**/*.md
+!data_dash/*.md
+
+# ----- Derived data/exports
+data_map_output/*
+
