@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Source – Parma Dash</title>
+<title>Data Source – Parma analisi di contesto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6f29dc171bc061d9b2ab5d042a5cb052.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1413cd7ec9d1894e7f053f06e0144303.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Parma Dash</span>
+    <span class="navbar-title">Parma analisi di contesto</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -89,14 +89,14 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./map.html"> 
-<span class="menu-text">Map</span></a>
+    <a class="nav-link" href="./map/00_intro_maps.html"> 
+<span class="menu-text">Maps</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./dashboard.html"> 
@@ -109,6 +109,13 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Lulliter/parma-dash"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -126,10 +133,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data Source</a>
-  <ul class="collapse">
-  <li><a href="#example-data-table" id="toc-example-data-table" class="nav-link" data-scroll-target="#example-data-table">Example Data Table</a></li>
-  </ul></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data Source</a></li>
+  <li><a href="#dati-istat-con-formato-sdmx" id="toc-dati-istat-con-formato-sdmx" class="nav-link" data-scroll-target="#dati-istat-con-formato-sdmx">Dati Istat con formato <code>SDMX</code></a></li>
   </ul>
 </nav>
     </div>
@@ -159,15 +164,59 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
 <p>Describe your data sources here.<br>
 Include tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.</p>
-<section id="example-data-table" class="level3">
-<h3 class="anchored" data-anchor-id="example-data-table">Example Data Table</h3>
-<pre><code>| File            | Description               |
-|-----------------|--------------------------|
-| mydata.csv      | Sample dashboard dataset |
-| anotherdata.json| JSON data for dashboard  |</code></pre>
-
-
 </section>
+<section id="dati-istat-con-formato-sdmx" class="level1">
+<h1>Dati Istat con formato <code>SDMX</code></h1>
+<p>SDMX (Statistical Data and Metadata eXchange) è uno standard internazionale (basato su sintassi XML (<code>SDMX-XML</code>) per lo scambio di dati statistici e metadati tra organizzazioni.</p>
+<p>Rende possibile scaricare in formati: <code>SDMX-ML</code>, <code>SDMX-CSV</code>, <code>SDMX-JSON</code>, ecc.<br>
+SDMX è un <em>“dataflow”</em> che è però descritto da una certa struttura con dimensioni (territorio, tempo) e attributi (u. di misura) e classificazioni associate.</p>
+<p>A partire dal mese di ottobre 2022, l’Istat inizia a diffondere progressivamente i propri dati tramite <a href="https://esploradati.istat.it/databrowser/"><strong>IstatData</strong></a> (che sostituisce <strong>I.Stat</strong>), un nuovo sistema di diffusione interamente basato sulla <code>SDMX-RI</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>C’è limite per singolo IP di 5 query al minuto oltre il quale viene attivato un blocco di accesso compreso tra 1 e 2 giorni.</p>
+</div>
+</div>
+<p>Concetti chiave:</p>
+<ul>
+<li><code>CategoryScheme</code> = la categoria tematica (es. servizi, ecc.)
+<ul>
+<li>sottotemi (es. turismo)
+<ul>
+<li>tabelle (es. arrivi e presenze turistiche)</li>
+<li><code>DataFlow</code> = i dati statistici (es. censimento popolazione)</li>
+<li><code>DataStructure</code> = struttura della tavola (spiega contenuto in termini di:
+<ul>
+<li><code>Codelist</code> e</li>
+<li><code>ConceptScheme</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Si può estrarre (con API rest) sempre sia <code>DATI</code> che <code>METADATI</code>:</p>
+<!-- + **OLD web service I.Stat**: [https://sdmx.istat.it/SDMXWS/rest/](https://sdmx.istat.it/SDMXWS/rest/) -->
+<!--   - Dati:     [https://sdmx.istat.it/SDMXWS/rest/resource/](https://sdmx.istat.it/SDMXWS/rest/resource/) -->
+<!--   - Metadati: [https://sdmx.istat.it/SDMXWS/rest/data/flowRef(DATAFLOW_ID)](https://sdmx.istat.it/SDMXWS/rest/data/flowRef(DATAFLOW_ID)) -->
+<ul>
+<li><strong>NEW web service IstatDATA</strong>: <a href="https://esploradati.istat.it/SDMXWS">https://esploradati.istat.it/SDMXWS</a>
+<ul>
+<li>Dati: <a href="https://esploradati.istat.it/SDMXWS/rest/data/">https://esploradati.istat.it/SDMXWS/rest/data/</a></li>
+<li>Metadati: <a href="https://esploradati.istat.it/SDMXWS/rest/data/flowRef(DATAFLOW_ID)">https://esploradati.istat.it/SDMXWS/rest/data/flowRef(DATAFLOW_ID)</a></li>
+</ul></li>
+</ul>
+<p>Esempio di URL per scaricare dati demografici (censimento 2023) per più comuni:</p>
+<blockquote class="blockquote">
+<p>“https://esploradati.istat.it/SDMXWS/rest/data/IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0/A.034001+034002+034003+034004+034005+034006+034007……./ALL/?detail=full&amp;startPeriod=2023-01-01&amp;endPeriod=2023-12-31&amp;dimensionAtObservation=TIME_PERIOD”</p>
+</blockquote>
+
+
 </section>
 
 </main> <!-- /main -->

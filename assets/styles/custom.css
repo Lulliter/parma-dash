@@ -1,9 +1,11 @@
 body {
-  background-color: #f7f7f7;
+  background-color: #e5ebee; /* page background color */
 }
 .navbar {
-  background-color: #305080;
+  background-color: #033c55; /* navbar background color */
 }
 h1, h2, h3 {
-  color: #305080;
+  color: #033c55; /* headings color */
 }
+
+

@@ -10,8 +10,11 @@
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
-
 *.log
+
+
+# ---- VSCODE ----
+.vscode/
 
 # ---- Quarto output ----
 _site/
@@ -24,11 +27,11 @@ _quarto/
 .httr-oauth
 
 # ----- Input data MAPS (might be big bc its GIS)
-# Ignore everything INSIDE data_map/
-data_map/**
-# …but unignore Markdown notes anywhere inside data_map/
-!data_map/**/*.md
-!data_map/*.md
+# Ignore everything INSIDE data/data_in/ (not the folder)
+data/data_in/**
+# …but unignore Markdown notes anywhere inside data/data_in/
+!data/data_in/**/*.md
+!data/data_in/*.md
 
 # ----- Input data DASH (might be big bc ......)
 # Ignore everything INSIDE data_dash/
@@ -40,3 +43,5 @@ data_dash/**
 # ----- Derived data/exports
 data_map_output/*
 
+
+/.quarto/

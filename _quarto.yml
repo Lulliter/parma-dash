@@ -3,7 +3,7 @@ project:
   output-dir: docs # to publish website on GithubPages
 
 website:
-  title: "Parma Dash"
+  title: "Parma analisi di contesto"
   description: "A dashboard for Parma, Italy"
   site-url: "https://lulliter.github.io/parma-dash/"
   # favicon: assets/favicon.ico
@@ -17,23 +17,42 @@ website:
       Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/) <br>
       [Code at {{< fa brands github >}} GitHub](https://github.com/Lulliter/parma-dash)
 #      Made with {{< fa brands r-project >}} and ![]({{< var quarto-icon >}}){width=75px} <br> 
-    background: "#e3eff7"
+    background: "#E5EBEE"
   
-  # --- Structure of the navbar
+# --- Structure of the navbar
   navbar:
     pinned: true
-    right:
+    left:
       - text: Home
         href: index.qmd
-      - text: Map
-        href: map.qmd
+      - text: Maps
+        href: map/00_intro_maps.qmd
       - text: Dashboard
         href: dashboard.qmd
       - text: Data Source
         href: source.qmd
       - text: Blog
         href: blog.qmd
+        
+    right:
+      - icon: github
+        aria-label: github
+        href: https://github.com/Lulliter/parma-dash
+# --- Structure of the sidebar (if any)
+  sidebar:
+    - title: "Maps"
+      style: docked
+      background: "#9f7d35"
+      contents:
+        - map/00_intro_maps.qmd
+        - section: "Base Maps"
+          contents:
+            - map/01_base_maps.qmd
+        - section: "Thematic Maps"
+          contents:
+            - map/02_thematic_maps.qmd
 
+# --- Default options for all pages
 format:
   html:
     toc: true
@@ -43,3 +62,15 @@ format:
     # highlight-style: github
     # mainfont: "Lato"
     # monofont: "Fira Mono"
+
+# --- Default options for tbl and fig captions location (top)
+fig-cap-location: top
+tbl-cap-location: top
+      
+ 
+      
+
+# --- Important bc Pandoc’s default resource-path is the directory of each input file
+# Let pages see files in the project root (.) and the bib folder explicitly
+resource-path: [".", "bib"]
+#bibliography: bib/CRP_dash.bib
