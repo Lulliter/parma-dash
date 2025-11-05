@@ -4,7 +4,6 @@
 
 + Rivedere e testare funzioni 
   + `R/f_istat_esplora_metadati.R`
-  + `R/f_istat_pop_comune_PR_2023.R` - OLD
   + `R/f_istat_scarica.R` - NEW generica
 
 

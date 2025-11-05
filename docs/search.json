@@ -1,31 +1,24 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
+    "objectID": "assets/parma_colours.html",
+    "href": "assets/parma_colours.html",
+    "title": "colors",
+    "section": "",
+    "text": "Parma Colours\n\npalette_parma &lt;- c(\n  \"blu_sc\" =  \"#033c55\",\n  \"blu_md\" =  \"#005d82\",\n  \"blu_lg\" =  \"#5582a7\",\n  \"grn_sc\" =  \"#246864\",\n  \"grn_md\" =  \"#539d90\",\n  \"grn_lg\" =  \"#8eb9b1\",\n  \"pur_sc\" =  \"#553c64\",\n  \"pur_md\" =  \"#805f95\",\n  \"pur_lg\" =  \"#9a8da3\",\n  \"ylw_sc\" =  \"#9f7d35\",\n  \"ylw_md\" =  \"#d9b942\",\n  \"ylw_lg\" =  \"#f7da7b\"\n)\n\npalette_grey &lt;- c(\n  \"cream\" = \"#FDFBF7\",\n  \"grey_m\" = \"#d3d3d3\",\n  \"grey_sc\" = \"#a9a9a9\"\n)"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
     "title": "Blog",
     "section": "",
     "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
   },
   {
-    "objectID": "blog.html#blog",
-    "href": "blog.html#blog",
+    "objectID": "posts.html#blog",
+    "href": "posts.html#blog",
     "title": "Blog",
     "section": "",
     "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
-  },
-  {
-    "objectID": "data/data_in/istat_shp_ITA_spiega.html",
-    "href": "data/data_in/istat_shp_ITA_spiega.html",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "href": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
   },
   {
     "objectID": "map/01_base_maps.html#lettura-.shp-files-istat",
@@ -275,10 +268,17 @@
     "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
   },
   {
-    "objectID": "assets/parma_colours.html",
-    "href": "assets/parma_colours.html",
-    "title": "colors",
+    "objectID": "data/data_in/istat_shp_ITA_spiega.html",
+    "href": "data/data_in/istat_shp_ITA_spiega.html",
+    "title": "Source",
     "section": "",
-    "text": "Parma Colours\n\npalette_parma &lt;- c(\n  \"blu_sc\" =  \"#033c55\",\n  \"blu_md\" =  \"#005d82\",\n  \"blu_lg\" =  \"#5582a7\",\n  \"grn_sc\" =  \"#246864\",\n  \"grn_md\" =  \"#539d90\",\n  \"grn_lg\" =  \"#8eb9b1\",\n  \"pur_sc\" =  \"#553c64\",\n  \"pur_md\" =  \"#805f95\",\n  \"pur_lg\" =  \"#9a8da3\",\n  \"ylw_sc\" =  \"#9f7d35\",\n  \"ylw_md\" =  \"#d9b942\",\n  \"ylw_lg\" =  \"#f7da7b\"\n)\n\npalette_grey &lt;- c(\n  \"cream\" = \"#FDFBF7\",\n  \"grey_m\" = \"#d3d3d3\",\n  \"grey_sc\" = \"#a9a9a9\"\n)"
+    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
+  },
+  {
+    "objectID": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
+    "href": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
+    "title": "Source",
+    "section": "",
+    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
   }
 ]

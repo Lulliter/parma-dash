@@ -5,6 +5,11 @@
 # La piattaforma esploradati.istat.it ha un limite di 5 query al MINUTO per IP.
 # Superato questo limite, l'IP viene bloccato per 1-2 GIORNI.
 # 
+# COSA SIGNIFICA:
+# - Puoi fare 5 chiamate API diverse in un minuto senza problemi
+# - Se ne fai 6 o più in meno di 60 secondi, rischi il blocco
+# - Il blocco è per IP, quindi colpisce tutte le tue applicazioni
+# 
 # COME EVITARE IL BLOCCO:
 # - Non chiamare queste funzioni in loop rapidi (usa Sys.sleep(15) tra chiamate)
 # - Salva i risultati e riutilizzali (la funzione lo fa automaticamente)
@@ -18,6 +23,9 @@
 # - Endpoint attuale: https://esploradati.istat.it/SDMXWS (da ottobre 2022)
 # - Vecchio endpoint: http://sdmx.istat.it/SDMXWS (in dismissione)
 # - Documentazione: https://www.istat.it/classificazioni-e-strumenti/web-services-sdmx/
+# =============================================================================
+
+
 
 
 # FUNZIONE 1: Cerca dataflows ------------------------------------------------
@@ -120,7 +128,7 @@ f_cerca_dataflows <- function(keywords,
 #'
 #' @param risultati Data frame con i risultati della ricerca
 #' @param output_dir Directory dove salvare i file (default da configurazione)
-#' @param file_prefix Prefisso per i nomi file (default "istat_metadati")
+#' @param file_prefix Prefisso per i nomi file (default "istat_ricerca")
 #' @param verbose Se TRUE mostra messaggi (default TRUE)
 #' 
 #' @return Lista con i path dei file salvati (invisibile)
@@ -156,7 +164,7 @@ f_salva_risultati <- function(risultati,
   
   # Generazione nome file base
   if (is.null(file_prefix)) {
-    file_prefix <- "istat_metadati"
+    file_prefix <- "istat_ricerca"
   }
   timestamp <- format(Sys.time(), "%Y%m%d")
   base_filename <- sprintf("%s_%s", file_prefix, timestamp)
@@ -175,48 +183,38 @@ f_salva_risultati <- function(risultati,
   invisible(list(csv = csv_path, rds = rds_path))
 }
 
-
-# FUNZIONE 3: Estrai dimensioni dataset --------------------------------------
-
-
-# EXECUTE SCRIPT ===================================================
+# COME USARE QUESTO SCRIPT ===================================================
 #
-### 1. CONFIGURAZIONE PARAMETRI ====================================================
+# 1. Modifica i parametri nella sezione CONFIGURAZIONE PARAMETRI (righe 30-38) ----
+# CONFIGURAZIONE PARAMETRI ====================================================
 # Modifica questi parametri per personalizzare la ricerca
 
 # Parole chiave per la ricerca (cercate in Name.it e Name.en)
-PAROLE_CHIAVE <- c("popolazione", "censim", "resident", "stranier")
+PAROLE_CHIAVE <- c("popolazione", "censim", "residente")
+
 # Timeout per le chiamate API (in secondi)
 TIMEOUT <- 180
+
 # Directory per salvare i risultati
 DIR_OUTPUT <- "data/data_out"
-# Prefisso nome file output (se NULL usa "istat_metadati")
+
+# Prefisso nome file output (se NULL usa "istat_ricerca")
 PREFISSO_FILE <- NULL
-# Salvare automaticamente i file? (TRUE/FALSE)
-SALVA_FILE <- TRUE
 
+# =============================================================================
 
-### 2. CERCA i dataflows ----
+# 2. CERCA i dataflows ----
 #    risultati <- f_cerca_dataflows(keywords = PAROLE_CHIAVE)
-if (FALSE) {
-  risultati <- f_cerca_dataflows(
-    keywords = PAROLE_CHIAVE
-  )
-}
 #
-### 3. SALVA i risultati (opzionale) ----
+# 3. SALVA i risultati (opzionale) ----
 #    f_salva_risultati(risultati, output_dir = DIR_OUTPUT, file_prefix = PREFISSO_FILE)
-if (FALSE) {
-  f_salva_risultati(risultati, output_dir = DIR_OUTPUT, file_prefix = PREFISSO_FILE)
-}
 #
-### 4. VISUALIZZA i risultati ----
-if (FALSE) {
-  View(risultati) 
-}
+# 4. VISUALIZZA i risultati ----
+#    print(risultati)
+#    View(risultati)
 #
-### 5. (Opzionale) RICARICA risultati salvati senza rifare la query API ----
-#    risultati <- readRDS("data/data_out/istat_metadati_XXXXXX.rds")
+# 5. (Opzionale) RICARICA risultati salvati senza rifare la query API ----
+#    risultati <- readRDS("data/data_out/istat_ricerca_XXXXXX.rds")
 #
 # =============================================================================
 
@@ -232,7 +230,7 @@ if (FALSE) {
 # ALTERNATIVE IN CASO DI PROBLEMI:
 #
 # 1. Usa i file salvati per evitare nuove query:
-#    risultati <- readRDS("data/data_out/istat_metadati_XXXXXX.rds")
+#    risultati <- readRDS("data/data_out/istat_ricerca_XXXXXX.rds")
 #
 # 2. Ricerca manuale sul portale (consigliato per esplorazioni iniziali):
 #    https://esploradati.istat.it/
@@ -243,4 +241,3 @@ if (FALSE) {
 # DOCUMENTAZIONE UFFICIALE:
 # - Web Services SDMX: https://www.istat.it/classificazioni-e-strumenti/web-services-sdmx/
 # - Endpoint: https://esploradati.istat.it/SDMXWS
-

@@ -32,7 +32,7 @@ website:
       - text: Data Source
         href: source.qmd
       - text: Blog
-        href: blog.qmd
+        href: posts.qmd
         
     right:
       - icon: github

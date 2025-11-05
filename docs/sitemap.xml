@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lulliter.github.io/parma-dash/blog.html</loc>
-    <lastmod>2025-10-13T10:19:04.000Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/assets/parma_colours.html</loc>
+    <lastmod>2025-10-16T13:55:17.132Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/data/data_in/istat_shp_ITA_spiega.html</loc>
-    <lastmod>2025-11-05T09:54:37.893Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/posts.html</loc>
+    <lastmod>2025-10-13T10:19:04.000Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/map/02_thematic_maps.html</loc>
@@ -45,7 +45,7 @@
     <lastmod>2025-11-04T14:18:48.084Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/assets/parma_colours.html</loc>
-    <lastmod>2025-10-16T13:55:17.132Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/data/data_in/istat_shp_ITA_spiega.html</loc>
+    <lastmod>2025-11-05T09:54:37.893Z</lastmod>
   </url>
 </urlset>
