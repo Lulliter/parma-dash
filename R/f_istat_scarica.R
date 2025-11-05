@@ -8,7 +8,7 @@ library(rsdmx)     # Per leggere file SDMX (data & metadata) local or remote sou
 library(dplyr)     # Per manipolazione dati
 library(here)      # Per path relativi al progetto
 
-# CONFIGURAZIONE X RICHIESTA i----
+# _CONFIGURAZIONE X RICHIESTA i----
 
 # Parametri del dataset ISTAT ----
 # IMPORTANTE: Questi parametri vanno modificati in base al dataset desiderato
@@ -89,9 +89,9 @@ TIMEOUT_RICHIESTA <- 60   # Timeout per singola richiesta (secondi)
 
 # Parametri di output ----
 NOME_OUTPUT <- "istat_pop_com_PR_2023"
-CARTELLA_OUTPUT <- "data","data_out"
+CARTELLA_OUTPUT <- "data/data_out"
 
-# FUNZIONE: Download dati ISTAT ================================================
+# _FUNZIONE: Download dati ISTAT ================================================
 
 #' Scarica dati da ISTAT Esploradati via API SDMX
 #'
@@ -112,7 +112,7 @@ CARTELLA_OUTPUT <- "data","data_out"
 #'
 f_scarica_istat <- function(codici_territorio, 
                             dataset_id = DATASET_ID,
-                            frequenza = "A",
+                            frequenza = FREQUENZA,
                             anno = ANNO,
                             timeout_sec = TIMEOUT_RICHIESTA,
                             dimensioni_extra = "......") {
@@ -171,7 +171,7 @@ f_scarica_istat <- function(codici_territorio,
 }
 
 
-# ESECUZIONE: Download con gestione rate limit ----
+# PREP ESECUZIONE: Download con gestione rate limit ----
 
 # Suddivisione in blocchi ----
 # Per rispettare il limite di 5 richieste/giorno e evitare timeout,
@@ -192,15 +192,13 @@ minuti <- floor(tempo_stimato / 60)
 secondi <- tempo_stimato %% 60
 
 # Mostra piano di download
-message("Piano di download:")
 message("  - Totale comuni: ", length(LISTA_COMUNI_PARMA))
 message("  - Comuni per blocco: ", COMUNI_PER_BLOCCO)
 message("  - Numero di query: ", length(blocchi))
 message("  - Tempo stimato: ", minuti, " min ", secondi, " sec")
 message("  - Rate limit: 5 query/minuto (pausa ", PAUSA_TRA_RICHIESTE, " sec tra query)\n")
 
-
-# Loop di download ----
+# _ESECUZIONE IN LOOP: Loop di download ----
 dati_lista <- list()
 
 for (i in seq_along(blocchi)) {
@@ -238,6 +236,7 @@ for (i in seq_along(blocchi)) {
 
 # Rimozione blocchi falliti (NULL)
 dati_lista <- dati_lista[!sapply(dati_lista, is.null)]
+str(dati_lista)
 
 # Unione di tutti i data frame in un unico dataset
 if (length(dati_lista) > 0) {

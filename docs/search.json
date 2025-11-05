@@ -14,89 +14,65 @@
     "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
   },
   {
-    "objectID": "data_dash/source.html",
-    "href": "data_dash/source.html",
-    "title": "Data Folder",
+    "objectID": "data/data_in/istat_shp_ITA_spiega.html",
+    "href": "data/data_in/istat_shp_ITA_spiega.html",
+    "title": "Source",
     "section": "",
-    "text": "Data Folder\nThis folder contains datasets used by the dashboard.\n\n…\n…"
+    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
   },
   {
-    "objectID": "source.html",
-    "href": "source.html",
-    "title": "Data Source",
+    "objectID": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
+    "href": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
+    "title": "Source",
     "section": "",
-    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
+    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
   },
   {
-    "objectID": "source.html#data-source",
-    "href": "source.html#data-source",
-    "title": "Data Source",
-    "section": "",
-    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
-  },
-  {
-    "objectID": "map/00_intro_maps.html",
-    "href": "map/00_intro_maps.html",
-    "title": "Intro",
-    "section": "",
-    "text": "Qui c’è una sezione introduttiva sulle mappe e dati geografici.",
-    "crumbs": [
-      "Maps",
-      "Intro"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is the about page for Parma Dash."
-  },
-  {
-    "objectID": "R/issue_renv.html",
-    "href": "R/issue_renv.html",
-    "title": "renv + gdtools issues",
-    "section": "",
-    "text": "The renv package is used to manage R package dependencies for the project, which makes it easier to reproduce the project environment on different machines.\n.rs.restartR()\n\n# --- initialize to create a new renv environment\nrenv::init()\n\n# --- install R packages as needed\nrenv::install(c(\"dplyr\", \"ggplot2\", \"flextable\"))\n\n# --- snapshot (= SAVE as LATEST) the current state of R packages\nrenv::snapshot()\n\n# --- restore (= REVERT to PREVIOUS) the R packages as per the lockfile\nrenv::restore()\n\n\n\nrenv::snapshot() # gives error \"CairoContext.cpp:1:10: fatal error: 'string' file not found\"\"\nMEANS: the gdtools package is having trouble finding the necessary system libraries to compile its C++ code. This is often due to missing or misconfigured development tools on your system.\nxcode-select --install \n# don't have full Xcode (needed for gdtools) installed, only the Command Line Tools.\nInstall Full Xcode from the App Store.\nThen\nsudo xcode-select -s /Applications/Xcode.app/Contents/Developer\nsudo xcodebuild -license # \"agree\" to the license\nThen try reinstalling gdtools:\n# install.packages(\"gdtools\")\nrenv::install(\"gdtools\")\n\n\nHomebrew su Apple Silicon può installare librerie nella directory sbagliata (/usr/local → x86_64), mentre tu hai bisogno di quelle in /opt/homebrew (arm64).\nwhich brew\n# /opt/homebrew/bin/brew\nReinstallare le librerie necessarie con il brew corretto:\n# uninstall con il brew sbagliato\nbrew uninstall cairo freetype libpng fontconfig pixman libx11 libxext libxrender\n# reinstall con il brew corretto\n/opt/homebrew/bin/brew reinstall pkg-config cairo pango libpng jpeg giflib librsvg\n\n\n\n🔧 1. Forza pkg-config a usare solo le librerie arm64\nNel terminale, prima di avviare R, esporta la variabile PKG_CONFIG_PATH correttamente:\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n🔁 2. Avvia R nella stessa shell, poi installa gdtools:\nR\ninstall.packages(\"gdtools\", type = \"source\")\n# oppure\nrenv::install(\"gdtools\")\nThis ensures che pkg-config cerchi le librerie nella directory corretta per Apple Silicon.\n\n\nPer far sì che questa impostazione sia permanente e non debba essere ripetuta ogni volta, aggiungi la riga di esportazione al tuo file di configurazione della shell (.zshrc per Zsh o .bash_profile per Bash):\nopen ~/.zshrc\n# Aggiungi questa riga alla fine del file\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n# Rendi effettive le modifiche\nsource ~/.zshrc\n# controlla\necho $PKG_CONFIG_PATH\n  # /opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig"
-  },
-  {
-    "objectID": "R/issue_renv.html#package-renv",
-    "href": "R/issue_renv.html#package-renv",
-    "title": "renv + gdtools issues",
-    "section": "",
-    "text": "The renv package is used to manage R package dependencies for the project, which makes it easier to reproduce the project environment on different machines.\n.rs.restartR()\n\n# --- initialize to create a new renv environment\nrenv::init()\n\n# --- install R packages as needed\nrenv::install(c(\"dplyr\", \"ggplot2\", \"flextable\"))\n\n# --- snapshot (= SAVE as LATEST) the current state of R packages\nrenv::snapshot()\n\n# --- restore (= REVERT to PREVIOUS) the R packages as per the lockfile\nrenv::restore()"
-  },
-  {
-    "objectID": "R/issue_renv.html#problema-con-renv-e-gdtools",
-    "href": "R/issue_renv.html#problema-con-renv-e-gdtools",
-    "title": "renv + gdtools issues",
-    "section": "",
-    "text": "renv::snapshot() # gives error \"CairoContext.cpp:1:10: fatal error: 'string' file not found\"\"\nMEANS: the gdtools package is having trouble finding the necessary system libraries to compile its C++ code. This is often due to missing or misconfigured development tools on your system.\nxcode-select --install \n# don't have full Xcode (needed for gdtools) installed, only the Command Line Tools.\nInstall Full Xcode from the App Store.\nThen\nsudo xcode-select -s /Applications/Xcode.app/Contents/Developer\nsudo xcodebuild -license # \"agree\" to the license\nThen try reinstalling gdtools:\n# install.packages(\"gdtools\")\nrenv::install(\"gdtools\")\n\n\nHomebrew su Apple Silicon può installare librerie nella directory sbagliata (/usr/local → x86_64), mentre tu hai bisogno di quelle in /opt/homebrew (arm64).\nwhich brew\n# /opt/homebrew/bin/brew\nReinstallare le librerie necessarie con il brew corretto:\n# uninstall con il brew sbagliato\nbrew uninstall cairo freetype libpng fontconfig pixman libx11 libxext libxrender\n# reinstall con il brew corretto\n/opt/homebrew/bin/brew reinstall pkg-config cairo pango libpng jpeg giflib librsvg\n\n\n\n🔧 1. Forza pkg-config a usare solo le librerie arm64\nNel terminale, prima di avviare R, esporta la variabile PKG_CONFIG_PATH correttamente:\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n🔁 2. Avvia R nella stessa shell, poi installa gdtools:\nR\ninstall.packages(\"gdtools\", type = \"source\")\n# oppure\nrenv::install(\"gdtools\")\nThis ensures che pkg-config cerchi le librerie nella directory corretta per Apple Silicon.\n\n\nPer far sì che questa impostazione sia permanente e non debba essere ripetuta ogni volta, aggiungi la riga di esportazione al tuo file di configurazione della shell (.zshrc per Zsh o .bash_profile per Bash):\nopen ~/.zshrc\n# Aggiungi questa riga alla fine del file\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n# Rendi effettive le modifiche\nsource ~/.zshrc\n# controlla\necho $PKG_CONFIG_PATH\n  # /opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig"
-  },
-  {
-    "objectID": "posts/2025-10-13-first-post.html",
-    "href": "posts/2025-10-13-first-post.html",
-    "title": "First Blog Post",
-    "section": "",
-    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Parma Dash",
-    "section": "",
-    "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
-  },
-  {
-    "objectID": "map/01_base_maps.html#lettura-confini-geografici-istat",
-    "href": "map/01_base_maps.html#lettura-confini-geografici-istat",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "Lettura confini geografici ISTAT",
-    "text": "Lettura confini geografici ISTAT",
+    "objectID": "map/01_base_maps.html#lettura-.shp-files-istat",
+    "href": "map/01_base_maps.html#lettura-.shp-files-istat",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Lettura .shp files ISTAT",
+    "text": "Lettura .shp files ISTAT",
     "crumbs": [
       "Maps",
       "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
+      "Mappe e Codici confini amministrativi ISTAT"
+    ]
+  },
+  {
+    "objectID": "map/01_base_maps.html#lettura-caratteristiche-dei-comuni",
+    "href": "map/01_base_maps.html#lettura-caratteristiche-dei-comuni",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "🟡 Lettura caratteristiche dei comuni",
+    "text": "🟡 Lettura caratteristiche dei comuni",
+    "crumbs": [
+      "Maps",
+      "Base Maps",
+      "Mappe e Codici confini amministrativi ISTAT"
+    ]
+  },
+  {
+    "objectID": "map/01_base_maps.html#join-comuni_info_01_01_2025-con-comuni_ita-su-codice_istat_del_comune_alfanumerico-pro_com_t",
+    "href": "map/01_base_maps.html#join-comuni_info_01_01_2025-con-comuni_ita-su-codice_istat_del_comune_alfanumerico-pro_com_t",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Join comuni_info_01_01_2025 con comuni_ita (su codice_istat_del_comune_alfanumerico = PRO_COM_T)",
+    "text": "Join comuni_info_01_01_2025 con comuni_ita (su codice_istat_del_comune_alfanumerico = PRO_COM_T)",
+    "crumbs": [
+      "Maps",
+      "Base Maps",
+      "Mappe e Codici confini amministrativi ISTAT"
+    ]
+  },
+  {
+    "objectID": "map/01_base_maps.html#descrizione-attributi-limiti-comunali",
+    "href": "map/01_base_maps.html#descrizione-attributi-limiti-comunali",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Descrizione Attributi limiti comunali",
+    "text": "Descrizione Attributi limiti comunali\n\n\nvariabiledescrizionevalori_possibiliCOD_RIPCodice ripartizione geografica1=Nord-Ovest, 2=Nord-Est, 3=Centro, 4=Sud, 5=IsoleCOD_REGCodice num regione1-20 (vedi elenco regioni)codice_regioneCodice alfanum della regione01-20 (vedi elenco regioni)COD_PROVCodice num provincia01-111 (vedi elenco province/città metropolitane)COD_UTSCodice UTS (Unità Territoriali Sovracomunali)Codice num provincia, città metropolitana, libero consorzio di comuni o ex provinciaCC_UTSCapoluogo di provincia o città metropolitana.(1=Comune capoluogo; 0=Comune non è capoluogo)COD_CMCodice della città metropolitana (###)Codice num = 200 + COD_PROVPRO_COMCodice numerico del comuneCodice num = COD_PROV + COD_CMPRO_COM_TCodice alfanumerico del comuneCodici alfanumerici = (00)COD_PROV + COD_CMCOMUNEDenominazione del comune (italiana/straniera)Stringhe di testoCOMUNE_ADenominazione del comune (altra lingua)Stringhe di testonome_comune_it_strDenominazione del comune (italiana/straniera)Stringhe di testonome_comune_itDenominazione del comune (solo italiana)Stringhe di testonome_comune_strDenominazione del comune (altra lingua)Stringhe di testopop_leg_31_12_2021Popolazione legale al 31/12/2021Numerici interipop_res_31_12_2023Popolazione residente al 31/12/2023Numerici interialt_mAltitudine s.l.m. del centro (metri)Numerici intericomune_litoraneoComune litoraneo (S/N)1=Comune litoraneo, 0=Comune non litoraneocomune_isolanoComune isolano (S/N)1=Comune isolano, 0=Comune non isolanozone_costiereZone costiere (S/N)1=  Zone costiere,0=  Zone non costieregrado_di_urbanizzazioneGrado di urbanizzazione1 = Città o densamente popolate; 2 = Piccole città o densità intermedia, 3 =  Zone rurali o scarsamente popolatesup_kmq_01_01_2024Superficie territoriale (kmq) al 01/01/2024Numerici decimaliShape_AreaArea geometrica (unità CRS)Numerici decimaliShape_LengLunghezza geometrica (unità CRS)Numerici decimaligeometryGeometria (poligono)Geometria (poligono)",
+    "crumbs": [
+      "Maps",
+      "Base Maps",
+      "Mappe e Codici confini amministrativi ISTAT"
     ]
   },
   {
@@ -109,255 +85,6 @@
       "Maps",
       "Base Maps",
       "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-1-emilia-romagna-con-comuni-e-provincie",
-    "href": "map/01_base_maps.html#fig-1-emilia-romagna-con-comuni-e-provincie",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 1] Emilia-Romagna con comuni e provincie",
-    "text": "[Fig 1] Emilia-Romagna con comuni e provincie\n\n\n\n\n\nFigura 1",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-2-con-parma-in-rosso",
-    "href": "map/01_base_maps.html#fig-2-con-parma-in-rosso",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 2] … con Parma in rosso",
-    "text": "[Fig 2] … con Parma in rosso\n\n\n\n\n\nFigura 2: Provincia di Parma evidenziata (bordo rosso).",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-3-con-parma-in-rosso-etichetta",
-    "href": "map/01_base_maps.html#fig-3-con-parma-in-rosso-etichetta",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 3] … con Parma in rosso (etichetta)",
-    "text": "[Fig 3] … con Parma in rosso (etichetta)\n\n\n\n\n\nFigura 3: Provincia di Parma evidenziata (bordo rosso).",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-4-comuni-di-parma",
-    "href": "map/01_base_maps.html#fig-4-comuni-di-parma",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 4] Comuni di Parma",
-    "text": "[Fig 4] Comuni di Parma\n\n\n\n\n\nFigura 4: Comuni della Provincia di Parma.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-5.a-con-etichette-dei-comuni",
-    "href": "map/01_base_maps.html#fig-5.a-con-etichette-dei-comuni",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 5.a] … con etichette dei comuni",
-    "text": "[Fig 5.a] … con etichette dei comuni\nCi sono varie opzioni per aggiungere etichette ai poligoni:\n\n[geom_text] (posiziona le etichette al centroide del poligono, può sovrapporsi)\ngeom_sf_text (simile a geom_text, ma specifico per oggetti sf, con opzione check_overlap = TRUE)\n…\n\nche usano una variabile di testo (ad esempio COMUNE).\n\n\n\n\n\nFigura 5: Comuni della Provincia di Parma con etichette.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-5.a2-con-etichette-dei-comuni-wrapped",
-    "href": "map/01_base_maps.html#fig-5.a2-con-etichette-dei-comuni-wrapped",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 5.a2] … con etichette dei comuni WRAPPED",
-    "text": "[Fig 5.a2] … con etichette dei comuni WRAPPED\n\n\n\n\n\nFigura 6: Comuni della Provincia di Parma con etichette.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-5.b-con-etichette-dei-comuni-e-righe-di-collegamento",
-    "href": "map/01_base_maps.html#fig-5.b-con-etichette-dei-comuni-e-righe-di-collegamento",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 5.b] … con etichette dei comuni e righe di collegamento",
-    "text": "[Fig 5.b] … con etichette dei comuni e righe di collegamento\nSee tutorial on Labelling sf objects\n\ngeom_text_repel da ggrepel (con linee di collegamento opzionali)\n\nwith argument stat = \"sf_coordinates\" which will enable the ggrepel functions to work with spatial sf objects directly.\n\n\n\n\n\n\n\nFigura 7: Comuni della Provincia di Parma con etichette e linee di collegamento.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-5.c-con-etichette-dei-comuni-e-righe-di-collegamento-limiti-per-etichette",
-    "href": "map/01_base_maps.html#fig-5.c-con-etichette-dei-comuni-e-righe-di-collegamento-limiti-per-etichette",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 5.c] … con etichette dei comuni e righe di collegamento (limiti per etichette)",
-    "text": "[Fig 5.c] … con etichette dei comuni e righe di collegamento (limiti per etichette)\n\n\n\n\n\nFigura 8: Comuni della Provincia di Parma con etichette e linee di collegamento.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-6-mappa-interattiva-che-puoi-zoomare-e-leggere-il-nome-del-comune",
-    "href": "map/01_base_maps.html#fig-6-mappa-interattiva-che-puoi-zoomare-e-leggere-il-nome-del-comune",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig 6] Mappa interattiva che puoi zoomare e leggere il nome del comune",
-    "text": "[Fig 6] Mappa interattiva che puoi zoomare e leggere il nome del comune\n\n\n\n\nFigura 9: Mappa interattiva dei comuni della Provincia di Parma.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#salva-dati-e-mappa-di-parma-in-file-rds",
-    "href": "map/01_base_maps.html#salva-dati-e-mappa-di-parma-in-file-rds",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Salva dati e mappa di Parma in file RDS",
-    "text": "Salva dati e mappa di Parma in file RDS\nIl driver indica il formato di output (qui GeoJSON, oppure ESRI Shapefile, GPKG, KML, ecc.). Di per se sf potrebbe estrapolarlo dal suffisso del file, ma è meglio specificarlo esplicitamente.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "data_map/source.html",
-    "href": "data_map/source.html",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_map │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "data_map/source.html#subfolder-istat_shp_ita",
-    "href": "data_map/source.html#subfolder-istat_shp_ita",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_map │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "assets/parma_colours.html",
-    "href": "assets/parma_colours.html",
-    "title": "colors",
-    "section": "",
-    "text": "Parma Colours\n\npalette_parma &lt;- c(\n  \"blu_sc\" =  \"#033c55\",\n  \"blu_md\" =  \"#005d82\",\n  \"blu_lg\" =  \"#5582a7\",\n  \"grn_sc\" =  \"#246864\",\n  \"grn_md\" =  \"#539d90\",\n  \"grn_lg\" =  \"#8eb9b1\",\n  \"pur_sc\" =  \"#553c64\",\n  \"pur_md\" =  \"#805f95\",\n  \"pur_lg\" =  \"#9a8da3\",\n  \"ylw_sc\" =  \"#9f7d35\",\n  \"ylw_md\" =  \"#d9b942\",\n  \"ylw_lg\" =  \"#f7da7b\"\n)\n\npalette_grey &lt;- c(\n  \"cream\" = \"#FDFBF7\",\n  \"grey_m\" = \"#d3d3d3\",\n  \"grey_sc\" = \"#a9a9a9\"\n)"
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-confini-emilia-romagna-province-e-comuni",
-    "href": "map/01_base_maps.html#fig-confini-emilia-romagna-province-e-comuni",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] Confini Emilia-Romagna, province e comuni",
-    "text": "[Fig] Confini Emilia-Romagna, province e comuni\n\n\n\n\n\nFigura 1",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-con-parma-in-rosso",
-    "href": "map/01_base_maps.html#fig-con-parma-in-rosso",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] … con Parma in rosso",
-    "text": "[Fig] … con Parma in rosso\n\n\n\n\n\nFigura 2",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-con-parma-in-rosso-etichetta",
-    "href": "map/01_base_maps.html#fig-con-parma-in-rosso-etichetta",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] … con Parma in rosso (etichetta)",
-    "text": "[Fig] … con Parma in rosso (etichetta)\n\n\n\n\n\nFigura 3",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-comuni-di-parma",
-    "href": "map/01_base_maps.html#fig-comuni-di-parma",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] Comuni di Parma",
-    "text": "[Fig] Comuni di Parma\n\n\n\n\n\nFigura 4",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-con-etichette-dei-comuni",
-    "href": "map/01_base_maps.html#fig-con-etichette-dei-comuni",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] … con etichette dei comuni",
-    "text": "[Fig] … con etichette dei comuni\nCi sono varie opzioni per aggiungere etichette ai poligoni:\n\n[geom_text] (posiziona le etichette al centroide del poligono, può sovrapporsi)\ngeom_sf_text (simile a geom_text, ma specifico per oggetti sf, con opzione check_overlap = TRUE)\n…\n\nche usano una variabile di testo (ad esempio COMUNE).\n\n\n\n\n\nFigura 5",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-con-etichette-dei-comuni-wrapped",
-    "href": "map/01_base_maps.html#fig-con-etichette-dei-comuni-wrapped",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] … con etichette dei comuni WRAPPED",
-    "text": "[Fig] … con etichette dei comuni WRAPPED\n\n\n\n\n\nFigura 6",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-con-etichette-dei-comuni-e-righe-di-collegamento",
-    "href": "map/01_base_maps.html#fig-con-etichette-dei-comuni-e-righe-di-collegamento",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] … con etichette dei comuni e righe di collegamento",
-    "text": "[Fig] … con etichette dei comuni e righe di collegamento\nSee tutorial on Labelling sf objects\n\ngeom_text_repel da ggrepel (con linee di collegamento opzionali)\n\nwith argument stat = \"sf_coordinates\" which will enable the ggrepel functions to work with spatial sf objects directly.\n\n\n\n\n\n\n\nFigura 7",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-con-etichette-dei-comuni-e-righe-di-collegamento-limiti-per-etichette",
-    "href": "map/01_base_maps.html#fig-con-etichette-dei-comuni-e-righe-di-collegamento-limiti-per-etichette",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] … con etichette dei comuni e righe di collegamento (limiti per etichette)",
-    "text": "[Fig] … con etichette dei comuni e righe di collegamento (limiti per etichette)\n\n\n\n\n\nFigura 8",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#fig-mappa-interattiva-che-puoi-zoomare-e-leggere-il-nome-del-comune",
-    "href": "map/01_base_maps.html#fig-mappa-interattiva-che-puoi-zoomare-e-leggere-il-nome-del-comune",
-    "title": "Mappe con confini amministrativi ISTAT",
-    "section": "[Fig] Mappa interattiva che puoi zoomare e leggere il nome del comune",
-    "text": "[Fig] Mappa interattiva che puoi zoomare e leggere il nome del comune\n\n\n\n\nFigura 9",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe con confini amministrativi ISTAT"
     ]
   },
   {
@@ -469,25 +196,11 @@
     ]
   },
   {
-    "objectID": "data_map/istat_shp_ITA_spiega.html",
-    "href": "data_map/istat_shp_ITA_spiega.html",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_map │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "data_map/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "href": "data_map/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_map │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "map/01_base_maps.html#lettura-.shp-files-istat",
-    "href": "map/01_base_maps.html#lettura-.shp-files-istat",
+    "objectID": "map/01_base_maps.html#salva-dati-e-mappa-di-parma-in-file-rds",
+    "href": "map/01_base_maps.html#salva-dati-e-mappa-di-parma-in-file-rds",
     "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Lettura .shp files ISTAT",
-    "text": "Lettura .shp files ISTAT",
+    "section": "Salva dati e mappa di Parma in file RDS",
+    "text": "Salva dati e mappa di Parma in file RDS\nIl driver indica il formato di output (qui GeoJSON, oppure ESRI Shapefile, GPKG, KML, ecc.). Di per se sf potrebbe estrapolarlo dal suffisso del file, ma è meglio specificarlo esplicitamente.",
     "crumbs": [
       "Maps",
       "Base Maps",
@@ -495,53 +208,77 @@
     ]
   },
   {
-    "objectID": "map/01_base_maps.html#lettura-caratteristiche-dei-comuni",
-    "href": "map/01_base_maps.html#lettura-caratteristiche-dei-comuni",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "🟡 Lettura caratteristiche dei comuni",
-    "text": "🟡 Lettura caratteristiche dei comuni",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#join-comuni_info_01_01_2025-con-comuni_ita-su-codice_istat_del_comune_alfanumerico-pro_com_t",
-    "href": "map/01_base_maps.html#join-comuni_info_01_01_2025-con-comuni_ita-su-codice_istat_del_comune_alfanumerico-pro_com_t",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Join comuni_info_01_01_2025 con comuni_ita (su codice_istat_del_comune_alfanumerico = PRO_COM_T)",
-    "text": "Join comuni_info_01_01_2025 con comuni_ita (su codice_istat_del_comune_alfanumerico = PRO_COM_T)",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#descrizione-attributi-limiti-comunali",
-    "href": "map/01_base_maps.html#descrizione-attributi-limiti-comunali",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Descrizione Attributi limiti comunali",
-    "text": "Descrizione Attributi limiti comunali\n\n\nvariabiledescrizionevalori_possibiliCOD_RIPCodice ripartizione geografica1=Nord-Ovest, 2=Nord-Est, 3=Centro, 4=Sud, 5=IsoleCOD_REGCodice num regione1-20 (vedi elenco regioni)codice_regioneCodice alfanum della regione01-20 (vedi elenco regioni)COD_PROVCodice num provincia01-111 (vedi elenco province/città metropolitane)COD_UTSCodice UTS (Unità Territoriali Sovracomunali)Codice num provincia, città metropolitana, libero consorzio di comuni o ex provinciaCC_UTSCapoluogo di provincia o città metropolitana.(1=Comune capoluogo; 0=Comune non è capoluogo)COD_CMCodice della città metropolitana (###)Codice num = 200 + COD_PROVPRO_COMCodice numerico del comuneCodice num = COD_PROV + COD_CMPRO_COM_TCodice alfanumerico del comuneCodici alfanumerici = (00)COD_PROV + COD_CMCOMUNEDenominazione del comune (italiana/straniera)Stringhe di testoCOMUNE_ADenominazione del comune (altra lingua)Stringhe di testonome_comune_it_strDenominazione del comune (italiana/straniera)Stringhe di testonome_comune_itDenominazione del comune (solo italiana)Stringhe di testonome_comune_strDenominazione del comune (altra lingua)Stringhe di testopop_leg_31_12_2021Popolazione legale al 31/12/2021Numerici interipop_res_31_12_2023Popolazione residente al 31/12/2023Numerici interialt_mAltitudine s.l.m. del centro (metri)Numerici intericomune_litoraneoComune litoraneo (S/N)1=Comune litoraneo, 0=Comune non litoraneocomune_isolanoComune isolano (S/N)1=Comune isolano, 0=Comune non isolanozone_costiereZone costiere (S/N)1=  Zone costiere,0=  Zone non costieregrado_di_urbanizzazioneGrado di urbanizzazione1 = Città o densamente popolate; 2 = Piccole città o densità intermedia, 3 =  Zone rurali o scarsamente popolatesup_kmq_01_01_2024Superficie territoriale (kmq) al 01/01/2024Numerici decimaliShape_AreaArea geometrica (unità CRS)Numerici decimaliShape_LengLunghezza geometrica (unità CRS)Numerici decimaligeometryGeometria (poligono)Geometria (poligono)",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "data/data_in/istat_shp_ITA_spiega.html",
-    "href": "data/data_in/istat_shp_ITA_spiega.html",
-    "title": "Source",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Parma Dash",
     "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
+    "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
   },
   {
-    "objectID": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "href": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "title": "Source",
+    "objectID": "posts/2025-10-13-first-post.html",
+    "href": "posts/2025-10-13-first-post.html",
+    "title": "First Blog Post",
     "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
+    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+  },
+  {
+    "objectID": "R/issue_renv.html",
+    "href": "R/issue_renv.html",
+    "title": "renv + gdtools issues",
+    "section": "",
+    "text": "The renv package is used to manage R package dependencies for the project, which makes it easier to reproduce the project environment on different machines.\n.rs.restartR()\n\n# --- initialize to create a new renv environment\nrenv::init()\n\n# --- install R packages as needed\nrenv::install(c(\"dplyr\", \"ggplot2\", \"flextable\"))\n\n# --- snapshot (= SAVE as LATEST) the current state of R packages\nrenv::snapshot()\n\n# --- restore (= REVERT to PREVIOUS) the R packages as per the lockfile\nrenv::restore()\n\n\n\nrenv::snapshot() # gives error \"CairoContext.cpp:1:10: fatal error: 'string' file not found\"\"\nMEANS: the gdtools package is having trouble finding the necessary system libraries to compile its C++ code. This is often due to missing or misconfigured development tools on your system.\nxcode-select --install \n# don't have full Xcode (needed for gdtools) installed, only the Command Line Tools.\nInstall Full Xcode from the App Store.\nThen\nsudo xcode-select -s /Applications/Xcode.app/Contents/Developer\nsudo xcodebuild -license # \"agree\" to the license\nThen try reinstalling gdtools:\n# install.packages(\"gdtools\")\nrenv::install(\"gdtools\")\n\n\nHomebrew su Apple Silicon può installare librerie nella directory sbagliata (/usr/local → x86_64), mentre tu hai bisogno di quelle in /opt/homebrew (arm64).\nwhich brew\n# /opt/homebrew/bin/brew\nReinstallare le librerie necessarie con il brew corretto:\n# uninstall con il brew sbagliato\nbrew uninstall cairo freetype libpng fontconfig pixman libx11 libxext libxrender\n# reinstall con il brew corretto\n/opt/homebrew/bin/brew reinstall pkg-config cairo pango libpng jpeg giflib librsvg\n\n\n\n🔧 1. Forza pkg-config a usare solo le librerie arm64\nNel terminale, prima di avviare R, esporta la variabile PKG_CONFIG_PATH correttamente:\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n🔁 2. Avvia R nella stessa shell, poi installa gdtools:\nR\ninstall.packages(\"gdtools\", type = \"source\")\n# oppure\nrenv::install(\"gdtools\")\nThis ensures che pkg-config cerchi le librerie nella directory corretta per Apple Silicon.\n\n\nPer far sì che questa impostazione sia permanente e non debba essere ripetuta ogni volta, aggiungi la riga di esportazione al tuo file di configurazione della shell (.zshrc per Zsh o .bash_profile per Bash):\nopen ~/.zshrc\n# Aggiungi questa riga alla fine del file\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n# Rendi effettive le modifiche\nsource ~/.zshrc\n# controlla\necho $PKG_CONFIG_PATH\n  # /opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig"
+  },
+  {
+    "objectID": "R/issue_renv.html#package-renv",
+    "href": "R/issue_renv.html#package-renv",
+    "title": "renv + gdtools issues",
+    "section": "",
+    "text": "The renv package is used to manage R package dependencies for the project, which makes it easier to reproduce the project environment on different machines.\n.rs.restartR()\n\n# --- initialize to create a new renv environment\nrenv::init()\n\n# --- install R packages as needed\nrenv::install(c(\"dplyr\", \"ggplot2\", \"flextable\"))\n\n# --- snapshot (= SAVE as LATEST) the current state of R packages\nrenv::snapshot()\n\n# --- restore (= REVERT to PREVIOUS) the R packages as per the lockfile\nrenv::restore()"
+  },
+  {
+    "objectID": "R/issue_renv.html#problema-con-renv-e-gdtools",
+    "href": "R/issue_renv.html#problema-con-renv-e-gdtools",
+    "title": "renv + gdtools issues",
+    "section": "",
+    "text": "renv::snapshot() # gives error \"CairoContext.cpp:1:10: fatal error: 'string' file not found\"\"\nMEANS: the gdtools package is having trouble finding the necessary system libraries to compile its C++ code. This is often due to missing or misconfigured development tools on your system.\nxcode-select --install \n# don't have full Xcode (needed for gdtools) installed, only the Command Line Tools.\nInstall Full Xcode from the App Store.\nThen\nsudo xcode-select -s /Applications/Xcode.app/Contents/Developer\nsudo xcodebuild -license # \"agree\" to the license\nThen try reinstalling gdtools:\n# install.packages(\"gdtools\")\nrenv::install(\"gdtools\")\n\n\nHomebrew su Apple Silicon può installare librerie nella directory sbagliata (/usr/local → x86_64), mentre tu hai bisogno di quelle in /opt/homebrew (arm64).\nwhich brew\n# /opt/homebrew/bin/brew\nReinstallare le librerie necessarie con il brew corretto:\n# uninstall con il brew sbagliato\nbrew uninstall cairo freetype libpng fontconfig pixman libx11 libxext libxrender\n# reinstall con il brew corretto\n/opt/homebrew/bin/brew reinstall pkg-config cairo pango libpng jpeg giflib librsvg\n\n\n\n🔧 1. Forza pkg-config a usare solo le librerie arm64\nNel terminale, prima di avviare R, esporta la variabile PKG_CONFIG_PATH correttamente:\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n🔁 2. Avvia R nella stessa shell, poi installa gdtools:\nR\ninstall.packages(\"gdtools\", type = \"source\")\n# oppure\nrenv::install(\"gdtools\")\nThis ensures che pkg-config cerchi le librerie nella directory corretta per Apple Silicon.\n\n\nPer far sì che questa impostazione sia permanente e non debba essere ripetuta ogni volta, aggiungi la riga di esportazione al tuo file di configurazione della shell (.zshrc per Zsh o .bash_profile per Bash):\nopen ~/.zshrc\n# Aggiungi questa riga alla fine del file\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n# Rendi effettive le modifiche\nsource ~/.zshrc\n# controlla\necho $PKG_CONFIG_PATH\n  # /opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for Parma Dash."
+  },
+  {
+    "objectID": "map/00_intro_maps.html",
+    "href": "map/00_intro_maps.html",
+    "title": "Intro",
+    "section": "",
+    "text": "Qui c’è una sezione introduttiva sulle mappe e dati geografici.",
+    "crumbs": [
+      "Maps",
+      "Intro"
+    ]
+  },
+  {
+    "objectID": "source.html",
+    "href": "source.html",
+    "title": "Data Source",
+    "section": "",
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
+  },
+  {
+    "objectID": "source.html#data-source",
+    "href": "source.html#data-source",
+    "title": "Data Source",
+    "section": "",
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
+  },
+  {
+    "objectID": "assets/parma_colours.html",
+    "href": "assets/parma_colours.html",
+    "title": "colors",
+    "section": "",
+    "text": "Parma Colours\n\npalette_parma &lt;- c(\n  \"blu_sc\" =  \"#033c55\",\n  \"blu_md\" =  \"#005d82\",\n  \"blu_lg\" =  \"#5582a7\",\n  \"grn_sc\" =  \"#246864\",\n  \"grn_md\" =  \"#539d90\",\n  \"grn_lg\" =  \"#8eb9b1\",\n  \"pur_sc\" =  \"#553c64\",\n  \"pur_md\" =  \"#805f95\",\n  \"pur_lg\" =  \"#9a8da3\",\n  \"ylw_sc\" =  \"#9f7d35\",\n  \"ylw_md\" =  \"#d9b942\",\n  \"ylw_lg\" =  \"#f7da7b\"\n)\n\npalette_grey &lt;- c(\n  \"cream\" = \"#FDFBF7\",\n  \"grey_m\" = \"#d3d3d3\",\n  \"grey_sc\" = \"#a9a9a9\"\n)"
   }
 ]

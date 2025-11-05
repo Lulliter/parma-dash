@@ -28,17 +28,12 @@ _quarto/
 
 # ----- Input data MAPS (might be big bc its GIS)
 # Ignore everything INSIDE data/data_in/ (not the folder)
-data/data_in/**
+data/data_in/*
 # …but unignore Markdown notes anywhere inside data/data_in/
 !data/data_in/**/*.md
 !data/data_in/*.md
+!data/data_in/*.pdf
 
-# ----- Input data DASH (might be big bc ......)
-# Ignore everything INSIDE data_dash/
-data_dash/**
-# …but unignore Markdown notes anywhere inside data_dash/
-!data_dash/**/*.md
-!data_dash/*.md
 
 # ----- Derived data/exports
 data_map_output/*

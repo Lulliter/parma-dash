@@ -8,7 +8,7 @@ library(httr)
 library(stringr)
 
 # CONFIGURAZIONE ----
-PAROLE_CHIAVE <- c("popolazione", "demografic", "residente")  # MODIFICA QUI
+PAROLE_CHIAVE <- c("popolazione", "censim", "residente")  # MODIFICA QUI
 TIMEOUT <- 180  # 3 minuti
 
 # FUNZIONE: Cerca dataflows per keywords ----
@@ -115,72 +115,72 @@ risultati <- f_cerca_dataflows(
   timeout = TIMEOUT
 )
 
-# VISUALIZZA RISULTATI ----
-if (!is.null(risultati) && nrow(risultati) > 0) {
-  
-  message("Dataset trovati:\n")
-  print(risultati, n = Inf)
-  
-  # DETTAGLI PRIMO DATASET ----
-  if (nrow(risultati) > 0) {
-    message("\n--- DETTAGLI PRIMO DATASET ---")
-    message("Nome: ", risultati$Name.it[1])
-    message("ID: ", risultati$id[1])
-    message("DSD Reference: ", risultati$dsdRef[1])
-    message("Agency: ", risultati$agencyID[1])
-    
-    # Per usarlo nello script di download:
-    message("\n--- PARAMETRI PER DOWNLOAD ---")
-    message("DATASET_ID <- \"", risultati$agencyID[1], ",", risultati$id[1], ",1.0\"")
-    
-    # Scarica la struttura per vedere le dimensioni
-    message("\nScaricamento struttura dataset...")
-    
-    tryCatch({
-      httr::set_config(httr::timeout(60))
-      
-      dsd_url <- sprintf(
-        "https://esploradati.istat.it/SDMXWS/rest/datastructure/%s/%s/latest/",
-        risultati$agencyID[1],
-        risultati$dsdRef[1]
-      )
-      
-      dsd <- rsdmx::readSDMX(dsd_url)
-      
-      # Estrai dimensioni
-      dims <- slot(slot(dsd, "datastructures")[[1]], "Components")
-      nomi_dim <- sapply(dims, function(x) slot(x, "conceptRef"))
-      
-      message("\nDimensioni disponibili nel dataset:")
-      cat(paste("-", nomi_dim, collapse = "\n"), "\n")
-      
-      httr::reset_config()
-      
-    }, error = function(e) {
-      httr::reset_config()
-      message("Impossibile scaricare la struttura: ", e$message)
-    })
-  }
-  
-  # SALVA RISULTATI ----
-  timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
-  filename <- paste0("istat_ricerca_", 
-                     paste(PAROLE_CHIAVE, collapse = "_"), 
-                     "_", timestamp, ".csv")
-  
-  utils::write.csv(risultati, filename, row.names = FALSE)
-  message("\n✓ Risultati salvati in: ", filename)
-  
-} else {
-  message("✗ Nessun risultato trovato per: ", paste(PAROLE_CHIAVE, collapse = ", "))
-  message("\nProva con altre parole chiave, ad esempio:")
-  message("  - reddito, salari, retribuzione")
-  message("  - imprese, aziende, società")
-  message("  - istruzione, scuola, università")
-  message("  - sanità, salute, mortalità")
-  message("  - turismo, alberghi")
-  message("  - commercio, esportazioni")
-}
+# # VISUALIZZA RISULTATI ----
+# if (!is.null(risultati) && nrow(risultati) > 0) {
+#   
+#   message("Dataset trovati:\n")
+#   print(risultati, n = Inf)
+#   
+#   # DETTAGLI PRIMO DATASET ----
+#   if (nrow(risultati) > 0) {
+#     message("\n--- DETTAGLI PRIMO DATASET ---")
+#     message("Nome: ", risultati$Name.it[1])
+#     message("ID: ", risultati$id[1])
+#     message("DSD Reference: ", risultati$dsdRef[1])
+#     message("Agency: ", risultati$agencyID[1])
+#     
+#     # Per usarlo nello script di download:
+#     message("\n--- PARAMETRI PER DOWNLOAD ---")
+#     message("DATASET_ID <- \"", risultati$agencyID[1], ",", risultati$id[1], ",1.0\"")
+#     
+#     # Scarica la struttura per vedere le dimensioni
+#     message("\nScaricamento struttura dataset...")
+#     
+#     tryCatch({
+#       httr::set_config(httr::timeout(60))
+#       
+#       dsd_url <- sprintf(
+#         "https://esploradati.istat.it/SDMXWS/rest/datastructure/%s/%s/latest/",
+#         risultati$agencyID[1],
+#         risultati$dsdRef[1]
+#       )
+#       
+#       dsd <- rsdmx::readSDMX(dsd_url)
+#       
+#       # Estrai dimensioni
+#       dims <- slot(slot(dsd, "datastructures")[[1]], "Components")
+#       nomi_dim <- sapply(dims, function(x) slot(x, "conceptRef"))
+#       
+#       message("\nDimensioni disponibili nel dataset:")
+#       cat(paste("-", nomi_dim, collapse = "\n"), "\n")
+#       
+#       httr::reset_config()
+#       
+#     }, error = function(e) {
+#       httr::reset_config()
+#       message("Impossibile scaricare la struttura: ", e$message)
+#     })
+#   }
+#   
+#   # SALVA RISULTATI ----
+#   timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+#   filename <- paste0("istat_ricerca_", 
+#                      paste(PAROLE_CHIAVE, collapse = "_"), 
+#                      "_", timestamp, ".csv")
+#   
+#   utils::write.csv(risultati, filename, row.names = FALSE)
+#   message("\n✓ Risultati salvati in: ", filename)
+#   
+# } else {
+#   message("✗ Nessun risultato trovato per: ", paste(PAROLE_CHIAVE, collapse = ", "))
+#   message("\nProva con altre parole chiave, ad esempio:")
+#   message("  - reddito, salari, retribuzione")
+#   message("  - imprese, aziende, società")
+#   message("  - istruzione, scuola, università")
+#   message("  - sanità, salute, mortalità")
+#   message("  - turismo, alberghi")
+#   message("  - commercio, esportazioni")
+# }
 
 
 # NOTE ----
