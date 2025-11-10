@@ -280,5 +280,54 @@
     "title": "Source",
     "section": "",
     "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
+  },
+  {
+    "objectID": "map/01_istat_situas.html#carica-.shp-files-istat",
+    "href": "map/01_istat_situas.html#carica-.shp-files-istat",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Carica .shp files ISTAT",
+    "text": "Carica .shp files ISTAT\n\nShapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)"
+  },
+  {
+    "objectID": "map/01_istat_situas.html#filtra-dati-per-emilia-romagna",
+    "href": "map/01_istat_situas.html#filtra-dati-per-emilia-romagna",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Filtra dati per Emilia-Romagna",
+    "text": "Filtra dati per Emilia-Romagna\n\n— Salva shp come sf objects .Rds"
+  },
+  {
+    "objectID": "map/01_istat_situas.html#filtra-dati-per-lombardia",
+    "href": "map/01_istat_situas.html#filtra-dati-per-lombardia",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Filtra dati per Lombardia",
+    "text": "Filtra dati per Lombardia\n\n— Salva shp come sf objects .Rds"
+  },
+  {
+    "objectID": "map/01_istat_situas.html#carica-caratteristiche-comuni-situas",
+    "href": "map/01_istat_situas.html#carica-caratteristiche-comuni-situas",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Carica caratteristiche comuni SITUAS",
+    "text": "Carica caratteristiche comuni SITUAS\nQui uso la funzione che ho costruto per scaricare dati da SITUAS con API Qui c’è la lista dei report territoriali https://situas.istat.it/web/#/apiDetail\nIn questo caso mi serve il Report 73 Comuni - Caratteristiche del territorio"
+  },
+  {
+    "objectID": "map/01_istat_situas.html#join-caratt-comuni-situas-shp-comuni-istat",
+    "href": "map/01_istat_situas.html#join-caratt-comuni-situas-shp-comuni-istat",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Join Caratt Comuni (SITUAS) + Shp comuni (ISTAT)",
+    "text": "Join Caratt Comuni (SITUAS) + Shp comuni (ISTAT)\nBased on codice alfanumerico = PRO_COM_T"
+  },
+  {
+    "objectID": "map/01_istat_situas.html#descrizione-attributi-limiti-comunali",
+    "href": "map/01_istat_situas.html#descrizione-attributi-limiti-comunali",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Descrizione Attributi limiti comunali",
+    "text": "Descrizione Attributi limiti comunali\nFonte: vedi https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73&pdata=01/01/1948\n\n[ft]\nFonte: ISTAT - Limiti amministrativi al 01/01/2025; Caratteristiche del territorio al 01/01/2025\n\n\n\n\nTabella 1: Descrizione variabili ISTAT limiti comunali e caratteristiche\n\n\n\nCOLNAMELABELNOTEGUIDACOD_RIPCodice Ripartizione geograficaNote non presentiCodice Istat della ripartizione geografica secondo la suddivisione del territorio nazionale in: 1) Nord-ovest, 2) Nord-est, 3) Centro, 4) Sud e 5) Isole.COD_REGCodice RegioneValore di due caratteri alfanumerici, con validità nell'intervallo 01-20.Codice Istat della regioneCOD_UTSCodice Provincia/UtsCodice di tre caratteri alfanumerici con validità nell’intervallo 001-119 per le Province. Restano assegnati ai Liberi consorzi i codici delle omonime ex Province (081-089). Il codice delle Città metropolitane è ottenuto sommando '200' al codice della Provincia corrispondente. Ai soli fini statistici permangono i codici delle soppresse Province del Friuli-Venezia Giulia (L.r. 20/2016).Codice Istat della Provincia o Unità territoriale sovracomunale (Uts). Le unità territoriali sovracomunali comprendono, a fini statistici, Province, Città metropolitane, Liberi consorzi e unità non amministrative (ex Province del Friuli-Venezia Giulia).COD_PROV_STORICOCodice Provincia (Storico)Dal 1/1/2015 con l'entrata in vigore delle Città metropolitane i codici delle province corrispondenti permangono al solo scopo di costituire il codice del Comune, che non subisce variazioni. Permangono anche i codici delle soppresse Province del Friuli-Venezia Giulia (L.r. 20/2016).Codice Istat della Provincia vigente o cessata (tre caratteri alfanumerici, validi nell’intervallo 001-119).PRO_COM_TCodice Comune (alfanumerico)Note non presentiCodice Istat del Comune di sei caratteri in formato alfanumericoPRO_COMCodice comune (numerico)Note non presentiCodice Istat del Comune di sei caratteri in formato numericoCOMUNEComuneDenominazione ufficiale dei comuni della Provincia di Bolzano/Bozen e di alcuni del Friuli-Venezia Giulia. Per le denominazioni bilingue si usa '/' per Bolzano/Bozen e '-' per gli altri.Denominazione del Comune in lingua italiana e stranieraCOMUNE_AComune (dizione straniera)Note non presentiDenominazione del Comune in lingua diversa dall'italianoSIGLA_AUTOMOBILISTICASigla automobilisticaNote non presentiSigla automobilistica della provincia o, dal 2015, della città metropolitana, libero consorzio o unità non amministrativa (ex province del Friuli-Venezia Giulia). Null se non disponibile.COM_ISOComune isolanoComuni appartenenti alle isole minori o lacuali. Sant'Antioco (SU) ha sezioni anche sull'Isola maggiore; Monte Isola (BS) è l'unico comune lacuale.1=Comune isolano; 0=Comune non isolano; null se non disponibile.COM_LITComune litoraneoComune con almeno un tratto di confine bagnato dal mare. Sono esclusi i comuni lacuali.1=Comune litoraneo; 0=Comune non litoraneo; null se non disponibile.ZONA_ALTZona altimetricaRipartizione del territorio in zone omogenee basate su soglie altimetriche.1=Montagna interna; 2=Montagna litoranea; 3=Collina interna; 4=Collina litoranea; 5=Pianura; null se non disponibile.ZONE_COST_2011Zone costiere 2011Classificazione dei comuni secondo la vicinanza alla costa, basata su dati Istat ed Eurostat, armonizzata a livello UE (Reg. 2017/2391 e 2019/1130).1=Zone costiere (costa o ≥50% superficie entro 10 km dal mare); 0=Zone non costiere; null se non disponibile.ZONE_COST_2021Zone costiere 2021Classificazione aggiornata delle zone costiere (Eurostat e Istat).1=Zone costiere (costa o ≥50% superficie entro 10 km dal mare); 0=Zone non costiere; null se non disponibile.DEGURBA_2011Degurba 2011Classificazione armonizzata del grado di urbanizzazione (Eurostat), basata su Geostat grid 2011.1=Città o zone densamente popolate; 2=Piccole città/sobborghi; 3=Zone rurali; null se non disponibile.DEGURBA_2021Degurba 2021Classificazione armonizzata del grado di urbanizzazione (Eurostat), basata su Geostat grid 2021.1=Città o zone densamente popolate; 2=Piccole città/sobborghi; 3=Zone rurali; null se non disponibile.COD_ECO_DIV_2018Codice Ecoregioni-DivisioniNote non presentiLivello gerarchico che distingue 2 Divisioni: Temperata e Mediterranea; null se non disponibile.DEN_ECO_DIV_2018Ecoregioni - DivisioniNote non presentiGuida non presenteCOD_ECO_PRO_2018Codice Ecoregioni-ProvinceNote non presentiLivello gerarchico articolato in 7 Province, rappresenta la regionalizzazione ecologica e geografica del territorio; null se non disponibile.DEN_ECO_PRO_2018Ecoregioni - ProvinceNote non presentiGuida non presenteCOD_ECO_SEZ_2018Codice Ecoregioni-SezioniNote non presentiLivello gerarchico di 11 Sezioni per rappresentare un quadro ecologico di riferimento più dettagliato; null se non disponibile.DEN_ECO_SEZ_2018Ecoregioni - SezioniNote non presentiGuida non presenteCOD_ECO_SSEZ_2018Codice Ecoregioni-SottosezioniNote non presentiLivello gerarchico con 33 Sottosezioni per descrivere con maggiore dettaglio il quadro ecologico del territorio; null se non disponibile.DEN_ECO_SSEZ_2018Ecoregioni - SottosezioniNote non presentiGuida non presenteCOD_PROVCodice ProvinciaCodice Istat della Provincia o Città metropolitana di appartenenza del Comune.COD_CMCodice Città metropolitanaCodice Istat della Città metropolitana di appartenenza del Comune. Null se non disponibile.CC_UTSCodice Unità territoriale sovracomunaleCodice Istat dell'Unità territoriale sovracomunale (Uts) di appartenenza del Comune. Le unità territoriali sovracomunali comprendono, a fini statistici, Province, Città metropolitane, Liberi consorzi e unità non amministrative (ex Province del Friuli-Venezia Giulia).Shape_LengLunghezza formaLunghezza del perimetro del comune in metri.Shape_AreaArea formaArea del comune in metri quadrati.geometryGeometriaGeometria del comune in formato 'sf' (Simple Features)."
+  },
+  {
+    "objectID": "map/01_istat_situas.html#tabelle-codici-utili",
+    "href": "map/01_istat_situas.html#tabelle-codici-utili",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Tabelle codici utili",
+    "text": "Tabelle codici utili\n\n— Salva versione ridotta comuni_ita_info_sf\nQuesta mi da tutti i codici di denominazione e caratteristiche utili per i comuni italiani al 01/01/2025, con geometria sf."
   }
 ]

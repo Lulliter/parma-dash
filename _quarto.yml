@@ -45,12 +45,15 @@ website:
       background: "#9f7d35"
       contents:
         - map/00_intro_maps.qmd
+        - section: "Input 4 Maps"
+          contents:
+            - map/01_istat_shp_situas_cens.qmd        
         - section: "Base Maps"
           contents:
-            - map/01_base_maps.qmd
+            - map/02_base_maps.qmd
         - section: "Thematic Maps"
           contents:
-            - map/02_thematic_maps.qmd
+            - map/03_thematic_maps.qmd
 
 # --- Default options for all pages
 format:

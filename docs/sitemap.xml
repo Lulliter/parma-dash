@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/map/01_base_maps.html</loc>
-    <lastmod>2025-11-05T12:09:03.002Z</lastmod>
+    <lastmod>2025-11-05T23:52:20.213Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/index.html</loc>
@@ -47,5 +47,9 @@
   <url>
     <loc>https://lulliter.github.io/parma-dash/data/data_in/istat_shp_ITA_spiega.html</loc>
     <lastmod>2025-11-05T09:54:37.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lulliter.github.io/parma-dash/map/01_istat_situas.html</loc>
+    <lastmod>2025-11-08T15:52:55.824Z</lastmod>
   </url>
 </urlset>

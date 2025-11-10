@@ -1,0 +1,420 @@
+---
+title: "Mappe basate su confini e caratteristiche dei comuni"
+subtitle: "Materiale intermedio su dati geografici con R"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
+
+format: html
+  # html:
+  #   theme: flatly #spacelab
+    # css: utils/style.css
+    # code-fold: true # redundant bc echo false 
+    # toc-depth: 3
+    # toc_float: true
+    # toc-location: left
+    # toc-title: Indice
+    # embed-resources: true # external dependencies embedded (Not in ..._files/)
+
+execute:
+  eval: true
+  echo: false # x mostrare codice anche in file docx
+  warning: false
+  error: false
+  output: false
+  
+bibliography: bib/CRP_dash.bib
+suppress-bibliography: false
+---
+
+## R packg
+
+```{r}
+#| label: setup
+
+# --- Pacchetti (load but suppress warning) --- 
+suppressPackageStartupMessages({
+  library(here)
+  library(sf)
+  library(readxl)
+  library(janitor)
+  
+  library(dplyr, warn.conflicts = FALSE, quietly = TRUE)
+  library(stringr, quietly = TRUE)
+  library(janitor, quietly = TRUE)
+  library(tidyr, quietly = TRUE)
+  library(glue, quietly = TRUE)
+  
+  library(ggplot2, quietly = TRUE)
+  library(ggrepel, quietly = TRUE)
+  library(leaflet, quietly = TRUE)
+  library(tmap, quietly = TRUE)
+  
+  # library(istat)
+})
+
+source(here("R","f_ft_formatting.R"))
+source(here::here("R","_parma_colors.R"))
+```
+
+## leggi shp files per Emilia-Romagna
+
+**FONTE**: output di `map/01_istat_shp_situas_cens.qmd`
+
+```{r}
+# FONTE: ISTAT confini amministrativi al 01/01/2025
+
+# Carica dati Emilia-Romagna in file RDS
+er_comuni_sf       <-  readRDS( here("data","data_out","ER_shp","er_comuni_sf.rds"))
+# er_provincie_sf    <-  readRDS( here("data","data_out","ER_shp","er_provincie_sf.rds"))
+# er_regioni_sf      <-  readRDS( here("data","data_out","ER_shp","er_regioni_sf.rds"))
+# er_comuni_pr_sf    <-  readRDS( here("data","data_out","ER_shp","er_comuni_pr_sf.rds"))
+
+# Filtra provincia di Parma
+# er_provincie_pr <- dplyr::filter(er_provincie_sf, COD_PROV == "34")
+```
+
+## leggi caratt comuni Ita
+
+**FONTE**: output di `map/01_istat_shp_situas_cens.qmd`
+
+```{r}
+# Fonte ISTAT: Caratteristiche dei comuni (2025)
+
+# Carica altre caratteristiche comuni Ita
+comuni_ita_info_redux_sf <- readRDS("~/Github/parma-dash/data/data_out/comuni_ita_info_redux_sf.rds")
+```
+
+
+## leggi dati censimento
+
+**FONTE**: output di `map/01_istat_shp_situas_cens.qmd`
+
+<!-- 1. Riordino file  (Rivedi `_03_thematic_maps.qmd)` per altro riscarico anche emilia romagna  -->
+<!-- 2. Annoto la fonte di questi dati -->
+
+```{r}
+# leggi dati popolazione ISTAT 2023 per comuni Parma
+istat_pop_com_PR_2023 <- readRDS(here("data", "data_out", "istat_pop_com_PR_2023.rds"))
+istatistat_pop_com_ER_2023_prov <- readRDS(here("data", "data_out", "istat_pop_com_ER_2023_prov.rds"))
+```
+
+
+## Join comuni ER + caratt comuni Ita
+
+**OKKIO**: qui avrei le caratteristiche di TUTTI i comuni Ita, ma mi tengo solo quelle di Emilia-Romagna. Entrambe qs df sono sf con geometria.  
+
+```{r}
+# verifica classi
+COD_REG_i <- "8"  # Emilia-Romagna 
+
+# Drop geometry per join
+comuni_ita_info_redux <- comuni_ita_info_redux_sf |> # 7896
+  filter(COD_REG == COD_REG_i) |> # 330
+  sf::st_drop_geometry()
+class(comuni_ita_info_redux)  # data.frame
+
+# Join caratteristiche comuni Ita a 330 comuni Parma 
+comuni_er <- er_comuni_sf |> 
+  left_join(comuni_ita_info_redux, by = "PRO_COM_T") |> 
+  # drop the .y versions
+  select(-ends_with(".y")) |>
+  # remove .x from the names
+  rename_with(~ sub("\\.x$", "", .), ends_with(".x")) |> 
+  relocate(Shape_Area, Shape_Leng, geometry, .after = last_col()) |> 
+  # turn to factor some variables 
+  # ZONA_ALT (1=Montagna interna; 2=Montagna litoranea; 3=Collina interna; 4=Collina litoranea; 5=Pianura; Null quando non disponibile)
+  mutate(ZONA_ALT = factor(ZONA_ALT,
+                           levels = c(1,2,3,4,5),
+                           labels = c("Montagna interna",
+                                      "Montagna litoranea",
+                                      "Collina interna",
+                                      "Collina litoranea",
+                                      "Pianura"
+                                      ))) |> 
+ # DEGURBA_2021 1 = Città o Zone densamente popolate; 2 = Piccole città e sobborghi o Zone a densità intermedia di popolazione; 3 = Zone rurali o Zone scarsamente popolate; Null quando non disponibile. Basata su Geostat grid 2021.
+      mutate(DEGURBA_2021 = factor(DEGURBA_2021,
+                               levels = c(1,2,3),
+                               labels = c("Città o Zone densamente popolate",
+                                          "Piccole città e sobborghi o Zone a densità intermedia di popolazione",
+                                          "Zone rurali o Zone scarsamente popolate"
+                                          )))
+
+```
+
+# ____
+
+## Prep linee PROVINCE
+
+I confini delle PROV si possono desumere dai comuni con `st_union()` in `summarise()`
+
+**OKKIO**: 
++ con `sf`, quando fai `summarise()` su gruppi le geometrie dei comuni nel gruppo vengono unite (`st_union()`), quindi passi da n comuni → 1 poligono per provincia, e gli attributi vengono riassunti per gruppo (in questo caso hai solo COD_PROV, quindi rimane quello).
++ `.groups = "drop"` ottieni un tibble sf non raggruppato 
+
+```{r}
+# Linee province Emilia-Romagna (per evidenziare Parma)
+prov_er <- comuni_er |>
+  group_by(COD_PROV) |>
+  # dissolve dei confini comunali per provincia con `st_union()`
+  summarise(.groups = "drop")  
+
+# (opzionale ma spesso utile, se ci sono geometrie problematiche)
+st_geometry(comuni_er) <- st_make_valid(st_geometry(comuni_er))
+st_geometry(prov_er)   <- st_make_valid(st_geometry(prov_er))
+
+```
+
+## [Map/Func] mappa con dummy (COM_ISO, COM_LIT, ZONE_COST_2021)
+
+```{r}
+source(here("R","f_make_dummy_map.R"))
+
+# ------ Esempio di mappe con la funzione generica per dummy
+#' # Esempio di palette personalizzata
+#' blue_dummy_pal <- c("#d8e4f0", "#4d648d")  # chiaro-scuro blu
+#' burg_md       <- "#922b3e"                 # borgogna medio
+#'
+#' # Mappa dei comuni litoranei in Emilia-Romagna
+#' f_make_dummy_map(
+#'   df_comuni       = comuni_er,
+#'   df_prov         = prov_er,
+#'   dummy_var       = "COM_LIT",   # deve esistere in df_comuni e valere 0/1
+#'   title           = "Comuni litoranei (= {dummy_var})",
+#'   caption         = "Fonte: ISTAT (2025) — Caratteristiche dei comuni, variabile {dummy_var}",
+#'   palette         = blue_dummy_pal,  # (definito sopra)
+#'   fill_alpha      = 0.75,
+#'   highlight_parma = TRUE,
+#'   highlight_color = burg_md,         # (definito sopra)
+#'   legend_width    = 20
+#' )
+```
+ 
+ 
+## [Map] Dummy ZONE_COST_2021 
+```{r}
+#| label: fig-map-dummy-comiso
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+
+fonte_anno_agg <- "Istat/SITUAS (2025)"
+fonte_nome <- "Comuni - Caratteristiche del territorio"
+
+f_make_dummy_map(
+  df_comuni = comuni_er,
+  df_prov   = prov_er,
+  dummy_var       = "COM_LIT",
+  title     = "Comuni litoranei (= {dummy_var})", # OK glue
+  caption   = "Fonte: {fonte_anno_agg} — {fonte_nome}", # OK GLUE 
+  palette   = c("#c7eae5","#f6e8c3"), #.  div_dummy_ter[c(3,1)] ,         # OK personal palette
+  fill_alpha      = 0.75,      # <--- base semi-trasparente
+  highlight_parma = TRUE,      # <--- contorno Parma evidenziato
+  legend_width    = 20         # <--- wrap etichette legenda
+  )
+
+```
+
+## [Map/Func] mappa con fattori (DEGURBA_2021, ZONA_ALT)
+
+```{r}
+source(here("R","f_make_factor_map.R"))
+
+#' # Esempio: mappa per una variabile a 3 livelli (es. classi di urbanizzazione)
+#'
+#' # Palette personalizzata per 3 categorie
+#' urb_pal <- c("#d8e4f0", "#4d648d", "#c94c4c")
+#'
+#' # Assumendo che:
+#' # - comuni_er sia un sf con i comuni
+#' # - prov_er sia un sf con le province (coerente con comuni_er)
+#' # - la variabile "CL_URB" codifichi la classe di urbanizzazione
+#'
+#' p_factor <- f_make_factor_map(
+#'   df_comuni       = comuni_er,
+#'   df_prov         = prov_er,
+#'   factor_var             = "CL_URB",
+#'   title           = "Classi di urbanizzazione (= {factor_var})",
+#'   caption         = "Fonte: ISTAT (2025) — Caratteristiche dei comuni, variabile {factor_var}",
+#'   palette         = urb_pal,   # un colore per ciascun livello del factor
+#'   fill_alpha      = 0.9,
+#'   highlight_parma = TRUE,
+#'   highlight_color = "#922b3e",
+#'   legend_width    = 25
+#' )
+```
+
+## [Map] Fattore ZONA_ALT
+```{r}
+#| label: fig-map-factor-zonaalt
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+fonte_anno_agg <- "Istat/SITUAS (2025)"
+fonte_nome <- "Comuni - Caratteristiche del territorio"
+
+# div_factor_ter
+# "#8c510a" "#bf812d" "#dfc27d" "#f6e8c3" "#c7eae5" "#80cdc1" "#35978f" "#01665e"
+
+f_make_factor_map(
+  df_comuni = comuni_er,
+  df_prov   = prov_er,
+  factor_var       = "ZONA_ALT",
+  title        = "Zone altimetriche ( = {factor_var})",
+  caption      = "Fonte: {fonte_anno_agg} — {fonte_nome}", # OK GLUE 
+  fill_alpha   = 0.8,
+  comuni_color = "#636363",
+  #comuni_lwd   = 0.2,
+  palette      =  c("#bf812d", "#dfc27d" ,"#f6e8c3","#c7eae5","#01665e"),
+  highlight_parma = TRUE
+)
+```
+
+
+## [Map] Fattore DEGURBA_2021
+```{r}
+#| label: fig-map-factor-degurba
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+
+fonte_anno_agg <- "Istat/SITUAS (2025)"
+fonte_nome <- "Comuni - Caratteristiche del territorio"
+
+f_make_factor_map(
+  df_comuni    = comuni_er,
+  df_prov      = prov_er,
+  factor          = "DEGURBA_2021",
+  title        = "Grado di urbanizzazione (= {factor_var})",
+  caption      = "Fonte: {fonte_anno_agg} — {fonte_nome}", # OK GLUE 
+  fill_alpha   = 0.5,
+  comuni_color = "#636363",
+  #comuni_lwd   = 0.2,
+  palette      =  NULL, #rev(seq_factor_red)
+  highlight_parma = TRUE,
+  legend_width = 20
+)
+```
+
+# ___
+
+# Aggiungiamo variabile continua 
+
+## [Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni Parma 
+```{r}
+# --- PREP from long to useful
+pop_com_PR_by_age <- istat_pop_com_PR_2023 |>         # 4788 
+  # Drop bc they are not changing
+  select(-FREQ, -TIME_PERIOD, -MARITAL_STATUS, -AREA_CONTRY_CITIZEN, -USUAL_RESID_1Y) |> 
+  # Filtro 
+  dplyr::filter(
+    # AGE_CLASS lo lascio variare
+    INDICATOR == "RESPOP_AV" & # no RESPOP_MIN_AV
+      GENDER == "T" & # no F o M 
+      CITIZENSHIP == "TOTAL" & 
+      NOTE_AREA_CONTRY_CITIZEN == "ISO__ALL_N1"   # ma non varia
+  )      |>               # 44 
+  mutate(OBS_VALUE = as.numeric(OBS_VALUE)) |> 
+  group_by(REF_AREA, INDICATOR  )  |> 
+  summarise(Over60 = sum(OBS_VALUE[AGE_CLASS %in% c("Y60-69","Y70-79","Y80-89",  "Y90-99", "Y_GE100" )]),
+            TotalPop = sum(OBS_VALUE[AGE_CLASS == "TOTAL" ]),
+            perc_Over60 = round(Over60/TotalPop * 100,2),
+            Under30 = sum(OBS_VALUE[AGE_CLASS %in% c("Y0-9",  "Y10-19",  "Y20-29")]),
+            perc_Under30 = round(Under30/TotalPop * 100,2),
+            .groups = "drop"  ) 
+
+# join a comuni_er
+comuni_pr_pop <- inner_join(comuni_er,istat_pop_com_PR_2023_s, 
+                           by = c("PRO_COM_T" = "REF_AREA" ))
+class(comuni_pr_pop)  # sf + data.frame
+
+
+```
+
+
+
+
+## QUI 🟨🟧🌫️🟪🟦
+<!-- https://nrennie.rbind.io/talks/rladies-rome-ggplot2/ -->
+<!-- https://chatgpt.com/c/690f7059-01a4-8331-bd6b-b95120d078c3 -->
+
+```{r}
+#| label: fig-map-pop-over60-pr
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+fonte_anno_agg <- "Istat/SITUAS (2025)"
+fonte_nome <- "Comuni - Caratteristiche del territorio"
+
+fonte2_anno_agg <- "Istat (2023)"
+fonte2_nome <- "Censimento"
+
+# ADesso uso i dati in comuni_pr_pop ma selezionati solo per Parma
+p_base <- f_make_factor_map(
+  df_comuni    = comuni_pr_pop,
+  df_prov      = prov_er[prov_er$COD_PROV == "34", ], # solo Parma
+  factor       = "DEGURBA_2021",
+  title        = "Grado di urbanizzazione (= {factor_var})",
+  caption      = "Fonte: {fonte_anno_agg} — {fonte_nome} \n {fonte2_anno_agg} — {fonte2_nome} ", # OK GLUE 
+  fill_alpha   = 0.5,
+  comuni_color = "#636363",
+  #comuni_lwd   = 0.2,
+  palette      =  NULL, #rev(seq_factor_red)
+  highlight_parma = TRUE,
+  legend_width = 20
+)
+
+# Adesso aggiungo un layer con la variabile continua (perc_Over60)
+# Usando i dati in istat_pop_com_PR_2023_s
+p_base + 
+  geom_sf(data = comuni_pr_pop,
+          aes(fill = perc_Over60),
+          color = "white",
+          linewidth = 0.1,
+          alpha = 0.7) +
+  scale_fill_viridis_c(
+    name = "% popolazione over 60",
+    option = "plasma"
+  ) +
+  labs(
+    title    = "Quota di residenti over 60 anni",
+    subtitle = "Comuni della provincia di Parma, anno 2023"
+  ) +
+  theme_minimal()
+
+```
+
+
+
+## [Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni ER 
+```{r}
+# --- PREP from long to useful
+pop_com_ER_by_age <- istat_pop_com_PR_2023 |>         # 4788 
+  # Drop bc they are not changing
+  select(-FREQ, -TIME_PERIOD, -MARITAL_STATUS, -AREA_CONTRY_CITIZEN, -USUAL_RESID_1Y) |> 
+  # Filtro 
+  dplyr::filter(
+    # AGE_CLASS lo lascio variare
+    INDICATOR == "RESPOP_AV" & # no RESPOP_MIN_AV
+      GENDER == "T" & # no F o M 
+      CITIZENSHIP == "TOTAL" & 
+      NOTE_AREA_CONTRY_CITIZEN == "ISO__ALL_N1"   # ma non varia
+  )      |>               # 44 
+  mutate(OBS_VALUE = as.numeric(OBS_VALUE)) |> 
+  group_by(REF_AREA, INDICATOR  )  |> 
+  summarise(Over60 = sum(OBS_VALUE[AGE_CLASS %in% c("Y60-69","Y70-79","Y80-89",  "Y90-99", "Y_GE100" )]),
+            TotalPop = sum(OBS_VALUE[AGE_CLASS == "TOTAL" ]),
+            perc_Over60 = round(Over60/TotalPop * 100,2),
+            Under30 = sum(OBS_VALUE[AGE_CLASS %in% c("Y0-9",  "Y10-19",  "Y20-29")]),
+            perc_Under30 = round(Under30/TotalPop * 100,2),
+            .groups = "drop"  ) 
+
+# join a comuni_er
+comuni_pr_pop <- inner_join(comuni_er,istat_pop_com_PR_2023_s, 
+                           by = c("PRO_COM_T" = "REF_AREA" ))
+class(comuni_pr_pop)  # sf + data.frame
+```

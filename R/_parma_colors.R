@@ -1,10 +1,7 @@
----
-title: "colors"
----
 
-# Parma Colours
 
-```{r}
+# Parma Colours ----
+
 
 blu_sc <-  "#033c55"
 blu_md <-  "#005d82"
@@ -31,12 +28,9 @@ grey_sc <-  "#a9a9a9"
 burg_sc<- "#5C2129"
 burg_md<- "#873C4A"
 burg_lg<- "#B85E6A"
-```
 
+# Ggplot ready -----
 
-# Ggplot ready
-
-```{r}
 seq_dummy_blue <- c('#deebf7','#9ecae1','#3182bd')
 seq_factor_blue <- c('#f7fbff','#deebf7','#c6dbef','#9ecae1','#6baed6','#4292c6','#2171b5','#084594')
 
@@ -52,13 +46,11 @@ seq_factor_purple <- c('#fcfbfd','#efedf5','#dadaeb','#bcbddc','#9e9ac8','#807db
 seq_dummy_grey <- c('#f0f0f0','#bdbdbd','#636363')
 seq_factor_grey <- c('#ffffff','#f0f0f0','#d9d9d9','#bdbdbd','#969696','#737373','#525252','#252525')
 
-```
 
-```{r}
 div_dummy_ter <- c('#d8b365','#f5f5f5','#5ab4ac')
 div_factor_ter <- c('#8c510a','#bf812d','#dfc27d','#f6e8c3','#c7eae5','#80cdc1','#35978f','#01665e')
 
 div_dummy_red_blu <- c('#d73027','#f7f7f7','#4575b4')
 div_factor_red_blu <- c('#d53e4f','#f46d43','#fdae61','#fee08b','#e6f598','#abdda4','#66c2a5','#3288bd')
-```
+
 

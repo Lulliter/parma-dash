@@ -6,7 +6,11 @@
   + `R/f_istat_esplora_metadati.R`
   + `R/f_istat_scarica.R` - NEW generica
 
-
++ Prep base maps x
+  + Parma comuni
+  + ER -Provincie
+  + Lombardia - Provincie
+  + Pavia - Comuni
 
 ## Introduzione
 
