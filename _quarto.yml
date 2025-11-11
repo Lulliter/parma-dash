@@ -1,8 +1,14 @@
 project:
   type: website
   output-dir: docs # to publish website on GithubPages
+  render:
+    - "/**/*.qmd"    # tutti i file .qmd (root or subfolders)
+    - "!assets/parma_colours.qmd"
+    - "!map/**/*.qmd"   # ma NON quelli nella sottocartella map/
+    - "!zzz/**/*.qmd"   # e NON uelli cdella sottocartella zzz/
 
 website:
+  bread-crumbs: true   
   title: "Parma analisi di contesto"
   description: "A dashboard for Parma, Italy"
   site-url: "https://lulliter.github.io/parma-dash/"
@@ -26,9 +32,9 @@ website:
       - text: Home
         href: index.qmd
       - text: Maps
-        href: map/00_intro_maps.qmd
+        href: maps.qmd # qui metterò qlc output scelto
       - text: Dashboard
-        href: dashboard.qmd
+        href: dashboard.qmd # Qui metterò una sotto pagina per ogni tema 
       - text: Data Source
         href: source.qmd
       - text: Blog
@@ -38,22 +44,27 @@ website:
       - icon: github
         aria-label: github
         href: https://github.com/Lulliter/parma-dash
+
 # --- Structure of the sidebar (if any)
   sidebar:
-    - title: "Maps"
+    - title: "Dashboard"
       style: docked
       background: "#9f7d35"
       contents:
-        - map/00_intro_maps.qmd
-        - section: "Input 4 Maps"
-          contents:
-            - map/01_istat_shp_situas_cens.qmd        
-        - section: "Base Maps"
-          contents:
-            - map/02_base_maps.qmd
-        - section: "Thematic Maps"
-          contents:
-            - map/03_thematic_maps.qmd
+      - dashboard.qmd
+      - text: "Tema X"
+        href: dashboard/01_tema_x.qmd
+      - text: "Tema Y"
+        href: dashboard/02_tema_y.qmd  
+# 
+#       contents:
+#         - dashboard.qmd
+#         - section: "Tema X"
+#           contents:
+#             - dashboard/01_tema_x.qmd       
+#         - section: "Tema Y"
+#           contents:
+#             - dashboard/02_tema_y.qmd
 
 # --- Default options for all pages
 format:

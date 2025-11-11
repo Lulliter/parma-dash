@@ -1,5 +1,12 @@
 # Parma analisi di contesto
 
+## Organizazione del progetto
+
++ Il progetto usa il pacchetto `targets` per organizzare il flusso di lavoro nelle cartelle con lavoro più tecnico e "cumpute-intensive", ad esempio `map/*.qmd` che funzionano grazie alle funzioni definite in `R/*.R`.
+
++ Invece il resto dei file `.qmd` (in root o in cartelle tipo `dashnoard/`) sono documenti di analisi, report, dashboard, ecc che usano il workflow solito di un `quarto` website..
+
+
 ## TODO
 
 + Rivedere e testare funzioni 

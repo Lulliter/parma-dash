@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "assets/parma_colours.html",
-    "href": "assets/parma_colours.html",
-    "title": "colors",
+    "objectID": "source.html",
+    "href": "source.html",
+    "title": "Data Source",
     "section": "",
-    "text": "Parma Colours\n\npalette_parma &lt;- c(\n  \"blu_sc\" =  \"#033c55\",\n  \"blu_md\" =  \"#005d82\",\n  \"blu_lg\" =  \"#5582a7\",\n  \"grn_sc\" =  \"#246864\",\n  \"grn_md\" =  \"#539d90\",\n  \"grn_lg\" =  \"#8eb9b1\",\n  \"pur_sc\" =  \"#553c64\",\n  \"pur_md\" =  \"#805f95\",\n  \"pur_lg\" =  \"#9a8da3\",\n  \"ylw_sc\" =  \"#9f7d35\",\n  \"ylw_md\" =  \"#d9b942\",\n  \"ylw_lg\" =  \"#f7da7b\"\n)\n\npalette_grey &lt;- c(\n  \"cream\" = \"#FDFBF7\",\n  \"grey_m\" = \"#d3d3d3\",\n  \"grey_sc\" = \"#a9a9a9\"\n)"
+    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
+  },
+  {
+    "objectID": "source.html#dati-istat-con-formato-sdmx",
+    "href": "source.html#dati-istat-con-formato-sdmx",
+    "title": "Data Source",
+    "section": "Dati Istat con formato SDMX",
+    "text": "Dati Istat con formato SDMX\nSDMX (Statistical Data and Metadata eXchange) è uno standard internazionale (basato su sintassi XML (SDMX-XML) per lo scambio di dati statistici e metadati tra organizzazioni.\nRende possibile scaricare in formati: SDMX-ML, SDMX-CSV, SDMX-JSON, ecc.\nSDMX è un “dataflow” che è però descritto da una certa struttura con dimensioni (territorio, tempo) e attributi (u. di misura) e classificazioni associate.\nA partire dal mese di ottobre 2022, l’Istat inizia a diffondere progressivamente i propri dati tramite IstatData (che sostituisce I.Stat), un nuovo sistema di diffusione interamente basato sulla SDMX-RI.\n\n\n\n\n\n\nWarning\n\n\n\nC’è limite per singolo IP di 5 query al minuto oltre il quale viene attivato un blocco di accesso compreso tra 1 e 2 giorni.\n\n\nConcetti chiave:\n\nCategoryScheme = la categoria tematica (es. servizi, ecc.)\n\nsottotemi (es. turismo)\n\ntabelle (es. arrivi e presenze turistiche)\nDataFlow = i dati statistici (es. censimento popolazione)\nDataStructure = struttura della tavola (spiega contenuto in termini di:\n\nCodelist e\nConceptScheme\n\n\n\n\nSi può estrarre (con API rest) sempre sia DATI che METADATI:\n\n\n\n\nNEW web service IstatDATA: https://esploradati.istat.it/SDMXWS\n\nDati: https://esploradati.istat.it/SDMXWS/rest/data/\nMetadati: https://esploradati.istat.it/SDMXWS/rest/data/flowRef(DATAFLOW_ID)\n\n\nEsempio di URL per scaricare dati demografici (censimento 2023) per più comuni:\n\n“https://esploradati.istat.it/SDMXWS/rest/data/IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0/A.034001+034002+034003+034004+034005+034006+034007……./ALL/?detail=full&startPeriod=2023-01-01&endPeriod=2023-12-31&dimensionAtObservation=TIME_PERIOD”"
+  },
+  {
+    "objectID": "source.html#variabili-descrittive-istat-limiti-comunali-e-caratteristiche",
+    "href": "source.html#variabili-descrittive-istat-limiti-comunali-e-caratteristiche",
+    "title": "Data Source",
+    "section": "Variabili descrittive ISTAT limiti comunali e caratteristiche",
+    "text": "Variabili descrittive ISTAT limiti comunali e caratteristiche\nPreso da output del file map/00_carica_shp_situas.qmd\n\n[Tbl] Var desc comuni_ita_info_sf\n\nlibrary(here)\n\nhere() starts at /Users/luisamimmi/Github/parma-dash\n\nsource(here(\"R\",\"f_ft_formatting.R\"))\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nUsing font: Roboto Condensed\n\n# leggi\ncomuni_ita_info_sf_VARDESC &lt;- readRDS(\n  here::here(\"data\", \"data_out\", \"tbl\",\"comuni_ita_info_sf_VARDESC.rds\")\n)\n\n# crea flextable\ncomuni_ita_info_sf_VARDESC_ft &lt;- comuni_ita_info_sf_VARDESC |&gt; \nflextable::flextable() |&gt; \n  f_ft_word()\n\ncomuni_ita_info_sf_VARDESC_ft\n\n\n\nTable 1: Descrizione variabili ISTAT limiti comunali e caratteristiche\n\n\n\nCOLNAMELABELNOTEGUIDAFONTECOD_RIPCodice Ripartizione geograficaNote non presentiCodice Istat della ripartizione geografica secondo la suddivisione del territorio nazionale in: 1) Nord-ovest, 2) Nord-est, 3) Centro, 4) Sud e 5) Isole.ISTAT SITUAS – Caratteristiche del territorio, Report 73COD_REGCodice RegioneValore di due caratteri alfanumerici, con validità nell'intervallo 01-20.Codice Istat della regioneISTAT SITUAS – Caratteristiche del territorio, Report 73COD_PROVCodice ProvinciaCodice Istat della Provincia o Città metropolitana di appartenenza del Comune.ISTAT – Limiti amministrativi al 01/01/2025 (shapefile WGS84)COD_CMCodice Città metropolitanaCodice Istat della Città metropolitana di appartenenza del Comune. Null se non disponibile.ISTAT – Limiti amministrativi al 01/01/2025 (shapefile WGS84)COD_UTSCodice Provincia/UtsCodice di tre caratteri alfanumerici con validità nell’intervallo 001-119 per le Province. Restano assegnati ai Liberi consorzi i codici delle omonime ex Province (081-089). Il codice delle Città metropolitane è ottenuto sommando '200' al codice della Provincia corrispondente. Ai soli fini statistici permangono i codici delle soppresse Province del Friuli-Venezia Giulia (L.r. 20/2016).Codice Istat della Provincia o Unità territoriale sovracomunale (Uts). Le unità territoriali sovracomunali comprendono, a fini statistici, Province, Città metropolitane, Liberi consorzi e unità non amministrative (ex Province del Friuli-Venezia Giulia).ISTAT SITUAS – Caratteristiche del territorio, Report 73PRO_COMCodice comune (numerico)Note non presentiCodice Istat del Comune di sei caratteri in formato numericoISTAT SITUAS – Caratteristiche del territorio, Report 73PRO_COM_TCodice Comune (alfanumerico)Note non presentiCodice Istat del Comune di sei caratteri in formato alfanumericoISTAT SITUAS – Caratteristiche del territorio, Report 73COMUNEComuneDenominazione ufficiale dei comuni della Provincia di Bolzano/Bozen e di alcuni del Friuli-Venezia Giulia. Per le denominazioni bilingue si usa '/' per Bolzano/Bozen e '-' per gli altri.Denominazione del Comune in lingua italiana e stranieraISTAT SITUAS – Caratteristiche del territorio, Report 73COMUNE_AComune (dizione straniera)Note non presentiDenominazione del Comune in lingua diversa dall'italianoISTAT SITUAS – Caratteristiche del territorio, Report 73CC_UTSCodice Unità territoriale sovracomunaleCodice Istat dell'Unità territoriale sovracomunale (Uts) di appartenenza del Comune. Le unità territoriali sovracomunali comprendono, a fini statistici, Province, Città metropolitane, Liberi consorzi e unità non amministrative (ex Province del Friuli-Venezia Giulia).ISTAT – Limiti amministrativi al 01/01/2025 (shapefile WGS84)COD_PROV_STORICOCodice Provincia (Storico)Dal 1/1/2015 con l'entrata in vigore delle Città metropolitane i codici delle province corrispondenti permangono al solo scopo di costituire il codice del Comune, che non subisce variazioni. Permangono anche i codici delle soppresse Province del Friuli-Venezia Giulia (L.r. 20/2016).Codice Istat della Provincia vigente o cessata (tre caratteri alfanumerici, validi nell’intervallo 001-119).ISTAT SITUAS – Caratteristiche del territorio, Report 73SIGLA_AUTOMOBILISTICASigla automobilisticaNote non presentiSigla automobilistica della provincia o, dal 2015, della città metropolitana, libero consorzio o unità non amministrativa (ex province del Friuli-Venezia Giulia). Null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73COM_ISOComune isolanoComuni appartenenti alle isole minori o lacuali. Sant'Antioco (SU) ha sezioni anche sull'Isola maggiore; Monte Isola (BS) è l'unico comune lacuale.1=Comune isolano; 0=Comune non isolano; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73COM_LITComune litoraneoComune con almeno un tratto di confine bagnato dal mare. Sono esclusi i comuni lacuali.1=Comune litoraneo; 0=Comune non litoraneo; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73ZONA_ALTZona altimetricaRipartizione del territorio in zone omogenee basate su soglie altimetriche.1=Montagna interna; 2=Montagna litoranea; 3=Collina interna; 4=Collina litoranea; 5=Pianura; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73ZONE_COST_2011Zone costiere 2011Classificazione dei comuni secondo la vicinanza alla costa, basata su dati Istat ed Eurostat, armonizzata a livello UE (Reg. 2017/2391 e 2019/1130).1=Zone costiere (costa o ≥50% superficie entro 10 km dal mare); 0=Zone non costiere; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73ZONE_COST_2021Zone costiere 2021Classificazione aggiornata delle zone costiere (Eurostat e Istat).1=Zone costiere (costa o ≥50% superficie entro 10 km dal mare); 0=Zone non costiere; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73DEGURBA_2011Degurba 2011Classificazione armonizzata del grado di urbanizzazione (Eurostat), basata su Geostat grid 2011.1=Città o zone densamente popolate; 2=Piccole città/sobborghi; 3=Zone rurali; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73DEGURBA_2021Degurba 2021Classificazione armonizzata del grado di urbanizzazione (Eurostat), basata su Geostat grid 2021.1=Città o zone densamente popolate; 2=Piccole città/sobborghi; 3=Zone rurali; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73COD_ECO_DIV_2018Codice Ecoregioni-DivisioniNote non presentiLivello gerarchico che distingue 2 Divisioni: Temperata e Mediterranea; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73DEN_ECO_DIV_2018Ecoregioni - DivisioniNote non presentiGuida non presenteISTAT SITUAS – Caratteristiche del territorio, Report 73COD_ECO_PRO_2018Codice Ecoregioni-ProvinceNote non presentiLivello gerarchico articolato in 7 Province, rappresenta la regionalizzazione ecologica e geografica del territorio; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73DEN_ECO_PRO_2018Ecoregioni - ProvinceNote non presentiGuida non presenteISTAT SITUAS – Caratteristiche del territorio, Report 73COD_ECO_SEZ_2018Codice Ecoregioni-SezioniNote non presentiLivello gerarchico di 11 Sezioni per rappresentare un quadro ecologico di riferimento più dettagliato; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73DEN_ECO_SEZ_2018Ecoregioni - SezioniNote non presentiGuida non presenteISTAT SITUAS – Caratteristiche del territorio, Report 73COD_ECO_SSEZ_2018Codice Ecoregioni-SottosezioniNote non presentiLivello gerarchico con 33 Sottosezioni per descrivere con maggiore dettaglio il quadro ecologico del territorio; null se non disponibile.ISTAT SITUAS – Caratteristiche del territorio, Report 73DEN_ECO_SSEZ_2018Ecoregioni - SottosezioniNote non presentiGuida non presenteISTAT SITUAS – Caratteristiche del territorio, Report 73Shape_LengLunghezza formaLunghezza del perimetro del comune in metri.ISTAT – Limiti amministrativi al 01/01/2025 (shapefile WGS84)Shape_AreaArea formaArea del comune in metri quadrati.ISTAT – Limiti amministrativi al 01/01/2025 (shapefile WGS84)geometryGeometriaGeometria del comune in formato 'sf' (Simple Features).ISTAT – Limiti amministrativi al 01/01/2025 (shapefile WGS84)"
   },
   {
     "objectID": "posts.html",
@@ -21,219 +35,11 @@
     "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
   },
   {
-    "objectID": "map/01_base_maps.html#lettura-.shp-files-istat",
-    "href": "map/01_base_maps.html#lettura-.shp-files-istat",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Lettura .shp files ISTAT",
-    "text": "Lettura .shp files ISTAT",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#lettura-caratteristiche-dei-comuni",
-    "href": "map/01_base_maps.html#lettura-caratteristiche-dei-comuni",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "🟡 Lettura caratteristiche dei comuni",
-    "text": "🟡 Lettura caratteristiche dei comuni",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#join-comuni_info_01_01_2025-con-comuni_ita-su-codice_istat_del_comune_alfanumerico-pro_com_t",
-    "href": "map/01_base_maps.html#join-comuni_info_01_01_2025-con-comuni_ita-su-codice_istat_del_comune_alfanumerico-pro_com_t",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Join comuni_info_01_01_2025 con comuni_ita (su codice_istat_del_comune_alfanumerico = PRO_COM_T)",
-    "text": "Join comuni_info_01_01_2025 con comuni_ita (su codice_istat_del_comune_alfanumerico = PRO_COM_T)",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#descrizione-attributi-limiti-comunali",
-    "href": "map/01_base_maps.html#descrizione-attributi-limiti-comunali",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Descrizione Attributi limiti comunali",
-    "text": "Descrizione Attributi limiti comunali\n\n\nvariabiledescrizionevalori_possibiliCOD_RIPCodice ripartizione geografica1=Nord-Ovest, 2=Nord-Est, 3=Centro, 4=Sud, 5=IsoleCOD_REGCodice num regione1-20 (vedi elenco regioni)codice_regioneCodice alfanum della regione01-20 (vedi elenco regioni)COD_PROVCodice num provincia01-111 (vedi elenco province/città metropolitane)COD_UTSCodice UTS (Unità Territoriali Sovracomunali)Codice num provincia, città metropolitana, libero consorzio di comuni o ex provinciaCC_UTSCapoluogo di provincia o città metropolitana.(1=Comune capoluogo; 0=Comune non è capoluogo)COD_CMCodice della città metropolitana (###)Codice num = 200 + COD_PROVPRO_COMCodice numerico del comuneCodice num = COD_PROV + COD_CMPRO_COM_TCodice alfanumerico del comuneCodici alfanumerici = (00)COD_PROV + COD_CMCOMUNEDenominazione del comune (italiana/straniera)Stringhe di testoCOMUNE_ADenominazione del comune (altra lingua)Stringhe di testonome_comune_it_strDenominazione del comune (italiana/straniera)Stringhe di testonome_comune_itDenominazione del comune (solo italiana)Stringhe di testonome_comune_strDenominazione del comune (altra lingua)Stringhe di testopop_leg_31_12_2021Popolazione legale al 31/12/2021Numerici interipop_res_31_12_2023Popolazione residente al 31/12/2023Numerici interialt_mAltitudine s.l.m. del centro (metri)Numerici intericomune_litoraneoComune litoraneo (S/N)1=Comune litoraneo, 0=Comune non litoraneocomune_isolanoComune isolano (S/N)1=Comune isolano, 0=Comune non isolanozone_costiereZone costiere (S/N)1=  Zone costiere,0=  Zone non costieregrado_di_urbanizzazioneGrado di urbanizzazione1 = Città o densamente popolate; 2 = Piccole città o densità intermedia, 3 =  Zone rurali o scarsamente popolatesup_kmq_01_01_2024Superficie territoriale (kmq) al 01/01/2024Numerici decimaliShape_AreaArea geometrica (unità CRS)Numerici decimaliShape_LengLunghezza geometrica (unità CRS)Numerici decimaligeometryGeometria (poligono)Geometria (poligono)",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#tabelle-codici-utili",
-    "href": "map/01_base_maps.html#tabelle-codici-utili",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "🟡 Tabelle codici utili",
-    "text": "🟡 Tabelle codici utili\n\nCoordinate Reference System (CRS)\nGeneralmente, si usano 2 tipi di CRS:\n\nun sistema di coordinate geografiche (long/lat) in WGS84 (EPSG:4326) ( = CRS AUTHORITY:CODE).\nun sistema di coordinate proiettate\n\nI dati ISTAT sono in UTM 32N (EPSG:32632), che è un sistema di coordinate proiettate (in metri).\nLavorando con mappe di piccole aree (come una regione), è preferibile usare un sistema di coordinate proiettate, che mantiene meglio le distanze e le aree.\nIn ggplot2 / sf si può:\n\nusare coord_sf(datum = NA) per evitare che ggplot2 tenti di trasformare le coordinate in lat/long per la visualizzazione.\noppure trasformare i dati in lat/long con coord_sf(crs = st_crs(4326)) o st_transform().",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-confini-emilia-romagna-province-e-comuni",
-    "href": "map/01_base_maps.html#map-confini-emilia-romagna-province-e-comuni",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] Confini Emilia-Romagna, province e comuni",
-    "text": "[Map] Confini Emilia-Romagna, province e comuni\n\n\n\n\n\nFigura 1",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-con-parma-in-rosso",
-    "href": "map/01_base_maps.html#map-con-parma-in-rosso",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] … con Parma in rosso",
-    "text": "[Map] … con Parma in rosso\n\n\n\n\n\nFigura 2",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-con-parma-in-rosso-etichetta",
-    "href": "map/01_base_maps.html#map-con-parma-in-rosso-etichetta",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] … con Parma in rosso (etichetta)",
-    "text": "[Map] … con Parma in rosso (etichetta)\n\n\n\n\n\nFigura 3",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-confini-solo-parma-comuni",
-    "href": "map/01_base_maps.html#map-confini-solo-parma-comuni",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] Confini solo Parma, comuni",
-    "text": "[Map] Confini solo Parma, comuni\n\n\n\n\n\nFigura 4",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-con-etichette-dei-comuni",
-    "href": "map/01_base_maps.html#map-con-etichette-dei-comuni",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] … con etichette dei comuni",
-    "text": "[Map] … con etichette dei comuni\nCi sono varie opzioni per aggiungere etichette ai poligoni:\n\n[geom_text] (posiziona le etichette al centroide del poligono, può sovrapporsi)\ngeom_sf_text (simile a geom_text, ma specifico per oggetti sf, con opzione check_overlap = TRUE)\n…\n\nche usano una variabile di testo (ad esempio COMUNE).\n\n\n\n\n\nFigura 5",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-con-etichette-dei-comuni-wrapped",
-    "href": "map/01_base_maps.html#map-con-etichette-dei-comuni-wrapped",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] … con etichette dei comuni WRAPPED",
-    "text": "[Map] … con etichette dei comuni WRAPPED\n\n\n\n\n\nFigura 6",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-con-etichette-dei-comuni-e-righe-di-collegamento",
-    "href": "map/01_base_maps.html#map-con-etichette-dei-comuni-e-righe-di-collegamento",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] … con etichette dei comuni e righe di collegamento",
-    "text": "[Map] … con etichette dei comuni e righe di collegamento\nSee tutorial on Labelling sf objects\n\ngeom_text_repel da ggrepel (con linee di collegamento opzionali)\n\nwith argument stat = \"sf_coordinates\" which will enable the ggrepel functions to work with spatial sf objects directly.\n\n\n\n\n\n\n\nFigura 7",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-con-etichette-dei-comuni-e-righe-di-collegamento-limiti-per-etichette",
-    "href": "map/01_base_maps.html#map-con-etichette-dei-comuni-e-righe-di-collegamento-limiti-per-etichette",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map] … con etichette dei comuni e righe di collegamento (limiti per etichette)",
-    "text": "[Map] … con etichette dei comuni e righe di collegamento (limiti per etichette)\n\n\n\n\n\nFigura 8",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#map-itr-mappa-interattiva-che-puoi-zoomare-e-leggere-il-nome-del-comune",
-    "href": "map/01_base_maps.html#map-itr-mappa-interattiva-che-puoi-zoomare-e-leggere-il-nome-del-comune",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "[Map Itr] Mappa interattiva che puoi zoomare e leggere il nome del comune",
-    "text": "[Map Itr] Mappa interattiva che puoi zoomare e leggere il nome del comune\n\n\n\n\nFigura 9",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
-    "objectID": "map/01_base_maps.html#salva-dati-e-mappa-di-parma-in-file-rds",
-    "href": "map/01_base_maps.html#salva-dati-e-mappa-di-parma-in-file-rds",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Salva dati e mappa di Parma in file RDS",
-    "text": "Salva dati e mappa di Parma in file RDS\nIl driver indica il formato di output (qui GeoJSON, oppure ESRI Shapefile, GPKG, KML, ecc.). Di per se sf potrebbe estrapolarlo dal suffisso del file, ma è meglio specificarlo esplicitamente.",
-    "crumbs": [
-      "Maps",
-      "Base Maps",
-      "Mappe e Codici confini amministrativi ISTAT"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome to Parma Dash",
     "section": "",
     "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
-  },
-  {
-    "objectID": "posts/2025-10-13-first-post.html",
-    "href": "posts/2025-10-13-first-post.html",
-    "title": "First Blog Post",
-    "section": "",
-    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
-  },
-  {
-    "objectID": "R/issue_renv.html",
-    "href": "R/issue_renv.html",
-    "title": "renv + gdtools issues",
-    "section": "",
-    "text": "The renv package is used to manage R package dependencies for the project, which makes it easier to reproduce the project environment on different machines.\n.rs.restartR()\n\n# --- initialize to create a new renv environment\nrenv::init()\n\n# --- install R packages as needed\nrenv::install(c(\"dplyr\", \"ggplot2\", \"flextable\"))\n\n# --- snapshot (= SAVE as LATEST) the current state of R packages\nrenv::snapshot()\n\n# --- restore (= REVERT to PREVIOUS) the R packages as per the lockfile\nrenv::restore()\n\n\n\nrenv::snapshot() # gives error \"CairoContext.cpp:1:10: fatal error: 'string' file not found\"\"\nMEANS: the gdtools package is having trouble finding the necessary system libraries to compile its C++ code. This is often due to missing or misconfigured development tools on your system.\nxcode-select --install \n# don't have full Xcode (needed for gdtools) installed, only the Command Line Tools.\nInstall Full Xcode from the App Store.\nThen\nsudo xcode-select -s /Applications/Xcode.app/Contents/Developer\nsudo xcodebuild -license # \"agree\" to the license\nThen try reinstalling gdtools:\n# install.packages(\"gdtools\")\nrenv::install(\"gdtools\")\n\n\nHomebrew su Apple Silicon può installare librerie nella directory sbagliata (/usr/local → x86_64), mentre tu hai bisogno di quelle in /opt/homebrew (arm64).\nwhich brew\n# /opt/homebrew/bin/brew\nReinstallare le librerie necessarie con il brew corretto:\n# uninstall con il brew sbagliato\nbrew uninstall cairo freetype libpng fontconfig pixman libx11 libxext libxrender\n# reinstall con il brew corretto\n/opt/homebrew/bin/brew reinstall pkg-config cairo pango libpng jpeg giflib librsvg\n\n\n\n🔧 1. Forza pkg-config a usare solo le librerie arm64\nNel terminale, prima di avviare R, esporta la variabile PKG_CONFIG_PATH correttamente:\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n🔁 2. Avvia R nella stessa shell, poi installa gdtools:\nR\ninstall.packages(\"gdtools\", type = \"source\")\n# oppure\nrenv::install(\"gdtools\")\nThis ensures che pkg-config cerchi le librerie nella directory corretta per Apple Silicon.\n\n\nPer far sì che questa impostazione sia permanente e non debba essere ripetuta ogni volta, aggiungi la riga di esportazione al tuo file di configurazione della shell (.zshrc per Zsh o .bash_profile per Bash):\nopen ~/.zshrc\n# Aggiungi questa riga alla fine del file\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n# Rendi effettive le modifiche\nsource ~/.zshrc\n# controlla\necho $PKG_CONFIG_PATH\n  # /opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig"
-  },
-  {
-    "objectID": "R/issue_renv.html#package-renv",
-    "href": "R/issue_renv.html#package-renv",
-    "title": "renv + gdtools issues",
-    "section": "",
-    "text": "The renv package is used to manage R package dependencies for the project, which makes it easier to reproduce the project environment on different machines.\n.rs.restartR()\n\n# --- initialize to create a new renv environment\nrenv::init()\n\n# --- install R packages as needed\nrenv::install(c(\"dplyr\", \"ggplot2\", \"flextable\"))\n\n# --- snapshot (= SAVE as LATEST) the current state of R packages\nrenv::snapshot()\n\n# --- restore (= REVERT to PREVIOUS) the R packages as per the lockfile\nrenv::restore()"
-  },
-  {
-    "objectID": "R/issue_renv.html#problema-con-renv-e-gdtools",
-    "href": "R/issue_renv.html#problema-con-renv-e-gdtools",
-    "title": "renv + gdtools issues",
-    "section": "",
-    "text": "renv::snapshot() # gives error \"CairoContext.cpp:1:10: fatal error: 'string' file not found\"\"\nMEANS: the gdtools package is having trouble finding the necessary system libraries to compile its C++ code. This is often due to missing or misconfigured development tools on your system.\nxcode-select --install \n# don't have full Xcode (needed for gdtools) installed, only the Command Line Tools.\nInstall Full Xcode from the App Store.\nThen\nsudo xcode-select -s /Applications/Xcode.app/Contents/Developer\nsudo xcodebuild -license # \"agree\" to the license\nThen try reinstalling gdtools:\n# install.packages(\"gdtools\")\nrenv::install(\"gdtools\")\n\n\nHomebrew su Apple Silicon può installare librerie nella directory sbagliata (/usr/local → x86_64), mentre tu hai bisogno di quelle in /opt/homebrew (arm64).\nwhich brew\n# /opt/homebrew/bin/brew\nReinstallare le librerie necessarie con il brew corretto:\n# uninstall con il brew sbagliato\nbrew uninstall cairo freetype libpng fontconfig pixman libx11 libxext libxrender\n# reinstall con il brew corretto\n/opt/homebrew/bin/brew reinstall pkg-config cairo pango libpng jpeg giflib librsvg\n\n\n\n🔧 1. Forza pkg-config a usare solo le librerie arm64\nNel terminale, prima di avviare R, esporta la variabile PKG_CONFIG_PATH correttamente:\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n🔁 2. Avvia R nella stessa shell, poi installa gdtools:\nR\ninstall.packages(\"gdtools\", type = \"source\")\n# oppure\nrenv::install(\"gdtools\")\nThis ensures che pkg-config cerchi le librerie nella directory corretta per Apple Silicon.\n\n\nPer far sì che questa impostazione sia permanente e non debba essere ripetuta ogni volta, aggiungi la riga di esportazione al tuo file di configurazione della shell (.zshrc per Zsh o .bash_profile per Bash):\nopen ~/.zshrc\n# Aggiungi questa riga alla fine del file\nexport PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig\"\n# Rendi effettive le modifiche\nsource ~/.zshrc\n# controlla\necho $PKG_CONFIG_PATH\n  # /opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig"
   },
   {
     "objectID": "about.html",
@@ -243,91 +49,21 @@
     "text": "This is the about page for Parma Dash."
   },
   {
-    "objectID": "map/00_intro_maps.html",
-    "href": "map/00_intro_maps.html",
-    "title": "Intro",
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Dashboard portfolio",
     "section": "",
-    "text": "Qui c’è una sezione introduttiva sulle mappe e dati geografici.",
+    "text": "Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.",
     "crumbs": [
-      "Maps",
-      "Intro"
+      "Dashboard",
+      "Dashboard portfolio"
     ]
   },
   {
-    "objectID": "source.html",
-    "href": "source.html",
-    "title": "Data Source",
+    "objectID": "posts/2025-10-13-first-post.html",
+    "href": "posts/2025-10-13-first-post.html",
+    "title": "First Blog Post",
     "section": "",
-    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
-  },
-  {
-    "objectID": "source.html#data-source",
-    "href": "source.html#data-source",
-    "title": "Data Source",
-    "section": "",
-    "text": "Describe your data sources here.\nInclude tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from."
-  },
-  {
-    "objectID": "data/data_in/istat_shp_ITA_spiega.html",
-    "href": "data/data_in/istat_shp_ITA_spiega.html",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "href": "data/data_in/istat_shp_ITA_spiega.html#subfolder-istat_shp_ita",
-    "title": "Source",
-    "section": "",
-    "text": "ISTAT - Confini delle unità amministrative a fini statistici\nContains the shapefiles of the administrative boundaries of Italy as of January 1, 2025.\n\n`├── data_in │   ├── istat_shp_ITA │   │   ├── Com01012025 │   │   │   ├── Com01012025_WGS84.dbf │   │   │   ├── Com01012025_WGS84.prj │   │   │   ├── Com01012025_WGS84.shp │   │   │   └── Com01012025_WGS84.shx │   │   ├── ProvCM01012025 │   │   │   ├── ProvCM01012025_WGS84.dbf │   │   │   ├── ProvCM01012025_WGS84.prj │   │   │   ├── ProvCM01012025_WGS84.shp │   │   │   └── ProvCM01012025_WGS84.shx │   │   ├── Reg01012025 │   │   │   ├── Reg01012025_WGS84.dbf │   │   │   ├── Reg01012025_WGS84.prj │   │   │   ├── Reg01012025_WGS84.shp │   │   │   └── Reg01012025_WGS84.shx │   │   └── RipGeo01012025 │   │       ├── RipGeo01012025_WGS84.dbf │   │       ├── RipGeo01012025_WGS84.prj │   │       ├── RipGeo01012025_WGS84.shp │   │       └── RipGeo01012025_WGS84.shx"
-  },
-  {
-    "objectID": "map/01_istat_situas.html#carica-.shp-files-istat",
-    "href": "map/01_istat_situas.html#carica-.shp-files-istat",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Carica .shp files ISTAT",
-    "text": "Carica .shp files ISTAT\n\nShapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)"
-  },
-  {
-    "objectID": "map/01_istat_situas.html#filtra-dati-per-emilia-romagna",
-    "href": "map/01_istat_situas.html#filtra-dati-per-emilia-romagna",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Filtra dati per Emilia-Romagna",
-    "text": "Filtra dati per Emilia-Romagna\n\n— Salva shp come sf objects .Rds"
-  },
-  {
-    "objectID": "map/01_istat_situas.html#filtra-dati-per-lombardia",
-    "href": "map/01_istat_situas.html#filtra-dati-per-lombardia",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Filtra dati per Lombardia",
-    "text": "Filtra dati per Lombardia\n\n— Salva shp come sf objects .Rds"
-  },
-  {
-    "objectID": "map/01_istat_situas.html#carica-caratteristiche-comuni-situas",
-    "href": "map/01_istat_situas.html#carica-caratteristiche-comuni-situas",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Carica caratteristiche comuni SITUAS",
-    "text": "Carica caratteristiche comuni SITUAS\nQui uso la funzione che ho costruto per scaricare dati da SITUAS con API Qui c’è la lista dei report territoriali https://situas.istat.it/web/#/apiDetail\nIn questo caso mi serve il Report 73 Comuni - Caratteristiche del territorio"
-  },
-  {
-    "objectID": "map/01_istat_situas.html#join-caratt-comuni-situas-shp-comuni-istat",
-    "href": "map/01_istat_situas.html#join-caratt-comuni-situas-shp-comuni-istat",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Join Caratt Comuni (SITUAS) + Shp comuni (ISTAT)",
-    "text": "Join Caratt Comuni (SITUAS) + Shp comuni (ISTAT)\nBased on codice alfanumerico = PRO_COM_T"
-  },
-  {
-    "objectID": "map/01_istat_situas.html#descrizione-attributi-limiti-comunali",
-    "href": "map/01_istat_situas.html#descrizione-attributi-limiti-comunali",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Descrizione Attributi limiti comunali",
-    "text": "Descrizione Attributi limiti comunali\nFonte: vedi https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73&pdata=01/01/1948\n\n[ft]\nFonte: ISTAT - Limiti amministrativi al 01/01/2025; Caratteristiche del territorio al 01/01/2025\n\n\n\n\nTabella 1: Descrizione variabili ISTAT limiti comunali e caratteristiche\n\n\n\nCOLNAMELABELNOTEGUIDACOD_RIPCodice Ripartizione geograficaNote non presentiCodice Istat della ripartizione geografica secondo la suddivisione del territorio nazionale in: 1) Nord-ovest, 2) Nord-est, 3) Centro, 4) Sud e 5) Isole.COD_REGCodice RegioneValore di due caratteri alfanumerici, con validità nell'intervallo 01-20.Codice Istat della regioneCOD_UTSCodice Provincia/UtsCodice di tre caratteri alfanumerici con validità nell’intervallo 001-119 per le Province. Restano assegnati ai Liberi consorzi i codici delle omonime ex Province (081-089). Il codice delle Città metropolitane è ottenuto sommando '200' al codice della Provincia corrispondente. Ai soli fini statistici permangono i codici delle soppresse Province del Friuli-Venezia Giulia (L.r. 20/2016).Codice Istat della Provincia o Unità territoriale sovracomunale (Uts). Le unità territoriali sovracomunali comprendono, a fini statistici, Province, Città metropolitane, Liberi consorzi e unità non amministrative (ex Province del Friuli-Venezia Giulia).COD_PROV_STORICOCodice Provincia (Storico)Dal 1/1/2015 con l'entrata in vigore delle Città metropolitane i codici delle province corrispondenti permangono al solo scopo di costituire il codice del Comune, che non subisce variazioni. Permangono anche i codici delle soppresse Province del Friuli-Venezia Giulia (L.r. 20/2016).Codice Istat della Provincia vigente o cessata (tre caratteri alfanumerici, validi nell’intervallo 001-119).PRO_COM_TCodice Comune (alfanumerico)Note non presentiCodice Istat del Comune di sei caratteri in formato alfanumericoPRO_COMCodice comune (numerico)Note non presentiCodice Istat del Comune di sei caratteri in formato numericoCOMUNEComuneDenominazione ufficiale dei comuni della Provincia di Bolzano/Bozen e di alcuni del Friuli-Venezia Giulia. Per le denominazioni bilingue si usa '/' per Bolzano/Bozen e '-' per gli altri.Denominazione del Comune in lingua italiana e stranieraCOMUNE_AComune (dizione straniera)Note non presentiDenominazione del Comune in lingua diversa dall'italianoSIGLA_AUTOMOBILISTICASigla automobilisticaNote non presentiSigla automobilistica della provincia o, dal 2015, della città metropolitana, libero consorzio o unità non amministrativa (ex province del Friuli-Venezia Giulia). Null se non disponibile.COM_ISOComune isolanoComuni appartenenti alle isole minori o lacuali. Sant'Antioco (SU) ha sezioni anche sull'Isola maggiore; Monte Isola (BS) è l'unico comune lacuale.1=Comune isolano; 0=Comune non isolano; null se non disponibile.COM_LITComune litoraneoComune con almeno un tratto di confine bagnato dal mare. Sono esclusi i comuni lacuali.1=Comune litoraneo; 0=Comune non litoraneo; null se non disponibile.ZONA_ALTZona altimetricaRipartizione del territorio in zone omogenee basate su soglie altimetriche.1=Montagna interna; 2=Montagna litoranea; 3=Collina interna; 4=Collina litoranea; 5=Pianura; null se non disponibile.ZONE_COST_2011Zone costiere 2011Classificazione dei comuni secondo la vicinanza alla costa, basata su dati Istat ed Eurostat, armonizzata a livello UE (Reg. 2017/2391 e 2019/1130).1=Zone costiere (costa o ≥50% superficie entro 10 km dal mare); 0=Zone non costiere; null se non disponibile.ZONE_COST_2021Zone costiere 2021Classificazione aggiornata delle zone costiere (Eurostat e Istat).1=Zone costiere (costa o ≥50% superficie entro 10 km dal mare); 0=Zone non costiere; null se non disponibile.DEGURBA_2011Degurba 2011Classificazione armonizzata del grado di urbanizzazione (Eurostat), basata su Geostat grid 2011.1=Città o zone densamente popolate; 2=Piccole città/sobborghi; 3=Zone rurali; null se non disponibile.DEGURBA_2021Degurba 2021Classificazione armonizzata del grado di urbanizzazione (Eurostat), basata su Geostat grid 2021.1=Città o zone densamente popolate; 2=Piccole città/sobborghi; 3=Zone rurali; null se non disponibile.COD_ECO_DIV_2018Codice Ecoregioni-DivisioniNote non presentiLivello gerarchico che distingue 2 Divisioni: Temperata e Mediterranea; null se non disponibile.DEN_ECO_DIV_2018Ecoregioni - DivisioniNote non presentiGuida non presenteCOD_ECO_PRO_2018Codice Ecoregioni-ProvinceNote non presentiLivello gerarchico articolato in 7 Province, rappresenta la regionalizzazione ecologica e geografica del territorio; null se non disponibile.DEN_ECO_PRO_2018Ecoregioni - ProvinceNote non presentiGuida non presenteCOD_ECO_SEZ_2018Codice Ecoregioni-SezioniNote non presentiLivello gerarchico di 11 Sezioni per rappresentare un quadro ecologico di riferimento più dettagliato; null se non disponibile.DEN_ECO_SEZ_2018Ecoregioni - SezioniNote non presentiGuida non presenteCOD_ECO_SSEZ_2018Codice Ecoregioni-SottosezioniNote non presentiLivello gerarchico con 33 Sottosezioni per descrivere con maggiore dettaglio il quadro ecologico del territorio; null se non disponibile.DEN_ECO_SSEZ_2018Ecoregioni - SottosezioniNote non presentiGuida non presenteCOD_PROVCodice ProvinciaCodice Istat della Provincia o Città metropolitana di appartenenza del Comune.COD_CMCodice Città metropolitanaCodice Istat della Città metropolitana di appartenenza del Comune. Null se non disponibile.CC_UTSCodice Unità territoriale sovracomunaleCodice Istat dell'Unità territoriale sovracomunale (Uts) di appartenenza del Comune. Le unità territoriali sovracomunali comprendono, a fini statistici, Province, Città metropolitane, Liberi consorzi e unità non amministrative (ex Province del Friuli-Venezia Giulia).Shape_LengLunghezza formaLunghezza del perimetro del comune in metri.Shape_AreaArea formaArea del comune in metri quadrati.geometryGeometriaGeometria del comune in formato 'sf' (Simple Features)."
-  },
-  {
-    "objectID": "map/01_istat_situas.html#tabelle-codici-utili",
-    "href": "map/01_istat_situas.html#tabelle-codici-utili",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Tabelle codici utili",
-    "text": "Tabelle codici utili\n\n— Salva versione ridotta comuni_ita_info_sf\nQuesta mi da tutti i codici di denominazione e caratteristiche utili per i comuni italiani al 01/01/2025, con geometria sf."
+    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
   }
 ]

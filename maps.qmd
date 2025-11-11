@@ -1,6 +1,6 @@
 ---
-title: "Dashboard portfolio"
-# subtitle: "Materiale intermedio su dati geografici con R"
+title: "Intro"
+subtitle: "Materiale intermedio su dati geografici con R"
 date: last-modified
 date-format: "DD-MMMM-YYYY"
 lang: it
@@ -27,7 +27,8 @@ execute:
 # suppress-bibliography: false
 ---
 
+## Output del primo qmd 
 
-Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.
 
- 
+
+

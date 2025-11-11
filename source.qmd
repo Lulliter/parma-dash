@@ -2,12 +2,11 @@
 title: "Data Source"
 ---
 
-## Data Source
 
 Describe your data sources here.  
 Include tables, descriptions, links to datasets, and any other relevant information about where your dashboard data comes from.
 
-# Dati Istat con formato `SDMX`
+## Dati Istat con formato `SDMX`
 
 SDMX (Statistical Data and Metadata eXchange) è uno standard internazionale (basato su sintassi XML (`SDMX-XML`) per lo scambio di dati statistici e metadati tra organizzazioni.
 
@@ -84,3 +83,30 @@ print(url)
 
 
 > "https://esploradati.istat.it/SDMXWS/rest/data/IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0/A.034001+034002+034003+034004+034005+034006+034007......./ALL/?detail=full&startPeriod=2023-01-01&endPeriod=2023-12-31&dimensionAtObservation=TIME_PERIOD"
+
+
+## Variabili descrittive ISTAT limiti comunali e caratteristiche
+Preso da output del file `map/00_carica_shp_situas.qmd`
+
+#### [Tbl] Var desc `comuni_ita_info_sf`
+```{r}
+#| label: tbl-comuni-vardesc-ft
+#| tbl-cap: "Descrizione variabili ISTAT limiti comunali e caratteristiche"
+#| output: true
+
+library(here)
+source(here("R","f_ft_formatting.R"))
+
+# leggi
+comuni_ita_info_sf_VARDESC <- readRDS(
+  here::here("data", "data_out", "tbl","comuni_ita_info_sf_VARDESC.rds")
+)
+
+# crea flextable
+comuni_ita_info_sf_VARDESC_ft <- comuni_ita_info_sf_VARDESC |> 
+flextable::flextable() |> 
+  f_ft_word()
+
+comuni_ita_info_sf_VARDESC_ft
+```
+

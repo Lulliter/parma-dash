@@ -1,6 +1,6 @@
 ---
-title: "Dashboard portfolio"
-# subtitle: "Materiale intermedio su dati geografici con R"
+title: "Dashboard page su tema X"
+subtitle: "Materiale che pesca negli output di altri qmd"
 date: last-modified
 date-format: "DD-MMMM-YYYY"
 lang: it
@@ -22,12 +22,7 @@ execute:
   warning: false
   error: false
   output: false
-#   
-# bibliography: bib/CRP_dash.bib
-# suppress-bibliography: false
+  
+bibliography: bib/CRP_dash.bib
+suppress-bibliography: false
 ---
-
-
-Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.
-
- 
