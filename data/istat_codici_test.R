@@ -1,0 +1,2 @@
+CODICI_COMUNI_test_PR_PV <- c("034027","018110")
+CODICI_PROVINCIA_test_PR_PV <- c("34","18")

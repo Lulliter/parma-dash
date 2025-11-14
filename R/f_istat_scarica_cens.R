@@ -22,7 +22,7 @@ f_scarica_istat <- function(codici_territorio,
                             frequenza        = "A",
                             anno,
                             dimensioni_extra = "......",
-                            timeout_sec      = 60) {
+                            timeout_sec      = 120) {
   
   # Codici territorio concatenati con "+"
   codici_str <- paste(codici_territorio, collapse = "+")
@@ -43,6 +43,9 @@ f_scarica_istat <- function(codici_territorio,
     "&endPeriod=",   end_date,
     "&dimensionAtObservation=TIME_PERIOD"
   )
+  
+  # Stampa URL per debug/verifica
+  message("URL richiesta: ", url)
   
   # Richiesta HTTP
   response <- httr::GET(
@@ -92,10 +95,10 @@ f_scarica_istat_blocchi <- function(codici_territorio,
                                     frequenza        = "A",
                                     anno,
                                     dimensioni_extra = "......",
-                                    codici_per_blocco   = 15,
-                                    pausa_tra_richieste = 15,
+                                    codici_per_blocco   = 10,
+                                    pausa_tra_richieste = 20,
                                     pausa_dopo_errore   = 30,
-                                    timeout_sec         = 60,
+                                    timeout_sec         = 120,
                                     stampa_piano        = TRUE) {
   
   # Suddivisione codici in blocchi

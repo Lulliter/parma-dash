@@ -1,5 +1,29 @@
 ---
 title: "Data Source"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
+
+format: html
+  # html:
+  #   theme: flatly #spacelab
+    # css: utils/style.css
+    # code-fold: true # redundant bc echo false 
+    # toc-depth: 3
+    # toc_float: true
+    # toc-location: left
+    # toc-title: Indice
+    # embed-resources: true # external dependencies embedded (Not in ..._files/)
+
+execute:
+  eval: true
+  echo: false # x mostrare codice anche in file docx
+  warning: false
+  error: false
+  output: false
+#   
+# bibliography: bib/CRP_dash.bib
+# suppress-bibliography: false
 ---
 
 
@@ -88,11 +112,9 @@ print(url)
 ## Variabili descrittive ISTAT limiti comunali e caratteristiche
 Preso da output del file `map/00_carica_shp_situas.qmd`
 
-#### [Tbl] Var desc `comuni_ita_info_sf`
+
 ```{r}
-#| label: tbl-comuni-vardesc-ft
-#| tbl-cap: "Descrizione variabili ISTAT limiti comunali e caratteristiche"
-#| output: true
+#### [Tbl] Var desc `comuni_ita_info_sf`
 
 library(here)
 source(here("R","f_ft_formatting.R"))
@@ -106,6 +128,13 @@ comuni_ita_info_sf_VARDESC <- readRDS(
 comuni_ita_info_sf_VARDESC_ft <- comuni_ita_info_sf_VARDESC |> 
 flextable::flextable() |> 
   f_ft_word()
+```
+
+
+```{r}
+#| label: tbl-comuni-vardesc-ft
+#| tbl-cap: "Descrizione variabili ISTAT limiti comunali e caratteristiche"
+#| output: true
 
 comuni_ita_info_sf_VARDESC_ft
 ```
