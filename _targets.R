@@ -9,7 +9,7 @@ tar_option_set(
 
 # --- Sorgenti funzioni (1 file = 1 funzione) ----
 
-# __ 1) map/00_carica_shp_situas.qmd ----
+# __ 1) analysis/00_carica_shp_situas.qmd ----
 source("R/istat_shp_get.R")           # legge shapefile ISTAT
 source("R/istat_situas_get.R")        # costruisce URL SITUAS + API GET
 source("R/istat_situas_sf_prep.R")    # filtra/salva sf per regione/provincia
@@ -17,9 +17,14 @@ source("R/istat_situas_join_comuni_sf.R")  # join SITUAS + shapefile comuni
 source("R/write_codici_vec.R")        # scrive vettori di codici su file .R
 source("R/utilities.R")  # funzioni di utilità varie
 
+# __ 2) analysis/01_carica_cens.qmd ----
+
+
+
+
 # --- Definizione pipeline targets ----
 list(
-  # __ 1) map/00_carica_shp_situas.qmd ----
+  # __ 1) analysis/00_carica_shp_situas.qmd ----
 
   # 1.1) Carica dati (shapefile ISTAT + SITUAS) ----
   tar_target(istat_shp_path, here::here("data", "data_in", "istat_shp_ITA")),
@@ -103,11 +108,14 @@ list(
   # 1.5 Render Quarto ----
   tar_quarto(
     report_istat_get_data,
-    path = "map/00_carica_shp_situas.qmd",
+    path = "analysis/00_carica_shp_situas.qmd",
     # necessario x la bib
     working_directory = here::here()
-    
-)
+    )
+
+  # __ 2) analysis/01_carica_cens.qmd ----
+  
+  
 )
 
 

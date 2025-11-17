@@ -42,102 +42,11 @@
     "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is the about page for Parma Dash."
-  },
-  {
-    "objectID": "dashboard.html",
-    "href": "dashboard.html",
-    "title": "Dashboard portfolio",
-    "section": "",
-    "text": "Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.",
-    "crumbs": [
-      "Dashboard",
-      "Dashboard portfolio"
-    ]
-  },
-  {
-    "objectID": "posts/2025-10-13-first-post.html",
-    "href": "posts/2025-10-13-first-post.html",
-    "title": "First Blog Post",
-    "section": "",
-    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
-  },
-  {
     "objectID": "dashboard/01_tema_x.html",
     "href": "dashboard/01_tema_x.html",
     "title": "Demografia: bisogni e servizi sociali",
     "section": "",
-    "text": "Indice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n\n\n\n\n🟩 su Demo istat data/data_in/indic_demogr_prov_trend.xlsx \n🟧 censimento popolazione x anni separati a livello provincia (o comune)\nSu IstatData DCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni\n\n\n\n\n\n\n\n\n\nIndice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n\n\n\n\n✅ data/data_in/indic_demogr_prov_trend.xlsx\n☑️ censimento popolazione x anni separati a livello provincia (o comune)\nDCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni\n\n\n\n\n\n\n\n\n\nTasso di occupazione giovanile (15-34 anni) per sesso: rapporto percentuale tra il numero di giovani occupati (15-34 anni) e la popolazione giovanile (15-34 anni)\n\n\n\n\n☑️\n\n\n\n\n\n\n\n\n\n% persone con disabilità: numero di persone con disabilità sul totale della popolazione residente\n% famiglie con una persona &gt; 65 anni:\n\n% famiglie con una persona con disabilità\nindici di malattie cronico-degenerative\nandrebbe visto accando a speranza di vita\n\n\n\n\n✅ https://statistica.regione.emilia-romagna.it/search?SearchableText=disabilit%C3%A0&group=file-e-pubblicazioni&site_name=Statistica\n☑️ Fonte: Elaborazioni Sinloc sui dati Istat «Disabilità in Cifre»\n☑️ Rapporto Dell’Agenzia Regionale per il Lavoro dell’Emilia-Romagna sull’inclusione lavorativa delle persone disabili (anni 2021 e 2022)\nMonitoraggio dei percorsi territoriali per il riconoscimento e il sostegno dei Caregiver Familiari (2021),\nRapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),\ndelle statistiche regionali sulla Popolazione in Emilia-Romagna (2022) e\nArticolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#dati-e-indicatori",
-    "href": "dashboard/01_tema_x.html#dati-e-indicatori",
-    "title": "Dashboard page su tema bisogni e servizi sociali",
-    "section": "",
-    "text": "Indice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n\n\n\n\ndata/data_in/Indicatori_demografici.xlsx\ncensimento popolazione x anni separati a livello provincia (o comune)\nDCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#claim-1-territorio-parmense-più-attrattivo-per-gli-stranieri",
-    "href": "dashboard/01_tema_x.html#claim-1-territorio-parmense-più-attrattivo-per-gli-stranieri",
-    "title": "Dashboard page su tema bisogni e servizi sociali",
-    "section": "",
-    "text": "Indice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n\n\n\n\n✅ data/data_in/Indicatori_demografici.xlsx\n☑️ censimento popolazione x anni separati a livello provincia (o comune)\nDCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#claim-1-parma-più-attrattiva-per-gli-stranieri-che-media-eritalia",
-    "href": "dashboard/01_tema_x.html#claim-1-parma-più-attrattiva-per-gli-stranieri-che-media-eritalia",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "",
-    "text": "Indice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n\n\n\n\n🟩 su Demo istat data/data_in/indic_demogr_prov_trend.xlsx \n🟧 censimento popolazione x anni separati a livello provincia (o comune)\nSu IstatData DCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#claim-2-parma-invecchiamento-leggermente-che-media-eritalia",
-    "href": "dashboard/01_tema_x.html#claim-2-parma-invecchiamento-leggermente-che-media-eritalia",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "",
-    "text": "Indice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n\n\n\n\n✅ data/data_in/indic_demogr_prov_trend.xlsx\n☑️ censimento popolazione x anni separati a livello provincia (o comune)\nDCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#claim-3-parma-con-più-giovani-occupati-che-media-eritalia",
-    "href": "dashboard/01_tema_x.html#claim-3-parma-con-più-giovani-occupati-che-media-eritalia",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "Claim 3) Parma con più giovani occupati che media ER/Italia",
-    "text": "Claim 3) Parma con più giovani occupati che media ER/Italia\n\nDati e indicatori\n\nTasso di occupazione giovanile (15-34 anni) per sesso: rapporto percentuale tra il numero di giovani occupati (15-34 anni) e la popolazione giovanile (15-34 anni)\n\n\nFonte ISTAT / Inps\n\n☑️",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#claim-4-parmaer-con-più-persone-non-autosufficienti-persone-con-disabilità-che-italia",
-    "href": "dashboard/01_tema_x.html#claim-4-parmaer-con-più-persone-non-autosufficienti-persone-con-disabilità-che-italia",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "Claim 4) Parma/ER con più persone non autosufficienti / persone con disabilità che Italia ?",
-    "text": "Claim 4) Parma/ER con più persone non autosufficienti / persone con disabilità che Italia ?\n\nDati e indicatori\n\n% persone con disabilità: numero di persone con disabilità sul totale della popolazione residente\n% famiglie con una persona &gt; 65 anni:\n\n% famiglie con una persona con disabilità\nindici di malattie cronico-degenerative\nandrebbe visto accando a speranza di vita\n\n\nFonte ISTAT\n\n✅ https://statistica.regione.emilia-romagna.it/search?SearchableText=disabilit%C3%A0&group=file-e-pubblicazioni&site_name=Statistica\n☑️ Fonte: Elaborazioni Sinloc sui dati Istat «Disabilità in Cifre»\n☑️ Rapporto Dell’Agenzia Regionale per il Lavoro dell’Emilia-Romagna sull’inclusione lavorativa delle persone disabili (anni 2021 e 2022)\nMonitoraggio dei percorsi territoriali per il riconoscimento e il sostegno dei Caregiver Familiari (2021),\nRapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),\ndelle statistiche regionali sulla Popolazione in Emilia-Romagna (2022) e\nArticolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)",
+    "text": "nesso con PS 2024-2027:\n\nLinee Azione …….\n\n\n\nlo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)",
     "crumbs": [
       "Dashboard",
       "Tema X"
@@ -149,17 +58,6 @@
     "title": "Demografia: bisogni e servizi sociali",
     "section": "*) Parma invecchiamento leggermente che media ER/Italia",
     "text": "*) Parma invecchiamento leggermente che media ER/Italia\n\nDati e indicatori\n\nIndice di vecchiaia: rappresenta il rapporto tra le due componenti della popolazione inattiva, ovvero rapporto tra gli over65 su 100 persone della popolazione under14\nIndice di dipendenza strutturale: Rappresenta il carico sociale ed economico della popolazione non attiva (0-14 anni e 65 anni ed oltre) su quella attiva (15-64 anni)\n% 80enni e più sul totale popolazione (indica di fragilita demogr)\nSaldo naturale medio annuo 2019-2023 (per mille residenti) (indica di fragilita demogr)\n% Popolazione residente di 65 anni e oltre in famiglie unipersonali al 31.12.2023 (indica di fragilita sociale)\n\n\nFonte ISTAT\n\n🟩 su Demo istat data/data_in/indic_demogr_prov_trend.xlsx \nOR 🟧 censimento popolazione x anni separati a livello provincia (o comune)\n\nSu IstatData DCSS_POP_DEMCITMIG_SETA_TV = Popolazione residente per singole età, sesso e cittadinanza - comuni\n\n🟩 su data/data_in/ER_stats/fragilit_prov_com_2023.xlsx indicatori per prov e comune al 2023 anallisi gia fatta\n\n\n\nProposta\n\nposso vederli in serie storica per prov e più aggiornato\nposso vederli su cartografia (che anche )",
-    "crumbs": [
-      "Dashboard",
-      "Tema X"
-    ]
-  },
-  {
-    "objectID": "dashboard/01_tema_x.html#claim-2-parma-più-attrattiva-per-gli-stranieri-che-media-eritalia",
-    "href": "dashboard/01_tema_x.html#claim-2-parma-più-attrattiva-per-gli-stranieri-che-media-eritalia",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "Claim 2) Parma più attrattiva per gli stranieri che media ER/Italia",
-    "text": "Claim 2) Parma più attrattiva per gli stranieri che media ER/Italia\n\nDati e indicatori\n\ntasso Migratorio totale: rapporto tra il saldo migratorio dell’anno e l’ammontare medio della popolazione residente, moltiplicato per 1.000.\n\n\nFonte ISTAT\n\n✅ data/data_in/indic_demogr_prov_trend.xlsx",
     "crumbs": [
       "Dashboard",
       "Tema X"
@@ -197,5 +95,72 @@
       "Dashboard",
       "Tema X"
     ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for Parma Dash."
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Dashboard portfolio",
+    "section": "",
+    "text": "Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.",
+    "crumbs": [
+      "Dashboard",
+      "Dashboard portfolio"
+    ]
+  },
+  {
+    "objectID": "posts/2025-10-13-first-post.html",
+    "href": "posts/2025-10-13-first-post.html",
+    "title": "First Blog Post",
+    "section": "",
+    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
+    "href": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Carica .shp files ISTAT",
+    "text": "__ Carica .shp files ISTAT\nFONTE: vedi data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md DATA AGGIORNAMENTO: 01/01/2025 COME OTTENUTO: presi da download manuale (vedi _istat_shp_ITA_spiega.md) CONTENUTO: + Shapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
+    "href": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Carica caratteristiche comuni SITUAS",
+    "text": "__ Carica caratteristiche comuni SITUAS\nFONTE: ISTAT SITUAS - Servizi di pubblicazione dati territoriali DATA AGGIORNAMENTO: quella in cui si scaricano i dati COME OTTENUTO: usando funzione per scaricare dati da SITUAS con API (R/istat_situas_get.R) CONTENUTO: + AMBITI GEOGRAFICI: Unità amministrative (Comuni) + In questo caso mi serve il Report 73 Comuni - Caratteristiche del territorio + Qui c’è la lista dei report territoriali https://situas.istat.it/web/#/apiDetail"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
+    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Prep dati per Emilia-Romagna",
+    "text": "__ Prep dati per Emilia-Romagna\n\n[Fun] Salva liste codici\n\n\n— Salva liste codici per ER"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
+    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Prep dati per Lombardia",
+    "text": "__ Prep dati per Lombardia\n\n— Salva liste codici per Lomb"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
+    "href": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "— Descrizione VARs comuni_ita_info_sf",
+    "text": "— Descrizione VARs comuni_ita_info_sf\nFonte: vedi https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73&pdata=01/01/1948"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
+    "href": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "— Salva oggetto con info comuni + descrizione variabili",
+    "text": "— Salva oggetto con info comuni + descrizione variabili"
   }
 ]

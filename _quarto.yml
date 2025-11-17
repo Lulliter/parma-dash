@@ -31,8 +31,6 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Maps
-        href: maps.qmd # qui metterò qlc output scelto
       - text: Dashboard
         href: dashboard.qmd # Qui metterò una sotto pagina per ogni tema 
       - text: Data Source
