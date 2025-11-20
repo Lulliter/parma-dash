@@ -20,3 +20,6 @@ pop_cens_all:
 pop_cens_er:
   url: "https://esploradati.istat.it/SDMXWS/rest/data/IT1,DF_DCSS_POP_DEMCITMIG_SETA_1,1.0/A.ITD5+ITD51+ITD52+ITD53+ITD54+ITD55+ITD56+ITD57+ITD58+ITD59.RESPOP_AV....../ALL/?detail=full&startPeriod=2023-01-01&endPeriod=2023-12-31&dimensionAtObservation=TIME_PERIOD"
   
+  
+situas_nomenclature_EU:
+  url: "https://situas-servizi.istat.it/publish/reportspooljson?pfun=102&pdata=01/01/2006"

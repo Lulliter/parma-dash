@@ -77,6 +77,8 @@ urls_istat$pop_cens_all
 
 ### File (scarica) `dati_finali_com`
 
+OKKIO: non lo faccio andare se so che ho già i dati!!!!!
+
 CALL API per ottenere dati censimento 2023 SOLO per i `44` **comuni di Parma (PR)** e Emilia-Romagna (ER)
 ```{r}
 #| eval: false
@@ -89,7 +91,6 @@ CODICI_PROVINCIA_test_PR_PV <- c("34","18")
 ```{r}
 #| label: istat_pop_com_PR_2023-TOOLONG
 #| eval: true
-
 
 # 0) Codici territorio (dal file che hai generato prima)
 source(here("data", "data_out", "ER_shp", "lista_PRO_COM_T_er_pr_vec.R"))
@@ -119,50 +120,81 @@ DATASET_ID        <- "IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0"
 ANNO              <- 2023 # del censimento
 CODICI_TERRITORIO <- CODICI_COMUNI_ER_PR        # ---------- QUI SI DECIDE PERIMETRO
 
-# 3) Esguo per fare API get di comuni di Parma
-dati_finali_com <- f_scarica_istat_blocchi(
-  codici_territorio   = CODICI_TERRITORIO,
-  dataset_id          = DATASET_ID,
-  anno                = ANNO,
-  dimensioni_extra = "......" # per scaricare TUTTI i dati
-   # dimensioni_extra = "..ALL.ALLALL" # per cercare di limitare i dati scaricati
- 
-  # GENDER
-  # AGE_CLASS
-  # MARITAL_STATUS
-  # CITIZENSHIP
-  # AREA_CONTRY_CITIZEN
-  # USUAL_RESID_1Y
- 
+# # 3.a) Eseguo per fare API get di comuni di Parma
+# dati_finali_com <- f_scarica_istat_blocchi(
+#   codici_territorio   = CODICI_TERRITORIO,
+#   dataset_id          = DATASET_ID,
+#   anno                = ANNO,
+#   dimensioni_extra = "......" # per scaricare TUTTI i dati
+#    # dimensioni_extra = "..ALL.ALLALL" # per cercare di limitare i dati scaricati
+#  
+#   # GENDER
+#   # AGE_CLASS
+#   # MARITAL_STATUS
+#   # CITIZENSHIP
+#   # AREA_CONTRY_CITIZEN
+#   # USUAL_RESID_1Y
+#  )
+
+# 3.b) [SMARTASS VERSION] Solo se istat_pop_com_PR_2023 NON esiste già nella cartella here(data, data_output) , allora scaricalo
+file_rds <- here::here("data", "data_out", "istat_pop_com_PR_2023.rds")
+
+if (file.exists(file_rds)) {
+  # Caso 1: il file ESISTE → leggo da disco
+  dati_finali_com <- readRDS(file_rds)
+  
+} else {
+  # Caso 2: il file NON esiste → scarico e salvo
+  dati_finali_com <- f_scarica_istat_blocchi(
+    codici_territorio   = CODICI_TERRITORIO,
+    dataset_id          = DATASET_ID,
+    anno                = ANNO,
+    dimensioni_extra = "......" # per scaricare TUTTI i dati
+    # dimensioni_extra = "..ALL.ALLALL" # per cercare di limitare i dati scaricati
+    
+    # GENDER
+    # AGE_CLASS
+    # MARITAL_STATUS
+    # CITIZENSHIP
+    # AREA_CONTRY_CITIZEN
+    # USUAL_RESID_1Y
   )
+  
+  saveRDS(dati_finali_com, file_rds)
+}
+
+# In pratica posso lasciar stare le colonne che non variano: MARITAL_STATUS, AREA_CONTRY_CITIZEN, USUAL_RESID_1Y, NOTE_AREA_CONTRY_CITIZEN, TIME_PERIOD, (NOTE_REF_AREA)  (che però ha NA)
+ 
 ```
+
 
 ##### Controllo file `dati_finali_com`
 ```{r}
+#| eval: false
 # check
 skimr::skim(dati_finali_com$REF_AREA)              # 44 unique    
 skimr::skim(dati_finali_com$INDICATOR)             # 2 unique
 skimr::skim(dati_finali_com$GENDER)                # 3 unique
 skimr::skim(dati_finali_com$AGE_CLASS)             # 13 unique
   tabyl(dati_finali_com$AGE_CLASS)
-skimr::skim(dati_finali_com$MARITAL_STATUS)        # 1 unique (ALL)
-  tabyl(dati_finali_com$MARITAL_STATUS)
-skimr::skim(dati_finali_com$CITIZENSHIP)           # 3 unique (TOTAL, ITL, FRGAPO)
-  tabyl(dati_finali_com$CITIZENSHIP)
-skimr::skim(dati_finali_com$AREA_CONTRY_CITIZEN)   # 1 unique (ALL)
-  tabyl(dati_finali_com$AREA_CONTRY_CITIZEN)
-skimr::skim(dati_finali_com$USUAL_RESID_1Y)        # 1 unique (ALL)
-  tabyl(dati_finali_com$USUAL_RESID_1Y)
-skimr::skim(dati_finali_com$NOTE_AREA_CONTRY_CITIZEN)# 1 unique (ISO__ALL_N1)
-  tabyl(dati_finali_com$NOTE_AREA_CONTRY_CITIZEN)
-skimr::skim(dati_finali_com$TIME_PERIOD)           # 1 unique (2023)
-skimr::skim(dati_finali_com$NOTE_REF_AREA)         # >1 unique (034051_N1 o NA)
-  tabyl(dati_finali_com$NOTE_REF_AREA)
-  
-# In pratica posso lasciar stare le colonne che non variano: MARITAL_STATUS, AREA_CONTRY_CITIZEN, USUAL_RESID_1Y, NOTE_AREA_CONTRY_CITIZEN, TIME_PERIOD, (NOTE_REF_AREA)  (che però ha NA)
+
+# # già eliminati
+# skimr::skim(dati_finali_com$TIME_PERIOD)           # 1 unique (2023)
+# skimr::skim(dati_finali_com$NOTE_REF_AREA)         # >1 unique (034051_N1 o NA)
+#   tabyl(dati_finali_com$NOTE_REF_AREA)
+# skimr::skim(dati_finali_com$MARITAL_STATUS)      # 1 unique (ALL)
+#   tabyl(dati_finali_com$MARITAL_STATUS)
+# skimr::skim(dati_finali_com$AREA_CONTRY_CITIZEN)   # 1 unique (ALL)
+#   tabyl(dati_finali_com$AREA_CONTRY_CITIZEN)
+# skimr::skim(dati_finali_com$USUAL_RESID_1Y)        # 1 unique (ALL)
+#   tabyl(dati_finali_com$USUAL_RESID_1Y)
+# skimr::skim(dati_finali_com$NOTE_AREA_CONTRY_CITIZEN)# 1 unique (ISO__ALL_N1)
+#   tabyl(dati_finali_com$NOTE_AREA_CONTRY_CITIZEN)
+# skimr::skim(dati_finali_com$CITIZENSHIP)           # 3 unique (TOTAL, ITL, FRGAPO)
+#   tabyl(dati_finali_com$CITIZENSHIP) 
 ```
 
-#### Creo mini file con 
+#### Creo mini file per variabile categorica 
 ```{r}
 # 4) Seleziono solo le colonne che mi servono
 istat_pop_com_PR_2023 <- dati_finali_com |> 
@@ -218,6 +250,8 @@ istat_pop_com_PR_2023_CITIZENSHIP <-  istat_pop_com_PR_2023 |>
 
 #### Salvo files `istat_pop_com_PR_2023*`
 
+[Ridondante: SE ho solo riscaricato da prima]
+
 ```{r}
 #------------
 # In aggiunta io poi salvo
@@ -232,17 +266,20 @@ for (obj_name in list_obj_istat_pop_com_PR_2023) {
   
   # Definisci i nomi dei file
   rds_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".rds"))
-  csv_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".csv"))
+  #csv_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".csv"))
   
   # Salva come RDS
   saveRDS(obj, file = rds_file)
   
   # Salva come CSV
-  write.csv(obj, file = csv_file, row.names = FALSE)
+  #write.csv(obj, file = csv_file, row.names = FALSE)
 }
 ```
 
+
 ### File (scarica) `dati_finali_com_ER`
+
+OKKIO: non lo faccio andare se so che ho già i dati!!!!!
 
 CALL API per ottenere dati censimento 2023 per i `330` **comuni Emilia-Romagna (ER)**
 
@@ -260,23 +297,47 @@ DATASET_ID        <- "IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0"
 ANNO              <- 2023 # del censimento
 CODICI_TERRITORIO2 <- CODICI_COMUNI_ER        # ---------- 330 comuni  QUI SI DECIDE PERIMETRO
 
-# 3) Esguo per fare API get di comuni di Parma
-dati_finali_com_ER <- f_scarica_istat_blocchi(
-  codici_territorio   = CODICI_TERRITORIO2,
-  dataset_id          = DATASET_ID,
-  anno                = ANNO,
-  dimensioni_extra = "......" # per scaricare TUTTI i dati
-   # dimensioni_extra = "..ALL.ALLALL" # per cercare di limitare i dati scaricati
- 
-  # GENDER
-  # AGE_CLASS
-  # MARITAL_STATUS
-  # CITIZENSHIP
-  # AREA_CONTRY_CITIZEN
-  # USUAL_RESID_1Y
- 
-  )
+# # 3.a) Esguo per fare API get di comuni di Parma
+# dati_finali_com_ER <- f_scarica_istat_blocchi(
+#   codici_territorio   = CODICI_TERRITORIO2,
+#   dataset_id          = DATASET_ID,
+#   anno                = ANNO,
+#   dimensioni_extra = "......" # per scaricare TUTTI i dati
+#    # dimensioni_extra = "..ALL.ALLALL" # per cercare di limitare i dati scaricati
+#  
+#   # GENDER
+#   # AGE_CLASS
+#   # MARITAL_STATUS
+#   # CITIZENSHIP
+#   # AREA_CONTRY_CITIZEN
+#   # USUAL_RESID_1Y
+# )
 
+# 3.b) [SMARTASS VERSION] Solo se istat_pop_com_ER_2023 NON esiste già nella cartella here(data, data_output) , allora scaricalo
+file_rds_ER <- here::here("data", "data_out", "istat_pop_com_ER_2023.rds")
+if (file.exists(file_rds_ER)) {
+  # Caso 1: il file ESISTE → leggo da disco
+  dati_finali_com_ER <- readRDS(file_rds_ER)
+  
+} else {
+  # Caso 2: il file NON esiste → scarico e salvo
+  dati_finali_com_ER <- f_scarica_istat_blocchi(
+    codici_territorio   = CODICI_TERRITORIO2,
+    dataset_id          = DATASET_ID,
+    anno                = ANNO,
+    dimensioni_extra = "......" # per scaricare TUTTI i dati
+    # dimensioni_extra = "..ALL.ALLALL" # per cercare di limitare i dati scaricati
+    # G               
+    # AGE_CLASS
+    # MARITAL_STATUS
+    # CITIZENSHIP
+    # AREA_CONTRY_CITIZEN
+    # USUAL_RESID_1Y
+  ) 
+  saveRDS(dati_finali_com_ER, file_rds_ER)
+} 
+
+# In pratica posso lasciar stare le colonne che non variano: MARITAL_STATUS, AREA_CONTRY_CITIZEN, USUAL_RESID_1Y, NOTE_AREA_CONTRY_CITIZEN, TIME_PERIOD, NOTE_REF_AREA  (che però ha NA)
 ```
 
 ##### Controllo file `dati_finali_com_ER`
@@ -287,24 +348,27 @@ skimr::skim(dati_finali_com_ER$INDICATOR)             # 2 unique
 skimr::skim(dati_finali_com_ER$GENDER)                # 3 unique
 skimr::skim(dati_finali_com_ER$AGE_CLASS)             # 13 unique
   tabyl(dati_finali_com_ER$AGE_CLASS)
-skimr::skim(dati_finali_com_ER$MARITAL_STATUS)        # 1 unique (ALL)
-  tabyl(dati_finali_com_ER$MARITAL_STATUS)
 skimr::skim(dati_finali_com_ER$CITIZENSHIP)           # 3 unique (TOTAL, ITL, FRGAPO)
   tabyl(dati_finali_com_ER$CITIZENSHIP)
-skimr::skim(dati_finali_com_ER$AREA_CONTRY_CITIZEN)   # 1 unique (ALL)
-  tabyl(dati_finali_com_ER$AREA_CONTRY_CITIZEN)
-skimr::skim(dati_finali_com_ER$USUAL_RESID_1Y)        # 1 unique (ALL)
-  tabyl(dati_finali_com_ER$USUAL_RESID_1Y)
-skimr::skim(dati_finali_com_ER$NOTE_AREA_CONTRY_CITIZEN)# 1 unique (ISO__ALL_N1)
-  tabyl(dati_finali_com_ER$NOTE_AREA_CONTRY_CITIZEN)
-skimr::skim(dati_finali_com_ER$TIME_PERIOD)           # 1 unique (2023)
-skimr::skim(dati_finali_com_ER$NOTE_REF_AREA)         # 5 unique (034051_N1 o 038029_N1, ... NA)
-  tabyl(dati_finali_com_ER$NOTE_REF_AREA)
-  
-# In pratica posso lasciar stare le colonne che non variano: MARITAL_STATUS, AREA_CONTRY_CITIZEN, USUAL_RESID_1Y, NOTE_AREA_CONTRY_CITIZEN, TIME_PERIOD, NOTE_REF_AREA  (che però ha NA)
+
+# skimr::skim(dati_finali_com_ER$MARITAL_STATUS)        # 1 unique (ALL)
+#   tabyl(dati_finali_com_ER$MARITAL_STATUS)
+
+# Solo se ho scaricato tutto di fresco (se no li ho già eliminati)  
+# skimr::skim(dati_finali_com_ER$AREA_CONTRY_CITIZEN)   # 1 unique (ALL)
+#   tabyl(dati_finali_com_ER$AREA_CONTRY_CITIZEN)
+# skimr::skim(dati_finali_com_ER$USUAL_RESID_1Y)        # 1 unique (ALL)
+#   tabyl(dati_finali_com_ER$USUAL_RESID_1Y)
+# skimr::skim(dati_finali_com_ER$NOTE_AREA_CONTRY_CITIZEN)# 1 unique (ISO__ALL_N1)
+#   tabyl(dati_finali_com_ER$NOTE_AREA_CONTRY_CITIZEN)
+# skimr::skim(dati_finali_com_ER$TIME_PERIOD)           # 1 unique (2023)
+# skimr::skim(dati_finali_com_ER$NOTE_REF_AREA)         # 5 unique (034051_N1 o 038029_N1, ... NA)
+#   tabyl(dati_finali_com_ER$NOTE_REF_AREA)
+#   
+
 ```
 
-#### Creo mini file con 
+#### Creo mini file x variabile categorica 
 ```{r}
 # 4) Seleziono solo le colonne che mi servono
 istat_pop_com_ER_2023 <- dati_finali_com_ER |> 
@@ -353,6 +417,8 @@ istat_pop_com_ER_2023_CITIZENSHIP <-  istat_pop_com_ER_2023 |>
 ```
 
 ##### Salvo files `istat_pop_com_ER_2023_...`
+
+[Ridondante: SE ho solo riscaricato da prima]
 ```{r}
 # Faccio lista di oggetti che iniziano con istat_pop_com_ER_2023
 list_obj_istat_pop_com_ER_2023 <- ls(pattern = "^istat_pop_com_ER_2023")  
@@ -361,27 +427,28 @@ for (obj_name in list_obj_istat_pop_com_ER_2023) {
   obj <- get(obj_name)  
   # Definisci i nomi dei file
   rds_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".rds"))
-  csv_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".csv"))  
+  #csv_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".csv"))  
   # Salva come RDS
   saveRDS(obj, file = rds_file)  
   # Salva come CSV
-  write.csv(obj, file = csv_file, row.names = FALSE)
+  #write.csv(obj, file = csv_file, row.names = FALSE)
 }
 ```
 
-
 ### File (crea) `dati_prov_ER_agg`
 
-Obiettivo, aggregare i dati di cui sopra per provincia (COD_PROV) in Emilia-Romagna
+Obiettivo, aggregare i dati di cui sopra per provincia (`COD_PROV`) in Emilia-Romagna
 
 + viene fatto "manualmente" basandosi sui dati comunali e sullo shapefile dei comuni per ottenere i codici provincia (COD_PROV)
 
 ```{r}
 # 0) Cosa ho già= output SDMX a livello comunale in forma lunga (REF_AREA = "034001", ecc.)
+
 # ----SOLO PARMA 
 #istat_pop_com_PR_2023 <- readRDS("~/Github/parma-dash/data/data_out/istat_pop_com_PR_2023.rds")
+
 # ------TUTTA EMILIA-ROMAGNA
-istat_pop_com_ER_2023 <- readRDS(here("data", "data_out", "istat_pop_com_ER_2023.rds"))
+# istat_pop_com_ER_2023 <- readRDS(here("data", "data_out", "istat_pop_com_ER_2023.rds"))
 
 
 skimr::skim(istat_pop_com_ER_2023)    # 9 unique
@@ -389,7 +456,7 @@ skimr::skim(istat_pop_com_ER_2023)    # 9 unique
 
 Prima attacco il codice provincia ai dati censuari per tutti i comuni di Emilia-Romagna (ER) 
 ```{r}
-# 1) Carico shapefile comuni Emilia-Romagna (ER)
+# 0) Carico shapefile comuni Emilia-Romagna (ER)
 er_comuni_sf <- readRDS(here("data", "data_out", "ER_shp", "ER_comuni_sf.rds"))
 
 # 1) Uso er_comuni_sf per ottenere i codici provincia
@@ -400,7 +467,6 @@ tab_comune_prov <- er_comuni_sf |>
     COD_PROV, CC_UTS, COMUNE ) |>
   # in teoria non serve, ma per evitare duplicati in caso di shapefile “sporco”.
   dplyr::distinct() 
-
 
 head(tab_comune_prov)
 
@@ -423,6 +489,7 @@ skimr::skim(dati_prov_ER)
 ```
 
 Poi sommo OBSVALUE per provincia (COD_PROV) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (GENDER, AGE_CLASS, CITIZENSHIP) 
+
 COMUNE in pratica sparisce e ottengo il dato aggregato per provincia (COD_PROV)
 
 ```{r}
@@ -441,7 +508,7 @@ dati_prov_ER_agg <- dati_prov_ER |>
   )
 ```                  
 
-##### Popolazione per classi di età per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
+##### Popolazione per `classi di età` per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
 # PEr ogni classe di età dovrei avere il 44 righe
 istat_pop_prov_ER_2023_AGE <-  dati_prov_ER_agg |>
@@ -450,7 +517,7 @@ istat_pop_prov_ER_2023_AGE <-  dati_prov_ER_agg |>
                   )  
 ```
 
-##### Popolazione per sesso per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
+##### Popolazione per `sesso` per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
 istat_pop_prov_ER_2023_GENDER <-  dati_prov_ER_agg |>
   dplyr::filter(INDICATOR == "RESPOP_AV" &  
@@ -459,7 +526,7 @@ istat_pop_prov_ER_2023_GENDER <-  dati_prov_ER_agg |>
                 )
 ```
 
-##### Popolazione per cittadinanza per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
+##### Popolazione per `cittadinanza` per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
 istat_pop_prov_ER_2023_CITIZENSHIP <-  dati_prov_ER_agg |>
   dplyr::filter(INDICATOR == "RESPOP_AV" &  
@@ -469,6 +536,8 @@ istat_pop_prov_ER_2023_CITIZENSHIP <-  dati_prov_ER_agg |>
 
 #### Salvo files che iniziano per `istat_pop_prov_ER_2023`
 
+[Ridondante: SE ho solo riscaricato da prima]
+
 ```{r}
 # Faccio lista di oggetti che iniziano con istat_pop_prov_ER_2023
 list_obj_istat_pop_prov_ER_2023 <- ls(pattern = "^istat_pop_prov_ER_2023")  
@@ -476,15 +545,18 @@ list_obj_istat_pop_prov_ER_2023 <- ls(pattern = "^istat_pop_prov_ER_2023")
 for (obj_name in list_obj_istat_pop_prov_ER_2023) {
   obj <- get(obj_name)  
   # Definisci i nomi dei file
-  rds_file <- file.path(CARTELLA_OUTPUT_prov, paste0(obj_name, ".rds"))
-  csv_file <- file.path(CARTELLA_OUTPUT_prov, paste0(obj_name, ".csv"))  
+  rds_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".rds"))
+  #csv_file <- file.path(CARTELLA_OUTPUT, paste0(obj_name, ".csv"))  
   # Salva come RDS
   saveRDS(obj, file = rds_file)  
   # Salva come CSV
-  write.csv(obj, file = csv_file, row.names = FALSE)
+  #write.csv(obj, file = csv_file, row.names = FALSE)
 }
 
 ```
 
 
+# 🟧 NEXT 
+
+targets seguendo https://chatgpt.com/share/691b4e48-1360-800f-9025-437822330b82
 

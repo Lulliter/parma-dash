@@ -42,3 +42,15 @@
   --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
   --bs-card-bg: var(--bs-body-bg);
 }
+
+// Hide titles with .notitle class (equivalent to Revealjs .notitle)
+section.notitle > h1.notitle,
+section.notitle > h2.notitle,
+section.notitle > h3.notitle,
+h1.notitle, h2.notitle, h3.notitle, h4.notitle, h5.notitle, h6.notitle {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

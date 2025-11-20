@@ -50,17 +50,17 @@ website:
       background: "#9f7d35"
       contents:
       - dashboard.qmd
-      - text: "Tema X"
-        href: dashboard/01_tema_x.qmd
-      - text: "Tema Y"
+      - text: "Tema 1) Disabilità"
+        href: dashboard/01_tema_disabilità.qmd
+      - text: "Tema 2) ..."
         href: dashboard/02_tema_y.qmd  
 # 
 #       contents:
 #         - dashboard.qmd
-#         - section: "Tema X"
+#         - section: "Tema 1) Disabilità"
 #           contents:
-#             - dashboard/01_tema_x.qmd       
-#         - section: "Tema Y"
+#             - dashboard/01_tema_disabilità.qmd       
+#         - section: "Tema 2) ..."
 #           contents:
 #             - dashboard/02_tema_y.qmd
 

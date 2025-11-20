@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intro – Parma analisi di contesto</title>
+<title>Mappe e Codici confini amministrativi ISTAT – Parma analisi di contesto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1413cd7ec9d1894e7f053f06e0144303.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-1413cd7ec9d1894e7f053f06e0144303.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="assets/styles/custom.scss">
+<link rel="stylesheet" href="../assets/styles/custom.scss">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Parma analisi di contesto</span>
     </a>
   </div>
@@ -91,23 +91,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./maps.html" aria-current="page"> 
-<span class="menu-text">Maps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./dashboard.html"> 
+    <a class="nav-link" href="../dashboard.html"> 
 <span class="menu-text">Dashboard</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./source.html"> 
+    <a class="nav-link" href="../source.html"> 
 <span class="menu-text">Data Source</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -133,7 +129,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In questa pagina</h2>
    
   <ul>
-  <li><a href="#output-del-primo-qmd" id="toc-output-del-primo-qmd" class="nav-link active" data-scroll-target="#output-del-primo-qmd">Output del primo qmd</a></li>
+  <li><a href="#r-packg" id="toc-r-packg" class="nav-link active" data-scroll-target="#r-packg">R packg</a></li>
+  <li><a href="#carica-dati-censimento" id="toc-carica-dati-censimento" class="nav-link" data-scroll-target="#carica-dati-censimento">Carica dati Censimento</a>
+  <ul class="collapse">
+  <li><a href="#url-esploradati-istat" id="toc-url-esploradati-istat" class="nav-link" data-scroll-target="#url-esploradati-istat">URL EsploraDati Istat</a></li>
+  <li><a href="#file-scarica-dati_finali_com" id="toc-file-scarica-dati_finali_com" class="nav-link" data-scroll-target="#file-scarica-dati_finali_com">File (scarica) <code>dati_finali_com</code></a></li>
+  <li><a href="#file-scarica-dati_finali_com_er" id="toc-file-scarica-dati_finali_com_er" class="nav-link" data-scroll-target="#file-scarica-dati_finali_com_er">File (scarica) <code>dati_finali_com_ER</code></a></li>
+  <li><a href="#file-crea-dati_prov_er_agg" id="toc-file-crea-dati_prov_er_agg" class="nav-link" data-scroll-target="#file-crea-dati_prov_er_agg">File (crea) <code>dati_prov_ER_agg</code></a></li>
+  </ul></li>
+  <li><a href="#next" id="toc-next" class="nav-link" data-scroll-target="#next">🟧 NEXT</a></li>
   </ul>
 </nav>
     </div>
@@ -142,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intro</h1>
+<h1 class="title">Mappe e Codici confini amministrativi ISTAT</h1>
 <p class="subtitle lead">Materiale intermedio su dati geografici con R</p>
 </div>
 
@@ -154,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11-novembre-2025</p>
+      <p class="date">18-novembre-2025</p>
     </div>
   </div>
   
@@ -166,8 +170,95 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="output-del-primo-qmd" class="level2">
-<h2 class="anchored" data-anchor-id="output-del-primo-qmd">Output del primo qmd</h2>
+<section id="r-packg" class="level2">
+<h2 class="anchored" data-anchor-id="r-packg">R packg</h2>
+</section>
+<section id="carica-dati-censimento" class="level2">
+<h2 class="anchored" data-anchor-id="carica-dati-censimento">Carica dati Censimento</h2>
+<p><strong>FONTE</strong>: <a href="https://esploradati.istat.it/databrowser/#/it/censpop">IstatData</a> is the new Istat data warehouse.<br>
+<strong>QUERY STRUTTURA</strong>: <a href="https://esploradati.istat.it/SDMXWS/rest/dataflow/IT1/DF_DCSS_POP_DEMCITMIG_TV_2/1.0/?detail=Full&amp;references=Descendants">Link</a> <strong>QUERY DATI</strong>: [Link] = <code>urls_istat$pop_cens_all</code> <strong>DATA AGGIORNAMENTO</strong>: Censimento 2023 <strong>COME OTTENUTO</strong>: Download dati ISTAT CENSIMENTO via API SDMX (vedi <code>R/f_istat_scarica_cens.R</code>) <strong>CONTENUTO</strong>: + Dataset ID = “IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0”</p>
+<ul>
+<li>Qui uso una funzione R (<code>f_scarica_istat_blocchi()</code>) che ho scritto per <strong>scaricare i dati censuari per comune</strong> via API SDMX. In pratica, partendo da un url con dentro tutti i comuni italiani, mi consente di selezionare solo i comuni che mi interessano (es. quelli di Parma o di Emilia-Romagna), dividere la richiesta in blocchi (per evitare timeout/limiti di richiesta) e salvare i dati in locale in formato RDS e CSV.</li>
+</ul>
+<section id="url-esploradati-istat" class="level3">
+<h3 class="anchored" data-anchor-id="url-esploradati-istat">URL EsploraDati Istat</h3>
+</section>
+<section id="file-scarica-dati_finali_com" class="level3">
+<h3 class="anchored" data-anchor-id="file-scarica-dati_finali_com">File (scarica) <code>dati_finali_com</code></h3>
+<p>OKKIO: non lo faccio andare se so che ho già i dati!!!!!</p>
+<p>CALL API per ottenere dati censimento 2023 SOLO per i <code>44</code> <strong>comuni di Parma (PR)</strong> e Emilia-Romagna (ER)</p>
+<section id="controllo-file-dati_finali_com" class="level5">
+<h5 class="anchored" data-anchor-id="controllo-file-dati_finali_com">Controllo file <code>dati_finali_com</code></h5>
+</section>
+<section id="creo-mini-file-per-variabile-categorica" class="level4">
+<h4 class="anchored" data-anchor-id="creo-mini-file-per-variabile-categorica">Creo mini file per variabile categorica</h4>
+<section id="popolazione-per-classi-decennali-di-età-per-comuni-di-parma-pr---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-classi-decennali-di-età-per-comuni-di-parma-pr---censimento-2023">Popolazione per classi decennali di età per comuni di Parma (PR) - Censimento 2023</h5>
+<p>Quindi filtro per Total o ALL dove non mi interessa la variabile</p>
+</section>
+<section id="popolazione-per-sesso-per-comuni-di-parma-pr---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-sesso-per-comuni-di-parma-pr---censimento-2023">Popolazione per sesso per comuni di Parma (PR) - Censimento 2023</h5>
+</section>
+<section id="popolazione-per-cittadinanza-per-comuni-di-parma-pr---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-cittadinanza-per-comuni-di-parma-pr---censimento-2023">Popolazione per cittadinanza per comuni di Parma (PR) - Censimento 2023</h5>
+</section>
+</section>
+<section id="salvo-files-istat_pop_com_pr_2023" class="level4">
+<h4 class="anchored" data-anchor-id="salvo-files-istat_pop_com_pr_2023">Salvo files <code>istat_pop_com_PR_2023*</code></h4>
+<p>[Ridondante: SE ho solo riscaricato da prima]</p>
+</section>
+</section>
+<section id="file-scarica-dati_finali_com_er" class="level3">
+<h3 class="anchored" data-anchor-id="file-scarica-dati_finali_com_er">File (scarica) <code>dati_finali_com_ER</code></h3>
+<p>OKKIO: non lo faccio andare se so che ho già i dati!!!!!</p>
+<p>CALL API per ottenere dati censimento 2023 per i <code>330</code> <strong>comuni Emilia-Romagna (ER)</strong></p>
+<section id="controllo-file-dati_finali_com_er" class="level5">
+<h5 class="anchored" data-anchor-id="controllo-file-dati_finali_com_er">Controllo file <code>dati_finali_com_ER</code></h5>
+</section>
+<section id="creo-mini-file-x-variabile-categorica" class="level4">
+<h4 class="anchored" data-anchor-id="creo-mini-file-x-variabile-categorica">Creo mini file x variabile categorica</h4>
+<section id="popolazione-per-classi-di-età-per-comuni-di-emilia-romagna-er---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-classi-di-età-per-comuni-di-emilia-romagna-er---censimento-2023">Popolazione per classi di età per comuni di Emilia-Romagna (ER) - Censimento 2023</h5>
+</section>
+<section id="popolazione-per-sesso-per-comuni-di-emilia-romagna-er---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-sesso-per-comuni-di-emilia-romagna-er---censimento-2023">Popolazione per sesso per comuni di Emilia-Romagna (ER) - Censimento 2023</h5>
+</section>
+<section id="popolazione-per-cittadinanza-per-comuni-di-emilia-romagna-er---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-cittadinanza-per-comuni-di-emilia-romagna-er---censimento-2023">Popolazione per cittadinanza per comuni di Emilia-Romagna (ER) - Censimento 2023</h5>
+</section>
+<section id="salvo-files-istat_pop_com_er_2023_..." class="level5">
+<h5 class="anchored" data-anchor-id="salvo-files-istat_pop_com_er_2023_...">Salvo files <code>istat_pop_com_ER_2023_...</code></h5>
+<p>[Ridondante: SE ho solo riscaricato da prima]</p>
+</section>
+</section>
+</section>
+<section id="file-crea-dati_prov_er_agg" class="level3">
+<h3 class="anchored" data-anchor-id="file-crea-dati_prov_er_agg">File (crea) <code>dati_prov_ER_agg</code></h3>
+<p>Obiettivo, aggregare i dati di cui sopra per provincia (<code>COD_PROV</code>) in Emilia-Romagna</p>
+<ul>
+<li>viene fatto “manualmente” basandosi sui dati comunali e sullo shapefile dei comuni per ottenere i codici provincia (COD_PROV)</li>
+</ul>
+<p>Prima attacco il codice provincia ai dati censuari per tutti i comuni di Emilia-Romagna (ER)</p>
+<p>Poi sommo OBSVALUE per provincia (COD_PROV) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (GENDER, AGE_CLASS, CITIZENSHIP)</p>
+<p>COMUNE in pratica sparisce e ottengo il dato aggregato per provincia (COD_PROV)</p>
+<section id="popolazione-per-classi-di-età-per-provincia-di-emilia-romagna-er---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-classi-di-età-per-provincia-di-emilia-romagna-er---censimento-2023">Popolazione per <code>classi di età</code> per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023</h5>
+</section>
+<section id="popolazione-per-sesso-per-provincia-di-emilia-romagna-er---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-sesso-per-provincia-di-emilia-romagna-er---censimento-2023">Popolazione per <code>sesso</code> per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023</h5>
+</section>
+<section id="popolazione-per-cittadinanza-per-provincia-di-emilia-romagna-er---censimento-2023" class="level5">
+<h5 class="anchored" data-anchor-id="popolazione-per-cittadinanza-per-provincia-di-emilia-romagna-er---censimento-2023">Popolazione per <code>cittadinanza</code> per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023</h5>
+</section>
+<section id="salvo-files-che-iniziano-per-istat_pop_prov_er_2023" class="level4">
+<h4 class="anchored" data-anchor-id="salvo-files-che-iniziano-per-istat_pop_prov_er_2023">Salvo files che iniziano per <code>istat_pop_prov_ER_2023</code></h4>
+<p>[Ridondante: SE ho solo riscaricato da prima]</p>
+</section>
+</section>
+</section>
+<section id="next" class="level1">
+<h1>🟧 NEXT</h1>
+<p>targets seguendo https://chatgpt.com/share/691b4e48-1360-800f-9025-437822330b82</p>
 
 
 </section>
