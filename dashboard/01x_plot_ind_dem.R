@@ -22,6 +22,7 @@ library(patchwork) # for combining ggplots
 
 dir_rds <- here::here("data", "data_out", "istat_demo_2002_2024")
 dir_plots <- here::here("data", "plots")
+
 # Colors ----
 grey_extra_sc <- "#4F4F4F"
 grey_sc <- "#808080"
@@ -38,15 +39,16 @@ grn_sc <- "#246864"
 grn_md <- "#539d90"
 grn_lg <- "#8eb9b1"
 
-# --- Pick indicators to plot ----
+# --- Load dataset 1) ----
 indicatori_di_struttura <- readRDS(fs::path(
   dir_rds,
   "indicatori_di_struttura.rds"
 ))
+
 tabyl(indicatori_di_struttura$indicatore)
 
+# ---- Prepare data 1) for plotting (indicatori_di_struttura) ----
 
-# ---- Prepare data for plotting ----
 data <- indicatori_di_struttura |>
   dplyr::filter(
     territorio %in%
@@ -81,16 +83,17 @@ data <- indicatori_di_struttura |>
 
 sample_n(data, 10)
 
-# ---- Plotting ----
+# 🟩🟪 SENZA Funzione Wrapper ------
 
-# Arguments -----
+# Arguments for plot
 INDICATORE <- "Età media"
-udm <- "anni e decimi di anno"
-TITLE <- glue("Andamento indicatori demografici: {INDICATORE}")
-SUBTIT <- glue("Indicatore espresso in: {udm}")
+UDM <- "anni e decimi di anno"
+TITLE <- glue("Trend demografici: {INDICATORE}")
+SUBTIT <- glue("Indicatore espresso in: {UDM}")
 CAP <- "Fonte: Istat, Demografia in cifre, Nov. 2025 | Rielaborazione: Fondazione Cariparma"
 
-# p01_e_m  [= Età Media] ----
+# ---- Make plot ----
+# Plot: p01_e_m [= Età Media]  ----
 p01_e_m <- data |>
   dplyr::filter(indicatore == INDICATORE) |>
   filter(territorio != "NORD-EST", territorio != "Altro") |>
@@ -166,7 +169,7 @@ p01_e_m <- data |>
 
 p01_e_m
 
-# Save plot ----
+# Save plot as .rds ----
 saveRDS(object = p01_e_m, file = here::here("data", "plots", "p01_e_m.rds"))
 # ggsave(
 #   filename = fs::path(dir_plots, glue("p01_e_m",".png")),
@@ -177,15 +180,17 @@ saveRDS(object = p01_e_m, file = here::here("data", "plots", "p01_e_m.rds"))
 #   dpi = 300
 #   )
 
-# [POI] read back into env ----
+# [POI] read back into env
 # p01_e_m <-  readRDS(p01_e_m, here::here("dir_plots", "p01_e_m.rds"))
 
-# 🟧🟦🟨🟩🟪 ------
-# FUNZIONE WRAPPER per creare plot con altri indicatori ---------
+# 🟨🟩 CON Funzione Wrapper (Dataset 1) ------
+# Presuppone un dataframe già pulito
+
+# FUNZIONE che CREA + SALVARE plot con altri indicatori ---------
 plot_indicatore_demografico <- function(
   indicatore,
   udm,
-  dataset = NULL,
+  dataset = NULL, # il df di partenza
   title = NULL,
   subtitle = NULL,
   caption = "Fonte: Istat, Demografia in cifre, Nov. 2025 | Rielaborazione: Fondazione Cariparma",
@@ -199,7 +204,7 @@ plot_indicatore_demografico <- function(
 
   # Genera title e subtitle se non forniti
   if (is.null(title)) {
-    title <- glue("Andamento indicatori demografici: {indicatore}")
+    title <- glue("Trend demografici: {indicatore}")
   }
   if (is.null(subtitle)) {
     subtitle <- glue("Indicatore espresso in: {udm}")
@@ -293,9 +298,9 @@ plot_indicatore_demografico <- function(
 
 
 # ==============================================================================
-# ESEMPI DI USO ----
+# USO di FUNZIONE ----
 # ==============================================================================
-# p01_e_m [ = Età Media] ----
+# # Plot:p01_e_m [ = Età Media] ----
 # p01_e_m <- plot_indicatore_demografico(
 #   indicatore = "Età Media",
 #   udm = "Anni e decimi di anno.",
@@ -304,29 +309,186 @@ plot_indicatore_demografico <- function(
 # )
 # p01_e_m
 
-# p02_i_v [ = Indice di vecchiaia] ----
+# Plot: p02_i_v [ = Indice di vecchiaia] ----
 p02_i_v <- plot_indicatore_demografico(
+  dataset = data,
   indicatore = "Indice di vecchiaia",
-  udm = "Rapporto % tra popolazione di 65+ anni e in età attiva (15-64).",
+  udm = "% tra popolazione di 65+ anni e in età 0-14.",
   save_plot = TRUE,
   file_name = "p02_i_v.rds"
 )
 p02_i_v
 
-# p04_i_d_a  [= Indice di dipendenza anziani] ----
+# Plot: p04_i_d_a  [= Indice di dipendenza anziani] ----
 p04_i_d_a <- plot_indicatore_demografico(
+  dataset = data,
   indicatore = "Indice di dipendenza anziani",
-  udm = "Rapporto % tra popolazione di 65+ e in età attiva (15-64 anni)",
+  udm = "% tra popolazione di 65+ e in età attiva (15-64 anni)",
   save_plot = TRUE,
   file_name = "p04_i_d_a.rds"
 )
 p04_i_d_a
 
-# p03_i_d_s [ = Indice di dipendenza strutturale] ----
+# Plot: p03_i_d_s [ = Indice di dipendenza strutturale] ----
 p03_i_d_s <- plot_indicatore_demografico(
+  dataset = data,
   indicatore = "Indice di dipendenza strutturale",
-  udm = "Rapporto % tra popolazione in età non attiva (0-14 e 65+ anni) e in età attiva (15-64 anni)",
+  udm = "% tra popolazione in età non attiva (0-14 e 65+ anni) e in età attiva (15-64 anni)",
   save_plot = TRUE,
   file_name = "p03_i_d_s.rds"
 )
 p03_i_d_s
+
+# 🟨🟩 CON Funzione Wrapper (Dataset 2)------
+# --- Load dataset 2) ----
+indicatori_struttura_pop <- readRDS(fs::path(
+  dir_rds,
+  "indicatori_struttura_popolazione.rds"
+))
+
+# ---- Prepare data 2) for plotting (indicatori_di_struttura) ----
+data2 <- indicatori_struttura_pop |>
+  dplyr::filter(
+    territorio %in%
+      c(
+        "Bologna",
+        "Piacenza",
+        "Parma",
+        "Reggio nell'Emilia",
+        "Modena",
+        "Ferrara",
+        "Ravenna",
+        "Forli'",
+        "Rimini",
+        "Emilia-Romagna",
+        "NORD-EST",
+        "ITALIA"
+      )
+  ) |>
+  dplyr::mutate(
+    highlight = territorio %in%
+      c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA"),
+    territorio_display = ifelse(highlight, territorio, "Altro")
+  ) |>
+  #maintain
+  dplyr::mutate(
+    territorio_display = factor(
+      territorio_display,
+      levels = c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA", "Altro")
+    ),
+    highlight = factor(highlight)
+  )
+
+sample_n(data2, 10)
+
+
+# 🟨🟩 CON Funzione Wrapper ------
+# Arguments for next 3 plots ----
+tabyl(indicatori_struttura_pop$indicatore)
+
+CAP <- "Fonte: Istat, Demografia in cifre, Nov. 2025 | Rielaborazione: Fondazione Cariparma"
+# OTUPUT_DIR_DEFAULT = "data", "plots", file_name
+
+# Plot: p06_0_14_anni [% classe di età 0-14 anni] ----
+p06_0_14_anni <- plot_indicatore_demografico(
+  dataset = data2,
+  indicatore = "0-14 anni",
+  udm = "% della popolazione per classe di età",
+  title = NULL,
+  subtitle = NULL,
+  caption = CAP,
+  save_plot = TRUE,
+  file_name = "p06_0_14_anni.rds"
+)
+
+p06_0_14_anni
+
+# Plot: p06_15_64_anni [% classe di età 15-64 anni] ----
+p06_15_64_anni <- plot_indicatore_demografico(
+  dataset = data2,
+  indicatore = "15-64 anni",
+  udm = "% della popolazione per classe di età",
+  title = NULL,
+  subtitle = NULL,
+  caption = CAP,
+  save_plot = TRUE,
+  file_name = "p06_15_64_anni.rds"
+)
+
+p06_15_64_anni
+
+# Plot: p06_65piu_anni [% classe di età 65 anni e oltre] ----
+p06_65piu_anni <- plot_indicatore_demografico(
+  dataset = data2,
+  indicatore = "65 anni e oltre",
+  udm = "% della popolazione per classe di età",
+  title = NULL,
+  subtitle = NULL,
+  caption = CAP,
+  save_plot = TRUE,
+  file_name = "p06_65piu_anni.rds"
+)
+
+p06_65piu_anni
+
+# 🟨🟩 CON Funzione Wrapper (Dataset 3 ecc )------
+# Arguments for next n  plots ----
+CAP <- "Fonte: Istat, Demografia in cifre, Nov. 2025 | Rielaborazione: Fondazione Cariparma"
+# OTUPUT_DIR_DEFAULT = "data", "plots", file_name
+# udm = da specificare ....
+
+# ---- Load dataset 3 ecc ) ----
+crescita_naturale <- readRDS(fs::path(
+  dir_rds,
+  "crescita_naturale.rds"
+))
+
+glimpse(crescita_naturale)
+crescita_naturale$indicatore
+
+# Preparazione dati per il plotting ----
+data3 <- crescita_naturale |>
+  dplyr::filter(
+    territorio %in%
+      c(
+        "Bologna",
+        "Piacenza",
+        "Parma",
+        "Reggio nell'Emilia",
+        "Modena",
+        "Ferrara",
+        "Ravenna",
+        "Forli'",
+        "Rimini",
+        "Emilia-Romagna",
+        "NORD-EST",
+        "ITALIA"
+      )
+  ) |>
+  dplyr::mutate(
+    highlight = territorio %in%
+      c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA"),
+    territorio_display = ifelse(highlight, territorio, "Altro")
+  ) |>
+  #maintain
+  dplyr::mutate(
+    territorio_display = factor(
+      territorio_display,
+      levels = c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA", "Altro")
+    ),
+    highlight = factor(highlight)
+  )
+
+# Plot
+p07_crescita_naturale <- plot_indicatore_demografico(
+  dataset = data3,
+  indicatore = "crescita_naturale", # nome nel df
+  udm = "differenza tra il tasso di natalità e il tasso di mortalità",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p07_crescita_naturale.rds"
+)
+
+p07_crescita_naturale

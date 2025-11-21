@@ -9,15 +9,19 @@
 
 ## TODO
 
-+ Rivedere e testare funzioni 
-  + `R/f_istat_esplora_metadati.R`
-  + `R/f_istat_scarica.R` - NEW generica
++ Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
+  + `analysis/_02_base_maps.qmd` usando 
+    - `data/data_out/comuni_ita_info_redux_sf.rds` JOINED con 
+    - `data/data_out/istat_pop_com_ER_2023_AGE.rds` | ... `CITIZENSHIP` |
+  + Capire se posso renderle interattive in modo piu facile (es `ggiraph`) tipo visualizzare il comune
+  + 🟦 aggiungo layer aree interne
+  + 🟦 aggiungo layer comunità montane
 
-+ Prep base maps x
-  + Parma comuni
-  + ER -Provincie
-  + Lombardia - Provincie
-  + Pavia - Comuni
++ statistiche in **serie storica 2002-2024** 
+  + cercare correlazione/discontinuita tra Parma / ER / Italia nei trend 
+
++ **piramide età** `data/data_out/istat_pop_com_ER_2023_AGE.rds`(FACETED x comune di ER) [https://rfortherestofus.com/2024/07/population-pyramid-part-1](https://rfortherestofus.com/2024/07/population-pyramid-part-1)
+
 
 ## Introduzione
 
