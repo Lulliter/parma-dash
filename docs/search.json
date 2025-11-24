@@ -136,5 +136,117 @@
     "title": "First Blog Post",
     "section": "",
     "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#leggi-shp-files-per-emilia-romagna",
+    "href": "analysis/02_base_maps.html#leggi-shp-files-per-emilia-romagna",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "leggi shp files per Emilia-Romagna",
+    "text": "leggi shp files per Emilia-Romagna\nFONTE: output di map/01_istat_shp_situas_cens.qmd"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#leggi-caratt-comuni-ita",
+    "href": "analysis/02_base_maps.html#leggi-caratt-comuni-ita",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "leggi caratt comuni Ita",
+    "text": "leggi caratt comuni Ita\nFONTE: output di map/01_istat_shp_situas_cens.qmd"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#leggi-dati-censimento",
+    "href": "analysis/02_base_maps.html#leggi-dati-censimento",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "leggi dati censimento",
+    "text": "leggi dati censimento\nFONTE: output di map/01_istat_shp_situas_cens.qmd"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#join-comuni-er-caratt-comuni-ita",
+    "href": "analysis/02_base_maps.html#join-comuni-er-caratt-comuni-ita",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "Join comuni ER + caratt comuni Ita",
+    "text": "Join comuni ER + caratt comuni Ita\nOKKIO: qui avrei le caratteristiche di TUTTI i comuni Ita, ma mi tengo solo quelle di Emilia-Romagna. Entrambe qs df sono sf con geometria."
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#prep-linee-province",
+    "href": "analysis/02_base_maps.html#prep-linee-province",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "Prep linee PROVINCE",
+    "text": "Prep linee PROVINCE\nI confini delle PROV si possono desumere dai comuni con st_union() in summarise()\nOKKIO: + con sf, quando fai summarise() su gruppi le geometrie dei comuni nel gruppo vengono unite (st_union()), quindi passi da n comuni → 1 poligono per provincia, e gli attributi vengono riassunti per gruppo (in questo caso hai solo COD_PROV, quindi rimane quello). + .groups = \"drop\" ottieni un tibble sf non raggruppato"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#mapfunc-mappa-con-dummy-com_iso-com_lit-zone_cost_2021",
+    "href": "analysis/02_base_maps.html#mapfunc-mappa-con-dummy-com_iso-com_lit-zone_cost_2021",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map/Func] mappa con dummy (COM_ISO, COM_LIT, ZONE_COST_2021)",
+    "text": "[Map/Func] mappa con dummy (COM_ISO, COM_LIT, ZONE_COST_2021)"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#map-dummy-zone_cost_2021",
+    "href": "analysis/02_base_maps.html#map-dummy-zone_cost_2021",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map] Dummy ZONE_COST_2021",
+    "text": "[Map] Dummy ZONE_COST_2021\n\n\n\n\n\nFigura 1"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#mapfunc-mappa-con-fattori-degurba_2021-zona_alt",
+    "href": "analysis/02_base_maps.html#mapfunc-mappa-con-fattori-degurba_2021-zona_alt",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map/Func] mappa con fattori (DEGURBA_2021, ZONA_ALT)",
+    "text": "[Map/Func] mappa con fattori (DEGURBA_2021, ZONA_ALT)"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#map-fattore-zona_alt",
+    "href": "analysis/02_base_maps.html#map-fattore-zona_alt",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map] Fattore ZONA_ALT",
+    "text": "[Map] Fattore ZONA_ALT\n\n\n\n\n\nFigura 2"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#map-fattore-degurba_2021",
+    "href": "analysis/02_base_maps.html#map-fattore-degurba_2021",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map] Fattore DEGURBA_2021",
+    "text": "[Map] Fattore DEGURBA_2021\n\n\n\n\n\nFigura 3"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#prep-dati-popolazione-2023-fattore-degurba_2021-per-comuni-parma",
+    "href": "analysis/02_base_maps.html#prep-dati-popolazione-2023-fattore-degurba_2021-per-comuni-parma",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni Parma",
+    "text": "[Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni Parma"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#map-variabile-continua-popolazione-over-60-anni",
+    "href": "analysis/02_base_maps.html#map-variabile-continua-popolazione-over-60-anni",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map] Variabile continua % Popolazione over 60 anni",
+    "text": "[Map] Variabile continua % Popolazione over 60 anni\n\n\n\n\n\nFigura 4"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#map-12-popolazione-over-60-anni-grado-di-urbanizzazione",
+    "href": "analysis/02_base_maps.html#map-12-popolazione-over-60-anni-grado-di-urbanizzazione",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map 1/2] Popolazione over 60 anni + Grado di urbanizzazione",
+    "text": "[Map 1/2] Popolazione over 60 anni + Grado di urbanizzazione\n\n\n\n\n\nFigura 5"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#map-22-popolazione-over-60-anni-grado-di-urbanizzazione",
+    "href": "analysis/02_base_maps.html#map-22-popolazione-over-60-anni-grado-di-urbanizzazione",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione",
+    "text": "[Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione\n\n\n\n\n\nFigura 6"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#stats-correlazione-tra-urbanizzazione-e-invecchiamento",
+    "href": "analysis/02_base_maps.html#stats-correlazione-tra-urbanizzazione-e-invecchiamento",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "[Stats] Correlazione tra urbanizzazione e invecchiamento",
+    "text": "[Stats] Correlazione tra urbanizzazione e invecchiamento\n\n\n\n\n\nFigura 7: Relazione tra grado di urbanizzazione e quota di popolazione over 60\n\n\n\n\n\n\n\n\n\n[Stats/ggstatsplot] Visualizzazione con test integrati\n\n\n\n\n\nFigura 8: Analisi statistica con ggstatsplot"
+  },
+  {
+    "objectID": "analysis/02_base_maps.html#qui",
+    "href": "analysis/02_base_maps.html#qui",
+    "title": "Mappe basate su confini e caratteristiche dei comuni",
+    "section": "QUI 🟨🟧🌫️🟪🟦",
+    "text": "QUI 🟨🟧🌫️🟪🟦"
   }
 ]

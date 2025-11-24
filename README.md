@@ -9,7 +9,11 @@
 
 ## TODO
 
-+ Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
++ arrivata a `analysis/02_base_maps.qmd` per il momento mi fermo
+
++ ADESSO sono in `dashboard/01_tema_disabilità.qmd` e annessi ... 
+
+  + Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
   + `analysis/_02_base_maps.qmd` usando 
     - `data/data_out/comuni_ita_info_redux_sf.rds` JOINED con 
     - `data/data_out/istat_pop_com_ER_2023_AGE.rds` | ... `CITIZENSHIP` |
@@ -17,10 +21,10 @@
   + 🟦 aggiungo layer aree interne
   + 🟦 aggiungo layer comunità montane
 
-+ statistiche in **serie storica 2002-2024** 
-  + cercare correlazione/discontinuita tra Parma / ER / Italia nei trend 
+  + statistiche in **serie storica 2002-2024** 
+    + cercare correlazione/discontinuita tra Parma / ER / Italia nei trend 
 
-+ **piramide età** `data/data_out/istat_pop_com_ER_2023_AGE.rds`(FACETED x comune di ER) [https://rfortherestofus.com/2024/07/population-pyramid-part-1](https://rfortherestofus.com/2024/07/population-pyramid-part-1)
+  + **piramide età** `data/data_out/istat_pop_com_ER_2023_AGE.rds`(FACETED x comune di ER) [https://rfortherestofus.com/2024/07/population-pyramid-part-1](https://rfortherestofus.com/2024/07/population-pyramid-part-1)
 
 
 ## Introduzione

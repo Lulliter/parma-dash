@@ -306,16 +306,15 @@ f_make_factor_map(
 ## [Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni Parma 
 ```{r}
 # --- PREP from long to useful
-pop_com_PR_by_age <- istat_pop_com_PR_2023 |>         # 4788 
+pop_com_PR_by_age <- istat_pop_com_PR_2023  |>         # 4788 
   # Drop bc they are not changing
-  select(-FREQ, -TIME_PERIOD, -MARITAL_STATUS, -AREA_CONTRY_CITIZEN, -USUAL_RESID_1Y) |> 
+  #select(-FREQ, -TIME_PERIOD, -MARITAL_STATUS, -AREA_CONTRY_CITIZEN, -USUAL_RESID_1Y) |> 
   # Filtro 
   dplyr::filter(
     # AGE_CLASS lo lascio variare
     INDICATOR == "RESPOP_AV" & # no RESPOP_MIN_AV
       GENDER == "T" & # no F o M 
-      CITIZENSHIP == "TOTAL" & 
-      NOTE_AREA_CONTRY_CITIZEN == "ISO__ALL_N1"   # ma non varia
+      CITIZENSHIP == "TOTAL"  
   )      |>               # 44 
   mutate(OBS_VALUE = as.numeric(OBS_VALUE)) |> 
   group_by(REF_AREA, INDICATOR  )  |> 
@@ -327,31 +326,102 @@ pop_com_PR_by_age <- istat_pop_com_PR_2023 |>         # 4788
             .groups = "drop"  ) 
 
 # join a comuni_er
-comuni_pr_pop <- inner_join(comuni_er,istat_pop_com_PR_2023_s, 
+comuni_pr_pop <- inner_join(comuni_er, pop_com_PR_by_age, 
                            by = c("PRO_COM_T" = "REF_AREA" ))
 class(comuni_pr_pop)  # sf + data.frame
 
+# Arguments
+fonte_anno_agg <- "Istat/SITUAS (2025)"
+fonte_nome <- "Comuni - Caratteristiche del territorio"
 
+fonte2_anno_agg <- "Istat (2023)"
+fonte2_nome <- "Censimento"
 ```
 
+## [Map] Variabile continua % Popolazione over 60 anni
 
+```{r}
+#| label: fig-map-continuous-over60
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
 
+ggplot() +
+  geom_sf(data = comuni_pr_pop,
+          aes(fill = perc_Over60),
+          color = "white",
+          linewidth = 0.1) +
+  geom_sf(data = prov_er[prov_er$COD_PROV == "34", ],
+          fill = NA,
+          color = "#922b3e",
+          linewidth = 0.8) +
+  scale_fill_viridis_c(
+    name = "% popolazione\nover 60",
+    option = "plasma",
+    direction = -1  # Inverte: colori scuri = % alte
+  ) +
+  labs(
+    title    = "Quota di residenti over 60 anni",
+    subtitle = "Comuni della provincia di Parma, anno 2023",
+    caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10)
+  )
+```
 
-## QUI 🟨🟧🌫️🟪🟦
-<!-- https://nrennie.rbind.io/talks/rladies-rome-ggplot2/ -->
-<!-- https://chatgpt.com/c/690f7059-01a4-8331-bd6b-b95120d078c3 -->
-
+## [Map 1/2] Popolazione over 60 anni + Grado di urbanizzazione
 ```{r}
 #| label: fig-map-pop-over60-pr
 #| output: true
 #| fig-cap: ""
 #| out-width: 100%
 
-fonte_anno_agg <- "Istat/SITUAS (2025)"
-fonte_nome <- "Comuni - Caratteristiche del territorio"
 
-fonte2_anno_agg <- "Istat (2023)"
-fonte2_nome <- "Censimento"
+# OPZIONE 1: Facet per DEGURBA_2021, colore per perc_Over60
+# Mostra la distribuzione di perc_Over60 separatamente per ogni livello di urbanizzazione
+ggplot() +
+  geom_sf(data = comuni_pr_pop,
+          aes(fill = perc_Over60),
+          color = "white",
+          linewidth = 0.1) +
+  geom_sf(data = prov_er[prov_er$COD_PROV == "34", ],
+          fill = NA,
+          color = "#922b3e",
+          linewidth = 0.8) +
+  scale_fill_viridis_c(
+    name = "% popolazione\nover 60",
+    option = "plasma",
+    direction = -1  # Inverte: colori scuri = % alte
+  ) +
+  facet_wrap(~DEGURBA_2021, ncol = 3) +
+  labs(
+    title    = "Quota di residenti over 60 anni per grado di urbanizzazione",
+    subtitle = "Comuni della provincia di Parma, anno 2023",
+    caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10),
+    strip.text = element_text(size = 8, face = "bold")
+  )
+```
+
+## [Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione
+```{r}
+#| label: fig-map-pop-over60-pr2
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+# OPZIONE 2: Bubble map su p_base
+# Usa p_base (DEGURBA_2021 come sfondo) + pallini grigi dimensionati per perc_Over60
+comuni_pr_pop_centroids <- comuni_pr_pop |>
+  st_centroid()
 
 # ADesso uso i dati in comuni_pr_pop ma selezionati solo per Parma
 p_base <- f_make_factor_map(
@@ -368,53 +438,146 @@ p_base <- f_make_factor_map(
   legend_width = 20
 )
 
-# Adesso aggiungo un layer con la variabile continua (perc_Over60)
-# Usando i dati in istat_pop_com_PR_2023_s
-p_base + 
-  geom_sf(data = comuni_pr_pop,
-          aes(fill = perc_Over60),
-          color = "white",
-          linewidth = 0.1,
-          alpha = 0.7) +
-  scale_fill_viridis_c(
-    name = "% popolazione over 60",
-    option = "plasma"
+p_base +
+  # Pallini grigi con dimensione E tonalità proporzionali a perc_Over60
+  geom_sf(data = comuni_pr_pop_centroids,
+          aes(size = perc_Over60, color = perc_Over60),
+          alpha = 0.7,
+          show.legend = "point") +
+  scale_size_continuous(
+    name = "% over 60",
+    range = c(1, 8)
+  ) +
+  scale_color_gradient(
+    name = "% over 60",
+    low = "#d9d9d9",   # grigio chiaro per % basse
+    high = "#252525",  # grigio scuro per % alte
+    guide = guide_legend()
   ) +
   labs(
-    title    = "Quota di residenti over 60 anni",
+    title    = "Popolazione over 60 e grado di urbanizzazione",
     subtitle = "Comuni della provincia di Parma, anno 2023"
-  ) +
-  theme_minimal()
+  )
 
 ```
 
+## [Stats] Correlazione tra urbanizzazione e invecchiamento
 
-
-## [Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni ER 
 ```{r}
-# --- PREP from long to useful
-pop_com_ER_by_age <- istat_pop_com_PR_2023 |>         # 4788 
-  # Drop bc they are not changing
-  select(-FREQ, -TIME_PERIOD, -MARITAL_STATUS, -AREA_CONTRY_CITIZEN, -USUAL_RESID_1Y) |> 
-  # Filtro 
-  dplyr::filter(
-    # AGE_CLASS lo lascio variare
-    INDICATOR == "RESPOP_AV" & # no RESPOP_MIN_AV
-      GENDER == "T" & # no F o M 
-      CITIZENSHIP == "TOTAL" & 
-      NOTE_AREA_CONTRY_CITIZEN == "ISO__ALL_N1"   # ma non varia
-  )      |>               # 44 
-  mutate(OBS_VALUE = as.numeric(OBS_VALUE)) |> 
-  group_by(REF_AREA, INDICATOR  )  |> 
-  summarise(Over60 = sum(OBS_VALUE[AGE_CLASS %in% c("Y60-69","Y70-79","Y80-89",  "Y90-99", "Y_GE100" )]),
-            TotalPop = sum(OBS_VALUE[AGE_CLASS == "TOTAL" ]),
-            perc_Over60 = round(Over60/TotalPop * 100,2),
-            Under30 = sum(OBS_VALUE[AGE_CLASS %in% c("Y0-9",  "Y10-19",  "Y20-29")]),
-            perc_Under30 = round(Under30/TotalPop * 100,2),
-            .groups = "drop"  ) 
+# TEST STATISTICO: ANOVA ----
+# Testa se le medie differiscono significativamente tra i gruppi
+anova_result <- aov(perc_Over60 ~ DEGURBA_2021, data = comuni_pr_pop)
+cat("\n=== TEST ANOVA: perc_Over60 ~ DEGURBA_2021 ===\n")
+print(summary(anova_result))
 
-# join a comuni_er
-comuni_pr_pop <- inner_join(comuni_er,istat_pop_com_PR_2023_s, 
-                           by = c("PRO_COM_T" = "REF_AREA" ))
-class(comuni_pr_pop)  # sf + data.frame
+# Post-hoc test (confronti multipli)
+if(requireNamespace("multcomp", quietly = TRUE)) {
+  library(multcomp)
+  posthoc <- glht(anova_result, linfct = mcp(DEGURBA_2021 = "Tukey"))
+  cat("\n=== POST-HOC TEST (Tukey HSD) ===\n")
+  print(summary(posthoc))
+}
+
+# Crea tabella statistiche
+stats_degurba <- comuni_pr_pop |>
+  group_by(DEGURBA_2021) |>
+  summarise(
+    media = mean(perc_Over60, na.rm = TRUE),
+    mediana = median(perc_Over60, na.rm = TRUE),
+    sd = sd(perc_Over60, na.rm = TRUE),
+    n = n()
+  )
+
+# Stampa tabella statistiche
+cat("\n=== STATISTICHE DESCRITTIVE ===\n")
+print(stats_degurba, n = Inf)
 ```
+
+```{r}
+#| label: fig-stats-degurba-age
+#| output: true
+#| fig-cap: "Relazione tra grado di urbanizzazione e quota di popolazione over 60"
+#| fig-width: 10
+#| fig-height: 6
+
+library(patchwork)
+
+#  BOXPLOT: distribuzione di perc_Over60 per categoria DEGURBA
+p1 <- ggplot(comuni_pr_pop, aes(x = DEGURBA_2021, y = perc_Over60, fill = DEGURBA_2021)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = 21, outlier.size = 2) +
+  geom_jitter(width = 0.2, alpha = 0.4, size = 1.5) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 3, fill = "red") +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +
+  labs(
+    title = "Distribuzione % over 60 per grado di urbanizzazione",
+    x = NULL,
+    y = "% popolazione over 60"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(size = 9),
+    plot.title = element_text(face = "bold", size = 11)
+  )
+# Combina i grafici
+p1  +
+  plot_annotation(
+    caption = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}\nComuni della provincia di Parma"),
+    theme = theme(plot.caption = element_text(hjust = 0, size = 8))
+  )
+```
+
+### [Stats/ggstatsplot] Visualizzazione con test integrati
+
+```{r}
+#| label: fig-ggstatsplot-degurba-age
+#| output: true
+#| fig-cap: "Analisi statistica con ggstatsplot"
+#| fig-width: 11
+#| fig-height: 7
+
+# Usa ggstatsplot per analisi statistiche visuali
+library(ggstatsplot)
+
+# Drop geometry per compatibilità con ggstatsplot
+comuni_pr_pop_df <- comuni_pr_pop |> st_drop_geometry()
+
+# ggbetweenstats: confronto tra gruppi con test statistici integrati
+ggbetweenstats(
+  data = comuni_pr_pop_df,
+  x = DEGURBA_2021,
+  y = perc_Over60,
+  title = "Correlazione tra grado di urbanizzazione e invecchiamento della popolazione",
+  subtitle = "Comuni della provincia di Parma, anno 2023",
+  caption = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}"),
+  xlab = "Grado di urbanizzazione",
+  ylab = "% popolazione over 60",
+  # Tipo di plot
+  type = "parametric",  # usa ANOVA parametrica
+  plot.type = "box",    # boxplot (alt: "violin", "boxviolin")
+  # Comparazioni pairwise
+  pairwise.comparisons = TRUE,
+  pairwise.display = "significant",  # mostra solo quelle significative
+  p.adjust.method = "holm",
+  # Parametri estetici
+  package = "ggsci",
+  palette = "default_jco",
+  point.args = list(alpha = 0.5, size = 2.5, position = position_jitter(width = 0.15)),
+  centrality.plotting = TRUE,
+  centrality.type = "parametric",  # mostra la media
+  # Labels wrapping
+  ggtheme = ggplot2::theme_minimal()
+) +
+  theme(
+    axis.text.x = element_text(size = 9),
+    plot.title = element_text(size = 12, face = "bold"),
+    plot.subtitle = element_text(size = 10)
+  ) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 15))
+```
+
+
+
+## QUI 🟨🟧🌫️🟪🟦
+<!-- https://nrennie.rbind.io/talks/rladies-rome-ggplot2/ -->
+<!-- https://chatgpt.com/c/690f7059-01a4-8331-bd6b-b95120d078c3 -->
