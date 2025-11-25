@@ -39,7 +39,7 @@ grn_sc <- "#246864"
 grn_md <- "#539d90"
 grn_lg <- "#8eb9b1"
 
-# --- Load dataset 1) ----
+# --- 📂 Load dataset 1) ----
 indicatori_di_struttura <- readRDS(fs::path(
   dir_rds,
   "indicatori_di_struttura.rds"
@@ -48,7 +48,6 @@ indicatori_di_struttura <- readRDS(fs::path(
 tabyl(indicatori_di_struttura$indicatore)
 
 # ---- Prepare data 1) for plotting (indicatori_di_struttura) ----
-
 data <- indicatori_di_struttura |>
   dplyr::filter(
     territorio %in%
@@ -108,9 +107,7 @@ p01_e_m <- data |>
   # (FUNZIONA CON ggiraph)
   geom_line_interactive(
     aes(
-      tooltip = glue(
-        "Territorio: {gsub(\"'\", \"&apos;\", territorio)}\n{indicatore}: {round(valore,2)}"
-      ),
+      tooltip = territorio,
       data_id = gsub("'", "", territorio)
     ),
     linewidth = rel(0.8)
@@ -119,9 +116,7 @@ p01_e_m <- data |>
   geom_line_interactive(
     data = \(df) df |> filter(territorio %in% c("Parma", "Emilia-Romagna")),
     aes(
-      tooltip = glue(
-        "Territorio: {gsub(\"'\", \"&apos;\", territorio)}\n{indicatore}: {round(valore,2)}"
-      ),
+      tooltip = territorio,
       data_id = gsub("'", "", territorio)
     ),
     linewidth = rel(1.5)
@@ -224,9 +219,7 @@ plot_indicatore_demografico <- function(
     )) +
     geom_line_interactive(
       aes(
-        tooltip = glue(
-          "Territorio: {gsub(\"'\", \"&apos;\", territorio)}\n{indicatore}: {round(valore,2)}"
-        ),
+        tooltip = territorio,
         data_id = gsub("'", "", territorio)
       ),
       linewidth = rel(0.8)
@@ -235,9 +228,7 @@ plot_indicatore_demografico <- function(
     geom_line_interactive(
       data = \(df) df |> filter(territorio %in% c("Parma", "Emilia-Romagna")),
       aes(
-        tooltip = glue(
-          "Territorio: {gsub(\"'\", \"&apos;\", territorio)}\n{indicatore}: {round(valore,2)}"
-        ),
+        tooltip = territorio,
         data_id = gsub("'", "", territorio)
       ),
       linewidth = rel(1.5)
@@ -319,6 +310,15 @@ p02_i_v <- plot_indicatore_demografico(
 )
 p02_i_v
 
+# Plot: p03_i_d_s [ = Indice di dipendenza strutturale] ----
+p03_i_d_s <- plot_indicatore_demografico(
+  dataset = data,
+  indicatore = "Indice di dipendenza strutturale",
+  udm = "% tra popolazione in età non attiva (0-14 e 65+ anni) e in età attiva (15-64 anni)",
+  save_plot = TRUE,
+  file_name = "p03_i_d_s.rds"
+)
+p03_i_d_s
 # Plot: p04_i_d_a  [= Indice di dipendenza anziani] ----
 p04_i_d_a <- plot_indicatore_demografico(
   dataset = data,
@@ -329,23 +329,15 @@ p04_i_d_a <- plot_indicatore_demografico(
 )
 p04_i_d_a
 
-# Plot: p03_i_d_s [ = Indice di dipendenza strutturale] ----
-p03_i_d_s <- plot_indicatore_demografico(
-  dataset = data,
-  indicatore = "Indice di dipendenza strutturale",
-  udm = "% tra popolazione in età non attiva (0-14 e 65+ anni) e in età attiva (15-64 anni)",
-  save_plot = TRUE,
-  file_name = "p03_i_d_s.rds"
-)
-p03_i_d_s
 
 # 🟨🟩 CON Funzione Wrapper (Dataset 2)------
-# --- Load dataset 2) ----
+# --- 📂 Load dataset 2) ----
 indicatori_struttura_pop <- readRDS(fs::path(
   dir_rds,
   "indicatori_struttura_popolazione.rds"
 ))
 
+tabyl(indicatori_struttura_pop$indicatore)
 # ---- Prepare data 2) for plotting (indicatori_di_struttura) ----
 data2 <- indicatori_struttura_pop |>
   dplyr::filter(
@@ -431,57 +423,150 @@ p06_65piu_anni <- plot_indicatore_demografico(
 
 p06_65piu_anni
 
-# 🟨🟩 CON Funzione Wrapper (Dataset 3 ecc )------
+# 🟨🟩🟧 CON FUNZIONE PREP + Funzione Wrapper (Dataset 3 ecc )------
+
+# FUNZIONE che PREPARA DATASETS x altri indicatori (singoli) ---------
+# Carica e prepara singolo RDS file per plotting ----
+#' Carica e prepara un singolo RDS file con filtro territori
+#'
+#' @param rds_file Nome del file RDS (con o senza estensione .rds)
+#' @param dir_rds Directory contenente il file RDS
+#' @param territori_filtro Vettore di territori da includere nel filtro
+#' @param territori_highlight Vettore di territori da evidenziare
+#'
+#' @return Dataframe preparato
+#' @export
+#'
+#' @examples
+#' dir_rds <- here::here("data", "data_out", "istat_demo_2002_2024")
+#' crescita_naturale <- load_and_prepare_rds("crescita_naturale.rds", dir_rds)
+load_and_prepare_rds <- function(
+  rds_file,
+  dir_rds,
+  territori_filtro = c(
+    "Bologna",
+    "Piacenza",
+    "Parma",
+    "Reggio nell'Emilia",
+    "Modena",
+    "Ferrara",
+    "Ravenna",
+    "Forli'",
+    "Rimini",
+    "Emilia-Romagna",
+    "NORD-EST",
+    "ITALIA"
+  ),
+  territori_highlight = c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA")
+) {
+  # Assicurati che il file abbia estensione .rds
+  if (!grepl("\\.rds$", rds_file, ignore.case = TRUE)) {
+    rds_file <- paste0(rds_file, ".rds")
+  }
+  # Path completo al file
+  file_path <- fs::path(dir_rds, rds_file)
+  # Verifica esistenza file
+  if (!file.exists(file_path)) {
+    stop(glue::glue("File non trovato: {file_path}"))
+  }
+  # Nome base del file
+  basename_no_ext <- gsub("\\.rds$", "", basename(rds_file), ignore.case = TRUE)
+  # Carica il file RDS
+  message(glue::glue("# --- Load dataset: {basename_no_ext} ----"))
+  df <- readRDS(file_path)
+  # Applica la trasformazione standard
+  df_prepared <- df |>
+    dplyr::filter(territorio %in% territori_filtro) |>
+    dplyr::mutate(
+      highlight = territorio %in% territori_highlight,
+      territorio_display = ifelse(highlight, territorio, "Altro")
+    ) |>
+    dplyr::mutate(
+      territorio_display = factor(
+        territorio_display,
+        levels = c(territori_highlight, "Altro")
+      ),
+      highlight = factor(highlight)
+    )
+
+  return(df_prepared)
+}
+
+
+# --- 📂  📂  Load datasets for indiv indic ecc ) ----
+# crescita_naturale <- readRDS(fs::path(
+#   dir_rds,
+#   "crescita_naturale.rds"
+# ))
+#
+# glimpse(crescita_naturale)
+# crescita_naturale$indicatore
+#
+# # Preparazione dati per il plotting ----
+# data3 <- crescita_naturale |>
+#   dplyr::filter(
+#     territorio %in%
+#       c(
+#         "Bologna",
+#         "Piacenza",
+#         "Parma",
+#         "Reggio nell'Emilia",
+#         "Modena",
+#         "Ferrara",
+#         "Ravenna",
+#         "Forli'",
+#         "Rimini",
+#         "Emilia-Romagna",
+#         "NORD-EST",
+#         "ITALIA"
+#       )
+#   ) |>
+#   dplyr::mutate(
+#     highlight = territorio %in%
+#       c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA"),
+#     territorio_display = ifelse(highlight, territorio, "Altro")
+#   ) |>
+#   #maintain
+#   dplyr::mutate(
+#     territorio_display = factor(
+#       territorio_display,
+#       levels = c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA", "Altro")
+#     ),
+#     highlight = factor(highlight)
+#   )
+
+# list all files in dir_rds (no indicatori* )-----
+fs::dir_ls(dir_rds)
+
+# crescita_naturale.rds
+# età_media_al_parto.rds
+# quoziente_di_mortalità.rds
+# quoziente_di_natalità.rds
+# quoziente_di_nuzialità.rds
+# saldo_migratorio_altro_motivo.rds
+# saldo_migratorio_con_l_estero.rds
+# saldo_migratorio_interno.rds
+# saldo_migratorio_totale.rds
+# speranza_di_vita_0.rds
+# speranza_di_vita_65.rds
+# tasso_di_crescita_totale.rds
+# tasso_di_fecondità_totale.rds
+
+# Prep & Plot with 2 FUNCTIONS ----
 # Arguments for next n  plots ----
 CAP <- "Fonte: Istat, Demografia in cifre, Nov. 2025 | Rielaborazione: Fondazione Cariparma"
 # OTUPUT_DIR_DEFAULT = "data", "plots", file_name
 # udm = da specificare ....
 
-# ---- Load dataset 3 ecc ) ----
-crescita_naturale <- readRDS(fs::path(
-  dir_rds,
-  "crescita_naturale.rds"
-))
-
-glimpse(crescita_naturale)
-crescita_naturale$indicatore
-
-# Preparazione dati per il plotting ----
-data3 <- crescita_naturale |>
-  dplyr::filter(
-    territorio %in%
-      c(
-        "Bologna",
-        "Piacenza",
-        "Parma",
-        "Reggio nell'Emilia",
-        "Modena",
-        "Ferrara",
-        "Ravenna",
-        "Forli'",
-        "Rimini",
-        "Emilia-Romagna",
-        "NORD-EST",
-        "ITALIA"
-      )
-  ) |>
-  dplyr::mutate(
-    highlight = territorio %in%
-      c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA"),
-    territorio_display = ifelse(highlight, territorio, "Altro")
-  ) |>
-  #maintain
-  dplyr::mutate(
-    territorio_display = factor(
-      territorio_display,
-      levels = c("Parma", "Emilia-Romagna", "NORD-EST", "ITALIA", "Altro")
-    ),
-    highlight = factor(highlight)
-  )
-
-# Plot
+# Plot: p07_crescita_naturale -----
+# Load & prep
+crescita_naturale_rdx <- load_and_prepare_rds(
+  rds_file = "crescita_naturale.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
 p07_crescita_naturale <- plot_indicatore_demografico(
-  dataset = data3,
+  dataset = crescita_naturale_rdx,
   indicatore = "crescita_naturale", # nome nel df
   udm = "differenza tra il tasso di natalità e il tasso di mortalità",
   title = NULL, # comune
@@ -491,4 +576,204 @@ p07_crescita_naturale <- plot_indicatore_demografico(
   file_name = "p07_crescita_naturale.rds"
 )
 
-p07_crescita_naturale
+# Plot: p08_età_media_al_parto -----
+# Load & prep
+età_media_al_parto_rdx <- load_and_prepare_rds(
+  rds_file = "età_media_al_parto.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p08_età_media_al_parto <- plot_indicatore_demografico(
+  dataset = età_media_al_parto_rdx,
+  indicatore = "età_media_al_parto", # nome nel df
+  udm = "anni e decimi di anno",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p08_età_media_al_parto.rds"
+)
+
+# Plot: p09_quoziente_di_mortalità -----
+# Load & prep
+quoziente_di_mortalità_rdx <- load_and_prepare_rds(
+  rds_file = "quoziente_di_mortalità.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p09_quoziente_di_mortalità <- plot_indicatore_demografico(
+  dataset = quoziente_di_mortalità_rdx,
+  indicatore = "quoziente_di_mortalità", # nome nel df
+  udm = "rapporto Num decessi nell'anno e Num medio popolazione residente per 1.000",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p09_quoziente_di_mortalità.rds"
+)
+
+# Plot: p10_quoziente_di_natalità -----
+# Load & prep
+quoziente_di_natalità_rdx <- load_and_prepare_rds(
+  rds_file = "quoziente_di_natalità.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p10_quoziente_di_natalità <- plot_indicatore_demografico(
+  dataset = quoziente_di_natalità_rdx,
+  indicatore = "quoziente_di_natalità", # nome nel df
+  udm = "rapporto Num nati vivi nell'anno e Num medio popolazione residente, per 1.000",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p10_quoziente_di_natalità.rds"
+)
+
+# Plot: p11_quoziente_di_nuzialità -----
+# Load & prep
+quoziente_di_nuzialità_rdx <- load_and_prepare_rds(
+  rds_file = "quoziente_di_nuzialità.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p11_quoziente_di_nuzialità <- plot_indicatore_demografico(
+  dataset = quoziente_di_nuzialità_rdx,
+  indicatore = "quoziente_di_nuzialità", # nome nel df
+  udm = " rapporto Num matrimoni celebrati nell'anno e Num medio popolazione residente, per 1.000",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p11_quoziente_di_nuzialità.rds"
+)
+
+# Plot: p12_saldo_migratorio -----
+# Load & prep
+saldo_migratorio_totale_rdx <- load_and_prepare_rds(
+  rds_file = "saldo_migratorio_totale.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p12_saldo_migratorio_totale <- plot_indicatore_demografico(
+  dataset = saldo_migratorio_totale_rdx,
+  indicatore = "saldo_migratorio_totale", # nome nel df
+  udm = "differenza tra il numero degli iscritti ed il numero dei cancellati dai registri anagrafici per trasferimento di residenza",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p12_saldo_migratorio_totale.rds"
+)
+
+# Plot: p13_saldo_migratorio_interno -----
+# Load & prep
+saldo_migratorio_interno_rdx <- load_and_prepare_rds(
+  rds_file = "saldo_migratorio_interno.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p13_saldo_migratorio_interno <- plot_indicatore_demografico(
+  dataset = saldo_migratorio_interno_rdx,
+  indicatore = "saldo_migratorio_interno", # nome nel df
+  udm = "differenza tra il numero degli iscritti per trasferimento di residenza da altro Comune e il numero dei cancellati per trasferimento di residenza in altro Comune.",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p13_saldo_migratorio_interno.rds"
+)
+
+# Plot: p14_saldo_migratorio_con_l_estero -----
+# Load & prep
+saldo_migratorio_con_l_estero_rdx <- load_and_prepare_rds(
+  rds_file = "saldo_migratorio_con_l_estero.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p14_saldo_migratorio_con_l_estero <- plot_indicatore_demografico(
+  dataset = saldo_migratorio_con_l_estero_rdx,
+  indicatore = "saldo_migratorio_con_l_estero", # nome nel df
+  udm = "rapporto tra il saldo migratorio con l’estero dell’anno e l’ammontare medio della popolazione residente, per 1.000.",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p14_saldo_migratorio_con_l_estero.rds"
+)
+
+# Plot: p15_speranza_di_vita_0 -----
+# Load & prep
+speranza_di_vita_0_rdx <- load_and_prepare_rds(
+  rds_file = "speranza_di_vita_0.rds",
+  dir_rds = dir_rds
+) |>
+  dplyr::filter(sotto_categoria == "Maschi e femmine") # Filtra solo totale
+
+# Plot & save
+p15_speranza_di_vita_0 <- plot_indicatore_demografico(
+  dataset = speranza_di_vita_0_rdx,
+  indicatore = "speranza_di_vita_0", # nome nel df
+  udm = "numero medio di anni che restano da vivere a un neonato",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p15_speranza_di_vita_0.rds"
+)
+
+# Plot: p16_speranza_di_vita_65 -----
+# Load & prep
+speranza_di_vita_65_rdx <- load_and_prepare_rds(
+  rds_file = "speranza_di_vita_65.rds",
+  dir_rds = dir_rds
+) |>
+  dplyr::filter(sotto_categoria == "Maschi e femmine") # Filtra solo totale
+
+# Plot & save
+p16_speranza_di_vita_65 <- plot_indicatore_demografico(
+  dataset = speranza_di_vita_65_rdx,
+  indicatore = "speranza_di_vita_65", # nome nel df
+  udm = "numero medio di anni che restano da vivere a 65 anni",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p16_speranza_di_vita_65.rds"
+)
+
+# Plot: p17_tasso_di_crescita_totale -----
+# Load & prep
+tasso_di_crescita_totale_rdx <- load_and_prepare_rds(
+  rds_file = "tasso_di_crescita_totale.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p17_tasso_di_crescita_totale <- plot_indicatore_demografico(
+  dataset = tasso_di_crescita_totale_rdx,
+  indicatore = "tasso_di_crescita_totale", # nome nel df
+  udm = "per 1000 abitanti",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p17_tasso_di_crescita_totale.rds"
+)
+
+# Plot: p18_tasso_di_fecondità_totale -----
+# Load & prep
+tasso_di_fecondità_totale_rdx <- load_and_prepare_rds(
+  rds_file = "tasso_di_fecondità_totale.rds",
+  dir_rds = dir_rds
+)
+# Plot & save
+p18_tasso_di_fecondità_totale <- plot_indicatore_demografico(
+  dataset = tasso_di_fecondità_totale_rdx,
+  indicatore = "tasso_di_fecondità_totale", # nome nel df
+  udm = "per 1000 abitanti",
+  title = NULL, # comune
+  subtitle = NULL,
+  caption = CAP, # comune
+  save_plot = TRUE,
+  file_name = "p18_tasso_di_fecondità_totale.rds"
+)

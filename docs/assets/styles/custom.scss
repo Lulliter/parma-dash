@@ -43,10 +43,26 @@
   --bs-card-bg: var(--bs-body-bg);
 }
 
-// Hide titles with .notitle class (equivalent to Revealjs .notitle)
-section.notitle > h1.notitle,
-section.notitle > h2.notitle,
-section.notitle > h3.notitle,
+// Hide titles with .notitle class (removes > to match any descendant, not just direct children)
+section.notitle h1,
+section.notitle h2,
+section.notitle h3,
+section.notitle h4,
+section.notitle h5,
+section.notitle h6 {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// Specific for level3.notitle sections (Quarto's structure)
+section.level3.notitle h3 {
+  display: none !important;
+}
+
+// Also hide if class is directly on header
 h1.notitle, h2.notitle, h3.notitle, h4.notitle, h5.notitle, h6.notitle {
   display: none !important;
   visibility: hidden !important;

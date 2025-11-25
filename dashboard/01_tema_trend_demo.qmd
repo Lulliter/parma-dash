@@ -1,0 +1,750 @@
+---
+title: "Demografia: bisogni e servizi sociali"
+subtitle: "A partire da Analisi di contesto di Sinloc/OpenImpact"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
+
+format:
+  html:
+    css: ../assets/styles/custom.scss
+    # theme: flatly
+    toc: false
+    toc-location: left
+    toc-title: "Indice"
+    include-in-header:
+      - text: |
+          <style>
+          section.level3.notitle h3 {
+            display: none !important;
+          }
+          </style>
+
+execute:
+  eval: true
+  echo: false # x mostrare codice anche in file docx
+  warning: false
+  error: false
+  output: false
+  
+bibliography: ../bib/CRP_dash.bib
+suppress-bibliography: false
+---
+
+
+```{r}
+
+library(here)
+library(dplyr)
+library(tibble)
+library(flextable)
+library(glue)
+library(ggplot2)
+library(ggiraph)
+```
+
+# 🟧 Intro
+
+-   nesso con PS 2024-2027:
+    -   Linee Azione .......
+
+> lo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)
+
+<!-- che però non può che non partire dal bisogno reale -->
+
+
+
+# Trend crescita della popolazione per età
+
+### p06_0_14_anni [ = Popolazione 0-14 anni] {.notitle}
+```{r}
+#| label: p06_0_14_anni
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p06_0_14_anni <- readRDS(
+  file = here::here("data", "plots", "p06_0_14_anni.rds")
+)
+
+p06_0_14_anni_interact <- girafe(
+  ggobj = p06_0_14_anni,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p06_0_14_anni_interact
+```
+
+**⭐ Parma in controtendenza sulla natalità**: la quota di popolazione giovane (0-14 anni) è **aumentata di 1 punto percentuale** (dall'11.4% al 12.4%), mentre l'Emilia-Romagna è rimasta stabile (+0.1pp) e l'Italia è **diminuita di 2.3 punti**. Parma presenta oggi **0.6pp in più rispetto alla media regionale**, suggerendo una maggiore tenuta della componente giovanile con potenziali implicazioni positive per i servizi educativi e il ricambio generazionale.
+
+***
+
+### p06_15_64_anni [ = Popolazione 15-64 anni] {.notitle}
+```{r}
+#| label: p06_15_64_anni
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p06_15_64_anni <- readRDS(
+  file = here::here("data", "plots", "p06_15_64_anni.rds")
+)
+
+p06_15_64_anni_interact <- girafe(
+  ggobj = p06_15_64_anni,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p06_15_64_anni_interact
+```
+
+**Tenuta della popolazione in età lavorativa**: la fascia 15-64 anni è diminuita di **1.4 punti percentuali** (da 65.4% a 64.0%), meno rispetto all'Emilia-Romagna (-2.6pp a 63.3%) e all'Italia (-3.7pp a 63.4%). Parma mantiene una quota leggermente superiore (**+0.7pp vs ER**), con implicazioni positive per la sostenibilità del sistema di welfare.
+
+***
+
+### p06_65piu_anni [ = Popolazione 65+ anni] {.notitle}
+```{r}
+#| label: p06_65piu_anni
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p06_65piu_anni <- readRDS(
+  file = here::here("data", "plots", "p06_65piu_anni.rds")
+)
+
+p06_65piu_anni_interact <- girafe(
+  ggobj = p06_65piu_anni,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p06_65piu_anni_interact
+```
+
+**Invecchiamento più lento a Parma**: la quota di over 65 è cresciuta di soli **0.4 punti percentuali** (da 23.2% a 23.6%), contro i **+2.5pp dell'Emilia-Romagna** (24.9%) e i **+6pp dell'Italia** (24.7%). Parma mantiene una popolazione anziana relativamente più contenuta (**-1.3pp vs ER**), con implicazioni dirette sulla domanda di servizi socio-sanitari e assistenziali.
+
+***
+
+## Trend composizione della popolazione per età
+
+### p01_e_m [ = Età Media] {.notitle}
+```{r}
+#| label: p01_e_m
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+library(ggiraph)
+
+p01_e_m <- readRDS(file = here::here("data", "plots", "p01_e_m.rds"))
+
+# Convertirlo in interattivo con tooltip più piccolo
+p01_e_m_interact <- girafe(
+  ggobj = p01_e_m,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p01_e_m_interact
+```
+
+**Invecchiamento più graduale a Parma**: l'età media è cresciuta di **1 anno** (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di **2.2 anni** (47.1) e in Italia di **4.9 anni** (46.8). Parma risulta leggermente più giovane della media regionale (**-0.8 anni**).
+
+***
+
+### p10_quoziente_di_natalità [ = Quoziente di natalità] {.notitle}
+```{r}
+#| label: p10_quoziente_di_natalità
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p10_quoziente_di_natalità <- readRDS(
+  file = here::here("data", "plots", "p10_quoziente_di_natalità.rds")
+)
+
+p10_quoziente_di_natalità_interact <- girafe(
+  ggobj = p10_quoziente_di_natalità,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p10_quoziente_di_natalità_interact
+```
+
+**⭐ Calo della natalità più contenuto a Parma**: il quoziente di natalità è diminuito del **20.2%** (da 8.4 a 6.7 per mille), contro il **-29.2% dell'Emilia-Romagna** (6.3) e il **-33% dell'Italia** (6.3). Parma mantiene al 2024 un tasso superiore di **0.4 punti rispetto alla media regionale e nazionale**, confermando una maggiore vitalità demografica.
+
+***
+
+### p09_quoziente_di_mortalità [ = Quoziente di mortalità] {.notitle}
+```{r}
+#| label: p09_quoziente_di_mortalità
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p09_quoziente_di_mortalità <- readRDS(
+  file = here::here("data", "plots", "p09_quoziente_di_mortalità.rds")
+)
+
+p09_quoziente_di_mortalità_interact <- girafe(
+  ggobj = p09_quoziente_di_mortalità,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p09_quoziente_di_mortalità_interact
+```
+
+**Miglioramento della mortalità**: il quoziente è **diminuito del 12.7%** (da 12.6 a 11.0 per mille), mentre in Italia è **aumentato del 12.2%** (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all'inizio del periodo, con ER stabile (+0.9%).
+
+***
+
+
+### p07_crescita_naturale [ = Crescita naturale] {.notitle}
+```{r}
+#| label: p07_crescita_naturale
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p07_crescita_naturale <- readRDS(
+  file = here::here("data", "plots", "p07_crescita_naturale.rds")
+)
+
+p07_crescita_naturale_interact <- girafe(
+  ggobj = p07_crescita_naturale,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p07_crescita_naturale_interact
+```
+
+**Saldo naturale negativo ma migliore**: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma **meno negativa** rispetto all'Emilia-Romagna (-5.0) e all'Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall'immigrazione.
+
+***
+
+***
+
+### p17_tasso_di_crescita_totale [ = Tasso di crescita totale] {.notitle}
+```{r}
+#| label: p17_tasso_di_crescita_totale
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p17_tasso_di_crescita_totale <- readRDS(
+  file = here::here("data", "plots", "p17_tasso_di_crescita_totale.rds")
+)
+
+p17_tasso_di_crescita_totale_interact <- girafe(
+  ggobj = p17_tasso_di_crescita_totale,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p17_tasso_di_crescita_totale_interact
+```
+
+**Crescita complessiva della popolazione**: questo indicatore sintetizza l'effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l'immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.
+
+
+
+# Trend indici strutturali della popolazione
+
+### p02_i_v [ = Indice di vecchiaia] {.notitle} 
+```{r}
+#| label: p02_i_v
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+library(ggiraph)
+
+p02_i_v <- readRDS(file = here::here("data", "plots", "p02_i_v.rds"))
+
+# Convertirlo in interattivo con tooltip più piccolo
+p02_i_v_interact <- girafe(
+  ggobj = p02_i_v,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p02_i_v_interact
+```
+
+**⭐ Parma si distingue nettamente con un trend opposto**: mentre l'indice di vecchiaia è **diminuito del 6.8%** (da 204 a 190), in Emilia-Romagna è **aumentato del 9.6%** (a 211) e in Italia del 57.6% (a 208). Nel 2025 Parma presenta un indice inferiore di **20 punti rispetto alla media regionale**, evidenziando un processo di invecchiamento significativamente più contenuto.
+
+***
+
+### p03_i_d_s [ = Indice di dipendenza strutturale] {.notitle}
+```{r}
+#| label: p03_i_d_s
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+p03_i_d_s <- readRDS(file = here::here("data", "plots", "p03_i_d_s.rds"))
+
+# Converti in interattivo con tooltip più piccolo
+p03_i_d_s_interact <- girafe(
+  ggobj = p03_i_d_s,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p03_i_d_s_interact
+```
+
+**Crescita più contenuta a Parma**: l'indice è aumentato del **6.0%** (a 56.2), contro il **+12.2% dell'Emilia-Romagna** (58.0) e il **+17.7% dell'Italia** (57.8), mantenendosi **1.8 punti sotto la media regionale**. Questo indica una minore pressione sulla popolazione in età lavorativa.
+
+***
+
+### p04_i_d_a  [= Indice di dipendenza anziani] {.notitle}
+```{r}
+#| label: p04_i_d_a
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+#|
+p04_i_d_a <- readRDS(file = here::here("data", "plots", "p04_i_d_a.rds"))
+
+# Converti in interattivo con tooltip più piccolo
+p04_i_d_a_interact <- girafe(
+  ggobj = p04_i_d_a,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p04_i_d_a_interact
+```
+
+**⭐ Parma mostra un invecchiamento più contenuto**: l'indice di dipendenza anziani è cresciuto solo del **3.7%** (da 35.6 a 36.9), contro il **+15.9% dell'Emilia-Romagna** (39.4) e il **+39.8% dell'Italia** (39.0). Al 2025 Parma mantiene un indice inferiore di **2.5 punti rispetto all'ER**, segnalando un carico assistenziale legato alla popolazione anziana più sostenibile.
+
+
+***
+
+# Trend composizione delle famiglie
+
+### p11_quoziente_di_nuzialità [ = Quoziente di nuzialità] {.notitle}
+```{r}
+#| label: p11_quoziente_di_nuzialità
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p11_quoziente_di_nuzialità <- readRDS(
+  file = here::here("data", "plots", "p11_quoziente_di_nuzialità.rds")
+)
+
+p11_quoziente_di_nuzialità_interact <- girafe(
+  ggobj = p11_quoziente_di_nuzialità,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p11_quoziente_di_nuzialità_interact
+```
+
+**Calo dei matrimoni**: il quoziente di nuzialità è diminuito del 35% a Parma (da 4.0 a 2.6 per mille), trend simile a quello regionale e nazionale, riflettendo i cambiamenti nei modelli di formazione delle coppie.
+
+***
+
+### p08_età_media_al_parto [ = Età media al parto] {.notitle}
+
+```{r}
+#| label: p08_età_media_al_parto
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p08_età_media_al_parto <- readRDS(
+  file = here::here("data", "plots", "p08_età_media_al_parto.rds")
+)
+
+p08_età_media_al_parto_interact <- girafe(
+  ggobj = p08_età_media_al_parto,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p08_età_media_al_parto_interact
+```
+
+**Posticipazione della maternità**: l'età media al parto è aumentata di **2.1 anni** (da 30.3 a 32.4), allineata al trend regionale e nazionale. Questo fenomeno ha implicazioni sui servizi di supporto alla genitorialità e sulla fertilità complessiva.
+
+***
+
+### p18_tasso_di_fecondità_totale [ = Tasso di fecondità totale] {.notitle}
+
+```{r}
+#| label: p18_tasso_di_fecondità_totale
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p18_tasso_di_fecondità_totale <- readRDS(
+  file = here::here("data", "plots", "p18_tasso_di_fecondità_totale.rds")
+)
+
+p18_tasso_di_fecondità_totale_interact <- girafe(
+  ggobj = p18_tasso_di_fecondità_totale,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p18_tasso_di_fecondità_totale_interact
+```
+
+**Fecondità**: numero medio di figli per donna in età fertile. Il trend mostra l'evoluzione della natalità al netto dell'effetto della struttura per età della popolazione, indicatore cruciale per valutare la sostenibilità demografica di lungo periodo.
+
+***
+
+# Trend salute 
+
+### p15_speranza_di_vita_0 [ = Speranza di vita alla nascita] {.notitle}
+```{r}
+#| label: p15_speranza_di_vita_0
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p15_speranza_di_vita_0 <- readRDS(
+  file = here::here("data", "plots", "p15_speranza_di_vita_0.rds")
+)
+
+p15_speranza_di_vita_0_interact <- girafe(
+  ggobj = p15_speranza_di_vita_0,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p15_speranza_di_vita_0_interact
+```
+
+**Longevità in crescita**: la speranza di vita alla nascita mostra un trend di crescita costante nel periodo, con Parma che si mantiene allineata ai valori regionali e nazionali, indicatore di buone condizioni di vita e accesso ai servizi sanitari.
+
+***
+
+### p16_speranza_di_vita_65 [ = Speranza di vita a 65 anni] {.notitle}
+```{r}
+#| label: p16_speranza_di_vita_65
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p16_speranza_di_vita_65 <- readRDS(
+  file = here::here("data", "plots", "p16_speranza_di_vita_65.rds")
+)
+
+p16_speranza_di_vita_65_interact <- girafe(
+  ggobj = p16_speranza_di_vita_65,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p16_speranza_di_vita_65_interact
+```
+
+**Anni da vivere dopo i 65**: l'indicatore mostra il numero medio di anni che restano da vivere a 65 anni, parametro chiave per stimare la durata del bisogno assistenziale nella popolazione anziana. Il trend è in crescita, riflettendo il miglioramento delle condizioni di salute degli anziani.
+
+
+***
+
+# Trend immigrazione
+
+### p12_saldo_migratorio_totale [ = Saldo migratorio totale] {.notitle}
+```{r}
+#| label: p12_saldo_migratorio_totale
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p12_saldo_migratorio_totale <- readRDS(
+  file = here::here("data", "plots", "p12_saldo_migratorio_totale.rds")
+)
+
+p12_saldo_migratorio_totale_interact <- girafe(
+  ggobj = p12_saldo_migratorio_totale,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p12_saldo_migratorio_totale_interact
+```
+
+**⭐ Forte attrattività migratoria**: nonostante il calo dal 2002, Parma mantiene un saldo migratorio totale di **8.4 per mille** (2024), più che doppio rispetto alla media nazionale (4.1) e superiore alla media regionale (8.1). La differenza di **+4.3 punti vs Italia** evidenzia una significativa capacità di attrazione, fattore chiave per compensare il calo naturale della popolazione.
+
+
+
+
+### p13_saldo_migratorio_interno [ = Saldo migratorio interno] {.notitle}
+```{r}
+#| label: p13_saldo_migratorio_interno
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p13_saldo_migratorio_interno <- readRDS(
+  file = here::here("data", "plots", "p13_saldo_migratorio_interno.rds")
+)
+
+p13_saldo_migratorio_interno_interact <- girafe(
+  ggobj = p13_saldo_migratorio_interno,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p13_saldo_migratorio_interno_interact
+```
+
+**Mobilità interna**: il saldo migratorio interno (tra comuni italiani) è positivo a Parma (+3.0 per mille nel 2024), segnalando un'attrattività rispetto ad altre aree del Paese, anche se in calo rispetto al 2002 (+6.0).
+
+***
+
+### p14_saldo_migratorio_con_l_estero [ = Saldo migratorio con l'estero] {.notitle}
+```{r}
+#| label: p14_saldo_migratorio_con_l_estero
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p14_saldo_migratorio_con_l_estero <- readRDS(
+  file = here::here("data", "plots", "p14_saldo_migratorio_con_l_estero.rds")
+)
+
+p14_saldo_migratorio_con_l_estero_interact <- girafe(
+  ggobj = p14_saldo_migratorio_con_l_estero,
+  options = list(
+    opts_tooltip(
+      css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+    )
+  )
+)
+
+p14_saldo_migratorio_con_l_estero_interact
+```
+
+**Immigrazione dall'estero**: il saldo migratorio con l'estero è stabile a Parma (+5.4 per mille), allineato all'ER ma superiore alla media nazionale (+4.1). L'immigrazione internazionale costituisce una componente strutturale della dinamica demografica parmense.
+
+# 🟧 Geolocalizzazione della fragilità
+
+Il fatto è che guardare i dati demografici a livello provinciale o regionale nasconde le differenze tra i comuni, e non permette di cogliere grosse disuguaglianze sul territorio.
+
+### Plot con incidenza popolazione >60 e grado urbanizzazione nei comuni
+
+```{r}
+#| label: map_urb_over60
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+map_urb_over60 <- readRDS(
+  file = here::here("data", "maps", "map_urb_over60.rds")
+)
+
+map_urb_over60
+
+# map_urb_over60_interact <- girafe(
+#   ggobj = map_urb_over60,
+#   options = list(
+#     opts_tooltip(
+#       css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
+#     )
+#   )
+# )
+```
+
+```{r}
+#| label: map_urb_over60_fac
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+map_urb_over60_fac <- readRDS(
+  file = here::here("data", "maps", "map_urb_over60_fac.rds")
+)
+
+map_urb_over60_fac
+
+
+```
+
+
+***
+
+# Sintesi del profilo demografico della Provincia di Parma a confronto con Emilia Romagna e Italia
+
+L'analisi degli indicatori demografici 2002-2025 evidenzia come **Parma presenti un profilo demografico distintivo** rispetto alla media regionale e nazionale, con implicazioni rilevanti per la programmazione dei servizi sociali.
+
+## **1. Struttura per età: invecchiamento più contenuto**
+
+- **Tenuta della componente giovanile**: la fascia 0-14 anni **cresce** a Parma (+1pp) mentre **diminuisce** in Italia (-2.3pp)
+- **Rallentamento dell'invecchiamento**: la fascia 65+ cresce di soli 0.4pp a Parma, contro +2.5pp in ER e +6pp in Italia
+- **Popolazione in età lavorativa**: calo più contenuto (-1.4pp vs -3.7pp Italia), mantenendo una quota superiore
+
+## **2. Indici strutturali: minore pressione assistenziale**
+
+- **Trend opposto nell'indice di vecchiaia**: **diminuzione a Parma** (-6.8%), crescita in ER (+9.6%) e Italia (+57.6%)
+- **Indice dipendenza anziani**: aumento del solo 3.7% a Parma, contro +15.9% in ER e +39.8% in Italia
+- **Dipendenza strutturale**: crescita più contenuta (+6.0% vs +17.7% Italia)
+
+## **3. Dinamica naturale: deficit più limitato**
+
+- **Natalità più sostenuta**: calo del 20.2% a Parma vs -33% in Italia, con quoziente superiore di 0.4 punti
+- **Mortalità**: miglioramento del 12.7% (vs aumento del 12.2% in Italia)
+- **Saldo naturale**: negativo ma meno critico (-4.3‰) rispetto a ER (-5.0‰) e Italia (-4.8‰)
+
+## **4. Composizione famiglie: cambiamenti strutturali**
+
+- **Nuzialità**: calo del 35% allineato al trend nazionale, riflettendo nuovi modelli di formazione delle coppie
+- **Età al parto**: aumento di 2.1 anni, posticipazione in linea con il contesto regionale/nazionale
+- **Fecondità**: trend in diminuzione, con implicazioni sulla sostenibilità demografica di lungo periodo
+
+## **5. Salute e longevità: tenuta dei livelli**
+
+- **Speranza di vita**: crescita costante alla nascita e a 65 anni, allineata ai valori ER/Italia
+- **Anni da vivere dopo i 65**: in aumento, riflettendo miglioramento condizioni di salute anziani
+- **Implicazioni**: maggiore durata del bisogno assistenziale, ma compensata da migliore stato di salute
+
+## **6. Immigrazione: forte attrattività**
+
+- **Saldo migratorio totale**: 8.4‰, più che doppio rispetto all'Italia (4.1‰) e superiore a ER (8.1‰)
+- **Differenza +4.3 punti vs Italia**: evidenzia capacità di attrazione significativa
+- **Compensazione demografica**: l'immigrazione bilancia il deficit naturale, sostenendo la crescita totale
+
+---
+
+## **Implicazioni per la programmazione dei servizi**
+
+Il profilo demografico di Parma suggerisce:
+
+- **Domanda servizi anziani e disabilità**: potenzialmente più sostenibile rispetto a ER e Italia, grazie a invecchiamento più contenuto e minori indici di dipendenza
+- **Servizi prima infanzia e famiglia**: necessità di mantenimento e potenziamento, data la tenuta della componente giovanile
+- **Integrazione e coesione sociale**: gestione dell'elevato flusso migratorio come fattore chiave per sostenibilità demografica
+- **Servizi socio-sanitari preventivi**: preparazione a maggiore durata vita anziani, privilegiando interventi per invecchiamento attivo
+
+---
+
+## **Approfondimenti sui dati necessari**
+
+Per una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono necessari ulteriori approfondimenti:
+
+### **1. Composizione dettagliata popolazione anziana**
+- **Struttura per sottoclassi**: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni (grandi anziani)
+- **Obiettivo**: identificare la fascia dei "grandi anziani" (85+) con maggior rischio di non autosufficienza
+- **Fonte**: ISTAT Demo - Popolazione residente per età singola
+
+### **2. Dinamica demografica per età (spiegare la "U" nell'indice di vecchiaia)**
+- **Flussi migratori per fasce d'età**: immigrazione 0-40 anni vs emigrazione 65+ anni
+- **Natalità per cittadinanza**: contributo popolazione straniera alla componente giovane
+- **Invecchiamento popolazione immigrata**: coorti immigrate anni 2000 che oggi hanno 40-60 anni
+- **Obiettivo**: capire se il recente aumento dell'indice di vecchiaia (2016-2025) è strutturale o temporaneo
+- **Fonte**: ISTAT - Iscrizioni/cancellazioni anagrafiche per età, Nati per cittadinanza genitori
+
+### **3. Indicatori di fragilità e non autosufficienza**
+- **Prevalenza ADL/IADL per età**: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 85+
+- **Anziani soli per classe d'età**: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)
+- **Malattie croniche invalidanti per età**: demenze, Parkinson, ictus, diabete grave
+- **Obiettivo**: stimare il "bisogno assistenziale effettivo" oltre al semplice numero di anziani
+- **Fonte**: ISTAT EHIS, ER Stats - Fragilità, Dati SSR-AUSL
+
+### **4. Composizione e caratteristiche famiglie con anziani**
+- **Anziani in famiglia vs soli**: potenziale di caregiver informale
+- **Distanza abitativa da figli**: prossimità rete familiare
+- **Caregiver familiari per età assistito**: profilo della domanda di supporto
+- **Obiettivo**: distinguere tra anziani con rete familiare vs anziani "fragili" senza supporto
+- **Fonte**: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver
+
+### **5. Popolazione con disabilità certificata**
+- **Invalidi civili per età e grado**: totali, parziali, accompagnamento (> 74%)
+- **Legge 104 per età**: certificazioni L.104/92 per fascia d'età
+- **Amministratori di sostegno**: indicatore fragilità estrema
+- **Obiettivo**: quantificare la domanda "certificata" di assistenza
+- **Fonte**: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104
+
+### **Priorità operative**
+
+Per stimare la domanda di servizi nel breve-medio termine (3-5 anni):
+
+1. **Immediato**: dati su popolazione 75+ e 85+ per comune (già disponibili ISTAT)
+2. **Breve termine**: prevalenza non autosufficienza per età da applicare alle proiezioni demografiche
+3. **Medio termine**: analisi flussi migratori per età per capire se trend recente (U invertita) continuerà
+
+
+
+# Fonti principali
+
+**GIÀ SCARICATE**
+
+-   🟩 **ISTAT - Demo**: Indicatori demografici <https://demo.istat.it/tavole/?t=indicatori&l=it>
+-   🟩 **ER Stats - Fragilità**: `data/data_in/ER_stats/fragilit_prov_com_2023.xlsx` - [Studio](https://statistica.regione.emilia-romagna.it/studi-analisi/2025/mappe-potenziale-fragilita-emilia-romagna-2023)
+-   🟩 **ER Stats - Salute**: `data/data_in/ER_stats/stato_salute_reg_20232024.xlsx`
+
+**DA SCARICAre**
+
+-   🟧 **ISTAT - Disabilità in Cifre**: <https://www.istat.it/it/archivio/236301>
+-   🟧 **ISTAT - Aspetti vita quotidiana**: Indagine annuale condizioni vita <https://www.istat.it/it/archivio/91926>
+-   🟧 **Agenzia Regionale Lavoro ER**: Rapporti inclusione lavorativa persone disabili (2021-2022)
+-   🟧 **SSR Emilia-Romagna**: "Il Sostegno del caregiver in ER" (2020), Rapporti DSM
+-   🟧 **MIUR - Anagrafe studenti**: Dati alunni con disabilità per provincia
+-   🟧 \*\*INPS - ....
+-   🟧 Rapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),
+-   🟧 Articolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)

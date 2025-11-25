@@ -35,107 +35,26 @@
     "text": "Welcome to the blog!\nShare updates, analysis, and insights here.\nTo add blog posts, create additional .qmd files in the /posts/ folder."
   },
   {
-    "objectID": "dashboard.html",
-    "href": "dashboard.html",
-    "title": "Dashboard portfolio",
+    "objectID": "dashboard/00_tema_trend_demo_FONTI.html",
+    "href": "dashboard/00_tema_trend_demo_FONTI.html",
+    "title": "Demografia: trend rilevanti per bisogni e servizi sociali",
     "section": "",
-    "text": "Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.",
+    "text": "nesso con PS 2024-2027:\n\nLinee Azione …….\n\n\n\nlo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)\n\n\n\n\n\n\n\n\n\n\n\n\nTabella 1: Indicatori per analisi disabilità e non autosufficienza - Parma/Emilia-Romagna\n\n\n\nCategoriaIndicatoreDefinizioneFonteLiv. Terr.AnnoNoteTREND DEMOGRAFICIIndice di vecchiaiaRapporto tra popolazione 65+ e popolazione 0-14 × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza anzianiRapporto tra popolazione 65+ e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza strutturaleRapporto tra popolazione non attiva (0-14 e 65+) e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Saldo naturaleDiff tra NAti e MortiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Età mediaEtà media in anni e decimiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Speranza di alla nascitanumero medio di anni che restano da vivere a un neonatoISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Classi di età decennali per comune ERposso fare 📊 PARMA-PROV-ERISTAT - Census (istat_pop_com_ER_2023_AGE.rds)Com ⊂ ER2002-2024*🟩INDICI DEMOGRAFICI% 80enni e più sul totalePopolazione 80+ / popolazione totale × 100ER StatsProv/Com2023🟡% Anziani soli 65+Over 65 in famiglie unipersonali / pop 65+ × 100ISTAT - DemoProv/Com2023🟡PREVALENZA DISABILITÀ% Persone con disabilitàPersone con limitazioni gravi nelle attività abituali / pop. totale × 100ISTAT - Aspetti vita quotidianaReg2022🟩Persone con disabilità (valore assoluto)N. persone con limitazioni graviISTAT - Disabilità in CifreRegPluriennale🟩% Disabilità per classe di etàPrevalenza disabilità per fasce: 0-14, 15-64, 65-74, 75+ISTAT - Aspetti vita quotidianaReg2022🟩% Disabilità per generePrevalenza disabilità M/FISTAT - Aspetti vita quotidianaReg2022🟩NON AUTOSUFFICIENZAPersone in buona salute% pop che dichiara stato salute 'buono/molto buono'ER StatsReg/Prov2023-2024🟩 in stato_salute_regPersone con malattie croniche% persone con almeno 1 malattia cronica graveER StatsReg/Prov2023-2024🟩 in stato_salute_regADL - Limitazioni attività base% pop con difficoltà in attività vita quotidiana (vestirsi, lavarsi, mangiare)ISTAT - EHISReg2019🟧 Indagine europeaIADL - Limitazioni attività strumentali% pop con difficoltà attività domestiche/gestione casaISTAT - EHISReg2019🟧 Indagine europeaIndice non autosufficienza 75+N. over75 con gravi limitazioni / pop 75+ × 100Elaborazione su ISTATProv/ComDa calcolare🟧CONTESTO FAMILIARE% Famiglie con persona disabileN. famiglie con almeno 1 membro disabile / tot famiglie × 100ISTAT - Disabilità in CifreReg2019🟧Composizione nucleo familiareDistribuzione tipologie familiari con disabili (single, coppie, con figli)ISTAT - Disabilità in CifreReg2019🟧CAREGIVERN. Caregiver familiariStima persone che assistono familiari non autosufficientiSSR ER - Rapporto 2020Reg2020🟩 530k in ERCarico assistenziale medioOre medie settimanali dedicate all'assistenzaSSR ER - Rapporto 2020Reg2020🟩 120k &gt;20h/settGiovani caregiver (&lt;25 anni)% giovani under 25 con compiti curaSSR ER - Rapporto 2020Reg2020🟩 ~26k in ERINCLUSIONE LAVORATIVATasso occupazione persone disabiliOccupati disabili 15-64 / pop disabile 15-64 × 100ISTAT - Disabilità in CifreReg2019🟧Collocamento mirato - iscrittiN. iscritti liste collocamento mirato L.68/99Agenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioCollocamento mirato - avviamentiN. avviamenti al lavoro persone disabiliAgenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioTasso avviamento collocamento miratoAvviamenti / iscritti × 100Elaborazione su ARL-ERReg2018🟧 Da calcolareISTRUZIONEAlunni con disabilitàN. alunni certificati L.104/92 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 359k in Italia% Alunni disabili su totaleAlunni disabili / totale alunni × 100 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 4.5% del totaleRapporto alunni/insegnante sostegnoMedia alunni disabili per docente sostegnoMIUR - Anagrafe ANSProvAnnuale🟧 Dato non pubblicoSALUTE MENTALEUtenti servizi salute mentaleN. assistiti da DSM per 1.000 residentiSSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificareDisturbi psichiatrici graviTasso utenti con diagnosi grave (psicosi, disturbi gravi)SSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificare\n\n\n\n\n\nLegenda disponibilità dati:\n\n🟩 = Dati già disponibili/facili da reperire\n🟧 = Dati da acquisire/verificare disponibilità\n\n\n\n\nGIÀ SCARICATE\n\n🟩 ISTAT - Demo: Indicatori demografici https://demo.istat.it/tavole/?t=indicatori&l=it\n🟩 ER Stats - Fragilità: data/data_in/ER_stats/fragilit_prov_com_2023.xlsx - Studio\n🟩 ER Stats - Salute: data/data_in/ER_stats/stato_salute_reg_20232024.xlsx\n\nDA SCARICAre\n\n🟧 ISTAT - Disabilità in Cifre: https://www.istat.it/it/archivio/236301\n🟧 ISTAT - Aspetti vita quotidiana: Indagine annuale condizioni vita https://www.istat.it/it/archivio/91926\n🟧 Agenzia Regionale Lavoro ER: Rapporti inclusione lavorativa persone disabili (2021-2022)\n🟧 SSR Emilia-Romagna: “Il Sostegno del caregiver in ER” (2020), Rapporti DSM\n🟧 MIUR - Anagrafe studenti: Dati alunni con disabilità per provincia\n🟧 **INPS - ….\n🟧 Rapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),\n🟧 Articolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)",
     "crumbs": [
       "Dashboard",
-      "Dashboard portfolio"
+      "Tema 1) Trend Demografici - Fonti"
     ]
   },
   {
-    "objectID": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
-    "href": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Carica .shp files ISTAT",
-    "text": "__ Carica .shp files ISTAT\nFONTE: vedi data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md DATA AGGIORNAMENTO: 01/01/2025 COME OTTENUTO: presi da download manuale (vedi _istat_shp_ITA_spiega.md) CONTENUTO: + Shapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
-    "href": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Carica caratteristiche comuni SITUAS",
-    "text": "__ Carica caratteristiche comuni SITUAS\nFONTE: ISTAT SITUAS - Servizi di pubblicazione dati territoriali DATA AGGIORNAMENTO: quella in cui si scaricano i dati COME OTTENUTO: usando funzione per scaricare dati da SITUAS con API (R/istat_situas_get.R) CONTENUTO: + AMBITI GEOGRAFICI: Unità amministrative (Comuni) + In questo caso mi serve il Report 73 Comuni - Caratteristiche del territorio + Qui c’è la lista dei report territoriali https://situas.istat.it/web/#/apiDetail"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
-    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Prep dati per Emilia-Romagna",
-    "text": "__ Prep dati per Emilia-Romagna\n\n[Fun] Salva liste codici\n\n\n— Salva liste codici per ER"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
-    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Prep dati per Lombardia",
-    "text": "__ Prep dati per Lombardia\n\n— Salva liste codici per Lomb"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
-    "href": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "— Descrizione VARs comuni_ita_info_sf",
-    "text": "— Descrizione VARs comuni_ita_info_sf\nFonte: vedi https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73&pdata=01/01/1948"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
-    "href": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "— Salva oggetto con info comuni + descrizione variabili",
-    "text": "— Salva oggetto con info comuni + descrizione variabili"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "dashboard/00_tema_trend_demo_FONTI.html#parmaer-con-più-persone-non-autosufficienti-persone-con-disabilità-che-italia",
+    "href": "dashboard/00_tema_trend_demo_FONTI.html#parmaer-con-più-persone-non-autosufficienti-persone-con-disabilità-che-italia",
+    "title": "Demografia: trend rilevanti per bisogni e servizi sociali",
     "section": "",
-    "text": "This is the about page for Parma Dash."
-  },
-  {
-    "objectID": "analysis/01_carica_cens.html#carica-dati-censimento",
-    "href": "analysis/01_carica_cens.html#carica-dati-censimento",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Carica dati Censimento",
-    "text": "Carica dati Censimento\nFONTE: IstatData is the new Istat data warehouse.\nQUERY STRUTTURA: Link QUERY DATI: [Link] = urls_istat$pop_cens_all DATA AGGIORNAMENTO: Censimento 2023 COME OTTENUTO: Download dati ISTAT CENSIMENTO via API SDMX (vedi R/f_istat_scarica_cens.R) CONTENUTO: + Dataset ID = “IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0”\n\nQui uso una funzione R (f_scarica_istat_blocchi()) che ho scritto per scaricare i dati censuari per comune via API SDMX. In pratica, partendo da un url con dentro tutti i comuni italiani, mi consente di selezionare solo i comuni che mi interessano (es. quelli di Parma o di Emilia-Romagna), dividere la richiesta in blocchi (per evitare timeout/limiti di richiesta) e salvare i dati in locale in formato RDS e CSV.\n\n\nURL EsploraDati Istat\n\n\nFile (scarica) dati_finali_com\nOKKIO: non lo faccio andare se so che ho già i dati!!!!!\nCALL API per ottenere dati censimento 2023 SOLO per i 44 comuni di Parma (PR) e Emilia-Romagna (ER)\n\nControllo file dati_finali_com\n\n\nCreo mini file per variabile categorica\n\nPopolazione per classi decennali di età per comuni di Parma (PR) - Censimento 2023\nQuindi filtro per Total o ALL dove non mi interessa la variabile\n\n\nPopolazione per sesso per comuni di Parma (PR) - Censimento 2023\n\n\nPopolazione per cittadinanza per comuni di Parma (PR) - Censimento 2023\n\n\n\nSalvo files istat_pop_com_PR_2023*\n[Ridondante: SE ho solo riscaricato da prima]\n\n\n\nFile (scarica) dati_finali_com_ER\nOKKIO: non lo faccio andare se so che ho già i dati!!!!!\nCALL API per ottenere dati censimento 2023 per i 330 comuni Emilia-Romagna (ER)\n\nControllo file dati_finali_com_ER\n\n\nCreo mini file x variabile categorica\n\nPopolazione per classi di età per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per sesso per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per cittadinanza per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nSalvo files istat_pop_com_ER_2023_...\n[Ridondante: SE ho solo riscaricato da prima]\n\n\n\n\nFile (crea) dati_prov_ER_agg\nObiettivo, aggregare i dati di cui sopra per provincia (COD_PROV) in Emilia-Romagna\n\nviene fatto “manualmente” basandosi sui dati comunali e sullo shapefile dei comuni per ottenere i codici provincia (COD_PROV)\n\nPrima attacco il codice provincia ai dati censuari per tutti i comuni di Emilia-Romagna (ER)\nPoi sommo OBSVALUE per provincia (COD_PROV) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (GENDER, AGE_CLASS, CITIZENSHIP)\nCOMUNE in pratica sparisce e ottengo il dato aggregato per provincia (COD_PROV)\n\nPopolazione per classi di età per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per sesso per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per cittadinanza per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nSalvo files che iniziano per istat_pop_prov_ER_2023\n[Ridondante: SE ho solo riscaricato da prima]"
-  },
-  {
-    "objectID": "dashboard/01_tema_disabilità.html",
-    "href": "dashboard/01_tema_disabilità.html",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "",
-    "text": "nesso con PS 2024-2027:\n\nLinee Azione …….\n\n\n\nlo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)\n\n\n\n\n\n\n\n\n\n\n\n\nTabella 1: Indicatori per analisi disabilità e non autosufficienza - Parma/Emilia-Romagna\n\n\n\nCategoriaIndicatoreDefinizioneFonteLiv. Terr.AnnoNoteINDICI DEMOGRAFICIIndice di vecchiaiaRapporto tra popolazione 65+ e popolazione 0-14 × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza anzianiRapporto tra popolazione 65+ e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza strutturaleRapporto tra popolazione non attiva (0-14 e 65+) e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Saldo naturaleDiff tra NAti e MortiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Età mediaEtà media in anni e decimiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Speranza di alla nascitanumero medio di anni che restano da vivere a un neonatoISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Classi di età decennali per comune ERposso fare 📊 PARMA-PROV-ERISTAT - Census (istat_pop_com_ER_2023_AGE.rds)Com ⊂ ER2002-2024*🟩% 80enni e più sul totalePopolazione 80+ / popolazione totale × 100ER StatsProv/Com2023🟡% Anziani soli 65+Over 65 in famiglie unipersonali / pop 65+ × 100ISTAT - DemoProv/Com2023🟡PREVALENZA DISABILITÀ% Persone con disabilitàPersone con limitazioni gravi nelle attività abituali / pop. totale × 100ISTAT - Aspetti vita quotidianaReg2022🟩Persone con disabilità (valore assoluto)N. persone con limitazioni graviISTAT - Disabilità in CifreRegPluriennale🟩% Disabilità per classe di etàPrevalenza disabilità per fasce: 0-14, 15-64, 65-74, 75+ISTAT - Aspetti vita quotidianaReg2022🟩% Disabilità per generePrevalenza disabilità M/FISTAT - Aspetti vita quotidianaReg2022🟩NON AUTOSUFFICIENZAPersone in buona salute% pop che dichiara stato salute 'buono/molto buono'ER StatsReg/Prov2023-2024🟩 in stato_salute_regPersone con malattie croniche% persone con almeno 1 malattia cronica graveER StatsReg/Prov2023-2024🟩 in stato_salute_regADL - Limitazioni attività base% pop con difficoltà in attività vita quotidiana (vestirsi, lavarsi, mangiare)ISTAT - EHISReg2019🟧 Indagine europeaIADL - Limitazioni attività strumentali% pop con difficoltà attività domestiche/gestione casaISTAT - EHISReg2019🟧 Indagine europeaIndice non autosufficienza 75+N. over75 con gravi limitazioni / pop 75+ × 100Elaborazione su ISTATProv/ComDa calcolare🟧CONTESTO FAMILIARE% Famiglie con persona disabileN. famiglie con almeno 1 membro disabile / tot famiglie × 100ISTAT - Disabilità in CifreReg2019🟧Composizione nucleo familiareDistribuzione tipologie familiari con disabili (single, coppie, con figli)ISTAT - Disabilità in CifreReg2019🟧CAREGIVERN. Caregiver familiariStima persone che assistono familiari non autosufficientiSSR ER - Rapporto 2020Reg2020🟩 530k in ERCarico assistenziale medioOre medie settimanali dedicate all'assistenzaSSR ER - Rapporto 2020Reg2020🟩 120k &gt;20h/settGiovani caregiver (&lt;25 anni)% giovani under 25 con compiti curaSSR ER - Rapporto 2020Reg2020🟩 ~26k in ERINCLUSIONE LAVORATIVATasso occupazione persone disabiliOccupati disabili 15-64 / pop disabile 15-64 × 100ISTAT - Disabilità in CifreReg2019🟧Collocamento mirato - iscrittiN. iscritti liste collocamento mirato L.68/99Agenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioCollocamento mirato - avviamentiN. avviamenti al lavoro persone disabiliAgenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioTasso avviamento collocamento miratoAvviamenti / iscritti × 100Elaborazione su ARL-ERReg2018🟧 Da calcolareISTRUZIONEAlunni con disabilitàN. alunni certificati L.104/92 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 359k in Italia% Alunni disabili su totaleAlunni disabili / totale alunni × 100 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 4.5% del totaleRapporto alunni/insegnante sostegnoMedia alunni disabili per docente sostegnoMIUR - Anagrafe ANSProvAnnuale🟧 Dato non pubblicoSALUTE MENTALEUtenti servizi salute mentaleN. assistiti da DSM per 1.000 residentiSSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificareDisturbi psichiatrici graviTasso utenti con diagnosi grave (psicosi, disturbi gravi)SSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificare\n\n\n\n\n\nLegenda disponibilità dati:\n\n🟩 = Dati già disponibili/facili da reperire\n🟧 = Dati da acquisire/verificare disponibilità\n\n\n\n\nGIÀ SCARICATE\n\n🟩 ISTAT - Demo: Indicatori demografici https://demo.istat.it/tavole/?t=indicatori&l=it\n🟩 ER Stats - Fragilità: data/data_in/ER_stats/fragilit_prov_com_2023.xlsx - Studio\n🟩 ER Stats - Salute: data/data_in/ER_stats/stato_salute_reg_20232024.xlsx\n\nDA SCARICAre\n\n🟧 ISTAT - Disabilità in Cifre: https://www.istat.it/it/archivio/236301\n🟧 ISTAT - Aspetti vita quotidiana: Indagine annuale condizioni vita https://www.istat.it/it/archivio/91926\n🟧 Agenzia Regionale Lavoro ER: Rapporti inclusione lavorativa persone disabili (2021-2022)\n🟧 SSR Emilia-Romagna: “Il Sostegno del caregiver in ER” (2020), Rapporti DSM\n🟧 MIUR - Anagrafe studenti: Dati alunni con disabilità per provincia\n🟧 **INPS - ….\n🟧 Rapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),\n🟧 Articolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)",
+    "text": "Tabella 1: Indicatori per analisi disabilità e non autosufficienza - Parma/Emilia-Romagna\n\n\n\nCategoriaIndicatoreDefinizioneFonteLiv. Terr.AnnoNoteTREND DEMOGRAFICIIndice di vecchiaiaRapporto tra popolazione 65+ e popolazione 0-14 × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza anzianiRapporto tra popolazione 65+ e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza strutturaleRapporto tra popolazione non attiva (0-14 e 65+) e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Saldo naturaleDiff tra NAti e MortiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Età mediaEtà media in anni e decimiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Speranza di alla nascitanumero medio di anni che restano da vivere a un neonatoISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Classi di età decennali per comune ERposso fare 📊 PARMA-PROV-ERISTAT - Census (istat_pop_com_ER_2023_AGE.rds)Com ⊂ ER2002-2024*🟩INDICI DEMOGRAFICI% 80enni e più sul totalePopolazione 80+ / popolazione totale × 100ER StatsProv/Com2023🟡% Anziani soli 65+Over 65 in famiglie unipersonali / pop 65+ × 100ISTAT - DemoProv/Com2023🟡PREVALENZA DISABILITÀ% Persone con disabilitàPersone con limitazioni gravi nelle attività abituali / pop. totale × 100ISTAT - Aspetti vita quotidianaReg2022🟩Persone con disabilità (valore assoluto)N. persone con limitazioni graviISTAT - Disabilità in CifreRegPluriennale🟩% Disabilità per classe di etàPrevalenza disabilità per fasce: 0-14, 15-64, 65-74, 75+ISTAT - Aspetti vita quotidianaReg2022🟩% Disabilità per generePrevalenza disabilità M/FISTAT - Aspetti vita quotidianaReg2022🟩NON AUTOSUFFICIENZAPersone in buona salute% pop che dichiara stato salute 'buono/molto buono'ER StatsReg/Prov2023-2024🟩 in stato_salute_regPersone con malattie croniche% persone con almeno 1 malattia cronica graveER StatsReg/Prov2023-2024🟩 in stato_salute_regADL - Limitazioni attività base% pop con difficoltà in attività vita quotidiana (vestirsi, lavarsi, mangiare)ISTAT - EHISReg2019🟧 Indagine europeaIADL - Limitazioni attività strumentali% pop con difficoltà attività domestiche/gestione casaISTAT - EHISReg2019🟧 Indagine europeaIndice non autosufficienza 75+N. over75 con gravi limitazioni / pop 75+ × 100Elaborazione su ISTATProv/ComDa calcolare🟧CONTESTO FAMILIARE% Famiglie con persona disabileN. famiglie con almeno 1 membro disabile / tot famiglie × 100ISTAT - Disabilità in CifreReg2019🟧Composizione nucleo familiareDistribuzione tipologie familiari con disabili (single, coppie, con figli)ISTAT - Disabilità in CifreReg2019🟧CAREGIVERN. Caregiver familiariStima persone che assistono familiari non autosufficientiSSR ER - Rapporto 2020Reg2020🟩 530k in ERCarico assistenziale medioOre medie settimanali dedicate all'assistenzaSSR ER - Rapporto 2020Reg2020🟩 120k &gt;20h/settGiovani caregiver (&lt;25 anni)% giovani under 25 con compiti curaSSR ER - Rapporto 2020Reg2020🟩 ~26k in ERINCLUSIONE LAVORATIVATasso occupazione persone disabiliOccupati disabili 15-64 / pop disabile 15-64 × 100ISTAT - Disabilità in CifreReg2019🟧Collocamento mirato - iscrittiN. iscritti liste collocamento mirato L.68/99Agenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioCollocamento mirato - avviamentiN. avviamenti al lavoro persone disabiliAgenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioTasso avviamento collocamento miratoAvviamenti / iscritti × 100Elaborazione su ARL-ERReg2018🟧 Da calcolareISTRUZIONEAlunni con disabilitàN. alunni certificati L.104/92 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 359k in Italia% Alunni disabili su totaleAlunni disabili / totale alunni × 100 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 4.5% del totaleRapporto alunni/insegnante sostegnoMedia alunni disabili per docente sostegnoMIUR - Anagrafe ANSProvAnnuale🟧 Dato non pubblicoSALUTE MENTALEUtenti servizi salute mentaleN. assistiti da DSM per 1.000 residentiSSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificareDisturbi psichiatrici graviTasso utenti con diagnosi grave (psicosi, disturbi gravi)SSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificare\n\n\n\n\n\nLegenda disponibilità dati:\n\n🟩 = Dati già disponibili/facili da reperire\n🟧 = Dati da acquisire/verificare disponibilità\n\n\n\n\nGIÀ SCARICATE\n\n🟩 ISTAT - Demo: Indicatori demografici https://demo.istat.it/tavole/?t=indicatori&l=it\n🟩 ER Stats - Fragilità: data/data_in/ER_stats/fragilit_prov_com_2023.xlsx - Studio\n🟩 ER Stats - Salute: data/data_in/ER_stats/stato_salute_reg_20232024.xlsx\n\nDA SCARICAre\n\n🟧 ISTAT - Disabilità in Cifre: https://www.istat.it/it/archivio/236301\n🟧 ISTAT - Aspetti vita quotidiana: Indagine annuale condizioni vita https://www.istat.it/it/archivio/91926\n🟧 Agenzia Regionale Lavoro ER: Rapporti inclusione lavorativa persone disabili (2021-2022)\n🟧 SSR Emilia-Romagna: “Il Sostegno del caregiver in ER” (2020), Rapporti DSM\n🟧 MIUR - Anagrafe studenti: Dati alunni con disabilità per provincia\n🟧 **INPS - ….\n🟧 Rapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),\n🟧 Articolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)",
     "crumbs": [
       "Dashboard",
-      "Tema 1) Disabilità"
+      "Tema 1) Trend Demografici - Fonti"
     ]
-  },
-  {
-    "objectID": "dashboard/01_tema_disabilità.html#parmaer-con-più-persone-non-autosufficienti-persone-con-disabilità-che-italia",
-    "href": "dashboard/01_tema_disabilità.html#parmaer-con-più-persone-non-autosufficienti-persone-con-disabilità-che-italia",
-    "title": "Demografia: bisogni e servizi sociali",
-    "section": "",
-    "text": "Tabella 1: Indicatori per analisi disabilità e non autosufficienza - Parma/Emilia-Romagna\n\n\n\nCategoriaIndicatoreDefinizioneFonteLiv. Terr.AnnoNoteINDICI DEMOGRAFICIIndice di vecchiaiaRapporto tra popolazione 65+ e popolazione 0-14 × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza anzianiRapporto tra popolazione 65+ e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Indice di dipendenza strutturaleRapporto tra popolazione non attiva (0-14 e 65+) e attiva (15-64) × 100ISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Saldo naturaleDiff tra NAti e MortiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Età mediaEtà media in anni e decimiISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Speranza di alla nascitanumero medio di anni che restano da vivere a un neonatoISTAT - Demo (istat_demogr_prov.xlsx)Prov ⊂ ITA2002-2024*🟩Classi di età decennali per comune ERposso fare 📊 PARMA-PROV-ERISTAT - Census (istat_pop_com_ER_2023_AGE.rds)Com ⊂ ER2002-2024*🟩% 80enni e più sul totalePopolazione 80+ / popolazione totale × 100ER StatsProv/Com2023🟡% Anziani soli 65+Over 65 in famiglie unipersonali / pop 65+ × 100ISTAT - DemoProv/Com2023🟡PREVALENZA DISABILITÀ% Persone con disabilitàPersone con limitazioni gravi nelle attività abituali / pop. totale × 100ISTAT - Aspetti vita quotidianaReg2022🟩Persone con disabilità (valore assoluto)N. persone con limitazioni graviISTAT - Disabilità in CifreRegPluriennale🟩% Disabilità per classe di etàPrevalenza disabilità per fasce: 0-14, 15-64, 65-74, 75+ISTAT - Aspetti vita quotidianaReg2022🟩% Disabilità per generePrevalenza disabilità M/FISTAT - Aspetti vita quotidianaReg2022🟩NON AUTOSUFFICIENZAPersone in buona salute% pop che dichiara stato salute 'buono/molto buono'ER StatsReg/Prov2023-2024🟩 in stato_salute_regPersone con malattie croniche% persone con almeno 1 malattia cronica graveER StatsReg/Prov2023-2024🟩 in stato_salute_regADL - Limitazioni attività base% pop con difficoltà in attività vita quotidiana (vestirsi, lavarsi, mangiare)ISTAT - EHISReg2019🟧 Indagine europeaIADL - Limitazioni attività strumentali% pop con difficoltà attività domestiche/gestione casaISTAT - EHISReg2019🟧 Indagine europeaIndice non autosufficienza 75+N. over75 con gravi limitazioni / pop 75+ × 100Elaborazione su ISTATProv/ComDa calcolare🟧CONTESTO FAMILIARE% Famiglie con persona disabileN. famiglie con almeno 1 membro disabile / tot famiglie × 100ISTAT - Disabilità in CifreReg2019🟧Composizione nucleo familiareDistribuzione tipologie familiari con disabili (single, coppie, con figli)ISTAT - Disabilità in CifreReg2019🟧CAREGIVERN. Caregiver familiariStima persone che assistono familiari non autosufficientiSSR ER - Rapporto 2020Reg2020🟩 530k in ERCarico assistenziale medioOre medie settimanali dedicate all'assistenzaSSR ER - Rapporto 2020Reg2020🟩 120k &gt;20h/settGiovani caregiver (&lt;25 anni)% giovani under 25 con compiti curaSSR ER - Rapporto 2020Reg2020🟩 ~26k in ERINCLUSIONE LAVORATIVATasso occupazione persone disabiliOccupati disabili 15-64 / pop disabile 15-64 × 100ISTAT - Disabilità in CifreReg2019🟧Collocamento mirato - iscrittiN. iscritti liste collocamento mirato L.68/99Agenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioCollocamento mirato - avviamentiN. avviamenti al lavoro persone disabiliAgenzia Regionale Lavoro ERReg2018🟧 Ultimo monitoraggioTasso avviamento collocamento miratoAvviamenti / iscritti × 100Elaborazione su ARL-ERReg2018🟧 Da calcolareISTRUZIONEAlunni con disabilitàN. alunni certificati L.104/92 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 359k in Italia% Alunni disabili su totaleAlunni disabili / totale alunni × 100 per ordine scuolaISTAT - AS 2023-2024Nazionale2024🟩 4.5% del totaleRapporto alunni/insegnante sostegnoMedia alunni disabili per docente sostegnoMIUR - Anagrafe ANSProvAnnuale🟧 Dato non pubblicoSALUTE MENTALEUtenti servizi salute mentaleN. assistiti da DSM per 1.000 residentiSSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificareDisturbi psichiatrici graviTasso utenti con diagnosi grave (psicosi, disturbi gravi)SSR ER - Rapporto DSMReg/AUSLAnnuale🟧 Da verificare\n\n\n\n\n\nLegenda disponibilità dati:\n\n🟩 = Dati già disponibili/facili da reperire\n🟧 = Dati da acquisire/verificare disponibilità\n\n\n\n\nGIÀ SCARICATE\n\n🟩 ISTAT - Demo: Indicatori demografici https://demo.istat.it/tavole/?t=indicatori&l=it\n🟩 ER Stats - Fragilità: data/data_in/ER_stats/fragilit_prov_com_2023.xlsx - Studio\n🟩 ER Stats - Salute: data/data_in/ER_stats/stato_salute_reg_20232024.xlsx\n\nDA SCARICAre\n\n🟧 ISTAT - Disabilità in Cifre: https://www.istat.it/it/archivio/236301\n🟧 ISTAT - Aspetti vita quotidiana: Indagine annuale condizioni vita https://www.istat.it/it/archivio/91926\n🟧 Agenzia Regionale Lavoro ER: Rapporti inclusione lavorativa persone disabili (2021-2022)\n🟧 SSR Emilia-Romagna: “Il Sostegno del caregiver in ER” (2020), Rapporti DSM\n🟧 MIUR - Anagrafe studenti: Dati alunni con disabilità per provincia\n🟧 **INPS - ….\n🟧 Rapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),\n🟧 Articolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)",
-    "crumbs": [
-      "Dashboard",
-      "Tema 1) Disabilità"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Parma Dash",
-    "section": "",
-    "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
-  },
-  {
-    "objectID": "posts/2025-10-13-first-post.html",
-    "href": "posts/2025-10-13-first-post.html",
-    "title": "First Blog Post",
-    "section": "",
-    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
   },
   {
     "objectID": "analysis/02_base_maps.html#leggi-shp-files-per-emilia-romagna",
@@ -248,5 +167,196 @@
     "title": "Mappe basate su confini e caratteristiche dei comuni",
     "section": "QUI 🟨🟧🌫️🟪🟦",
     "text": "QUI 🟨🟧🌫️🟪🟦"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
+    "href": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Carica .shp files ISTAT",
+    "text": "__ Carica .shp files ISTAT\nFONTE: vedi data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md DATA AGGIORNAMENTO: 01/01/2025 COME OTTENUTO: presi da download manuale (vedi _istat_shp_ITA_spiega.md) CONTENUTO: + Shapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
+    "href": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Carica caratteristiche comuni SITUAS",
+    "text": "__ Carica caratteristiche comuni SITUAS\nFONTE: ISTAT SITUAS - Servizi di pubblicazione dati territoriali DATA AGGIORNAMENTO: quella in cui si scaricano i dati COME OTTENUTO: usando funzione per scaricare dati da SITUAS con API (R/istat_situas_get.R) CONTENUTO: + AMBITI GEOGRAFICI: Unità amministrative (Comuni) + In questo caso mi serve il Report 73 Comuni - Caratteristiche del territorio + Qui c’è la lista dei report territoriali https://situas.istat.it/web/#/apiDetail"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
+    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Prep dati per Emilia-Romagna",
+    "text": "__ Prep dati per Emilia-Romagna\n\n[Fun] Salva liste codici\n\n\n— Salva liste codici per ER"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
+    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "__ Prep dati per Lombardia",
+    "text": "__ Prep dati per Lombardia\n\n— Salva liste codici per Lomb"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
+    "href": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "— Descrizione VARs comuni_ita_info_sf",
+    "text": "— Descrizione VARs comuni_ita_info_sf\nFonte: vedi https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73&pdata=01/01/1948"
+  },
+  {
+    "objectID": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
+    "href": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "— Salva oggetto con info comuni + descrizione variabili",
+    "text": "— Salva oggetto con info comuni + descrizione variabili"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for Parma Dash."
+  },
+  {
+    "objectID": "analysis/01_carica_cens.html#carica-dati-censimento",
+    "href": "analysis/01_carica_cens.html#carica-dati-censimento",
+    "title": "Mappe e Codici confini amministrativi ISTAT",
+    "section": "Carica dati Censimento",
+    "text": "Carica dati Censimento\nFONTE: IstatData is the new Istat data warehouse.\nQUERY STRUTTURA: Link QUERY DATI: [Link] = urls_istat$pop_cens_all DATA AGGIORNAMENTO: Censimento 2023 COME OTTENUTO: Download dati ISTAT CENSIMENTO via API SDMX (vedi R/f_istat_scarica_cens.R) CONTENUTO: + Dataset ID = “IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0”\n\nQui uso una funzione R (f_scarica_istat_blocchi()) che ho scritto per scaricare i dati censuari per comune via API SDMX. In pratica, partendo da un url con dentro tutti i comuni italiani, mi consente di selezionare solo i comuni che mi interessano (es. quelli di Parma o di Emilia-Romagna), dividere la richiesta in blocchi (per evitare timeout/limiti di richiesta) e salvare i dati in locale in formato RDS e CSV.\n\n\nURL EsploraDati Istat\n\n\nFile (scarica) dati_finali_com\nOKKIO: non lo faccio andare se so che ho già i dati!!!!!\nCALL API per ottenere dati censimento 2023 SOLO per i 44 comuni di Parma (PR) e Emilia-Romagna (ER)\n\nControllo file dati_finali_com\n\n\nCreo mini file per variabile categorica\n\nPopolazione per classi decennali di età per comuni di Parma (PR) - Censimento 2023\nQuindi filtro per Total o ALL dove non mi interessa la variabile\n\n\nPopolazione per sesso per comuni di Parma (PR) - Censimento 2023\n\n\nPopolazione per cittadinanza per comuni di Parma (PR) - Censimento 2023\n\n\n\nSalvo files istat_pop_com_PR_2023*\n[Ridondante: SE ho solo riscaricato da prima]\n\n\n\nFile (scarica) dati_finali_com_ER\nOKKIO: non lo faccio andare se so che ho già i dati!!!!!\nCALL API per ottenere dati censimento 2023 per i 330 comuni Emilia-Romagna (ER)\n\nControllo file dati_finali_com_ER\n\n\nCreo mini file x variabile categorica\n\nPopolazione per classi di età per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per sesso per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per cittadinanza per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nSalvo files istat_pop_com_ER_2023_...\n[Ridondante: SE ho solo riscaricato da prima]\n\n\n\n\nFile (crea) dati_prov_ER_agg\nObiettivo, aggregare i dati di cui sopra per provincia (COD_PROV) in Emilia-Romagna\n\nviene fatto “manualmente” basandosi sui dati comunali e sullo shapefile dei comuni per ottenere i codici provincia (COD_PROV)\n\nPrima attacco il codice provincia ai dati censuari per tutti i comuni di Emilia-Romagna (ER)\nPoi sommo OBSVALUE per provincia (COD_PROV) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (GENDER, AGE_CLASS, CITIZENSHIP)\nCOMUNE in pratica sparisce e ottengo il dato aggregato per provincia (COD_PROV)\n\nPopolazione per classi di età per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per sesso per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per cittadinanza per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nSalvo files che iniziano per istat_pop_prov_ER_2023\n[Ridondante: SE ho solo riscaricato da prima]"
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Dashboard portfolio",
+    "section": "",
+    "text": "Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.",
+    "crumbs": [
+      "Dashboard",
+      "Dashboard portfolio"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html",
+    "href": "dashboard/01_tema_trend_demo.html",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "",
+    "text": "nesso con PS 2024-2027:\n\nLinee Azione …….\n\n\n\nlo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#trend-composizione-della-popolazione-per-età",
+    "href": "dashboard/01_tema_trend_demo.html#trend-composizione-della-popolazione-per-età",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "Trend composizione della popolazione per età",
+    "text": "Trend composizione della popolazione per età\n\np01_e_m [ = Età Media]\n\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età media è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\np10_quoziente_di_natalità [ = Quoziente di natalità]\n\n\n\n\n\n\n⭐ Calo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\np09_quoziente_di_mortalità [ = Quoziente di mortalità]\n\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\np07_crescita_naturale [ = Crescita naturale]\n\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\np17_tasso_di_crescita_totale [ = Tasso di crescita totale]\n\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#struttura-per-età-invecchiamento-più-contenuto",
+    "href": "dashboard/01_tema_trend_demo.html#struttura-per-età-invecchiamento-più-contenuto",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "1. Struttura per età: invecchiamento più contenuto",
+    "text": "1. Struttura per età: invecchiamento più contenuto\n\nTenuta della componente giovanile: la fascia 0-14 anni cresce a Parma (+1pp) mentre diminuisce in Italia (-2.3pp)\nRallentamento dell’invecchiamento: la fascia 65+ cresce di soli 0.4pp a Parma, contro +2.5pp in ER e +6pp in Italia\nPopolazione in età lavorativa: calo più contenuto (-1.4pp vs -3.7pp Italia), mantenendo una quota superiore",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#indici-strutturali-minore-pressione-assistenziale",
+    "href": "dashboard/01_tema_trend_demo.html#indici-strutturali-minore-pressione-assistenziale",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "2. Indici strutturali: minore pressione assistenziale",
+    "text": "2. Indici strutturali: minore pressione assistenziale\n\nTrend opposto nell’indice di vecchiaia: diminuzione a Parma (-6.8%), crescita in ER (+9.6%) e Italia (+57.6%)\nIndice dipendenza anziani: aumento del solo 3.7% a Parma, contro +15.9% in ER e +39.8% in Italia\nDipendenza strutturale: crescita più contenuta (+6.0% vs +17.7% Italia)",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#dinamica-naturale-deficit-più-limitato",
+    "href": "dashboard/01_tema_trend_demo.html#dinamica-naturale-deficit-più-limitato",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "3. Dinamica naturale: deficit più limitato",
+    "text": "3. Dinamica naturale: deficit più limitato\n\nNatalità più sostenuta: calo del 20.2% a Parma vs -33% in Italia, con quoziente superiore di 0.4 punti\nMortalità: miglioramento del 12.7% (vs aumento del 12.2% in Italia)\nSaldo naturale: negativo ma meno critico (-4.3‰) rispetto a ER (-5.0‰) e Italia (-4.8‰)",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#composizione-famiglie-cambiamenti-strutturali",
+    "href": "dashboard/01_tema_trend_demo.html#composizione-famiglie-cambiamenti-strutturali",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "4. Composizione famiglie: cambiamenti strutturali",
+    "text": "4. Composizione famiglie: cambiamenti strutturali\n\nNuzialità: calo del 35% allineato al trend nazionale, riflettendo nuovi modelli di formazione delle coppie\nEtà al parto: aumento di 2.1 anni, posticipazione in linea con il contesto regionale/nazionale\nFecondità: trend in diminuzione, con implicazioni sulla sostenibilità demografica di lungo periodo",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#salute-e-longevità-tenuta-dei-livelli",
+    "href": "dashboard/01_tema_trend_demo.html#salute-e-longevità-tenuta-dei-livelli",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "5. Salute e longevità: tenuta dei livelli",
+    "text": "5. Salute e longevità: tenuta dei livelli\n\nSperanza di vita: crescita costante alla nascita e a 65 anni, allineata ai valori ER/Italia\nAnni da vivere dopo i 65: in aumento, riflettendo miglioramento condizioni di salute anziani\nImplicazioni: maggiore durata del bisogno assistenziale, ma compensata da migliore stato di salute",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#immigrazione-forte-attrattività",
+    "href": "dashboard/01_tema_trend_demo.html#immigrazione-forte-attrattività",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "6. Immigrazione: forte attrattività",
+    "text": "6. Immigrazione: forte attrattività\n\nSaldo migratorio totale: 8.4‰, più che doppio rispetto all’Italia (4.1‰) e superiore a ER (8.1‰)\nDifferenza +4.3 punti vs Italia: evidenzia capacità di attrazione significativa\nCompensazione demografica: l’immigrazione bilancia il deficit naturale, sostenendo la crescita totale",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#implicazioni-per-la-programmazione-dei-servizi",
+    "href": "dashboard/01_tema_trend_demo.html#implicazioni-per-la-programmazione-dei-servizi",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "Implicazioni per la programmazione dei servizi",
+    "text": "Implicazioni per la programmazione dei servizi\nIl profilo demografico di Parma suggerisce:\n\nDomanda servizi anziani e disabilità: potenzialmente più sostenibile rispetto a ER e Italia, grazie a invecchiamento più contenuto e minori indici di dipendenza\nServizi prima infanzia e famiglia: necessità di mantenimento e potenziamento, data la tenuta della componente giovanile\nIntegrazione e coesione sociale: gestione dell’elevato flusso migratorio come fattore chiave per sostenibilità demografica\nServizi socio-sanitari preventivi: preparazione a maggiore durata vita anziani, privilegiando interventi per invecchiamento attivo",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#approfondimenti-sui-dati-necessari",
+    "href": "dashboard/01_tema_trend_demo.html#approfondimenti-sui-dati-necessari",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "Approfondimenti sui dati necessari",
+    "text": "Approfondimenti sui dati necessari\nPer una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono necessari ulteriori approfondimenti:\n\n1. Composizione dettagliata popolazione anziana\n\nStruttura per sottoclassi: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni (grandi anziani)\nObiettivo: identificare la fascia dei “grandi anziani” (85+) con maggior rischio di non autosufficienza\nFonte: ISTAT Demo - Popolazione residente per età singola\n\n\n\n2. Dinamica demografica per età (spiegare la “U” nell’indice di vecchiaia)\n\nFlussi migratori per fasce d’età: immigrazione 0-40 anni vs emigrazione 65+ anni\nNatalità per cittadinanza: contributo popolazione straniera alla componente giovane\nInvecchiamento popolazione immigrata: coorti immigrate anni 2000 che oggi hanno 40-60 anni\nObiettivo: capire se il recente aumento dell’indice di vecchiaia (2016-2025) è strutturale o temporaneo\nFonte: ISTAT - Iscrizioni/cancellazioni anagrafiche per età, Nati per cittadinanza genitori\n\n\n\n3. Indicatori di fragilità e non autosufficienza\n\nPrevalenza ADL/IADL per età: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 85+\nAnziani soli per classe d’età: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)\nMalattie croniche invalidanti per età: demenze, Parkinson, ictus, diabete grave\nObiettivo: stimare il “bisogno assistenziale effettivo” oltre al semplice numero di anziani\nFonte: ISTAT EHIS, ER Stats - Fragilità, Dati SSR-AUSL\n\n\n\n4. Composizione e caratteristiche famiglie con anziani\n\nAnziani in famiglia vs soli: potenziale di caregiver informale\nDistanza abitativa da figli: prossimità rete familiare\nCaregiver familiari per età assistito: profilo della domanda di supporto\nObiettivo: distinguere tra anziani con rete familiare vs anziani “fragili” senza supporto\nFonte: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver\n\n\n\n5. Popolazione con disabilità certificata\n\nInvalidi civili per età e grado: totali, parziali, accompagnamento (&gt; 74%)\nLegge 104 per età: certificazioni L.104/92 per fascia d’età\nAmministratori di sostegno: indicatore fragilità estrema\nObiettivo: quantificare la domanda “certificata” di assistenza\nFonte: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104\n\n\n\nPriorità operative\nPer stimare la domanda di servizi nel breve-medio termine (3-5 anni):\n\nImmediato: dati su popolazione 75+ e 85+ per comune (già disponibili ISTAT)\nBreve termine: prevalenza non autosufficienza per età da applicare alle proiezioni demografiche\nMedio termine: analisi flussi migratori per età per capire se trend recente (U invertita) continuerà",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Parma Dash",
+    "section": "",
+    "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
+  },
+  {
+    "objectID": "posts/2025-10-13-first-post.html",
+    "href": "posts/2025-10-13-first-post.html",
+    "title": "First Blog Post",
+    "section": "",
+    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
   }
 ]

@@ -50,8 +50,10 @@ website:
       background: "#9f7d35"
       contents:
       - dashboard.qmd
-      - text: "Tema 1) Disabilità"
-        href: dashboard/01_tema_disabilità.qmd
+      - text: "Tema 1) Trend Demografici - Fonti"
+        href: dashboard/00_tema_trend_demo_FONTI.qmd
+      - text: "Tema 1) Trend Demografici"
+        href: dashboard/01_tema_trend_demo.qmd
       - text: "Tema 2) ..."
         href: dashboard/02_tema_y.qmd  
 # 
@@ -79,9 +81,6 @@ format:
 fig-cap-location: top
 tbl-cap-location: top
       
- 
-      
-
 # --- Important bc Pandoc’s default resource-path is the directory of each input file
 # Let pages see files in the project root (.) and the bib folder explicitly
 resource-path: [".", "bib"]
