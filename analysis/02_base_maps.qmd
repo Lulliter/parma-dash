@@ -318,9 +318,15 @@ pop_com_PR_by_age <- istat_pop_com_PR_2023  |>         # 4788
   )      |>               # 44 
   mutate(OBS_VALUE = as.numeric(OBS_VALUE)) |> 
   group_by(REF_AREA, INDICATOR  )  |> 
-  summarise(Over60 = sum(OBS_VALUE[AGE_CLASS %in% c("Y60-69","Y70-79","Y80-89",  "Y90-99", "Y_GE100" )]),
-            TotalPop = sum(OBS_VALUE[AGE_CLASS == "TOTAL" ]),
+  summarise(TotalPop = sum(OBS_VALUE[AGE_CLASS == "TOTAL" ]),
+            Over60 = sum(OBS_VALUE[AGE_CLASS %in% c("Y60-69","Y70-79","Y80-89",  "Y90-99", "Y_GE100" )]),
             perc_Over60 = round(Over60/TotalPop * 100,2),
+            Over70 = sum(OBS_VALUE[AGE_CLASS %in% c("Y70-79","Y80-89",  "Y90-99", "Y_GE100")]),
+            perc_Over70 = round(Over70/TotalPop * 100,2),
+            Over80 = sum(OBS_VALUE[AGE_CLASS %in% c("Y80-89",  "Y90-99", "Y_GE100")]),
+            perc_Over80 = round(Over80/TotalPop * 100,2),
+            Under20 = sum(OBS_VALUE[AGE_CLASS %in% c("Y0-9",  "Y10-19")]),
+            perc_Under20 = round(Under20/TotalPop * 100,2),
             Under30 = sum(OBS_VALUE[AGE_CLASS %in% c("Y0-9",  "Y10-19",  "Y20-29")]),
             perc_Under30 = round(Under30/TotalPop * 100,2),
             .groups = "drop"  ) 
@@ -338,7 +344,7 @@ fonte2_anno_agg <- "Istat (2023)"
 fonte2_nome <- "Censimento"
 ```
 
-## [Map] Variabile continua % Popolazione over 60 anni
+## [Map 1/2] Variabile continua % Popolazione over 60 anni
 
 ```{r}
 #| label: fig-map-continuous-over60
@@ -346,19 +352,37 @@ fonte2_nome <- "Censimento"
 #| fig-cap: ""
 #| out-width: 100%
 
-ggplot() +
-  geom_sf(data = comuni_pr_pop,
-          aes(fill = perc_Over60),
-          color = "white",
-          linewidth = 0.1) +
-  geom_sf(data = prov_er[prov_er$COD_PROV == "34", ],
-          fill = NA,
-          color = "#922b3e",
-          linewidth = 0.8) +
+library(ggiraph)
+
+# INTERATTIVITÀ: Prepara dati per mappa interattiva con ggiraph
+# Rimuove apici/virgolette dai nomi comuni per evitare errori con ggiraph
+# Crea testo tooltip che apparirà al passaggio del mouse
+comuni_pr_pop_clean <- comuni_pr_pop |>
+  mutate(
+    comune_clean = gsub("['\"]", "", COMUNE),
+    tooltip_txt = paste0(comune_clean,": ", perc_Over60, "% over 60")
+  )
+
+map_urb_over60 <- ggplot() +
+  # geom_sf_interactive permette interattività (hover mostra tooltip con nome comune)
+  geom_sf_interactive(
+    data = comuni_pr_pop_clean,
+    aes(fill = perc_Over60,
+        tooltip = tooltip_txt,        # Testo mostrato al passaggio del mouse
+        data_id = comune_clean),
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = prov_er[prov_er$COD_PROV == "34", ],
+    fill = NA,
+    color = "#922b3e",
+    linewidth = 0.8
+  ) +
   scale_fill_viridis_c(
     name = "% popolazione\nover 60",
     option = "plasma",
-    direction = -1  # Inverte: colori scuri = % alte
+    direction = -1
   ) +
   labs(
     title    = "Quota di residenti over 60 anni",
@@ -369,11 +393,20 @@ ggplot() +
   theme(
     legend.position = "bottom",
     plot.title = element_text(face = "bold", size = 12),
-    plot.subtitle = element_text(size = 10)
+    plot.subtitle = element_text(size = 10),
+    # Rimuove assi coordinati e griglia per mappa più pulita
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
   )
+
+
+map_urb_over60
+
+saveRDS(map_urb_over60, here("data","maps","map_urb_over60.rds"))
 ```
 
-## [Map 1/2] Popolazione over 60 anni + Grado di urbanizzazione
+## [Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione
 ```{r}
 #| label: fig-map-pop-over60-pr
 #| output: true
@@ -383,19 +416,26 @@ ggplot() +
 
 # OPZIONE 1: Facet per DEGURBA_2021, colore per perc_Over60
 # Mostra la distribuzione di perc_Over60 separatamente per ogni livello di urbanizzazione
-ggplot() +
-  geom_sf(data = comuni_pr_pop,
-          aes(fill = perc_Over60),
-          color = "white",
-          linewidth = 0.1) +
-  geom_sf(data = prov_er[prov_er$COD_PROV == "34", ],
-          fill = NA,
-          color = "#922b3e",
-          linewidth = 0.8) +
+# INTERATTIVITÀ: usa geom_sf_interactive per mostrare nome comune al passaggio del mouse
+map_urb_over60_fac <- ggplot() +
+  geom_sf_interactive(
+    data = comuni_pr_pop_clean,
+    aes(fill = perc_Over60,
+        tooltip = tooltip_txt,
+        data_id = comune_clean),
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = prov_er[prov_er$COD_PROV == "34", ],
+    fill = NA,
+    color = "#922b3e",
+    linewidth = 0.8
+  ) +
   scale_fill_viridis_c(
     name = "% popolazione\nover 60",
     option = "plasma",
-    direction = -1  # Inverte: colori scuri = % alte
+    direction = -1
   ) +
   facet_wrap(~DEGURBA_2021, ncol = 3) +
   labs(
@@ -408,11 +448,16 @@ ggplot() +
     legend.position = "bottom",
     plot.title = element_text(face = "bold", size = 12),
     plot.subtitle = element_text(size = 10),
-    strip.text = element_text(size = 8, face = "bold")
+    strip.text = element_text(size = 8, face = "bold"),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
   )
+map_urb_over60_fac
+saveRDS(map_urb_over60_fac, here("data","maps","map_urb_over60_fac.rds"))
 ```
 
-## [Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione
+## [Map] Popolazione over 60 anni + Grado di urbanizzazione
 ```{r}
 #| label: fig-map-pop-over60-pr2
 #| output: true
@@ -576,6 +621,235 @@ ggbetweenstats(
   scale_x_discrete(labels = function(x) str_wrap(x, width = 15))
 ```
 
+## [Map 1/2] Variabile continua % Popolazione over 70
+```{r}
+#| label: fig-map-continuous-Over70
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+
+# INTERATTIVITÀ: Prepara dati per mappa interattiva con ggiraph
+# Rimuove apici/virgolette dai nomi comuni per evitare errori con ggiraph
+# Crea testo tooltip che apparirà al passaggio del mouse
+comuni_pr_pop_clean <- comuni_pr_pop |>
+  mutate(
+    comune_clean = gsub("['\"]", "", COMUNE),
+    tooltip_txt = paste0(comune_clean,": ", perc_Over70, "% over 70")
+  )
+
+map_urb_Over70 <- ggplot() +
+  # geom_sf_interactive permette interattività (hover mostra tooltip con nome comune)
+  geom_sf_interactive(
+    data = comuni_pr_pop_clean,
+    aes(fill = perc_Over70,
+        tooltip = tooltip_txt,        # Testo mostrato al passaggio del mouse
+        data_id = comune_clean),
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = prov_er[prov_er$COD_PROV == "34", ],
+    fill = NA,
+    color = "#922b3e",
+    linewidth = 0.8
+  ) +
+  scale_fill_viridis_c(
+    name = "% popolazione\nover 70",
+    option = "plasma",
+    direction = -1
+  ) +
+  labs(
+    title    = "Quota di residenti over 70 anni",
+    subtitle = "Comuni della provincia di Parma, anno 2023",
+    caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10),
+    # Rimuove assi coordinati e griglia per mappa più pulita
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+
+map_urb_Over70
+
+#map_urb_Over70_interactive <- girafe(ggobj= map_urb_Over70)
+
+saveRDS(map_urb_Over70, here("data","maps","map_urb_Over70.rds"))
+```
+
+## [Map 2/2] Popolazione over 70 anni + Zona altimetrica
+```{r}
+#| label: fig-map-pop-Over70-pr
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+
+# OPZIONE 1: Facet per DEGURBA_2021, colore per perc_Over70
+# Mostra la distribuzione di perc_Over70 separatamente per ogni livello di urbanizzazione
+# INTERATTIVITÀ: usa geom_sf_interactive per mostrare nome comune al passaggio del mouse
+map_alt_Over70_fac <- ggplot() +
+  geom_sf_interactive(
+    data = comuni_pr_pop_clean,
+    aes(fill = perc_Over70,
+        tooltip = tooltip_txt,
+        data_id = comune_clean),
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = prov_er[prov_er$COD_PROV == "34", ],
+    fill = NA,
+    color = "#922b3e",
+    linewidth = 0.8
+  ) +
+  scale_fill_viridis_c(
+    name = "% popolazione\nover 70",
+    option = "plasma",
+    direction = -1
+  ) +
+  facet_wrap(~ZONA_ALT, ncol = 3) +
+  labs(
+    title    = "Quota di residenti over 70 anni per grado di urbanizzazione",
+    subtitle = "Comuni della provincia di Parma, anno 2023",
+    caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10),
+    strip.text = element_text(size = 8, face = "bold"),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+map_alt_Over70_fac
+
+map_alt_Over70_fac_interactive <- girafe(ggobj=map_alt_Over70_fac)
+saveRDS(map_alt_Over70_fac, here("data","maps","map_alt_Over70_fac.rds"))
+```
+
+## [Map 1/2] Variabile continua % Popolazione under 30
+```{r}
+#| label: fig-map-continuous-Under30
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+
+# INTERATTIVITÀ: Prepara dati per mappa interattiva con ggiraph
+# Rimuove apici/virgolette dai nomi comuni per evitare errori con ggiraph
+# Crea testo tooltip che apparirà al passaggio del mouse
+comuni_pr_pop_clean <- comuni_pr_pop |>
+  mutate(
+    comune_clean = gsub("['\"]", "", COMUNE),
+    tooltip_txt = paste0(comune_clean,": ", perc_Under30, "% under 30")
+  )
+
+map_urb_Under30 <- ggplot() +
+  # geom_sf_interactive permette interattività (hover mostra tooltip con nome comune)
+  geom_sf_interactive(
+    data = comuni_pr_pop_clean,
+    aes(fill = perc_Under30,
+        tooltip = tooltip_txt,        # Testo mostrato al passaggio del mouse
+        data_id = comune_clean),
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = prov_er[prov_er$COD_PROV == "34", ],
+    fill = NA,
+    color = "#922b3e",
+    linewidth = 0.8
+  ) +
+  scale_fill_viridis_c(
+    name = "% popolazione\nunder 30",
+    option = "viridis",
+    direction = -1
+  ) +
+  labs(
+    title    = "Quota di residenti under 30 anni",
+    subtitle = "Comuni della provincia di Parma, anno 2023",
+    caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10),
+    # Rimuove assi coordinati e griglia per mappa più pulita
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+
+map_urb_Under30
+
+#map_urb_Under30_interactive <- girafe(ggobj= map_urb_Under30)
+
+saveRDS(map_urb_Under30, here("data","maps","map_urb_Under30.rds"))
+```
+
+## [Map 2/2] Popolazione under 30 anni + Grado di urbanizzazione
+```{r}
+#| label: fig-map-pop-Under30-pr
+#| output: true
+#| fig-cap: ""
+#| out-width: 100%
+
+
+# OPZIONE 1: Facet per DEGURBA_2021, colore per perc_Under30
+# Mostra la distribuzione di perc_Under30 separatamente per ogni livello di urbanizzazione
+# INTERATTIVITÀ: usa geom_sf_interactive per mostrare nome comune al passaggio del mouse
+map_alt_Under30_fac <- ggplot() +
+  geom_sf_interactive(
+    data = comuni_pr_pop_clean,
+    aes(fill = perc_Under30,
+        tooltip = tooltip_txt,
+        data_id = comune_clean),
+    color = "white",
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = prov_er[prov_er$COD_PROV == "34", ],
+    fill = NA,
+    color = "#922b3e",
+    linewidth = 0.8
+  ) +
+  scale_fill_viridis_c(
+    name = "% popolazione\nunder 30",
+    option = "viridis",
+    direction = -1
+  ) +
+  facet_wrap(~ZONA_ALT, ncol = 3) +
+  labs(
+    title    = "Quota di residenti under 30 anni per grado di urbanizzazione",
+    subtitle = "Comuni della provincia di Parma, anno 2023",
+    caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10),
+    strip.text = element_text(size = 8, face = "bold"),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+map_alt_Under30_fac
+saveRDS(map_alt_Under30_fac, here("data","maps","map_alt_Under30_fac.rds"))
+
+#map_alt_Under30_fac_interactive <- girafe(ggobj=map_alt_Under30_fac)
+```
 
 
 ## QUI 🟨🟧🌫️🟪🟦

@@ -33,7 +33,7 @@ suppress-bibliography: false
 
 
 ```{r}
-
+#| label: setup
 library(here)
 library(dplyr)
 library(tibble)
@@ -51,8 +51,6 @@ library(ggiraph)
 > lo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)
 
 <!-- che però non può che non partire dal bisogno reale -->
-
-
 
 # Trend crescita della popolazione per età
 
@@ -163,7 +161,7 @@ p01_e_m_interact <- girafe(
 p01_e_m_interact
 ```
 
-**Invecchiamento più graduale a Parma**: l'età media è cresciuta di **1 anno** (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di **2.2 anni** (47.1) e in Italia di **4.9 anni** (46.8). Parma risulta leggermente più giovane della media regionale (**-0.8 anni**).
+**Invecchiamento più graduale a Parma**: l'età medi1a è cresciuta di **1 anno** (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di **2.2 anni** (47.1) e in Italia di **4.9 anni** (46.8). Parma risulta leggermente più giovane della media regionale (**-0.8 anni**).
 
 ***
 
@@ -584,11 +582,11 @@ p14_saldo_migratorio_con_l_estero_interact
 
 **Immigrazione dall'estero**: il saldo migratorio con l'estero è stabile a Parma (+5.4 per mille), allineato all'ER ma superiore alla media nazionale (+4.1). L'immigrazione internazionale costituisce una componente strutturale della dinamica demografica parmense.
 
-# 🟧 Geolocalizzazione della fragilità
+# Geolocalizzazione della fragilità
 
 Il fatto è che guardare i dati demografici a livello provinciale o regionale nasconde le differenze tra i comuni, e non permette di cogliere grosse disuguaglianze sul territorio.
 
-### Plot con incidenza popolazione >60 e grado urbanizzazione nei comuni
+### map_urb_over60 [% over60 v grado urbanizz] {.notitle}
 
 ```{r}
 #| label: map_urb_over60
@@ -596,37 +594,59 @@ Il fatto è che guardare i dati demografici a livello provinciale o regionale na
 #| fig-width: 9
 #| fig-height: 7
 
-map_urb_over60 <- readRDS(
-  file = here::here("data", "maps", "map_urb_over60.rds")
+map_urb_Over70 <- readRDS(
+  file = here::here("data", "maps", "map_urb_Over70.rds")
 )
 
-map_urb_over60
-
-# map_urb_over60_interact <- girafe(
-#   ggobj = map_urb_over60,
-#   options = list(
-#     opts_tooltip(
-#       css = "background-color:#333; color:white; padding:8px; border-radius:4px; font-size:12px;"
-#     )
-#   )
-# )
+map_urb_over70_interactive <- girafe(ggobj = map_urb_Over70)
+map_urb_over70_interactive
 ```
 
+**La distribuzione territoriale della popolazione anziana** (over 70 anni) mostra una significativa **eterogeneità tra i comuni della provincia**. I comuni di montagna e collina presentano generalmente percentuali più elevate di popolazione anziana, evidenziando aree di potenziale fragilità che richiedono servizi socio-sanitari dedicati. La mappa interattiva permette di identificare i singoli comuni più esposti al fenomeno dell'invecchiamento demografico.
+
+### Popolazione giovane (under 30) {.notitle}
 ```{r}
-#| label: map_urb_over60_fac
+#| label: map_urb_Under30
 #| output: true
 #| fig-width: 9
 #| fig-height: 7
 
-map_urb_over60_fac <- readRDS(
-  file = here::here("data", "maps", "map_urb_over60_fac.rds")
+map_urb_Under30 <- readRDS(
+  file = here::here("data", "maps", "map_urb_Under30.rds")
 )
 
-map_urb_over60_fac
+map_urb_Under30_interactive <- girafe(ggobj = map_urb_Under30)
+map_urb_Under30_interactive
+```
 
+**La popolazione giovane** (under 30 anni) presenta una **distribuzione territoriale speculare rispetto agli anziani**. I comuni urbani e di pianura tendono ad avere percentuali più elevate di giovani, mentre le aree interne mostrano un progressivo svuotamento della componente giovanile. Questo squilibrio generazionale rappresenta una sfida per la sostenibilità demografica ed economica delle comunità montane e collinari.
+
+### Confronto geografico per zona altimetrica {.notitle}
+
+```{r}
+#| label: map_alt_under30_fac
+#| output: true
+#| fig-width: 9
+#| fig-height: 14
+
+
+map_alt_over70_fac <- readRDS(
+  file = here::here("data", "maps", "map_alt_over70_fac.rds")
+)
+map_alt_under30_fac <- readRDS(
+  file = here::here("data", "maps", "map_alt_under30_fac.rds")
+)
+
+library(patchwork)
+# Combine ggplot objects BEFORE converting to girafe
+combined_maps <- map_alt_over70_fac / map_alt_under30_fac
+
+# Convert combined plot to interactive
+girafe(ggobj = combined_maps)
 
 ```
 
+**Il confronto per zona altimetrica** evidenzia chiaramente come **la geografia condizioni la struttura demografica**. Le zone montane presentano percentuali di anziani significativamente superiori e percentuali di giovani inferiori rispetto alle zone di pianura. Questa **doppia fragilità demografica** (invecchiamento e denatalità) delle aree montane richiede politiche territoriali mirate per contrastare lo spopolamento e sostenere i servizi essenziali nelle comunità più isolate.
 
 ***
 
@@ -683,68 +703,82 @@ Il profilo demografico di Parma suggerisce:
 
 ---
 
-## **Approfondimenti sui dati necessari**
+## 🟨 Possibili approfondimenti su questi dati
 
-Per una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono necessari ulteriori approfondimenti:
+Per una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono possibili ulteriori approfondimenti:
 
-### **1. Composizione dettagliata popolazione anziana**
-- **Struttura per sottoclassi**: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni (grandi anziani)
-- **Obiettivo**: identificare la fascia dei "grandi anziani" (85+) con maggior rischio di non autosufficienza
-- **Fonte**: ISTAT Demo - Popolazione residente per età singola
++ **Composizione dettagliata popolazione anziana**
+  - **Struttura per sottoclassi**: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni   (grandi anziani)
+  - **Obiettivo**: identificare la fascia dei "grandi anziani" (85+) con maggior rischio   di non autosufficienza
+  - **Fonte**: ISTAT Demo - Popolazione residente per età singola
 
-### **2. Dinamica demografica per età (spiegare la "U" nell'indice di vecchiaia)**
-- **Flussi migratori per fasce d'età**: immigrazione 0-40 anni vs emigrazione 65+ anni
-- **Natalità per cittadinanza**: contributo popolazione straniera alla componente giovane
-- **Invecchiamento popolazione immigrata**: coorti immigrate anni 2000 che oggi hanno 40-60 anni
-- **Obiettivo**: capire se il recente aumento dell'indice di vecchiaia (2016-2025) è strutturale o temporaneo
-- **Fonte**: ISTAT - Iscrizioni/cancellazioni anagrafiche per età, Nati per cittadinanza genitori
++ **Trend demografici futuri**:  
+  - **Obiettivo**: stimare la crescita futura della popolazione anziana e dei "grandi anziani"
+  - **Fonte**: [ISTAT - Proiezioni demografiche per età](https://statistica.regione.emilia-romagna.it/dati/rappresentazioni-grafiche-dati/visualizzazione-proiezioni-demografiche-emilia-romagna)
 
-### **3. Indicatori di fragilità e non autosufficienza**
-- **Prevalenza ADL/IADL per età**: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 85+
-- **Anziani soli per classe d'età**: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)
-- **Malattie croniche invalidanti per età**: demenze, Parkinson, ictus, diabete grave
-- **Obiettivo**: stimare il "bisogno assistenziale effettivo" oltre al semplice numero di anziani
-- **Fonte**: ISTAT EHIS, ER Stats - Fragilità, Dati SSR-AUSL
++ **Approfondimento sulla mobilità interna e sui flussi migratori**:
+  - **Obiettivo**: analizzare i flussi migratori interni per età per comprendere meglio la dinamica demografica locale e le consiguenti implicazioni per la domanda di servizi
+    - **Flussi migratori per fasce d'età**: immigrazione 0-40 anni vs emigrazione 65+ anni
+    - **Natalità per cittadinanza**: contributo popolazione straniera alla componente giovane
+    - **Invecchiamento popolazione immigrata**: coorti immigrate anni 2000 che oggi hanno 40-60 anni
+    - **Obiettivo**: capire se il recente aumento dell'indice di vecchiaia (2016-2025) è strutturale o temporaneo    
+  - **Fonte**: ISTAT - Mobilità interna per età
 
-### **4. Composizione e caratteristiche famiglie con anziani**
-- **Anziani in famiglia vs soli**: potenziale di caregiver informale
-- **Distanza abitativa da figli**: prossimità rete familiare
-- **Caregiver familiari per età assistito**: profilo della domanda di supporto
-- **Obiettivo**: distinguere tra anziani con rete familiare vs anziani "fragili" senza supporto
-- **Fonte**: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver
+## Sintesi annuale di RE-R Statistica
 
-### **5. Popolazione con disabilità certificata**
-- **Invalidi civili per età e grado**: totali, parziali, accompagnamento (> 74%)
-- **Legge 104 per età**: certificazioni L.104/92 per fascia d'età
-- **Amministratori di sostegno**: indicatore fragilità estrema
-- **Obiettivo**: quantificare la domanda "certificata" di assistenza
-- **Fonte**: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104
++ Questo studio (sintesi annuale, ultima disponibile del [2025](https://statistica.regione.emilia-romagna.it/studi-analisi/pubblicazioni-ricerche/rapporto-mappe-potenziale-fragilita-emilia-romagna-2023#publication_download)) analizza, a livello di comune, la potenziale fragilità utilizzando indicatori collegati a condizioni che concorrono potenzialmente a indebolire la coesione sociale e il benessere delle persone:
+  - Fonte: [@regioneemilia-romagna-ufficiodistatisticaPotenzialeFragilitaDemografica2025]
+  
+### Indice potenziale fragilità demografica {.notitle}
 
-### **Priorità operative**
 
-Per stimare la domanda di servizi nel breve-medio termine (3-5 anni):
-
-1. **Immediato**: dati su popolazione 75+ e 85+ per comune (già disponibili ISTAT)
-2. **Breve termine**: prevalenza non autosufficienza per età da applicare alle proiezioni demografiche
-3. **Medio termine**: analisi flussi migratori per età per capire se trend recente (U invertita) continuerà
+  + `Indice di potenziale fragilità demografica` (misurato combinando: `% 80ENNI E PIÙ`,`VARIAZIONE % POPOLAZIONE RESIDENTE`, `SALDO NATURALE MEDIO ANNUO (*1000)`) - potenziale maggiore nella fascia appenninica, dal basso ferrarese fino alla pianura ravennate e in alcuni comuni vicini al confine con la Lombardia nelle province di Piacenza, Parma e Reggio nell'Emilia
 
 
 
-# Fonti principali
+```{r}
+#| label: ind_frag_demografica
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
 
-**GIÀ SCARICATE**
+# print PNG  data/maps/indice_frag_demogr.png
+png::readPNG(here::here("data", "maps", "indice_frag_demogr.png")) %>%
+  grid::grid.raster()
+```
+  
+### Indice potenziale fragilità sociale{.notitle}
 
--   🟩 **ISTAT - Demo**: Indicatori demografici <https://demo.istat.it/tavole/?t=indicatori&l=it>
--   🟩 **ER Stats - Fragilità**: `data/data_in/ER_stats/fragilit_prov_com_2023.xlsx` - [Studio](https://statistica.regione.emilia-romagna.it/studi-analisi/2025/mappe-potenziale-fragilita-emilia-romagna-2023)
--   🟩 **ER Stats - Salute**: `data/data_in/ER_stats/stato_salute_reg_20232024.xlsx`
 
-**DA SCARICAre**
+  + `Indice di potenziale fragilità sociale` (misurato combinando: `% POPOLAZIONE RESIDENTE DI 65 ANNI E OLTRE IN FAMIGLIE UNIPERSONALI`, `RICAMBIO % MEDIO DELLA POPOLAZIONE STRANIERA`, `% POPOLAZIONE RESIDENTE STRANIERA IN ETÀ 0- 19 ANNI SULLA POPOLAZIONE RESIDENTE IN ETÀ 0-19 ANNI`, 
+`% LAUREATI IN ETÀ 25-49 ANNI SULLA POPOLAZIONE RESIDENTE DI 25-49 ANNI`, `% MINORI IN FAMIGLIE MONOGENITORIALI SUL TOTALE DEI MINORI RESIDENTI IN FAMIGLIA`)- livelli alti o medio alti nelle aree montane e a ridosso del Po.
+```{r}
+#| label: ind_frag_sociale
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
 
--   🟧 **ISTAT - Disabilità in Cifre**: <https://www.istat.it/it/archivio/236301>
--   🟧 **ISTAT - Aspetti vita quotidiana**: Indagine annuale condizioni vita <https://www.istat.it/it/archivio/91926>
--   🟧 **Agenzia Regionale Lavoro ER**: Rapporti inclusione lavorativa persone disabili (2021-2022)
--   🟧 **SSR Emilia-Romagna**: "Il Sostegno del caregiver in ER" (2020), Rapporti DSM
--   🟧 **MIUR - Anagrafe studenti**: Dati alunni con disabilità per provincia
--   🟧 \*\*INPS - ....
--   🟧 Rapporto del SSR Emilia-Romagna «Il Sostegno del caregiver in regione Emilia-Romagna» (2020),
--   🟧 Articolo di Vita «Giovani caregiver, se il lavoro di cura mette a rischio il futuro» 17.07.2024 (https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/)
+# print PNG  data/maps/indice_frag_sociale.png 
+png::readPNG(here::here("data", "maps", "indice_frag_sociale.png")) %>%
+  grid::grid.raster()
+```
+
+### Indice potenziale fragilità economica{.notitle}
+
+  + `Indice di potenziale fragilità economica` (misurato combinando: `% ABITAZIONI OCCUPATE IN AFFITTO`, `REDDITO IMPONIBILE MEDIO PER CONTRIBUENTE`, `% CONTRIBUENTI CON 0-10.000 EURO DI REDDITO COMPLESSIVO SU TOTALE CONTRIBUENTI`) - più intensa nelle province romagnole. 
+
+```{r}
+#| label: ind_frag_economica
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+# print PNG  data/maps/indice_frag_economica.png 
+png::readPNG(here::here("data", "maps", "indice_frag_econ.png")) %>%
+  grid::grid.raster()
+```
+  
+  
+  
+  
+  

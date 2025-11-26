@@ -1,6 +1,5 @@
 ---
-title: "Welcome to Parma Dash"
+title: "Dati di contesto sul territorio di Parma"
 ---
 
-Welcome to the Parma Dash website!  
-This site showcases data and interactive dashboards built with Quarto.
+Work in progress ...

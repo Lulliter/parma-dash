@@ -57,172 +57,11 @@
     ]
   },
   {
-    "objectID": "analysis/02_base_maps.html#leggi-shp-files-per-emilia-romagna",
-    "href": "analysis/02_base_maps.html#leggi-shp-files-per-emilia-romagna",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "leggi shp files per Emilia-Romagna",
-    "text": "leggi shp files per Emilia-Romagna\nFONTE: output di map/01_istat_shp_situas_cens.qmd"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#leggi-caratt-comuni-ita",
-    "href": "analysis/02_base_maps.html#leggi-caratt-comuni-ita",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "leggi caratt comuni Ita",
-    "text": "leggi caratt comuni Ita\nFONTE: output di map/01_istat_shp_situas_cens.qmd"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#leggi-dati-censimento",
-    "href": "analysis/02_base_maps.html#leggi-dati-censimento",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "leggi dati censimento",
-    "text": "leggi dati censimento\nFONTE: output di map/01_istat_shp_situas_cens.qmd"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#join-comuni-er-caratt-comuni-ita",
-    "href": "analysis/02_base_maps.html#join-comuni-er-caratt-comuni-ita",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "Join comuni ER + caratt comuni Ita",
-    "text": "Join comuni ER + caratt comuni Ita\nOKKIO: qui avrei le caratteristiche di TUTTI i comuni Ita, ma mi tengo solo quelle di Emilia-Romagna. Entrambe qs df sono sf con geometria."
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#prep-linee-province",
-    "href": "analysis/02_base_maps.html#prep-linee-province",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "Prep linee PROVINCE",
-    "text": "Prep linee PROVINCE\nI confini delle PROV si possono desumere dai comuni con st_union() in summarise()\nOKKIO: + con sf, quando fai summarise() su gruppi le geometrie dei comuni nel gruppo vengono unite (st_union()), quindi passi da n comuni → 1 poligono per provincia, e gli attributi vengono riassunti per gruppo (in questo caso hai solo COD_PROV, quindi rimane quello). + .groups = \"drop\" ottieni un tibble sf non raggruppato"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#mapfunc-mappa-con-dummy-com_iso-com_lit-zone_cost_2021",
-    "href": "analysis/02_base_maps.html#mapfunc-mappa-con-dummy-com_iso-com_lit-zone_cost_2021",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map/Func] mappa con dummy (COM_ISO, COM_LIT, ZONE_COST_2021)",
-    "text": "[Map/Func] mappa con dummy (COM_ISO, COM_LIT, ZONE_COST_2021)"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#map-dummy-zone_cost_2021",
-    "href": "analysis/02_base_maps.html#map-dummy-zone_cost_2021",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map] Dummy ZONE_COST_2021",
-    "text": "[Map] Dummy ZONE_COST_2021\n\n\n\n\n\nFigura 1"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#mapfunc-mappa-con-fattori-degurba_2021-zona_alt",
-    "href": "analysis/02_base_maps.html#mapfunc-mappa-con-fattori-degurba_2021-zona_alt",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map/Func] mappa con fattori (DEGURBA_2021, ZONA_ALT)",
-    "text": "[Map/Func] mappa con fattori (DEGURBA_2021, ZONA_ALT)"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#map-fattore-zona_alt",
-    "href": "analysis/02_base_maps.html#map-fattore-zona_alt",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map] Fattore ZONA_ALT",
-    "text": "[Map] Fattore ZONA_ALT\n\n\n\n\n\nFigura 2"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#map-fattore-degurba_2021",
-    "href": "analysis/02_base_maps.html#map-fattore-degurba_2021",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map] Fattore DEGURBA_2021",
-    "text": "[Map] Fattore DEGURBA_2021\n\n\n\n\n\nFigura 3"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#prep-dati-popolazione-2023-fattore-degurba_2021-per-comuni-parma",
-    "href": "analysis/02_base_maps.html#prep-dati-popolazione-2023-fattore-degurba_2021-per-comuni-parma",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni Parma",
-    "text": "[Prep] Dati popolazione 2023 + Fattore DEGURBA_2021 per comuni Parma"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#map-variabile-continua-popolazione-over-60-anni",
-    "href": "analysis/02_base_maps.html#map-variabile-continua-popolazione-over-60-anni",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map] Variabile continua % Popolazione over 60 anni",
-    "text": "[Map] Variabile continua % Popolazione over 60 anni\n\n\n\n\n\nFigura 4"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#map-12-popolazione-over-60-anni-grado-di-urbanizzazione",
-    "href": "analysis/02_base_maps.html#map-12-popolazione-over-60-anni-grado-di-urbanizzazione",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map 1/2] Popolazione over 60 anni + Grado di urbanizzazione",
-    "text": "[Map 1/2] Popolazione over 60 anni + Grado di urbanizzazione\n\n\n\n\n\nFigura 5"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#map-22-popolazione-over-60-anni-grado-di-urbanizzazione",
-    "href": "analysis/02_base_maps.html#map-22-popolazione-over-60-anni-grado-di-urbanizzazione",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione",
-    "text": "[Map 2/2] Popolazione over 60 anni + Grado di urbanizzazione\n\n\n\n\n\nFigura 6"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#stats-correlazione-tra-urbanizzazione-e-invecchiamento",
-    "href": "analysis/02_base_maps.html#stats-correlazione-tra-urbanizzazione-e-invecchiamento",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "[Stats] Correlazione tra urbanizzazione e invecchiamento",
-    "text": "[Stats] Correlazione tra urbanizzazione e invecchiamento\n\n\n\n\n\nFigura 7: Relazione tra grado di urbanizzazione e quota di popolazione over 60\n\n\n\n\n\n\n\n\n\n[Stats/ggstatsplot] Visualizzazione con test integrati\n\n\n\n\n\nFigura 8: Analisi statistica con ggstatsplot"
-  },
-  {
-    "objectID": "analysis/02_base_maps.html#qui",
-    "href": "analysis/02_base_maps.html#qui",
-    "title": "Mappe basate su confini e caratteristiche dei comuni",
-    "section": "QUI 🟨🟧🌫️🟪🟦",
-    "text": "QUI 🟨🟧🌫️🟪🟦"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
-    "href": "analysis/00_carica_shp_situas.html#carica-.shp-files-istat",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Carica .shp files ISTAT",
-    "text": "__ Carica .shp files ISTAT\nFONTE: vedi data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md DATA AGGIORNAMENTO: 01/01/2025 COME OTTENUTO: presi da download manuale (vedi _istat_shp_ITA_spiega.md) CONTENUTO: + Shapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
-    "href": "analysis/00_carica_shp_situas.html#carica-caratteristiche-comuni-situas",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Carica caratteristiche comuni SITUAS",
-    "text": "__ Carica caratteristiche comuni SITUAS\nFONTE: ISTAT SITUAS - Servizi di pubblicazione dati territoriali DATA AGGIORNAMENTO: quella in cui si scaricano i dati COME OTTENUTO: usando funzione per scaricare dati da SITUAS con API (R/istat_situas_get.R) CONTENUTO: + AMBITI GEOGRAFICI: Unità amministrative (Comuni) + In questo caso mi serve il Report 73 Comuni - Caratteristiche del territorio + Qui c’è la lista dei report territoriali https://situas.istat.it/web/#/apiDetail"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
-    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-emilia-romagna",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Prep dati per Emilia-Romagna",
-    "text": "__ Prep dati per Emilia-Romagna\n\n[Fun] Salva liste codici\n\n\n— Salva liste codici per ER"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
-    "href": "analysis/00_carica_shp_situas.html#prep-dati-per-lombardia",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "__ Prep dati per Lombardia",
-    "text": "__ Prep dati per Lombardia\n\n— Salva liste codici per Lomb"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
-    "href": "analysis/00_carica_shp_situas.html#descrizione-vars-comuni_ita_info_sf",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "— Descrizione VARs comuni_ita_info_sf",
-    "text": "— Descrizione VARs comuni_ita_info_sf\nFonte: vedi https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73&pdata=01/01/1948"
-  },
-  {
-    "objectID": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
-    "href": "analysis/00_carica_shp_situas.html#salva-oggetto-con-info-comuni-descrizione-variabili",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "— Salva oggetto con info comuni + descrizione variabili",
-    "text": "— Salva oggetto con info comuni + descrizione variabili"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "This is the about page for Parma Dash."
-  },
-  {
-    "objectID": "analysis/01_carica_cens.html#carica-dati-censimento",
-    "href": "analysis/01_carica_cens.html#carica-dati-censimento",
-    "title": "Mappe e Codici confini amministrativi ISTAT",
-    "section": "Carica dati Censimento",
-    "text": "Carica dati Censimento\nFONTE: IstatData is the new Istat data warehouse.\nQUERY STRUTTURA: Link QUERY DATI: [Link] = urls_istat$pop_cens_all DATA AGGIORNAMENTO: Censimento 2023 COME OTTENUTO: Download dati ISTAT CENSIMENTO via API SDMX (vedi R/f_istat_scarica_cens.R) CONTENUTO: + Dataset ID = “IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0”\n\nQui uso una funzione R (f_scarica_istat_blocchi()) che ho scritto per scaricare i dati censuari per comune via API SDMX. In pratica, partendo da un url con dentro tutti i comuni italiani, mi consente di selezionare solo i comuni che mi interessano (es. quelli di Parma o di Emilia-Romagna), dividere la richiesta in blocchi (per evitare timeout/limiti di richiesta) e salvare i dati in locale in formato RDS e CSV.\n\n\nURL EsploraDati Istat\n\n\nFile (scarica) dati_finali_com\nOKKIO: non lo faccio andare se so che ho già i dati!!!!!\nCALL API per ottenere dati censimento 2023 SOLO per i 44 comuni di Parma (PR) e Emilia-Romagna (ER)\n\nControllo file dati_finali_com\n\n\nCreo mini file per variabile categorica\n\nPopolazione per classi decennali di età per comuni di Parma (PR) - Censimento 2023\nQuindi filtro per Total o ALL dove non mi interessa la variabile\n\n\nPopolazione per sesso per comuni di Parma (PR) - Censimento 2023\n\n\nPopolazione per cittadinanza per comuni di Parma (PR) - Censimento 2023\n\n\n\nSalvo files istat_pop_com_PR_2023*\n[Ridondante: SE ho solo riscaricato da prima]\n\n\n\nFile (scarica) dati_finali_com_ER\nOKKIO: non lo faccio andare se so che ho già i dati!!!!!\nCALL API per ottenere dati censimento 2023 per i 330 comuni Emilia-Romagna (ER)\n\nControllo file dati_finali_com_ER\n\n\nCreo mini file x variabile categorica\n\nPopolazione per classi di età per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per sesso per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per cittadinanza per comuni di Emilia-Romagna (ER) - Censimento 2023\n\n\nSalvo files istat_pop_com_ER_2023_...\n[Ridondante: SE ho solo riscaricato da prima]\n\n\n\n\nFile (crea) dati_prov_ER_agg\nObiettivo, aggregare i dati di cui sopra per provincia (COD_PROV) in Emilia-Romagna\n\nviene fatto “manualmente” basandosi sui dati comunali e sullo shapefile dei comuni per ottenere i codici provincia (COD_PROV)\n\nPrima attacco il codice provincia ai dati censuari per tutti i comuni di Emilia-Romagna (ER)\nPoi sommo OBSVALUE per provincia (COD_PROV) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (GENDER, AGE_CLASS, CITIZENSHIP)\nCOMUNE in pratica sparisce e ottengo il dato aggregato per provincia (COD_PROV)\n\nPopolazione per classi di età per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per sesso per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nPopolazione per cittadinanza per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023\n\n\nSalvo files che iniziano per istat_pop_prov_ER_2023\n[Ridondante: SE ho solo riscaricato da prima]"
   },
   {
     "objectID": "dashboard.html",
@@ -251,7 +90,7 @@
     "href": "dashboard/01_tema_trend_demo.html#trend-composizione-della-popolazione-per-età",
     "title": "Demografia: bisogni e servizi sociali",
     "section": "Trend composizione della popolazione per età",
-    "text": "Trend composizione della popolazione per età\n\np01_e_m [ = Età Media]\n\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età media è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\np10_quoziente_di_natalità [ = Quoziente di natalità]\n\n\n\n\n\n\n⭐ Calo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\np09_quoziente_di_mortalità [ = Quoziente di mortalità]\n\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\np07_crescita_naturale [ = Crescita naturale]\n\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\np17_tasso_di_crescita_totale [ = Tasso di crescita totale]\n\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.",
+    "text": "Trend composizione della popolazione per età\n\np01_e_m [ = Età Media]\n\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età medi1a è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\np10_quoziente_di_natalità [ = Quoziente di natalità]\n\n\n\n\n\n\n⭐ Calo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\np09_quoziente_di_mortalità [ = Quoziente di mortalità]\n\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\np07_crescita_naturale [ = Crescita naturale]\n\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\np17_tasso_di_crescita_totale [ = Tasso di crescita totale]\n\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.",
     "crumbs": [
       "Dashboard",
       "Tema 1) Trend Demografici"
@@ -335,11 +174,11 @@
     ]
   },
   {
-    "objectID": "dashboard/01_tema_trend_demo.html#approfondimenti-sui-dati-necessari",
-    "href": "dashboard/01_tema_trend_demo.html#approfondimenti-sui-dati-necessari",
+    "objectID": "dashboard/01_tema_trend_demo.html#possibili-approfondimenti",
+    "href": "dashboard/01_tema_trend_demo.html#possibili-approfondimenti",
     "title": "Demografia: bisogni e servizi sociali",
-    "section": "Approfondimenti sui dati necessari",
-    "text": "Approfondimenti sui dati necessari\nPer una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono necessari ulteriori approfondimenti:\n\n1. Composizione dettagliata popolazione anziana\n\nStruttura per sottoclassi: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni (grandi anziani)\nObiettivo: identificare la fascia dei “grandi anziani” (85+) con maggior rischio di non autosufficienza\nFonte: ISTAT Demo - Popolazione residente per età singola\n\n\n\n2. Dinamica demografica per età (spiegare la “U” nell’indice di vecchiaia)\n\nFlussi migratori per fasce d’età: immigrazione 0-40 anni vs emigrazione 65+ anni\nNatalità per cittadinanza: contributo popolazione straniera alla componente giovane\nInvecchiamento popolazione immigrata: coorti immigrate anni 2000 che oggi hanno 40-60 anni\nObiettivo: capire se il recente aumento dell’indice di vecchiaia (2016-2025) è strutturale o temporaneo\nFonte: ISTAT - Iscrizioni/cancellazioni anagrafiche per età, Nati per cittadinanza genitori\n\n\n\n3. Indicatori di fragilità e non autosufficienza\n\nPrevalenza ADL/IADL per età: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 85+\nAnziani soli per classe d’età: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)\nMalattie croniche invalidanti per età: demenze, Parkinson, ictus, diabete grave\nObiettivo: stimare il “bisogno assistenziale effettivo” oltre al semplice numero di anziani\nFonte: ISTAT EHIS, ER Stats - Fragilità, Dati SSR-AUSL\n\n\n\n4. Composizione e caratteristiche famiglie con anziani\n\nAnziani in famiglia vs soli: potenziale di caregiver informale\nDistanza abitativa da figli: prossimità rete familiare\nCaregiver familiari per età assistito: profilo della domanda di supporto\nObiettivo: distinguere tra anziani con rete familiare vs anziani “fragili” senza supporto\nFonte: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver\n\n\n\n5. Popolazione con disabilità certificata\n\nInvalidi civili per età e grado: totali, parziali, accompagnamento (&gt; 74%)\nLegge 104 per età: certificazioni L.104/92 per fascia d’età\nAmministratori di sostegno: indicatore fragilità estrema\nObiettivo: quantificare la domanda “certificata” di assistenza\nFonte: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104\n\n\n\nPriorità operative\nPer stimare la domanda di servizi nel breve-medio termine (3-5 anni):\n\nImmediato: dati su popolazione 75+ e 85+ per comune (già disponibili ISTAT)\nBreve termine: prevalenza non autosufficienza per età da applicare alle proiezioni demografiche\nMedio termine: analisi flussi migratori per età per capire se trend recente (U invertita) continuerà",
+    "section": "🟨 Possibili approfondimenti",
+    "text": "🟨 Possibili approfondimenti\nPer una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono possibili ulteriori approfondimenti:\n\nComposizione dettagliata popolazione anziana\n\nStruttura per sottoclassi: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni (grandi anziani)\nObiettivo: identificare la fascia dei “grandi anziani” (85+) con maggior rischio di non autosufficienza\nFonte: ISTAT Demo - Popolazione residente per età singola\n\nTrend demografici futuri:\n\nObiettivo: stimare la crescita futura della popolazione anziana e dei “grandi anziani”\nFonte: ISTAT - Proiezioni demografiche per età\n\nApprofondimento sulla mobilità interna e sui flussi migratori:\n\nObiettivo: analizzare i flussi migratori interni per età per comprendere meglio la dinamica demografica locale e le consiguenti implicazioni per la domanda di servizi\n\nFlussi migratori per fasce d’età: immigrazione 0-40 anni vs emigrazione 65+ anni\nNatalità per cittadinanza: contributo popolazione straniera alla componente giovane\nInvecchiamento popolazione immigrata: coorti immigrate anni 2000 che oggi hanno 40-60 anni\nObiettivo: capire se il recente aumento dell’indice di vecchiaia (2016-2025) è strutturale o temporaneo\n\n\nFonte: ISTAT - Mobilità interna per età\n\nFocus su specifici indicatori di fragilità e non autosufficienza:\n\nObiettivo: identificare indicatori specifici di fragilità e non autosufficienza nella popolazione anziana\n\nPrevalenza ADL/IADL per età: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 85+\nAnziani soli per classe d’età: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)\nMalattie croniche invalidanti per età: demenze, Parkinson, ictus, diabete grave\nObiettivo: stimare il “bisogno assistenziale effettivo” oltre al semplice numero di anziani\n\n\nFonte: ISTAT EHIS, ER Stats - Fragilità, Dati SSR-AUSL, SSR ER - Indagini su fragilità e non autosufficienza\nComposizione e caratteristiche famiglie con anziani\n\nAnziani in famiglia vs soli: potenziale di caregiver informale\nDistanza abitativa da figli: prossimità rete familiare\nCaregiver familiari per età assistito: profilo della domanda di supporto\nObiettivo: distinguere tra anziani con rete familiare vs anziani “fragili” senza supporto\n\nFonte: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver\nPopolazione con disabilità certificata\n\nInvalidi civili per età e grado: totali, parziali, accompagnamento (&gt; 74%)\nLegge 104 per età: certificazioni L.104/92 per fascia d’età\nAmministratori di sostegno: indicatore fragilità estrema\nObiettivo: quantificare la domanda “certificata” di assistenza\n\nFonte: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104",
     "crumbs": [
       "Dashboard",
       "Tema 1) Trend Demografici"
@@ -348,9 +187,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to Parma Dash",
+    "title": "Dati di contesto sul territorio di Parma",
     "section": "",
-    "text": "Welcome to the Parma Dash website!\nThis site showcases data and interactive dashboards built with Quarto."
+    "text": "Work in progress …"
   },
   {
     "objectID": "posts/2025-10-13-first-post.html",
@@ -358,5 +197,49 @@
     "title": "First Blog Post",
     "section": "",
     "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+  },
+  {
+    "objectID": "dashboard/02_tema_disabilità.html",
+    "href": "dashboard/02_tema_disabilità.html",
+    "title": "Dati specifici sui fragilità e non autosufficienza",
+    "section": "",
+    "text": "I dati su questi aspetti sono spesso frammentati, non aggiornati o non disponibili a livello comunale, ma sono fondamentali per una stima accurata della domanda di servizi sociali e sanitari.\nDATI 2022 (aggiornati al 2019)\n\nFocus su specifici indicatori di fragilità e non autosufficienza:\n\nObiettivo: identificare indicatori specifici di fragilità e non autosufficienza nella popolazione anziana\nPrevalenza di GALI (Global Activity Limitation Indicator) per età e regione:\n\nFonte: 🟩ISTAT Microdati per ricerca (anno 2023, ma è dispoonibile dal 2009) \nPrevalenza di ... per età: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 75+, 85+\n\nGravi malattie croniche - Tavola 1.1.4\nAlmeno tre malattie croniche - Tavola 1.1.4\nStato ansioso-depressivo - Tavola 1.2.4 ,\nGravi limitazioni motorie, sensoriali e cognitive - Tavola 3.1.4 + 3.1.8 + 3.1.12 + 3.1.16\nLimitazioni nella mobilità per problemi di salute\nGravi difficoltà nelle attività di cura della persona (ADL: Activities of Daily Living) - Tavola 3.2.4\nGravi difficoltà nelle attività di cura della persona (ADL) di cui con bisogni di assistenza o ausili\nGravi difficoltà nelle Attività quotidiane strumentali di tipo domestico (IADL: Instrumental Activities of Daily Living) - Tavola 3.3.4\nPersone di 15 anni e più e 65 anni e più che hanno fatto ricorso all’assistenza domiciliare - Tavola 4.5.4\nDifficoltà di accesso a prestazioni e cure sanitarie - Tavola 4.8.8\nPersone di 15 anni e più e 65 anni e più per livello di sostegno sociale percepito - Tavola 5.1.4 -\n\nFonte: 🟩 ISTAT EHIS (2022 ma dati sul 2019)\n\n\nDATI 2023/24?  - Anziani soli per classe d'età: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale) - Obiettivo: stimare il “bisogno assistenziale effettivo” oltre al semplice numero di anziani - Fonte: ER Stats - Fragilità, Dati SSR-AUSL, SSR ER - Indagini su fragilità e non autosufficienza\n\nComposizione e caratteristiche famiglie con anziani\n\nObiettivo: distinguere tra anziani con rete familiare vs anziani “fragili” senza supporto\nAnziani in famiglia vs soli: potenziale di caregiver informale\nDistanza abitativa da figli: prossimità rete familiare\nCaregiver familiari per età assistito: profilo della domanda di supporto\nFonte: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver\n\nPopolazione con disabilità certificata\n\nObiettivo: quantificare la domanda “certificata” di assistenza\n\nInvalidi civili per età e grado: totali, parziali, accompagnamento (&gt; 74%)\nLegge 104 per età: certificazioni L.104/92 per fascia d’età\nAmministratori di sostegno: indicatore fragilità estrema\n\nFonte: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104",
+    "crumbs": [
+      "Dashboard",
+      "Tema 2) Disabilità"
+    ]
+  },
+  {
+    "objectID": "dashboard/02_tema_disabilità.html#dati-per-fotografare-la-fragilità",
+    "href": "dashboard/02_tema_disabilità.html#dati-per-fotografare-la-fragilità",
+    "title": "Dati specifici sui fragilità e non autosufficienza",
+    "section": "",
+    "text": "I dati su questi aspetti sono spesso frammentati, non aggiornati o non disponibili a livello comunale, ma sono fondamentali per una stima accurata della domanda di servizi sociali e sanitari.\nDATI 2022 (aggiornati al 2019)\n\nFocus su specifici indicatori di fragilità e non autosufficienza:\n\nObiettivo: identificare indicatori specifici di fragilità e non autosufficienza nella popolazione anziana\nPrevalenza di GALI (Global Activity Limitation Indicator) per età e regione:\n\nFonte: 🟩ISTAT Microdati per ricerca (anno 2023, ma è dispoonibile dal 2009) \nPrevalenza di ... per età: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 75+, 85+\n\nGravi malattie croniche - Tavola 1.1.4\nAlmeno tre malattie croniche - Tavola 1.1.4\nStato ansioso-depressivo - Tavola 1.2.4 ,\nGravi limitazioni motorie, sensoriali e cognitive - Tavola 3.1.4 + 3.1.8 + 3.1.12 + 3.1.16\nLimitazioni nella mobilità per problemi di salute\nGravi difficoltà nelle attività di cura della persona (ADL: Activities of Daily Living) - Tavola 3.2.4\nGravi difficoltà nelle attività di cura della persona (ADL) di cui con bisogni di assistenza o ausili\nGravi difficoltà nelle Attività quotidiane strumentali di tipo domestico (IADL: Instrumental Activities of Daily Living) - Tavola 3.3.4\nPersone di 15 anni e più e 65 anni e più che hanno fatto ricorso all’assistenza domiciliare - Tavola 4.5.4\nDifficoltà di accesso a prestazioni e cure sanitarie - Tavola 4.8.8\nPersone di 15 anni e più e 65 anni e più per livello di sostegno sociale percepito - Tavola 5.1.4 -\n\nFonte: 🟩 ISTAT EHIS (2022 ma dati sul 2019)\n\n\nDATI 2023/24?  - Anziani soli per classe d'età: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale) - Obiettivo: stimare il “bisogno assistenziale effettivo” oltre al semplice numero di anziani - Fonte: ER Stats - Fragilità, Dati SSR-AUSL, SSR ER - Indagini su fragilità e non autosufficienza\n\nComposizione e caratteristiche famiglie con anziani\n\nObiettivo: distinguere tra anziani con rete familiare vs anziani “fragili” senza supporto\nAnziani in famiglia vs soli: potenziale di caregiver informale\nDistanza abitativa da figli: prossimità rete familiare\nCaregiver familiari per età assistito: profilo della domanda di supporto\nFonte: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver\n\nPopolazione con disabilità certificata\n\nObiettivo: quantificare la domanda “certificata” di assistenza\n\nInvalidi civili per età e grado: totali, parziali, accompagnamento (&gt; 74%)\nLegge 104 per età: certificazioni L.104/92 per fascia d’età\nAmministratori di sostegno: indicatore fragilità estrema\n\nFonte: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104",
+    "crumbs": [
+      "Dashboard",
+      "Tema 2) Disabilità"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#possibili-approfondimenti-su-questi-dati",
+    "href": "dashboard/01_tema_trend_demo.html#possibili-approfondimenti-su-questi-dati",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "🟨 Possibili approfondimenti su questi dati",
+    "text": "🟨 Possibili approfondimenti su questi dati\nPer una stima più accurata della domanda di servizi per anziani e persone con disabilità, sono possibili ulteriori approfondimenti:\n\nComposizione dettagliata popolazione anziana\n\nStruttura per sottoclassi: 65-74 anni (giovani anziani), 75-84 anni, 85+ anni (grandi anziani)\nObiettivo: identificare la fascia dei “grandi anziani” (85+) con maggior rischio di non autosufficienza\nFonte: ISTAT Demo - Popolazione residente per età singola\n\nTrend demografici futuri:\n\nObiettivo: stimare la crescita futura della popolazione anziana e dei “grandi anziani”\nFonte: ISTAT - Proiezioni demografiche per età\n\nApprofondimento sulla mobilità interna e sui flussi migratori:\n\nObiettivo: analizzare i flussi migratori interni per età per comprendere meglio la dinamica demografica locale e le consiguenti implicazioni per la domanda di servizi\n\nFlussi migratori per fasce d’età: immigrazione 0-40 anni vs emigrazione 65+ anni\nNatalità per cittadinanza: contributo popolazione straniera alla componente giovane\nInvecchiamento popolazione immigrata: coorti immigrate anni 2000 che oggi hanno 40-60 anni\nObiettivo: capire se il recente aumento dell’indice di vecchiaia (2016-2025) è strutturale o temporaneo\n\n\nFonte: ISTAT - Mobilità interna per età",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/01_tema_trend_demo.html#sintesi-annuale-di-re-r-statistica",
+    "href": "dashboard/01_tema_trend_demo.html#sintesi-annuale-di-re-r-statistica",
+    "title": "Demografia: bisogni e servizi sociali",
+    "section": "Sintesi annuale di RE-R Statistica",
+    "text": "Sintesi annuale di RE-R Statistica\n\nQuesto studio (sintesi annuale, ultima disponibile del 2025) analizza, a livello di comune, la potenziale fragilità utilizzando indicatori collegati a condizioni che concorrono potenzialmente a indebolire la coesione sociale e il benessere delle persone:\n\nFonte: (Regione Emilia-Romagna - Ufficio di Statistica 2025)\n\n\n\nIndice potenziale fragilità demografica\n\nIndice di potenziale fragilità demografica (misurato combinando: % 80ENNI E PIÙ,VARIAZIONE % POPOLAZIONE RESIDENTE, SALDO NATURALE MEDIO ANNUO (*1000)) - potenziale maggiore nella fascia appenninica, dal basso ferrarese fino alla pianura ravennate e in alcuni comuni vicini al confine con la Lombardia nelle province di Piacenza, Parma e Reggio nell’Emilia\n\n\n\n\n\n\n\n\n\n\n\n\nIndice potenziale fragilità sociale\n\nIndice di potenziale fragilità sociale (misurato combinando: % POPOLAZIONE RESIDENTE DI 65 ANNI E OLTRE IN FAMIGLIE UNIPERSONALI, RICAMBIO % MEDIO DELLA POPOLAZIONE STRANIERA, % POPOLAZIONE RESIDENTE STRANIERA IN ETÀ 0- 19 ANNI SULLA POPOLAZIONE RESIDENTE IN ETÀ 0-19 ANNI, % LAUREATI IN ETÀ 25-49 ANNI SULLA POPOLAZIONE RESIDENTE DI 25-49 ANNI, % MINORI IN FAMIGLIE MONOGENITORIALI SUL TOTALE DEI MINORI RESIDENTI IN FAMIGLIA)- livelli alti o medio alti nelle aree montane e a ridosso del Po.\n\n\n\n\n\n\n\n\n\n\n\n\nIndice potenziale fragilità economica\n\nIndice di potenziale fragilità economica (misurato combinando: % ABITAZIONI OCCUPATE IN AFFITTO, REDDITO IMPONIBILE MEDIO PER CONTRIBUENTE, % CONTRIBUENTI CON 0-10.000 EURO DI REDDITO COMPLESSIVO SU TOTALE CONTRIBUENTI) - più intensa nelle province romagnole.",
+    "crumbs": [
+      "Dashboard",
+      "Tema 1) Trend Demografici"
+    ]
   }
 ]

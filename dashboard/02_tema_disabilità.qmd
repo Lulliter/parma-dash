@@ -1,20 +1,24 @@
 ---
-title: "Dashboard page su tema Y"
-subtitle: "Materiale che pesca negli output di altri qmd"
+title: "Dati specifici sui fragilità e non autosufficienza"
+subtitle: "A partire da Analisi di contesto di Sinloc/OpenImpact"
 date: last-modified
 date-format: "DD-MMMM-YYYY"
 lang: it
 
-format: html
-  # html:
-  #   theme: flatly #spacelab
-    # css: utils/style.css
-    # code-fold: true # redundant bc echo false 
-    # toc-depth: 3
-    # toc_float: true
-    # toc-location: left
-    # toc-title: Indice
-    # embed-resources: true # external dependencies embedded (Not in ..._files/)
+format:
+  html:
+    css: ../assets/styles/custom.scss
+    # theme: flatly
+    toc: false
+    toc-location: left
+    toc-title: "Indice"
+    include-in-header:
+      - text: |
+          <style>
+          section.level3.notitle h3 {
+            display: none !important;
+          }
+          </style>
 
 execute:
   eval: true
@@ -23,6 +27,57 @@ execute:
   error: false
   output: false
   
-bibliography: bib/CRP_dash.bib
+bibliography: ../bib/CRP_dash.bib
 suppress-bibliography: false
 ---
+
+## 🟨 Dati per fotografare la fragilità
+
+I dati su questi aspetti sono spesso frammentati, non aggiornati o non disponibili a livello comunale, ma sono fondamentali per una stima accurata della domanda di servizi sociali e sanitari.
+
+**DATI 2022 (aggiornati al 2019)**
+
++ **Focus su specifici indicatori di fragilità e non autosufficienza**:
+  - **Obiettivo**: identificare indicatori specifici di fragilità e non autosufficienza nella popolazione anziana
+
+  - Prevalenza di `GALI (Global Activity Limitation Indicator)` per età e regione:  
+   - **Fonte**: 🟩ISTAT Microdati per ricerca (anno 2023, ma è dispoonibile dal 2009) 
+<!-- solo che lo stronzo non lascia incrociare + di 2 dimensioni  -->
+
+   - Prevalenza di `... per età`: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 75+, 85+
+      - `Gravi malattie croniche` -   Tavola 1.1.4
+      - `Almeno tre malattie croniche` -  Tavola 1.1.4
+      - `Stato ansioso-depressivo` - Tavola 1.2.4 ,
+      - `Gravi limitazioni motorie, sensoriali e cognitive` - Tavola 3.1.4 + 3.1.8 + 3.1.12 + 3.1.16
+      - `Limitazioni nella mobilità per problemi di salute`
+      - `Gravi difficoltà nelle attività di cura della persona` (`ADL`: Activities of Daily Living) - Tavola 3.2.4
+      - `Gravi difficoltà nelle attività di cura della persona` (`ADL`) di cui con bisogni di assistenza o ausili
+      - `Gravi difficoltà nelle Attività quotidiane strumentali di tipo domestico` (`IADL`: Instrumental Activities of Daily Living) - Tavola 3.3.4
+      - `Persone di 15 anni e più e 65 anni e più che hanno fatto ricorso all’assistenza domiciliare` - Tavola 4.5.4
+      - `Difficoltà di accesso a prestazioni e cure sanitarie` - Tavola 4.8.8
+      - `Persone di 15 anni e più e 65 anni e più per livello di sostegno sociale percepito` - Tavola 5.1.4 -
+    - **Fonte**: 🟩 ISTAT EHIS (2022 ma dati sul 2019) 
+
+
+
+**DATI 2023/24? **
+    - `Anziani soli per classe d'età`: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)
+    - **Obiettivo**: stimare il "bisogno assistenziale effettivo" oltre al semplice numero di anziani
+  - **Fonte**: ER Stats - Fragilità, Dati SSR-AUSL, SSR ER - Indagini su fragilità e non autosufficienza
+ 
++ **Composizione e caratteristiche famiglie con anziani**
+    - **Obiettivo**: distinguere tra anziani con rete familiare vs anziani "fragili" senza supporto
+    - `Anziani in famiglia vs soli`: potenziale di caregiver informale
+    - `Distanza abitativa da figli`: prossimità rete familiare
+    - `Caregiver familiari per età assistito`: profilo della domanda di supporto
+  - **Fonte**: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver
+
++ **Popolazione con disabilità certificata**
+  - **Obiettivo**: quantificare la domanda "certificata" di assistenza
+    - `Invalidi civili per età e grado`: totali, parziali, accompagnamento (> 74%)
+    - `Legge 104 per età`: certificazioni L.104/92 per fascia d'età
+    - `Amministratori di sostegno`: indicatore fragilità estrema
+  - **Fonte**: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104
+
+
+

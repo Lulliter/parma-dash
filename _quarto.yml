@@ -4,7 +4,7 @@ project:
   render:
     - "/**/*.qmd"    # tutti i file .qmd (root or subfolders)
     - "!assets/parma_colours.qmd"
-    - "!map/**/*.qmd"   # ma NON quelli nella sottocartella map/
+    - "!analysis/**/*.qmd"   # ma NON quelli nella sottocartella analysis/ xche sono intermedi
     - "!zzz/**/*.qmd"   # e NON uelli cdella sottocartella zzz/
 
 website:
@@ -18,7 +18,7 @@ website:
     left: |
       {{< fa brands creative-commons >}}
       {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}} {{< fa brands creative-commons-sa >}}
-      [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) <br> [Luisa M. Mimmi](https://luisamimmi.org/)
+      [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) <br> [Luisa M. Mimmi](mailto:mimmi@fondazionecrp.it)
     right: |
       Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/) <br>
       [Code at {{< fa brands github >}} GitHub](https://github.com/Lulliter/parma-dash)
@@ -54,8 +54,8 @@ website:
         href: dashboard/00_tema_trend_demo_FONTI.qmd
       - text: "Tema 1) Trend Demografici"
         href: dashboard/01_tema_trend_demo.qmd
-      - text: "Tema 2) ..."
-        href: dashboard/02_tema_y.qmd  
+      - text: "Tema 2) Disabilità"
+        href: dashboard/02_tema_disabilità.qmd
 # 
 #       contents:
 #         - dashboard.qmd
