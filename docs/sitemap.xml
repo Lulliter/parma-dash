@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lulliter.github.io/parma-dash/source.html</loc>
+    <loc>https://lulliter.github.io/parma-dash/source/istat-data.html</loc>
     <lastmod>2025-11-11T20:42:49.612Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lulliter.github.io/parma-dash/source.html</loc>
+    <lastmod>2025-11-27T21:42:10.928Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/posts.html</loc>
     <lastmod>2025-10-13T10:19:04.000Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard/02_tema_disabilità.html</loc>
-    <lastmod>2025-11-26T15:18:10.510Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/dashboard/disability/index.html</loc>
+    <lastmod>2025-11-27T16:57:28.622Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard/00_tema_trend_demo_FONTI.html</loc>
-    <lastmod>2025-11-25T16:23:03.125Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/dashboard.html</loc>
+    <lastmod>2025-11-27T20:36:44.928Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/about.html</loc>
     <lastmod>2025-10-13T10:19:04.000Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard.html</loc>
-    <lastmod>2025-11-27T10:12:59.626Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard/01_tema_trend_demo.html</loc>
-    <lastmod>2025-11-26T11:33:50.029Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/dashboard/demographic_trends/index.html</loc>
+    <lastmod>2025-11-27T21:29:50.605Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/index.html</loc>
@@ -37,15 +37,7 @@
     <lastmod>2025-10-13T10:19:04.000Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard/demographic_trends/index.html</loc>
-    <lastmod>2025-11-27T10:05:16.871Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard/FONTI.html</loc>
-    <lastmod>2025-11-27T10:22:02.128Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard/disability/index.html</loc>
-    <lastmod>2025-11-27T16:57:28.622Z</lastmod>
+    <loc>https://lulliter.github.io/parma-dash/source/demog-disab-data.html</loc>
+    <lastmod>2025-11-27T21:40:25.538Z</lastmod>
   </url>
 </urlset>

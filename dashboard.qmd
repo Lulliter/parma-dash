@@ -28,6 +28,6 @@ execute:
 ---
 
 
-Il materiale è organizzato per temi. Gli artefatti che compongono le dashboard sono preparati in altri files.
-
+Il materiale è organizzato per temi: ogni pagina rappresenta **un modulo tematico** in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.
+ 
  

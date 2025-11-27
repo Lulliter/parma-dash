@@ -716,7 +716,7 @@ map_alt_Over70_fac <- ggplot() +
   ) +
   facet_wrap(~ZONA_ALT, ncol = 3) +
   labs(
-    title    = "Quota di residenti over 70 anni per grado di urbanizzazione",
+    title    = "Quota di residenti over 70 anni per zona altimetrica",
     subtitle = "Comuni della provincia di Parma, anno 2023",
     caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
   ) +
@@ -798,7 +798,7 @@ map_urb_Under30
 saveRDS(map_urb_Under30, here("data","maps","map_urb_Under30.rds"))
 ```
 
-## [Map 2/2] Popolazione under 30 anni + Grado di urbanizzazione
+## [Map 2/2] Popolazione under 30 anni + Zona altimetrica
 ```{r}
 #| label: fig-map-pop-Under30-pr
 #| output: true
@@ -831,7 +831,7 @@ map_alt_Under30_fac <- ggplot() +
   ) +
   facet_wrap(~ZONA_ALT, ncol = 3) +
   labs(
-    title    = "Quota di residenti under 30 anni per grado di urbanizzazione",
+    title    = "Quota di residenti under 30 anni per zona altimetrica",
     subtitle = "Comuni della provincia di Parma, anno 2023",
     caption  = glue::glue("Fonte: {fonte2_anno_agg} — {fonte2_nome}")
   ) +

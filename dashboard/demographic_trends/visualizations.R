@@ -11,6 +11,7 @@ library(janitor)
 library(skimr)
 library(forcats)
 library(glue)
+library(stringr)
 library(ggplot2)
 library(ggiraph)
 library(patchwork) # for combining ggplots
@@ -202,7 +203,11 @@ plot_indicatore_demografico <- function(
     title <- glue("Trend demografici: {indicatore}")
   }
   if (is.null(subtitle)) {
-    subtitle <- glue("Indicatore espresso in: {udm}")
+    # Use str_wrap to wrap subtitle based on character count
+    # Width calibrated for fig-width: 9 inches (typical Quarto HTML output)
+    # ~120 chars fits comfortably within plot panel width
+    subtitle <- glue("Indicatore espresso in: {udm}") |>
+      stringr::str_wrap(width = 120)
   }
 
   # Crea il plot
@@ -259,6 +264,11 @@ plot_indicatore_demografico <- function(
       plot.title = element_text(
         size = rel(1.3),
         face = "bold",
+        margin = margin(b = 10)
+      ),
+      plot.subtitle = element_text(
+        size = rel(0.95),
+        lineheight = 1.2,
         margin = margin(b = 10)
       ),
       strip.text = element_text(size = rel(1.1), face = "bold"),
@@ -604,7 +614,7 @@ quoziente_di_mortalità_rdx <- load_and_prepare_rds(
 p09_quoziente_di_mortalità <- plot_indicatore_demografico(
   dataset = quoziente_di_mortalità_rdx,
   indicatore = "quoziente_di_mortalità", # nome nel df
-  udm = "rapporto Num decessi nell'anno e Num medio popolazione residente per 1.000",
+  udm = "rapporto num. decessi nell'anno e num. medio popolazione residente per 1.000",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -622,7 +632,7 @@ quoziente_di_natalità_rdx <- load_and_prepare_rds(
 p10_quoziente_di_natalità <- plot_indicatore_demografico(
   dataset = quoziente_di_natalità_rdx,
   indicatore = "quoziente_di_natalità", # nome nel df
-  udm = "rapporto Num nati vivi nell'anno e Num medio popolazione residente, per 1.000",
+  udm = "rapporto num. nati vivi nell'anno e num. medio popolazione residente per 1.000",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -640,7 +650,7 @@ quoziente_di_nuzialità_rdx <- load_and_prepare_rds(
 p11_quoziente_di_nuzialità <- plot_indicatore_demografico(
   dataset = quoziente_di_nuzialità_rdx,
   indicatore = "quoziente_di_nuzialità", # nome nel df
-  udm = " rapporto Num matrimoni celebrati nell'anno e Num medio popolazione residente, per 1.000",
+  udm = "rapporto num. matrimoni celebrati nell'anno e num. medio popolazione residente per 1.000",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -658,7 +668,7 @@ saldo_migratorio_totale_rdx <- load_and_prepare_rds(
 p12_saldo_migratorio_totale <- plot_indicatore_demografico(
   dataset = saldo_migratorio_totale_rdx,
   indicatore = "saldo_migratorio_totale", # nome nel df
-  udm = "differenza tra il numero degli iscritti ed il numero dei cancellati dai registri anagrafici per trasferimento di residenza",
+  udm = "differenza tra num. iscritti ed num. cancellati dai registri anagrafici per trasferimento di residenza",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -676,7 +686,7 @@ saldo_migratorio_interno_rdx <- load_and_prepare_rds(
 p13_saldo_migratorio_interno <- plot_indicatore_demografico(
   dataset = saldo_migratorio_interno_rdx,
   indicatore = "saldo_migratorio_interno", # nome nel df
-  udm = "differenza tra il numero degli iscritti per trasferimento di residenza da altro Comune e il numero dei cancellati per trasferimento di residenza in altro Comune.",
+  udm = "differenza tra num. iscritti e num. cancellati per trasferimento di residenza da/verso altro Comune",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -694,7 +704,7 @@ saldo_migratorio_con_l_estero_rdx <- load_and_prepare_rds(
 p14_saldo_migratorio_con_l_estero <- plot_indicatore_demografico(
   dataset = saldo_migratorio_con_l_estero_rdx,
   indicatore = "saldo_migratorio_con_l_estero", # nome nel df
-  udm = "rapporto tra il saldo migratorio con l’estero dell’anno e l’ammontare medio della popolazione residente, per 1.000.",
+  udm = "rapporto tra il saldo migratorio con l’estero dell’anno e l’ammontare medio della popolazione residente per 1.000.",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -752,7 +762,7 @@ tasso_di_crescita_totale_rdx <- load_and_prepare_rds(
 p17_tasso_di_crescita_totale <- plot_indicatore_demografico(
   dataset = tasso_di_crescita_totale_rdx,
   indicatore = "tasso_di_crescita_totale", # nome nel df
-  udm = "per 1000 abitanti",
+  udm = "somma tasso di crescita naturale + tasso migratorio totale",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune
@@ -770,7 +780,7 @@ tasso_di_fecondità_totale_rdx <- load_and_prepare_rds(
 p18_tasso_di_fecondità_totale <- plot_indicatore_demografico(
   dataset = tasso_di_fecondità_totale_rdx,
   indicatore = "tasso_di_fecondità_totale", # nome nel df
-  udm = "per 1000 abitanti",
+  udm = "Numero medio di figli per donna in età fertile (15-49 anni)",
   title = NULL, # comune
   subtitle = NULL,
   caption = CAP, # comune

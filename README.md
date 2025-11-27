@@ -15,7 +15,10 @@
   + rivedere messaggio con suggerimento prossimi passi 
 
 + 🟨 ADESSO sono in `dashboard/disability/index.qmd` e annessi ... 
-  + 🟩 fatte diverse viz su GALI (disabilità) per regione e classi di età 
+  + 🟩 fatte diverse viz su 
+    + GALI (disabilità) per regione e classi di età -  aggiornamento annuale (ultimo: 2023)
+  + 🟨 da fare:  
+    +  ADL - ADL/IADL: aggiornamento tramite EHIS ogni 4-5 anni (ultimo: 2019)
   
 + Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
   + `analysis/_02_base_maps.qmd` usando 

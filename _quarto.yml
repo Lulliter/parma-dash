@@ -32,9 +32,9 @@ website:
       - text: Home
         href: index.qmd
       - text: Dashboard
-        href: dashboard.qmd # Qui metterò una sotto pagina per ogni tema 
-      - text: Data Source
-        href: source.qmd
+        href: dashboard.qmd # Qui metterò una sotto pagina per ogni tema
+      - text: Dati e Fonti
+        href: source.qmd # Qui metterò una sotto pagina per ogni fonte di dati (riflettendo i temi)
       - text: Blog
         href: posts.qmd
         
@@ -50,21 +50,20 @@ website:
       background: "#9f7d35"
       contents:
       - dashboard.qmd
-      - text: "Fonti Dati"
-        href: dashboard/FONTI.qmd
       - text: "Tema 1) Trend Demografici"
         href: dashboard/demographic_trends/index.qmd
       - text: "Tema 2) Disabilità"
         href: dashboard/disability/index.qmd
-# 
-#       contents:
-#         - dashboard.qmd
-#         - section: "Tema 1) Disabilità"
-#           contents:
-#             - dashboard/01_tema_disabilità.qmd       
-#         - section: "Tema 2) ..."
-#           contents:
-#             - dashboard/02_tema_y.qmd
+
+    - title: "Dati e Fonti"
+      style: docked
+      background: "#9f7d35"
+      contents:
+      - source.qmd
+      - text: "Dati Istat estratti da IstatData (SDMX)"
+        href: source/istat-data.qmd
+      - text: "Dati su trend demografici e disabilità"
+        href: source/demog-disab-data.qmd
 
 # --- Default options for all pages
 format:
