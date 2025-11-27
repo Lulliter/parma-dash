@@ -1,0 +1,113 @@
+---
+title: "Dati specifici sui fragilità e non autosufficienza"
+subtitle: "A partire da Analisi di contesto di Sinloc/OpenImpact"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
+
+format:
+  html:
+    css: ../../assets/styles/custom.scss
+    # theme: flatly
+    toc: false
+    toc-location: left
+    toc-title: "Indice"
+    include-in-header:
+      - text: |
+          <style>
+          section.level3.notitle h3 {
+            display: none !important;
+          }
+          </style>
+
+execute:
+  eval: true
+  echo: false # x mostrare codice anche in file docx
+  warning: false
+  error: false
+  output: false
+  
+bibliography: ../../bib/CRP_dash.bib
+suppress-bibliography: false
+---
+
+## 🟨 Dati per fotografare la fragilità e non autosufficienza
+
+I dati su questi aspetti sono spesso frammentati, non aggiornati o non disponibili a livello comunale, ma sono fondamentali per una stima accurata della domanda di servizi sociali e sanitari.
+ 
+Nota: Di sotto si osservano 2 principali indicatori per la disabilità:
+
+1. GALI (Global Activity Limitation Indicator) è una misura più generale di disabilità.
+2. DL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living) sono misure più specifiche (e operative)  delle limitazioni nelle attività quotidiane. 
+
+## Disabilità ≈ `GALI (Global Activity Limitation Indicator)`
+
++ **COSA RAPPRESENTA**: l'indicatore osservato è: 
+  + ``a. Persone con disabilità`
+    + `a.1 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori assoluti in migliaia)`
+    + `a.2 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori percentuali)`
+  + **Come si misura**: basato su una domanda auto-riferita nell'indagine multiscopo ISTAT sulle famiglie, che chiede se la persona ha limitazioni nelle attività abitualmente svolte a causa di problemi di salute (fisici, mentali o di altro tipo) e la gravità di tali limitazioni (gravi, non gravi, nessuna limitazione).
+  + **Ambito**: Questo indicatore è disponibile per `regione`, `classi di età` (...), e `livello di limitazione` (limitazioni gravi, limitazioni non gravi) 
+   + **Anno di riferimento**: I dati sono al **2023** (ma basati sui 2 anni precedenti), ma sarebbero dispoonibile dal 2009 
+   - **Fonte**: 🟩 ISTAT (DisabilitàInCifre)-Multiscopo sulle famiglie: aspetti della vita quotidiana:parte generale (2022/2023)
+   - **Link**: [Istat - Disabilità in cifre](https://disabilitaincifre.istat.it/MD/dawinciMD.jsp?p=0)
+<!-- solo che lo stronzo non lascia incrociare + di 2 dimensioni  -->
+
+### VIZ
+
+... 
+
+
+
+
+## Autonomia in attività specifiche di cura personale/domesticheA ≈ `ADL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living)`
+
++ **COSA RAPPRESENTA**: indicatori specifici di limitazioni nelle attività quotidiane, che sono più direttamente correlati alla necessità di assistenza e supporto.
+  + `DLA (Activities of Daily Living)`: misurano la capacità di una persona di svolgere attività di base come mangiare, vestirsi, lavarsi, usare il bagno, spostarsi e trasferirsi.
+  + `IADL (Instrumental Activities of Daily Living)`: misurano la capacità di svolgere attività più complesse come fare la spesa, preparare i pasti, gestire i farmaci, usare il telefono, fare le pulizie e gestire le finanze.
+  + **Come si misura**: basato sullo studio EHIS (European Health Interview Survey) condotto dall'ISTAT, che include domande specifiche sulle difficoltà incontrate dalle persone nelle attività di cura personale e domestiche.
+  + **Ambito**: Disponibile per `regione`, `classi di età` (...), e `livelli di indicatore...`  
+  + **Anno di riferimento**: I dati sono al **2023** (ma basati sul 2019)  
+   - **Fonte**: 🟩 ISTAT Indagine europea sulla salute (EHIS) (2022 ma dati sul 2019)  
+   - **Link**: [Istat - EHIS](https://www.istat.it/informazioni-sulla-rilevazione/indagine-europea-sulla-salute-ehis/)
+ 
+ + **Altri indicatori rilevanti disponibili**:
+    - Prevalenza di `... per età`: limitazioni nelle attività quotidiane per fasce 65-74, 75-84, 75+, 85+
+      - `Gravi malattie croniche` -   Tavola 1.1.4
+      - `Almeno tre malattie croniche` -  Tavola 1.1.4
+      - `Stato ansioso-depressivo` - Tavola 1.2.4 ,
+      - `Gravi limitazioni motorie, sensoriali e cognitive` - Tavola 3.1.4 + 3.1.8 + 3.1.12 + 3.1.16
+      - `Limitazioni nella mobilità per problemi di salute`
+      - 🟩 `Gravi difficoltà nelle attività di cura della persona` (`ADL`: Activities of Daily Living) - Tavola 3.2.4
+      - 🟩 `Gravi difficoltà nelle attività di cura della persona` (`ADL`) di cui con bisogni di assistenza o ausili
+      - `Gravi difficoltà nelle Attività quotidiane strumentali di tipo domestico` (`IADL`: Instrumental Activities of Daily Living) - Tavola 3.3.4
+      - `Persone di 15 anni e più e 65 anni e più che hanno fatto ricorso all’assistenza domiciliare` - Tavola 4.5.4
+      - `Difficoltà di accesso a prestazioni e cure sanitarie` - Tavola 4.8.8
+      - `Persone di 15 anni e più e 65 anni e più per livello di sostegno sociale percepito` - Tavola 5.1.4 -
+ 
+  + **Report collegato**: [Indagine sulla salute degli anziani](https://www.istat.it/comunicato-stampa/le-condizioni-di-salute-della-popolazione-anziana-in-italia-anno-2019/)
+
+### VIZ 
+
+## ALTRO 
+**DATI 2023/24? **
+    - `Anziani soli per classe d'età`: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)
+    - **Obiettivo**: stimare il "bisogno assistenziale effettivo" oltre al semplice numero di anziani
+  - **Fonte**: ER Stats - Fragilità, Dati SSR-AUSL, SSR ER - Indagini su fragilità e non autosufficienza
+ 
++ **Composizione e caratteristiche famiglie con anziani**
+    - **Obiettivo**: distinguere tra anziani con rete familiare vs anziani "fragili" senza supporto
+    - `Anziani in famiglia vs soli`: potenziale di caregiver informale
+    - `Distanza abitativa da figli`: prossimità rete familiare
+    - `Caregiver familiari per età assistito`: profilo della domanda di supporto
+  - **Fonte**: ISTAT - Aspetti della vita quotidiana, SSR ER - Indagini su caregiver
+
++ **Popolazione con disabilità certificata**
+  - **Obiettivo**: quantificare la domanda "certificata" di assistenza
+    - `Invalidi civili per età e grado`: totali, parziali, accompagnamento (> 74%)
+    - `Legge 104 per età`: certificazioni L.104/92 per fascia d'età
+    - `Amministratori di sostegno`: indicatore fragilità estrema
+  - **Fonte**: INPS - Casellario assistenza, Tribunale Parma - ADS, AUSL - Certificazioni L.104
+
+
+

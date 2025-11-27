@@ -9,11 +9,15 @@
 
 ## TODO
 
-+ arrivata a `analysis/02_base_maps.qmd` per il momento mi fermo
++ 🟩 arrivata a `analysis/02_base_maps.qmd` per il momento mi fermo
 
-+ ADESSO sono in `dashboard/01_tema_disabilità.qmd` e annessi ... 
++ 🟩 fatto `dashboard/demographic_trends/index.qmd` 
+  + rivedere messaggio con suggerimento prossimi passi 
 
-  + Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
++ 🟨 ADESSO sono in `dashboard/disability/index.qmd` e annessi ... 
+  + 🟩 fatte diverse viz su GALI (disabilità) per regione e classi di età 
+  
++ Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
   + `analysis/_02_base_maps.qmd` usando 
     - `data/data_out/comuni_ita_info_redux_sf.rds` JOINED con 
     - `data/data_out/istat_pop_com_ER_2023_AGE.rds` | ... `CITIZENSHIP` |

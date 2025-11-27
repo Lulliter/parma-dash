@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Fonti Dati – Parma analisi di contesto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-1413cd7ec9d1894e7f053f06e0144303.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
+<style>
+section.level3.notitle h3 {
+  display: none !important;
+}
+</style>
+
+
+<link rel="stylesheet" href="../assets/styles/custom.scss">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Parma analisi di contesto</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../dashboard.html" aria-current="page"> 
+<span class="menu-text">Dashboard</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../source.html"> 
+<span class="menu-text">Data Source</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Lulliter/parma-dash"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dashboard/FONTI.html">Fonti Dati</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANALISI PER TEMI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dashboard/FONTI.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fonti Dati</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dashboard/demographic_trends/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tema 1) Trend Demografici</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dashboard/disability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tema 2) Disabilità</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Indice</h2>
+   
+  <ul>
+  <li><a href="#introduzione" id="toc-introduzione" class="nav-link active" data-scroll-target="#introduzione">Introduzione</a></li>
+  <li><a href="#tema-1-trend-demografici" id="toc-tema-1-trend-demografici" class="nav-link" data-scroll-target="#tema-1-trend-demografici">Tema 1) Trend Demografici</a>
+  <ul class="collapse">
+  <li><a href="#indicatori-principali" id="toc-indicatori-principali" class="nav-link" data-scroll-target="#indicatori-principali">Indicatori principali</a></li>
+  <li><a href="#fonti-dati---trend-demografici" id="toc-fonti-dati---trend-demografici" class="nav-link" data-scroll-target="#fonti-dati---trend-demografici">Fonti dati - Trend Demografici</a></li>
+  </ul></li>
+  <li><a href="#tema-2-disabilità-e-non-autosufficienza" id="toc-tema-2-disabilità-e-non-autosufficienza" class="nav-link" data-scroll-target="#tema-2-disabilità-e-non-autosufficienza">Tema 2) Disabilità e Non Autosufficienza</a>
+  <ul class="collapse">
+  <li><a href="#tabella-completa-indicatori" id="toc-tabella-completa-indicatori" class="nav-link" data-scroll-target="#tabella-completa-indicatori">Tabella completa indicatori</a></li>
+  <li><a href="#fonti-dati---disabilità-e-non-autosufficienza" id="toc-fonti-dati---disabilità-e-non-autosufficienza" class="nav-link" data-scroll-target="#fonti-dati---disabilità-e-non-autosufficienza">Fonti dati - Disabilità e Non Autosufficienza</a></li>
+  </ul></li>
+  <li><a href="#note-metodologiche" id="toc-note-metodologiche" class="nav-link" data-scroll-target="#note-metodologiche">Note metodologiche</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fonti Dati</h1>
+<p class="subtitle lead">Fonti e indicatori per l’analisi di contesto - Parma e Emilia-Romagna</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27-novembre-2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduzione" class="level1">
+<h1>Introduzione</h1>
+<p>Questa pagina raccoglie le principali fonti dati utilizzate per l’analisi di contesto della Provincia di Parma, organizzate per tema di analisi.</p>
+<blockquote class="blockquote">
+<p>L’obiettivo è passare da beneficienza a filantropia: investire su una visione basata sui bisogni reali del territorio.</p>
+</blockquote>
+<hr>
+</section>
+<section id="tema-1-trend-demografici" class="level1">
+<h1>Tema 1) Trend Demografici</h1>
+<section id="indicatori-principali" class="level2">
+<h2 class="anchored" data-anchor-id="indicatori-principali">Indicatori principali</h2>
+<p>Gli indicatori demografici permettono di comprendere la struttura e le dinamiche della popolazione:</p>
+<ul>
+<li><strong>Indici strutturali</strong>: Indice di vecchiaia, Indice di dipendenza anziani, Indice di dipendenza strutturale</li>
+<li><strong>Dinamica naturale</strong>: Saldo naturale, Quoziente di natalità/mortalità, Tasso di crescita totale</li>
+<li><strong>Composizione</strong>: Età media, Struttura per classi di età, Speranza di vita</li>
+<li><strong>Famiglia</strong>: Quoziente di nuzialità, Età media al parto, Tasso di fecondità totale</li>
+<li><strong>Migrazione</strong>: Saldo migratorio totale, interno, con l’estero</li>
+</ul>
+</section>
+<section id="fonti-dati---trend-demografici" class="level2">
+<h2 class="anchored" data-anchor-id="fonti-dati---trend-demografici">Fonti dati - Trend Demografici</h2>
+<p><strong>🟩 GIÀ DISPONIBILI</strong></p>
+<ul>
+<li><strong>ISTAT - Demografia in Cifre</strong>: Indicatori demografici provinciali (2002-2024)
+<ul>
+<li>URL: <a href="https://demo.istat.it/tavole/?t=indicatori&amp;l=it" class="uri">https://demo.istat.it/tavole/?t=indicatori&amp;l=it</a></li>
+<li>File: <code>data/data_in/indic_demogr_prov_trend.xlsx</code></li>
+<li>Livello: Provinciale (Parma, ER, Italia)</li>
+</ul></li>
+<li><strong>ISTAT - Census</strong>: Popolazione per età e caratteristiche (2023)
+<ul>
+<li>File: <code>data/data_out/istat_pop_com_ER_2023_*.rds</code> (AGE, CITIZENSHIP, GENDER)</li>
+<li>Livello: Comunale (Emilia-Romagna)</li>
+</ul></li>
+<li><strong>ISTAT - SITUAS</strong>: Caratteristiche territoriali comuni
+<ul>
+<li>API: <code>https://situas-servizi.istat.it/publish/</code></li>
+<li>File: <code>data/data_out/comuni_ita_info_redux_sf.rds</code></li>
+<li>Livello: Comunale (Italia)</li>
+</ul></li>
+<li><strong>ER Stats - Fragilità Demografica</strong>: Studio potenziale fragilità (2023)
+<ul>
+<li>File: <code>data/data_in/ER_stats/fragilit_prov_com_2023.xlsx</code></li>
+<li><a href="https://statistica.regione.emilia-romagna.it/studi-analisi/2025/mappe-potenziale-fragilita-emilia-romagna-2023">Studio completo</a></li>
+<li>Livello: Comunale (Emilia-Romagna)</li>
+</ul></li>
+</ul>
+<p><strong>🟧 DA ACQUISIRE</strong></p>
+<ul>
+<li><strong>ISTAT - Proiezioni demografiche</strong>: Stime popolazione futura per età
+<ul>
+<li><a href="https://statistica.regione.emilia-romagna.it/dati/rappresentazioni-grafiche-dati/visualizzazione-proiezioni-demografiche-emilia-romagna">Visualizzazione ER</a></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="tema-2-disabilità-e-non-autosufficienza" class="level1">
+<h1>Tema 2) Disabilità e Non Autosufficienza</h1>
+<section id="tabella-completa-indicatori" class="level2">
+<h2 class="anchored" data-anchor-id="tabella-completa-indicatori">Tabella completa indicatori</h2>
+<div class="cell">
+<div id="tbl-indicatori-disabilita" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicatori-disabilita-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabella&nbsp;1: Indicatori per analisi disabilità e non autosufficienza - Parma/Emilia-Romagna
+</figcaption>
+<div aria-describedby="tbl-indicatori-disabilita-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-eb229196{}.cl-eb1ef018{font-family:'Roboto Condensed';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb1ef022{font-family:'Roboto Condensed';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb20456c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2pt;padding-top:2pt;padding-left:4pt;padding-right:4pt;line-height: 1;background-color:transparent;}.cl-eb20456d{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2pt;padding-top:2pt;padding-left:4pt;padding-right:4pt;line-height: 1;background-color:transparent;}.cl-eb20507a{width:1.3in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205084{width:1.6in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205085{width:2.4in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205086{width:1.4in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205087{width:0.8in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205088{width:0.9in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb20508e{width:1.2in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb20508f{width:1.3in;background-color:rgba(232, 232, 232, 1.00);vertical-align: top;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205090{width:1.6in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205091{width:2.4in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205092{width:1.4in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205098{width:0.8in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb205099{width:0.9in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb20509a{width:1.2in;background-color:rgba(242, 242, 242, 1.00);vertical-align: middle;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb20509b{width:1.3in;background-color:rgba(232, 232, 232, 1.00);vertical-align: top;border-bottom: 0.5pt solid rgba(166, 166, 166, 1.00);border-top: 0.5pt solid rgba(166, 166, 166, 1.00);border-left: 0.5pt solid rgba(166, 166, 166, 1.00);border-right: 0.5pt solid rgba(166, 166, 166, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-eb229196"><thead><tr style="overflow-wrap:break-word;"><th class="cl-eb20507a"><p class="cl-eb20456c"><span class="cl-eb1ef018">Categoria</span></p></th><th class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef018">Indicatore</span></p></th><th class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef018">Definizione</span></p></th><th class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef018">Fonte</span></p></th><th class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef018">Liv. Terr.</span></p></th><th class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef018">Anno</span></p></th><th class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef018">Note</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="7" class="cl-eb20508f"><p class="cl-eb20456d"><span class="cl-eb1ef018">TREND DEMOGRAFICI</span></p></td><td class="cl-eb205090"><p class="cl-eb20456c"><span class="cl-eb1ef022">Indice di vecchiaia</span></p></td><td class="cl-eb205091"><p class="cl-eb20456c"><span class="cl-eb1ef022">Rapporto tra popolazione 65+ e popolazione 0-14 × 100</span></p></td><td class="cl-eb205092"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo (istat_demogr_prov.xlsx)</span></p></td><td class="cl-eb205098"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov ⊂ ITA</span></p></td><td class="cl-eb205099"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20509a"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Indice di dipendenza anziani</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Rapporto tra popolazione 65+ e attiva (15-64) × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo (istat_demogr_prov.xlsx)</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov ⊂ ITA</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Indice di dipendenza strutturale</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Rapporto tra popolazione non attiva (0-14 e 65+) e attiva (15-64) × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo (istat_demogr_prov.xlsx)</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov ⊂ ITA</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Saldo naturale</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Diff tra NAti e Morti</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo (istat_demogr_prov.xlsx)</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov ⊂ ITA</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Età media</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Età media in anni e decimi</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo (istat_demogr_prov.xlsx)</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov ⊂ ITA</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Speranza di alla nascita</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">numero medio di anni che restano da vivere a un neonato</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo (istat_demogr_prov.xlsx)</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov ⊂ ITA</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Classi di età decennali per comune ER</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">posso fare 📊 PARMA-PROV-ER</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Census (istat_pop_com_ER_2023_AGE.rds)</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Com ⊂ ER</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2002-2024*</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="2" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">INDICI DEMOGRAFICI</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% 80enni e più sul totale</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Popolazione 80+ / popolazione totale × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ER Stats</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov/Com</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2023</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟡</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% Anziani soli 65+</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Over 65 in famiglie unipersonali / pop 65+ × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Demo</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov/Com</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2023</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟡</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">PREVALENZA DISABILITÀ</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% Persone con disabilità</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Persone con limitazioni gravi nelle attività abituali / pop. totale × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Aspetti vita quotidiana</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2022</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Persone con disabilità (valore assoluto)</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. persone con limitazioni gravi</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Disabilità in Cifre</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">Pluriennale</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% Disabilità per classe di età</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prevalenza disabilità per fasce: 0-14, 15-64, 65-74, 75+</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Aspetti vita quotidiana</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2022</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% Disabilità per genere</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prevalenza disabilità M/F</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Aspetti vita quotidiana</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2022</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="5" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">NON AUTOSUFFICIENZA</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Persone in buona salute</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">% pop che dichiara stato salute 'buono/molto buono'</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ER Stats</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg/Prov</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2023-2024</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 in stato_salute_reg</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Persone con malattie croniche</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">% persone con almeno 1 malattia cronica grave</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ER Stats</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg/Prov</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2023-2024</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 in stato_salute_reg</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">ADL - Limitazioni attività base</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">% pop con difficoltà in attività vita quotidiana (vestirsi, lavarsi, mangiare)</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - EHIS</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2019</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Indagine europea</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">IADL - Limitazioni attività strumentali</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">% pop con difficoltà attività domestiche/gestione casa</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - EHIS</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2019</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Indagine europea</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Indice non autosufficienza 75+</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. over75 con gravi limitazioni / pop 75+ × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">Elaborazione su ISTAT</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov/Com</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">Da calcolare</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="2" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">CONTESTO FAMILIARE</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% Famiglie con persona disabile</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. famiglie con almeno 1 membro disabile / tot famiglie × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Disabilità in Cifre</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2019</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Composizione nucleo familiare</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Distribuzione tipologie familiari con disabili (single, coppie, con figli)</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Disabilità in Cifre</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2019</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="3" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">CAREGIVER</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. Caregiver familiari</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Stima persone che assistono familiari non autosufficienti</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">SSR ER - Rapporto 2020</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2020</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 530k in ER</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Carico assistenziale medio</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Ore medie settimanali dedicate all'assistenza</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">SSR ER - Rapporto 2020</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2020</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 120k &gt;20h/sett</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Giovani caregiver (&lt;25 anni)</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">% giovani under 25 con compiti cura</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">SSR ER - Rapporto 2020</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2020</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 ~26k in ER</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">INCLUSIONE LAVORATIVA</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Tasso occupazione persone disabili</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Occupati disabili 15-64 / pop disabile 15-64 × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - Disabilità in Cifre</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2019</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Collocamento mirato - iscritti</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. iscritti liste collocamento mirato L.68/99</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">Agenzia Regionale Lavoro ER</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2018</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Ultimo monitoraggio</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Collocamento mirato - avviamenti</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. avviamenti al lavoro persone disabili</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">Agenzia Regionale Lavoro ER</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2018</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Ultimo monitoraggio</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Tasso avviamento collocamento mirato</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Avviamenti / iscritti × 100</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">Elaborazione su ARL-ER</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2018</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Da calcolare</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="3" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">ISTRUZIONE</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Alunni con disabilità</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. alunni certificati L.104/92 per ordine scuola</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - AS 2023-2024</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Nazionale</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2024</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 359k in Italia</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">% Alunni disabili su totale</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Alunni disabili / totale alunni × 100 per ordine scuola</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">ISTAT - AS 2023-2024</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Nazionale</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">2024</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟩 4.5% del totale</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Rapporto alunni/insegnante sostegno</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Media alunni disabili per docente sostegno</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">MIUR - Anagrafe ANS</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Prov</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">Annuale</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Dato non pubblico</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="2" class="cl-eb20509b"><p class="cl-eb20456d"><span class="cl-eb1ef018">SALUTE MENTALE</span></p></td><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Utenti servizi salute mentale</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">N. assistiti da DSM per 1.000 residenti</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">SSR ER - Rapporto DSM</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg/AUSL</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">Annuale</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Da verificare</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb205084"><p class="cl-eb20456c"><span class="cl-eb1ef022">Disturbi psichiatrici gravi</span></p></td><td class="cl-eb205085"><p class="cl-eb20456c"><span class="cl-eb1ef022">Tasso utenti con diagnosi grave (psicosi, disturbi gravi)</span></p></td><td class="cl-eb205086"><p class="cl-eb20456c"><span class="cl-eb1ef022">SSR ER - Rapporto DSM</span></p></td><td class="cl-eb205087"><p class="cl-eb20456c"><span class="cl-eb1ef022">Reg/AUSL</span></p></td><td class="cl-eb205088"><p class="cl-eb20456c"><span class="cl-eb1ef022">Annuale</span></p></td><td class="cl-eb20508e"><p class="cl-eb20456c"><span class="cl-eb1ef022">🟧 Da verificare</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><strong>Legenda disponibilità dati:</strong></p>
+<ul>
+<li>🟩 = Dati già disponibili/facili da reperire</li>
+<li>🟧 = Dati da acquisire/verificare disponibilità</li>
+</ul>
+</section>
+<section id="fonti-dati---disabilità-e-non-autosufficienza" class="level2">
+<h2 class="anchored" data-anchor-id="fonti-dati---disabilità-e-non-autosufficienza">Fonti dati - Disabilità e Non Autosufficienza</h2>
+<p><strong>🟩 GIÀ DISPONIBILI</strong></p>
+<ul>
+<li><strong>ISTAT - Demo</strong>: Indicatori demografici anziani
+<ul>
+<li>URL: <a href="https://demo.istat.it/tavole/?t=indicatori&amp;l=it" class="uri">https://demo.istat.it/tavole/?t=indicatori&amp;l=it</a></li>
+<li>Uso: % 80enni e più, Anziani soli 65+</li>
+</ul></li>
+<li><strong>ER Stats - Fragilità</strong>: Mappe potenziale fragilità comunale (2023)
+<ul>
+<li>File: <code>data/data_in/ER_stats/fragilit_prov_com_2023.xlsx</code></li>
+<li><a href="https://statistica.regione.emilia-romagna.it/studi-analisi/2025/mappe-potenziale-fragilita-emilia-romagna-2023">Studio completo</a></li>
+<li>Livello: Comunale (Emilia-Romagna)</li>
+</ul></li>
+<li><strong>ER Stats - Stato di Salute</strong>: Indagine salute popolazione (2023-2024)
+<ul>
+<li>File: <code>data/data_in/ER_stats/stato_salute_reg_20232024.xlsx</code></li>
+<li>Indicatori: Persone in buona salute, malattie croniche</li>
+<li>Livello: Regionale/Provinciale</li>
+</ul></li>
+<li><strong>ISTAT - Aspetti vita quotidiana</strong>: Prevalenza disabilità per età e genere
+<ul>
+<li>URL: <a href="https://www.istat.it/it/archivio/91926" class="uri">https://www.istat.it/it/archivio/91926</a></li>
+<li>Anno: 2022</li>
+<li>Livello: Regionale</li>
+</ul></li>
+<li><strong>ISTAT - Disabilità in Cifre</strong>: Dati disabilità in Italia
+<ul>
+<li>URL: <a href="https://www.istat.it/it/archivio/236301" class="uri">https://www.istat.it/it/archivio/236301</a></li>
+<li>Livello: Regionale/Nazionale</li>
+</ul></li>
+</ul>
+<p><strong>🟧 DA ACQUISIRE</strong></p>
+<ul>
+<li><p><strong>ISTAT - EHIS (European Health Interview Survey)</strong>: ADL e IADL (2019)</p>
+<ul>
+<li>Limitazioni attività base e strumentali</li>
+<li>Livello: Regionale</li>
+</ul></li>
+<li><p><strong>SSR Emilia-Romagna</strong>: “Il Sostegno del caregiver in ER” (2020)</p>
+<ul>
+<li>Caregiver familiari: 530k in ER, 120k con &gt;20h/settimana</li>
+<li>Giovani caregiver: ~26k under 25 in ER</li>
+<li>Rapporti DSM (Dipartimenti Salute Mentale)</li>
+</ul></li>
+<li><p><strong>Agenzia Regionale Lavoro ER</strong>: Rapporti inclusione lavorativa persone disabili</p>
+<ul>
+<li>Collocamento mirato L.68/99</li>
+<li>Ultimo monitoraggio disponibile: 2018</li>
+</ul></li>
+<li><p><strong>MIUR - Anagrafe studenti</strong>: Dati alunni con disabilità per provincia</p>
+<ul>
+<li>Rapporto alunni/insegnante sostegno</li>
+<li>Dato non pubblico, da richiedere</li>
+</ul></li>
+<li><p><strong>INPS</strong>: Dati su beneficiari indennità di accompagnamento e invalidità civile</p></li>
+<li><p><strong>Altri riferimenti</strong>:</p>
+<ul>
+<li>Articolo Vita: “Giovani caregiver, se il lavoro di cura mette a rischio il futuro” (17.07.2024) <a href="https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/" class="uri">https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/</a></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="note-metodologiche" class="level1">
+<h1>Note metodologiche</h1>
+<ul>
+<li>I dati provinciali permettono confronti con Emilia-Romagna e Italia</li>
+<li>I dati comunali permettono analisi della distribuzione territoriale intra-provinciale</li>
+<li>Alcuni indicatori richiedono elaborazioni su dati grezzi ISTAT</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/lulliter\.github\.io\/parma-dash\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <i class="fa-brands fa-creative-commons-sa" aria-label="creative-commons-sa"></i> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> <br> <a href="mailto:mimmi@fondazionecrp.it">Luisa M. Mimmi</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a> <br> <a href="https://github.com/Lulliter/parma-dash">Code at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

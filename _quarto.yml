@@ -50,12 +50,12 @@ website:
       background: "#9f7d35"
       contents:
       - dashboard.qmd
-      - text: "Tema 1) Trend Demografici - Fonti"
-        href: dashboard/00_tema_trend_demo_FONTI.qmd
+      - text: "Fonti Dati"
+        href: dashboard/FONTI.qmd
       - text: "Tema 1) Trend Demografici"
-        href: dashboard/01_tema_trend_demo.qmd
+        href: dashboard/demographic_trends/index.qmd
       - text: "Tema 2) Disabilità"
-        href: dashboard/02_tema_disabilità.qmd
+        href: dashboard/disability/index.qmd
 # 
 #       contents:
 #         - dashboard.qmd

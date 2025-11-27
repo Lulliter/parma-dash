@@ -1,0 +1,246 @@
+---
+title: "Fonti Dati"
+subtitle: "Fonti e indicatori per l'analisi di contesto - Parma e Emilia-Romagna"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
+
+format:
+  html:
+    css: ../assets/styles/custom.scss
+    # theme: flatly
+    toc: true
+    toc-location: left
+    toc-title: "Indice"
+    include-in-header:
+      - text: |
+          <style>
+          section.level3.notitle h3 {
+            display: none !important;
+          }
+          </style>
+
+execute:
+  eval: true
+  echo: false
+  warning: false
+  error: false
+  output: false
+
+bibliography: ../bib/CRP_dash.bib
+suppress-bibliography: false
+---
+
+# Introduzione
+
+Questa pagina raccoglie le principali fonti dati utilizzate per l'analisi di contesto della Provincia di Parma, organizzate per tema di analisi.
+
+> L'obiettivo è passare da beneficienza a filantropia: investire su una visione basata sui bisogni reali del territorio.
+
+---
+
+# Tema 1) Trend Demografici
+
+## Indicatori principali
+
+Gli indicatori demografici permettono di comprendere la struttura e le dinamiche della popolazione:
+
+- **Indici strutturali**: Indice di vecchiaia, Indice di dipendenza anziani, Indice di dipendenza strutturale
+- **Dinamica naturale**: Saldo naturale, Quoziente di natalità/mortalità, Tasso di crescita totale
+- **Composizione**: Età media, Struttura per classi di età, Speranza di vita
+- **Famiglia**: Quoziente di nuzialità, Età media al parto, Tasso di fecondità totale
+- **Migrazione**: Saldo migratorio totale, interno, con l'estero
+
+## Fonti dati - Trend Demografici
+
+**🟩 GIÀ DISPONIBILI**
+
+-   **ISTAT - Demografia in Cifre**: Indicatori demografici provinciali (2002-2024)
+    - URL: <https://demo.istat.it/tavole/?t=indicatori&l=it>
+    - File: `data/data_in/indic_demogr_prov_trend.xlsx`
+    - Livello: Provinciale (Parma, ER, Italia)
+
+-   **ISTAT - Census**: Popolazione per età e caratteristiche (2023)
+    - File: `data/data_out/istat_pop_com_ER_2023_*.rds` (AGE, CITIZENSHIP, GENDER)
+    - Livello: Comunale (Emilia-Romagna)
+
+-   **ISTAT - SITUAS**: Caratteristiche territoriali comuni
+    - API: `https://situas-servizi.istat.it/publish/`
+    - File: `data/data_out/comuni_ita_info_redux_sf.rds`
+    - Livello: Comunale (Italia)
+
+-   **ER Stats - Fragilità Demografica**: Studio potenziale fragilità (2023)
+    - File: `data/data_in/ER_stats/fragilit_prov_com_2023.xlsx`
+    - [Studio completo](https://statistica.regione.emilia-romagna.it/studi-analisi/2025/mappe-potenziale-fragilita-emilia-romagna-2023)
+    - Livello: Comunale (Emilia-Romagna)
+
+**🟧 DA ACQUISIRE**
+
+-   **ISTAT - Proiezioni demografiche**: Stime popolazione futura per età
+    - [Visualizzazione ER](https://statistica.regione.emilia-romagna.it/dati/rappresentazioni-grafiche-dati/visualizzazione-proiezioni-demografiche-emilia-romagna)
+
+---
+
+# Tema 2) Disabilità e Non Autosufficienza
+
+## Tabella completa indicatori
+
+```{r}
+#| label: crea-tbl-indicatori-disabilita
+
+library(here)
+library(dplyr)
+library(tibble)
+library(flextable)
+library(glue)
+library(ggplot2)
+library(ggiraph)
+source(here("R", "f_ft_formatting.R"))
+
+# Crea dataframe con indicatori
+tbl_indicatori_disabilita <- tibble::tribble(
+  ~Categoria               , ~Indicatore                                 , ~Definizione                                                                       , ~Fonte                                           , ~Liv_Terr      , ~Anno          , ~Note                      ,
+  # INDICI DEMOGRAFICI
+  "TREND DEMOGRAFICI"     , "Indice di vecchiaia"                     , "Rapporto tra popolazione 65+ e popolazione 0-14 × 100"                        , "ISTAT - Demo (istat_demogr_prov.xlsx)"          , "Prov ⊂ ITA" , "2002-2024*"   , "🟩"                     ,
+  "TREND DEMOGRAFICI"     , "Indice di dipendenza anziani"            , "Rapporto tra popolazione 65+ e attiva (15-64) × 100"                          , "ISTAT - Demo (istat_demogr_prov.xlsx)"          , "Prov ⊂ ITA" , "2002-2024*"   , "🟩"                     ,
+  "TREND DEMOGRAFICI"     , "Indice di dipendenza strutturale"        , "Rapporto tra popolazione non attiva (0-14 e 65+) e attiva (15-64) × 100"      , "ISTAT - Demo (istat_demogr_prov.xlsx)"          , "Prov ⊂ ITA" , "2002-2024*"   , "🟩"                     , # almost same
+  "TREND DEMOGRAFICI"     , "Saldo naturale"                          , "Diff tra NAti e Morti"                                                        , "ISTAT - Demo (istat_demogr_prov.xlsx)"          , "Prov ⊂ ITA" , "2002-2024*"   , "🟩"                     ,
+  "TREND DEMOGRAFICI"     , "Età media"                               , "Età media in anni e decimi"                                                    , "ISTAT - Demo (istat_demogr_prov.xlsx)"          , "Prov ⊂ ITA" , "2002-2024*"   , "🟩"                     ,
+  "TREND DEMOGRAFICI"     , "Speranza di alla nascita"                , "numero medio di anni che restano da vivere a un neonato"                      , "ISTAT - Demo (istat_demogr_prov.xlsx)"          , "Prov ⊂ ITA" , "2002-2024*"   , "🟩"                     ,
+
+  "TREND DEMOGRAFICI"     , "Classi di età decennali per comune ER"    , "posso fare 📊 PARMA-PROV-ER"                                                   , "ISTAT - Census (istat_pop_com_ER_2023_AGE.rds)" , "Com ⊂ ER"   , "2002-2024*"   , "🟩"                     ,
+
+  # ----------------  da verificare
+  "INDICI DEMOGRAFICI"     , "% 80enni e più sul totale"                , "Popolazione 80+ / popolazione totale × 100"                                      , "ER Stats"                                       , "Prov/Com"     , "2023"         , "🟡"                     ,
+  "INDICI DEMOGRAFICI"     , "% Anziani soli 65+"                        , "Over 65 in famiglie unipersonali / pop 65+ × 100"                                , "ISTAT - Demo"                                   , "Prov/Com"     , "2023"         , "🟡"                     ,
+  # PREVALENZA DISABILITÀ
+  "PREVALENZA DISABILITÀ" , "% Persone con disabilità"                 , "Persone con limitazioni gravi nelle attività abituali / pop. totale × 100"      , "ISTAT - Aspetti vita quotidiana"                , "Reg"          , "2022"         , "🟩"                     ,
+  "PREVALENZA DISABILITÀ" , "Persone con disabilità (valore assoluto)" , "N. persone con limitazioni gravi"                                                 , "ISTAT - Disabilità in Cifre"                   , "Reg"          , "Pluriennale"  , "🟩"                     ,
+  "PREVALENZA DISABILITÀ" , "% Disabilità per classe di età"          , "Prevalenza disabilità per fasce: 0-14, 15-64, 65-74, 75+"                        , "ISTAT - Aspetti vita quotidiana"                , "Reg"          , "2022"         , "🟩"                     ,
+  "PREVALENZA DISABILITÀ" , "% Disabilità per genere"                  , "Prevalenza disabilità M/F"                                                       , "ISTAT - Aspetti vita quotidiana"                , "Reg"          , "2022"         , "🟩"                     ,
+  # NON AUTOSUFFICIENZA
+  "NON AUTOSUFFICIENZA"    , "Persone in buona salute"                   , "% pop che dichiara stato salute 'buono/molto buono'"                              , "ER Stats"                                       , "Reg/Prov"     , "2023-2024"    , "🟩 in stato_salute_reg" ,
+  "NON AUTOSUFFICIENZA"    , "Persone con malattie croniche"             , "% persone con almeno 1 malattia cronica grave"                                    , "ER Stats"                                       , "Reg/Prov"     , "2023-2024"    , "🟩 in stato_salute_reg" ,
+  "NON AUTOSUFFICIENZA"    , "ADL - Limitazioni attività base"          , "% pop con difficoltà in attività vita quotidiana (vestirsi, lavarsi, mangiare)" , "ISTAT - EHIS"                                   , "Reg"          , "2019"         , "🟧 Indagine europea"    ,
+  "NON AUTOSUFFICIENZA"    , "IADL - Limitazioni attività strumentali"  , "% pop con difficoltà attività domestiche/gestione casa"                         , "ISTAT - EHIS"                                   , "Reg"          , "2019"         , "🟧 Indagine europea"    ,
+  "NON AUTOSUFFICIENZA"    , "Indice non autosufficienza 75+"            , "N. over75 con gravi limitazioni / pop 75+ × 100"                                 , "Elaborazione su ISTAT"                          , "Prov/Com"     , "Da calcolare" , "🟧"                     ,
+  # CONTESTO FAMILIARE
+  "CONTESTO FAMILIARE"     , "% Famiglie con persona disabile"           , "N. famiglie con almeno 1 membro disabile / tot famiglie × 100"                   , "ISTAT - Disabilità in Cifre"                   , "Reg"          , "2019"         , "🟧"                     ,
+  "CONTESTO FAMILIARE"     , "Composizione nucleo familiare"             , "Distribuzione tipologie familiari con disabili (single, coppie, con figli)"       , "ISTAT - Disabilità in Cifre"                   , "Reg"          , "2019"         , "🟧"                     ,
+  # CAREGIVER
+  "CAREGIVER"              , "N. Caregiver familiari"                    , "Stima persone che assistono familiari non autosufficienti"                        , "SSR ER - Rapporto 2020"                         , "Reg"          , "2020"         , "🟩 530k in ER"          ,
+  "CAREGIVER"              , "Carico assistenziale medio"                , "Ore medie settimanali dedicate all'assistenza"                                    , "SSR ER - Rapporto 2020"                         , "Reg"          , "2020"         , "🟩 120k >20h/sett"      ,
+  "CAREGIVER"              , "Giovani caregiver (<25 anni)"              , "% giovani under 25 con compiti cura"                                              , "SSR ER - Rapporto 2020"                         , "Reg"          , "2020"         , "🟩 ~26k in ER"          ,
+  # INCLUSIONE LAVORATIVA
+  "INCLUSIONE LAVORATIVA"  , "Tasso occupazione persone disabili"        , "Occupati disabili 15-64 / pop disabile 15-64 × 100"                              , "ISTAT - Disabilità in Cifre"                   , "Reg"          , "2019"         , "🟧"                     ,
+  "INCLUSIONE LAVORATIVA"  , "Collocamento mirato - iscritti"            , "N. iscritti liste collocamento mirato L.68/99"                                    , "Agenzia Regionale Lavoro ER"                    , "Reg"          , "2018"         , "🟧 Ultimo monitoraggio" ,
+  "INCLUSIONE LAVORATIVA"  , "Collocamento mirato - avviamenti"          , "N. avviamenti al lavoro persone disabili"                                         , "Agenzia Regionale Lavoro ER"                    , "Reg"          , "2018"         , "🟧 Ultimo monitoraggio" ,
+  "INCLUSIONE LAVORATIVA"  , "Tasso avviamento collocamento mirato"      , "Avviamenti / iscritti × 100"                                                     , "Elaborazione su ARL-ER"                         , "Reg"          , "2018"         , "🟧 Da calcolare"        ,
+  # ISTRUZIONE
+  "ISTRUZIONE"             , "Alunni con disabilità"                    , "N. alunni certificati L.104/92 per ordine scuola"                                 , "ISTAT - AS 2023-2024"                           , "Nazionale"    , "2024"         , "🟩 359k in Italia"      ,
+  "ISTRUZIONE"             , "% Alunni disabili su totale"               , "Alunni disabili / totale alunni × 100 per ordine scuola"                         , "ISTAT - AS 2023-2024"                           , "Nazionale"    , "2024"         , "🟩 4.5% del totale"     ,
+  "ISTRUZIONE"             , "Rapporto alunni/insegnante sostegno"       , "Media alunni disabili per docente sostegno"                                       , "MIUR - Anagrafe ANS"                            , "Prov"         , "Annuale"      , "🟧 Dato non pubblico"   ,
+  # SALUTE MENTALE
+  "SALUTE MENTALE"         , "Utenti servizi salute mentale"             , "N. assistiti da DSM per 1.000 residenti"                                          , "SSR ER - Rapporto DSM"                          , "Reg/AUSL"     , "Annuale"      , "🟧 Da verificare"       ,
+  "SALUTE MENTALE"         , "Disturbi psichiatrici gravi"               , "Tasso utenti con diagnosi grave (psicosi, disturbi gravi)"                        , "SSR ER - Rapporto DSM"                          , "Reg/AUSL"     , "Annuale"      , "🟧 Da verificare"
+)
+
+# Crea flextable
+tbl_indicatori_disabilita_ft <- tbl_indicatori_disabilita |>
+  flextable::flextable() |>
+  flextable::set_header_labels(
+    Categoria = "Categoria",
+    Indicatore = "Indicatore",
+    Definizione = "Definizione",
+    Fonte = "Fonte",
+    Liv_Terr = "Liv. Terr.",
+    Anno = "Anno",
+    Note = "Note"
+  ) |>
+  flextable::merge_v(j = "Categoria") |>
+  flextable::valign(j = "Categoria", valign = "top") |>
+  flextable::bold(j = "Categoria") |>
+  flextable::bg(j = "Categoria", bg = "#E8E8E8") |>
+  flextable::fontsize(size = 11, part = "all") |>
+  flextable::width(j = "Categoria", width = 1.3) |>
+  flextable::width(j = "Indicatore", width = 1.6) |>
+  flextable::width(j = "Definizione", width = 2.4) |>
+  flextable::width(j = "Fonte", width = 1.4) |>
+  flextable::width(j = "Liv_Terr", width = 0.8) |>
+  flextable::width(j = "Anno", width = 0.9) |>
+  flextable::width(j = "Note", width = 1.2)
+```
+
+```{r}
+#| label: tbl-indicatori-disabilita
+#| tbl-cap: "Indicatori per analisi disabilità e non autosufficienza - Parma/Emilia-Romagna"
+#| output: true
+
+tbl_indicatori_disabilita_ft
+```
+
+**Legenda disponibilità dati:**
+
+-   🟩 = Dati già disponibili/facili da reperire
+-   🟧 = Dati da acquisire/verificare disponibilità
+
+## Fonti dati - Disabilità e Non Autosufficienza
+
+**🟩 GIÀ DISPONIBILI**
+
+-   **ISTAT - Demo**: Indicatori demografici anziani
+    - URL: <https://demo.istat.it/tavole/?t=indicatori&l=it>
+    - Uso: % 80enni e più, Anziani soli 65+
+
+-   **ER Stats - Fragilità**: Mappe potenziale fragilità comunale (2023)
+    - File: `data/data_in/ER_stats/fragilit_prov_com_2023.xlsx`
+    - [Studio completo](https://statistica.regione.emilia-romagna.it/studi-analisi/2025/mappe-potenziale-fragilita-emilia-romagna-2023)
+    - Livello: Comunale (Emilia-Romagna)
+
+-   **ER Stats - Stato di Salute**: Indagine salute popolazione (2023-2024)
+    - File: `data/data_in/ER_stats/stato_salute_reg_20232024.xlsx`
+    - Indicatori: Persone in buona salute, malattie croniche
+    - Livello: Regionale/Provinciale
+
+-   **ISTAT - Aspetti vita quotidiana**: Prevalenza disabilità per età e genere
+    - URL: <https://www.istat.it/it/archivio/91926>
+    - Anno: 2022
+    - Livello: Regionale
+
+-   **ISTAT - Disabilità in Cifre**: Dati disabilità in Italia
+    - URL: <https://www.istat.it/it/archivio/236301>
+    - Livello: Regionale/Nazionale
+
+**🟧 DA ACQUISIRE**
+
+-   **ISTAT - EHIS (European Health Interview Survey)**: ADL e IADL (2019)
+    - Limitazioni attività base e strumentali
+    - Livello: Regionale
+
+-   **SSR Emilia-Romagna**: "Il Sostegno del caregiver in ER" (2020)
+    - Caregiver familiari: 530k in ER, 120k con >20h/settimana
+    - Giovani caregiver: ~26k under 25 in ER
+    - Rapporti DSM (Dipartimenti Salute Mentale)
+
+-   **Agenzia Regionale Lavoro ER**: Rapporti inclusione lavorativa persone disabili
+    - Collocamento mirato L.68/99
+    - Ultimo monitoraggio disponibile: 2018
+
+-   **MIUR - Anagrafe studenti**: Dati alunni con disabilità per provincia
+    - Rapporto alunni/insegnante sostegno
+    - Dato non pubblico, da richiedere
+
+-   **INPS**: Dati su beneficiari indennità di accompagnamento e invalidità civile
+
+-   **Altri riferimenti**:
+    - Articolo Vita: "Giovani caregiver, se il lavoro di cura mette a rischio il futuro" (17.07.2024)
+      <https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/>
+
+---
+
+# Note metodologiche
+
+- I dati provinciali permettono confronti con Emilia-Romagna e Italia
+- I dati comunali permettono analisi della distribuzione territoriale intra-provinciale
+- Alcuni indicatori richiedono elaborazioni su dati grezzi ISTAT
+
