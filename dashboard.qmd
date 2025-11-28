@@ -27,6 +27,8 @@ execute:
 # suppress-bibliography: false
 ---
 
+[ ⚠️ Work in progress ... ⚠️ ]
+
 
 Il materiale è organizzato per temi: ogni pagina rappresenta **un modulo tematico** in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.
  

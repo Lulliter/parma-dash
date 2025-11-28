@@ -18,22 +18,29 @@ library(ggiraph)  # For interactive maps
 # 1. LOAD DATASETS ----
 
 
-# Load main datasets created by data_load.R
+# __ Load main datasets created by data_load.R ----
+# -- Solo regioni
 # gali_all <- readRDS(here(
 #   "data/data_out/istat_GALI_2023/gali_all.rds"
 # ))
+# -- Regioni + ripartizioni (calcolate come media regioni)
 gali_all_w_ripart <- readRDS(here(
   "data/data_out/istat_GALI_2023/gali_all_w_ripart.rds"
 ))
+# -- Regioni + ripartizioni con classi d'età/limitazione accorpate
 gali_all_w_ripart_clps <- readRDS(here(
   "data/data_out/istat_GALI_2023/gali_all_w_ripart_clps.rds"
 ))
-# gali_all_compare <- readRDS(here(
-#   "data/data_out/istat_GALI_2023/gali_all_compare.rds"
-# ))
 
-# Load shapefile for maps
+# __ Load shapefile for maps ----
 regioni_ita <- readRDS(here("data/data_out/ITA_shp/regioni_ita_full.rds"))
+
+# Simplify geometry to reduce file size (especially for interactive maps)
+regioni_ita <- sf::st_simplify(regioni_ita, preserveTopology = TRUE, dTolerance = 500)
+
+# Fix name mismatch: shapefile has hyphen, data doesn't
+regioni_ita <- regioni_ita %>%
+  mutate(territorio = gsub("Trentino-Alto Adige", "Trentino Alto Adige", territorio))
 
 # 2. THEME & COLORS ----
 theme_gali <- function() {
@@ -55,13 +62,35 @@ colori_eta_2 <- c(
   "75+ anni" = "#d73027"
 )
 
-colori_eta_4 <- c(
-  "0-44 anni" = "#1a9850",
-  "45-64 anni" = "#fee08b",
-  "65-74 anni" = "#f46d43",
-  "75+ anni" = "#d73027",
-  "Anziani (65+)" = "#d73027",  # Same color as 75+ (represents older adults)
-  "Tutte le età" = "#999999"
+# # install.packages("devtools")
+# devtools::install_github("thomasp85/scico")
+# library(scico)
+# scico_palette_show()
+# > scico(6, palette = 'cork')
+# [1] "#2C194C" "#3D6B98" "#ACC0D3" "#B7CEB7" "#438041" "#0E2802"
+# > scico(6, palette = 'davos')
+# [1] "#00054A" "#224A8C" "#537D9B" "#849E88" "#D3DAA7" "#FEFEFE"
+# scico(6, palette = 'tokio')
+# [1] "#2D004B" "#5A4FA3" "#A3C0E4" "#E4D2A3" "#E48C5A" "#B30000"
+#  
+# scico(6, palette = 'vik')
+# [1] "#081D58" "#253494" "#4D92C6" "#92C5DE" "#D1E5F0" "#F7FBFF"
+# scico(6, palette = 'davos')
+# [1] "#00054A" "#224A8C" "#537D9B" "#849E88" "#D3DAA7" "#FEFEFE"
+# scico(6, palette = 'greyC')
+# [1] "#000000" "#404040" "#7F7F7F" "#BFBFBF" "#E5E5E5" "#FFFFFF"
+
+# Choose colors from scico palettes for ages 
+ 
+
+colori_eta_5 <- c(
+  "0-44 anni" = "#c7e9b4",
+  "45-64 anni" = "#7fcdbb",
+  "65-74 anni" =  "#41b6c4", 
+  "Anziani (65+)" = "#1d91c0",  # a metà tra 65-74 e 75+
+  "75+ anni" = "#225ea8",
+
+  "Tutte le età" = "#7F7F7F" 
 )
 
 colori_limitazioni <- c(
@@ -149,7 +178,7 @@ plot_bar_compare <- function(
   if (compare_by_age) {
     # Comparing by age classes - show which limitation level(s)
     fill_var <- "classe_eta"
-    palette <- colori_eta_4  # Use comprehensive palette (includes collapsed categories)
+    palette <- colori_eta_5  # Use comprehensive palette (includes collapsed categories)
     fill_label <- "Classe d'età"
     limit_levels <- unique(data$limitazioni)
     if (length(limit_levels) == 1) {
@@ -225,22 +254,40 @@ plot_bar_compare(
     "Tutte le età"
   )
 )
-# Exe 3) Compare specific age class for all limitation levels
-plot_bar_compare(
+# Exe 3) Compare specific age class for all limitation levels ----
+p19_bar_comp_gravi <- plot_bar_compare(
   dataset = DATA,
-  territori = TERRITORI,
-  limitazione = c("Limitazioni gravi", "Limitazioni non gravi"),
-  classi_eta = CLASSI_ETA
-)
+  territori = c(
+    "Emilia-Romagna", "Nord-est",  #"Lombardia",
+    "Italia"
+  ),
+  limitazione = c("Limitazioni gravi"),
+  classi_eta = c("65-74 anni", "75+ anni", "Tutte le età"))
 
-# __ Example  COLLAPSED ----
+p20_bar_comp_lievi <- plot_bar_compare(
+  dataset = DATA,
+  territori = c(
+    "Emilia-Romagna", "Nord-est",  #"Lombardia",
+    "Italia"),
+  limitazione = c("Limitazioni non gravi"),
+  classi_eta = c("65-74 anni", "75+ anni", "Tutte le età"))
+
+
+# Example  COLLAPSED ----
 # Using gali_all_w_ripart_clps to compare collapsed age classes
-plot_bar_compare(
+p21_bar_comp_clps  <- plot_bar_compare(
   dataset = gali_all_w_ripart_clps,
   territori = TERRITORI,
   classi_eta = c("Anziani (65+)", "Tutte le età"),
   limitazione = "Limitazioni (lieve o grave)"
 )
+
+
+# 🟩 Save for later use in dashboard ----
+saveRDS(p19_bar_comp_gravi, here("data/plots/p19_bar_comp_gravi.rds"))
+saveRDS(p20_bar_comp_lievi, here("data/plots/p20_bar_comp_lievi.rds"))
+saveRDS(p21_bar_comp_clps, here("data/plots/p21_bar_comp_clps.rds"))
+
 
 # 6. VISUALIZATION 2: Faceted Bar Chart ----
 # Show each category in separate panel - detects whether to facet by age or limitation
@@ -263,7 +310,7 @@ plot_bar_facet <- function(
     # Faceting by age classes - show which limitation level(s)
     facet_var <- "classe_eta"
     fill_var <- "classe_eta"
-    palette <- colori_eta_4  # Use comprehensive palette (includes collapsed categories)
+    palette <- colori_eta_5  # Use comprehensive palette (includes collapsed categories)
     limit_levels <- unique(data$limitazioni)
     if (length(limit_levels) == 1) {
       subtitle <- paste0(limit_levels, " - Per territorio e classe d'età")
@@ -326,18 +373,21 @@ plot_bar_facet <- function(
 # __ Example usage: ----
 # function (dataset = DATA, territori = TERRITORI, classi_eta = CLASSI_ETA,
 #     limitazione = LIMITAZIONE)
+# NOTE: When using multiple age classes, provide ONLY ONE limitation value
+#       to avoid rendering issues. For multiple limitations, use plot_bar_compare() instead.
+
 # Exe 1) Compare specific age classes for specific limitation
 plot_bar_facet(
   dataset = DATA, # gali_all_w_ripart
   territori = TERRITORI, # cross territori for comparison
   classi_eta = CLASSI_ETA, # anziani (65+ e 75+)
-  limitazione = LIMITAZIONE # limitazione (solo)
+  limitazione = LIMITAZIONE # limitazione (ONE value only)
 )
-# Exe 2) Compare all age classes for specific limitation
+# Exe 2) Compare all age classes for specific limitation ----
 plot_bar_facet(
   dataset = DATA,
   territori = TERRITORI,
-  limitazione = LIMITAZIONE,
+  limitazione = LIMITAZIONE,  # ONE limitation value only
   classi_eta = c(
     "0-44 anni",
     "45-64 anni",
@@ -346,6 +396,7 @@ plot_bar_facet(
     "Tutte le età"
   )
 )
+
 # Exe 3) Compare specific age class for all limitation levels
 plot_bar_facet(
   dataset = DATA,
@@ -353,6 +404,54 @@ plot_bar_facet(
   limitazione = c("Limitazioni gravi", "Limitazioni non gravi"),
   classi_eta = CLASSI_ETA
 )
+
+# SAVING SPECIFIC EXAMPLES ----
+p22_bar_facet_all_ages <- plot_bar_facet(
+  dataset = DATA,
+  territori = TERRITORI,
+  limitazione = "Limitazioni gravi",
+  classi_eta = c(
+    "0-44 anni",
+    "45-64 anni",
+    "65-74 anni",
+    "75+ anni",
+    "Tutte le età"
+  )
+)
+p22_bar_facet_all_ages
+
+p23_bar_facet_all_ages_lievi <- plot_bar_facet(
+  dataset = DATA,
+  territori = TERRITORI,
+  limitazione = "Limitazioni non gravi",
+  classi_eta = c(
+    "0-44 anni",
+    "45-64 anni",
+    "65-74 anni",
+    "75+ anni",
+    "Tutte le età"
+  )
+)
+p23_bar_facet_all_ages_lievi
+
+# NOTE: For multiple limitations with multiple ages, use the collapsed DATA CATEGORIES ONLY
+# or use plot_bar_compare() instead
+p24_bar_facet_all_ages_clps <- plot_bar_facet(
+  dataset = gali_all_w_ripart_clps,
+  territori = TERRITORI,
+  limitazione = "Limitazioni (lieve o grave)",  # Single collapsed category
+  classi_eta = c(
+    "Anziani (65+)",  # Collapsed dataset only has this age category
+    "Tutte le età"
+  )
+)
+p24_bar_facet_all_ages_clps
+
+# 🟩 Save for later use in dashboard ----
+saveRDS(p22_bar_facet_all_ages, here("data/plots/p22_bar_facet_all_ages.rds"))
+saveRDS(p23_bar_facet_all_ages_lievi, here("data/plots/p23_bar_facet_all_ages_lievi.rds"))
+saveRDS(p24_bar_facet_all_ages_clps, here("data/plots/p24_bar_facet_all_ages_clps.rds"))
+
 
 # __ Example  COLLAPSED ----
 # Using gali_all_w_ripart_clps to compare collapsed age classes
@@ -550,7 +649,7 @@ plot_mappa <- function(
     scale_fill_gradient2(
       low = "#4575b4",
       mid = "#ffffbf",
-      high = "#d73027",
+      high = "#c94c4c",
       midpoint = median(data$percentuale, na.rm = TRUE),
       labels = label_percent(scale = 1),
       name = "%"
@@ -635,7 +734,7 @@ plot_mappa_interactive <- function(
     scale_fill_gradient2(
       low = "#4575b4",
       mid = "#ffffbf",
-      high = "#d73027",
+      high = "#c94c4c",
       midpoint = median(data$percentuale, na.rm = TRUE),
       labels = label_percent(scale = 1),
       name = "%"
@@ -655,8 +754,8 @@ plot_mappa_interactive <- function(
   # Make it interactive with ggiraph
   girafe(
     ggobj = p,
-    width_svg = 8,
-    height_svg = 6,
+    width_svg = 9,
+    height_svg = 7,
     options = list(
       opts_hover(css = "fill:orange;stroke:black;stroke-width:2;"),
       opts_tooltip(css = "background-color:white;padding:5px;border-radius:3px;box-shadow:2px 2px 5px rgba(0,0,0,0.3);")
@@ -668,7 +767,7 @@ plot_mappa_interactive <- function(
 # Hover over regions to see percentages
 
 # Exe 1) Interactive map for Limitazioni gravi
-plot_mappa_interactive(classe_eta = "75+ anni", limitazione = "Limitazioni gravi")
+plot_mappa_interactive(dataset = gali_all_w_ripart, classe_eta = "75+ anni", limitazione = "Limitazioni gravi")
 
 #Exe 2) Interactive map with collapsed categories
 plot_mappa_interactive(
@@ -676,3 +775,19 @@ plot_mappa_interactive(
  classe_eta = "Anziani (65+)",
  limitazione = "Limitazioni (lieve o grave)"
 )
+
+# SAVING SPECIFIC EXAMPLES ----
+# All interactive maps for tabset
+p25_map_gali_gr_0_44 <- plot_mappa_interactive(dataset = gali_all_w_ripart, classe_eta = "0-44 anni", limitazione = "Limitazioni gravi")
+p26_map_gali_gr_45_64 <- plot_mappa_interactive(dataset = gali_all_w_ripart, classe_eta = "45-64 anni", limitazione = "Limitazioni gravi")
+p27_map_gali_gr_65_74 <- plot_mappa_interactive(dataset = gali_all_w_ripart, classe_eta = "65-74 anni", limitazione = "Limitazioni gravi")
+p28_map_gali_gr_75_plus <- plot_mappa_interactive(dataset = gali_all_w_ripart, classe_eta = "75+ anni", limitazione = "Limitazioni gravi")
+p30_map_gali_gr_tutti <- plot_mappa_interactive(dataset = gali_all_w_ripart_clps, classe_eta = "Tutte le età", limitazione = "Limitazioni (lieve o grave)")
+
+
+# 🟩 Save for later use in dashboard ----
+saveRDS(p25_map_gali_gr_0_44, here("data/plots/p25_map_gali_gr_0_44.rds"))
+saveRDS(p26_map_gali_gr_45_64, here("data/plots/p26_map_gali_gr_45_64.rds"))
+saveRDS(p27_map_gali_gr_65_74, here("data/plots/p27_map_gali_gr_65_74.rds"))
+saveRDS(p28_map_gali_gr_75_plus, here("data/plots/p28_map_gali_gr_75_plus.rds"))
+saveRDS(p30_map_gali_gr_tutti, here("data/plots/p30_map_gali_gr_tutti.rds"))

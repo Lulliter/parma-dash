@@ -9,7 +9,8 @@ format:
   html:
     css: ../../assets/styles/custom.scss
     # theme: flatly
-    toc: false
+    toc: true
+    toc-depth: 2
     toc-location: left
     toc-title: "Indice"
     include-in-header:
@@ -31,21 +32,29 @@ bibliography: ../../bib/CRP_dash.bib
 suppress-bibliography: false
 ---
 
-## 🟨 Dati per fotografare la fragilità e non autosufficienza
+::: {.callout-important}
+## Nota sulla disponibilità dei dati
+I dati su questi aspetti sono spesso frammentati, non aggiornati e/o non disponibili a livello comunale, ma sono fondamentali per una stima accurata della domanda di servizi sociali e sanitari.
 
-I dati su questi aspetti sono spesso frammentati, non aggiornati o non disponibili a livello comunale, ma sono fondamentali per una stima accurata della domanda di servizi sociali e sanitari.
- 
-Nota: Di sotto si osservano 2 principali indicatori per la disabilità:
+I dati raccolti fin qui sono disponibili **solo a livello regionale**, ma, sulla base dei trend demografici provinciali, dove Parma mostra una popolazione anziana leggermente inferiore alla media regionale, è ragionevole ipotizzare che l'incidenza della disabilità a Parma possa essere **leggermente inferiore alla media regionale**. 
+
+<!-- Tuttavia, **sono necessari dati locali più specifici** (es. AUSL Parma, certificazioni L.104) per quantificare con precisione la domanda assistenziale sul territorio parmense. -->
+:::
+
+# Dati per fotografare la fragilità e non autosufficienza
+
+Di sotto si osservano 2 principali indicatori per la disabilità:
 
 1. GALI (Global Activity Limitation Indicator) è una misura più generale di disabilità.
 2. DL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living) sono misure più specifiche (e operative)  delle limitazioni nelle attività quotidiane. 
 
-## Disabilità ≈ `GALI (Global Activity Limitation Indicator)`
+# 1) Disabilità ≈ `GALI`
 
-+ **COSA RAPPRESENTA**: l'indicatore osservato è: 
++ **COSA RAPPRESENTA**: l'indicatore di disabilità osservato (che corrisponde all'indicatore `GALI - Global Activity Limitation Indicator`) è: 
   + ``a. Persone con disabilità`
     + `a.1 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori assoluti in migliaia)`
     + `a.2 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori percentuali)`
+  
   + **Come si misura**: basato su una domanda auto-riferita nell'indagine multiscopo ISTAT sulle famiglie, che chiede se la persona ha limitazioni nelle attività abitualmente svolte a causa di problemi di salute (fisici, mentali o di altro tipo) e la gravità di tali limitazioni (gravi, non gravi, nessuna limitazione).
   + **Ambito**: Questo indicatore è disponibile per `regione`, `classi di età` (...), e `livello di limitazione` (limitazioni gravi, limitazioni non gravi) 
    + **Anno di riferimento**: I dati sono al **2023** (ma basati sui 2 anni precedenti), ma sarebbero dispoonibile dal 2009 
@@ -53,16 +62,244 @@ Nota: Di sotto si osservano 2 principali indicatori per la disabilità:
    - **Link**: [Istat - Disabilità in cifre](https://disabilitaincifre.istat.it/MD/dawinciMD.jsp?p=0)
 <!-- solo che lo stronzo non lascia incrociare + di 2 dimensioni  -->
 
-### VIZ
+## Visualizzazione e confronti
 
-... 
+### p19_bar_comp_gravi [confronto gravi limitazionin] {.notitle}
+```{r}
+#| label: p19_bar_comp_gravi
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p19_bar_comp_gravi <- readRDS(
+  file = here::here("data", "plots", "p19_bar_comp_gravi.rds")
+)
+
+p19_bar_comp_gravi
+```
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Emilia-Romagna sopra la media nazionale per limitazioni gravi**: L'ER registra il **5.0%** della popolazione con limitazioni gravi (in linea con l'Italia), ma **superiore al Nord-est (4.5%)**. Il gap è più marcato negli anziani 75+: l'ER ha **19.5%** contro il **17.6%** del Nord-est, con una differenza di **+1.9 punti percentuali**. Questo indica un maggior bisogno di assistenza intensiva nella popolazione anziana regionale.
+:::
+
+***
+
+### p20_bar_comp_lievi [confronto lievi limitazionin] {.notitle}
+```{r}
+#| label: p20_bar_comp_lievi
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p20_bar_comp_lievi <- readRDS(
+  file = here::here("data", "plots", "p20_bar_comp_lievi.rds")
+)
+
+p20_bar_comp_lievi
+```
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Limitazioni non gravi: ER al di sopra della media**: L'Emilia-Romagna presenta **17.1%** della popolazione con limitazioni non gravi, superiore sia al Nord-est (**16.4%**) che all'Italia (**16.2%**). La differenza è particolarmente evidente nei 65-74 anni dove l'ER raggiunge **31.7%** contro il **27.8%** del Nord-est (**+3.9pp**). Ciò suggerisce un'ampia fascia di popolazione con bisogni di supporto moderato.
+:::
+
+***
+
+#### ... categorie accorpate (`"Anziani"` = (tutti gli over 65) e `"Limitazioni (lieve o grave)"` insieme)
+
+### p21_bar_comp_clps [confronto allargato con Anziani e limit collapsed] {.notitle}
+```{r}
+#| label: p21_bar_comp_clps
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p21_bar_comp_clps <- readRDS(
+  file = here::here("data", "plots", "p21_bar_comp_clps.rds")
+)
+p21_bar_comp_clps
+```
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Allargando il confronto a ambiti territoriali comparabili**, l'analisi conferma come l'Emilia-Romagna (e il Nord-est in generale) siano tra le aree con maggiore percentuale di anziani (tutti gli over 65) che sopportano qualche condizioni di limitazione.
+:::
+
+***
+
+### Visualizzazione e confronti (disarticolati con più territori)
+<!-- saveRDS(p22_bar_facet_all_ages, here("data/plots/p22_bar_facet_all_ages.rds")) -->
+<!-- saveRDS(p23_bar_facet_all_ages_lievi, here("data/plots/p23_bar_facet_all_ages_lievi.rds")) -->
+<!-- saveRDS(p24_bar_facet_all_ages_clps, here("data/plots/p24_bar_facet_all_ages_clps.rds")) -->
+
+### p22_bar_facet_all_ages [confronto disabilità tutte età] {.notitle}
+```{r}
+#| label: p22_bar_facet_all_ages
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p22_bar_facet_all_ages <- readRDS(
+  file = here::here("data", "plots", "p22_bar_facet_all_ages.rds")
+)
+p22_bar_facet_all_ages
+```
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Forte gradiente per età nelle limitazioni gravi**: L'incidenza cresce esponenzialmente con l'età: da circa **1-2%** nei giovani a **19-20%** nei 75+. L'Emilia-Romagna mantiene un profilo simile all'Italia in tutte le fasce d'età (seconda solo al Friuli-Venezia Giulia per incidenza della disabilità). Le altre regioni del Nord-est mostrano valori sistematicamente più bassi. Questo grafico permette di apprezzare l'urgenza di servizi graduati per intensità di assistenza.
+:::
+
+***
+
+### p23_bar_facet_all_ages_lievi [confronto disabilità lievi tutte età] {.notitle}
+```{r}
+#| label: p23_bar_facet_all_ages_lievi
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p23_bar_facet_all_ages_lievi <- readRDS(
+  file = here::here("data", "plots", "p23_bar_facet_all_ages_lievi.rds")
+)
+p23_bar_facet_all_ages_lievi
+```
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Limitazioni non gravi già rilevanti nei 45-64 anni**: Mentre le limitazioni gravi restano contenute sotto i 65 anni, quelle non gravi iniziano a crescere significativamente già nella fascia **45-64 anni** (circa 10-15%), raggiungendo **30-35%** nei 65-74 anni. L'ER si posiziona stabilmente sopra la media in tutte le fasce, indicando un bisogno diffuso di interventi preventivi e di forme di sostegno leggero.
+:::
+
+***
+
+#### ... categorie accorpate (`"Anziani"` = (tutti gli over 65) e `"Limitazioni (lieve o grave)"` insieme)
+
+### p24_bar_facet_all_ages_clps [confronto disabilità collapsed tutte età] {.notitle}
+```{r}
+#| label: p24_bar_facet_all_ages_clps
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p24_bar_facet_all_ages_clps <- readRDS(
+  file = here::here("data", "plots", "p24_bar_facet_all_ages_clps.rds")
+)
+p24_bar_facet_all_ages_clps
+```
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Anziani 65+: quasi un quarto con limitazioni (gravi o non gravi)**: Considerando tutte le limitazioni aggregate (gravi + non gravi), l'**Emilia-Romagna** raggiunge il **23.0%** della popolazione anziana (65+), allineata alla media nazionale ma superiore alle regioni vicine del Nord-est (**21.2%**). Considerando l'intera popolazione, l'ER ha **11.0%** con limitazioni, valore più alto tra i territori confrontati. Questi dati evidenziano una significativa domanda di servizi di supporto, dalla prevenzione all'assistenza intensiva.
+:::
+
+***
+
+## Mappe per tutte le regioni 
+
+Lo strumento delle mappe consente di visualizzare la distribuzione geografica delle limitazioni per tutte le regioni italiane. Colpisce notare che, una regione altamente paragonabile all'Emilia-Romagna come la Lombardia, mostra valori più bassi in tutte le fasce d'età, suggerendo differenze strutturali nei fattori di rischio o nell'accesso ai servizi di prevenzione e cura. 
+
+<!-- saveRDS(p25_map_gali_gr_0_44, here("data/plots/p25_map_gali_gr_0_44.rds")) -->
+<!-- saveRDS(p26_map_gali_gr_45_64, here("data/plots/p26_map_gali_gr_45_64.rds")) -->
+<!-- saveRDS(p27_map_gali_gr_65_74, here("data/plots/p27_map_gali_gr_65_74.rds")) -->
+<!-- saveRDS(p28_map_gali_gr_75_plus, here("data/plots/p28_map_gali_gr_75_plus.rds")) -->
+<!-- saveRDS(p30_map_gali_gr_tutti, here("data/plots/p30_map_gali_gr_tutti.rds")) -->
+
+###  p30_map_gali_gr_tutti [mappa disabilità tutte età] {.notitle}
+```{r}
+#| label: p30_map_gali_gr_tutti
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p30_map_gali_gr_tutti <- readRDS(
+  file = here::here("data", "plots", "p30_map_gali_gr_tutti.rds")
+)
+p30_map_gali_gr_tutti
+```
+
+#### Limitazioni gravi per classe d'età
+
+::: {.panel-tabset}
+
+## 0-44 anni
+```{r}
+#| label: p25-map-gali-gr-0-44
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p25_map_gali_gr_0_44 <- readRDS(
+  file = here::here("data", "plots", "p25_map_gali_gr_0_44.rds")
+)
+p25_map_gali_gr_0_44
+```
+
+## 45-64 anni
+```{r}
+#| label: p26-map-gali-gr-45-64
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
+
+p26_map_gali_gr_45_64 <- readRDS(
+  file = here::here("data", "plots", "p26_map_gali_gr_45_64.rds")
+)
+p26_map_gali_gr_45_64
+```
+
+## 65-74 anni
+```{r}
+#| label: p27-map-gali-gr-65-74
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
 
 
+p27_map_gali_gr_65_74 <- readRDS(
+  file = here::here("data", "plots", "p27_map_gali_gr_65_74.rds")
+)
+p27_map_gali_gr_65_74
+```
 
+## 75+ anni
+```{r}
+#| label: p28-map-gali-gr-75-plus
+#| output: true
+#| fig-width: 9
+#| fig-height: 7
 
-## Autonomia in attività specifiche di cura personale/domesticheA ≈ `ADL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living)`
+p28_map_gali_gr_75_plus <- readRDS(
+  file = here::here("data", "plots", "p28_map_gali_gr_75_plus.rds")
+)
+p28_map_gali_gr_75_plus
+```
 
-+ **COSA RAPPRESENTA**: indicatori specifici di limitazioni nelle attività quotidiane, che sono più direttamente correlati alla necessità di assistenza e supporto.
+:::
+
+::: {.callout-note collapse="true"}
+## Osservazioni
+
+**Forte variabilità geografica nelle limitazioni gravi**: Le mappe rivelano importanti differenze territoriali. In tutte le fasce d'età, la **Sardegna** presenta i valori più elevati (fino a **27.3%** nei 75+), mentre il **Nord-est** (Veneto, Trentino) mostra le migliori condizioni. L'**Emilia-Romagna** si posiziona:
+- **0-44 anni**: ER al massimo nazionale (**1.7%**) - dato anomalo da verificare
+- **45-64 anni**: ER in posizione intermedia (**3.5%** vs range 2.7-6.6%)
+- **65-74 anni**: ER sopra la media (**6.7%** vs range 4.0-12.1%)
+- **75+ anni**: ER in posizione medio-alta (**19.5%** vs range 14.7-27.3%)
+
+Il gradiente Nord-Sud è evidente, con implicazioni per la programmazione sanitaria e sociale a livello nazionale.
+:::
+
+***
+
+# 2) Autonomia in attività cura ≈ `ADL /IADL`
+
++ **COSA RAPPRESENTA**: indicatori (corrispondenti a `ADL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living)`) catturano più specificamente limitazioni nelle attività quotidiane, e sono più direttamente correlati alla necessità di assistenza e supporto.
   + `DLA (Activities of Daily Living)`: misurano la capacità di una persona di svolgere attività di base come mangiare, vestirsi, lavarsi, usare il bagno, spostarsi e trasferirsi.
   + `IADL (Instrumental Activities of Daily Living)`: misurano la capacità di svolgere attività più complesse come fare la spesa, preparare i pasti, gestire i farmaci, usare il telefono, fare le pulizie e gestire le finanze.
   + **Come si misura**: basato sullo studio EHIS (European Health Interview Survey) condotto dall'ISTAT, che include domande specifiche sulle difficoltà incontrate dalle persone nelle attività di cura personale e domestiche.
@@ -87,9 +324,10 @@ Nota: Di sotto si osservano 2 principali indicatori per la disabilità:
  
   + **Report collegato**: [Indagine sulla salute degli anziani](https://www.istat.it/comunicato-stampa/le-condizioni-di-salute-della-popolazione-anziana-in-italia-anno-2019/)
 
-### VIZ 
+## Visualizzazione --- TBC
 
-## ALTRO 
+
+# 3) ALTRO --- TBC 
 **DATI 2023/24? **
     - `Anziani soli per classe d'età`: over 75/80 in famiglie unipersonali (maggior bisogno assistenziale)
     - **Obiettivo**: stimare il "bisogno assistenziale effettivo" oltre al semplice numero di anziani

@@ -60,10 +60,10 @@ website:
       background: "#9f7d35"
       contents:
       - source.qmd
-      - text: "Dati Istat estratti da IstatData (SDMX)"
-        href: source/istat-data.qmd
-      - text: "Dati su trend demografici e disabilità"
-        href: source/demog-disab-data.qmd
+ #     - text: "Dati Istat estratti da IstatData (SDMX)"
+ #       href: source/istat-data.qmd
+ #     - text: "Dati su trend demografici e disabilità"
+ #       href: source/demog-disab-data.qmd
 
 # --- Default options for all pages
 format:
