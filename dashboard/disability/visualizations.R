@@ -1,6 +1,6 @@
 # Visualizzazioni GALI (Global Activity Limitation Indicator) ----
 # Flexible visualization functions for disability data analysis
-# All plots are designed to work with any combination of:
+# All plots are designed to work with some combination of:
 #   - dataset (gali_all, gali_all_w_ripart, gali_all_compare)
 #   - territori (filter for specific regions/ripartizioni)
 #   - classe_eta (age classes)

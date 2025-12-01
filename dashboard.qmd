@@ -1,8 +1,8 @@
 ---
 title: "ANALISI PER TEMI"
 # subtitle: "Materiale intermedio su dati geografici con R"
-date: last-modified
-date-format: "DD-MMMM-YYYY"
+# date: last-modified
+# date-format: "DD-MMMM-YYYY"
 lang: it
 
 format: html
@@ -27,9 +27,27 @@ execute:
 # suppress-bibliography: false
 ---
 
-[ ⚠️ Work in progress ... ⚠️ ]
+<!-- [ ⚠️ Work in progress ... ⚠️ ] -->
 
 
-Il materiale è organizzato per temi: ogni pagina rappresenta **un modulo tematico** in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.
- 
- 
+Ogni pagina rappresenta **un modulo tematico** in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.
+
+**Dati per fotografare la fragilità e non autosufficienza**
+
+In questa sezione si osservano:
+
+1. L'analisi dei **trend demografici** 2002-2025, integrata con i dati comunali del Censimento 2023** e gli indici sintetici di fragilità della Regione ER, mostra come Parma abbia un profilo demografico piuttosto distintivo rispetto alla media regionale e nazionale, con alcune implicazioni interessanti per la programmazione dei servizi sociali.  
+
+2. Analisi su specifici indicatori di fragilità e non autosufficienza:
+  + a) Indicatore sulla **disabilità** ≈ _GALI_ (_Global Activity Limitation Indicator_) è una misura più generale di disabilità
+  + b) Indicatore sulla non **autosufficienza** ≈ _ADL /IADL_ (_Activities of Daily Living_ / _Instrumental Activities of Daily Living_) sono misure più specifiche (e operative)  delle limitazioni nelle attività quotidiane (vedi pagina dedicata). 
+  
+   
+::: {.callout-important  collapse="true"}
+## Nota
+I dati sulla domanda di servizi sociali e sanitari sono spesso frammentati, non aggiornati e/o non disponibili a livello comunale.
+
+<!-- I dati raccolti fin qui sono disponibili **solo a livello regionale**, ma, sulla base dei trend demografici provinciali, dove Parma mostra una popolazione anziana leggermente inferiore alla media regionale, è ragionevole ipotizzare che l'incidenza della disabilità a Parma possa essere **leggermente inferiore alla media regionale**.  -->
+
+<!-- Tuttavia, **sono necessari dati locali più specifici** (es. AUSL Parma, certificazioni L.104) per quantificare con precisione la domanda assistenziale sul territorio parmense. -->
+:::

@@ -231,7 +231,6 @@ territori_confronto <- c(
 # 
 
 # 4. SAVE PROCESSED DATA ----
-
 output_dir <- here::here("data/data_out/istat_GALI_2023")
 if (!dir.exists(output_dir)) {
   dir.create(output_dir, recursive = TRUE)
@@ -250,8 +249,6 @@ saveRDS(gali_all_w_ripart_clps, file.path(output_dir, "gali_all_w_ripart_clps.rd
 
 
 # 5. PREPARE SHAPEFILE (for maps) ----
-
-
 shp_rds_path <- here::here("data/data_out/ITA_shp/regioni_ita_full.rds")
 
 if (file.exists(shp_rds_path)) {
@@ -298,7 +295,6 @@ if (file.exists(shp_rds_path)) {
 
 
 # 6. DATA DICTIONARY (as comments for reference) ----
-
 
 # MAIN DATASETS CREATED:
 #

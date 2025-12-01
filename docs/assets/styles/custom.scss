@@ -1,8 +1,20 @@
 /*-- scss:defaults --*/
 // $navbar-bg: #FFF !default;
 $link-color: #5C2129 !default;
+$code-color: #17717f !default;  // teal color for inline code text
 
 /*-- scss:rules --*/
+
+// Override Bootstrap code color variable
+:root {
+  --bs-code-color: #17717f !important;  // teal color for inline code
+}
+
+// Direct override for inline code elements
+code {
+  color: #17717f !important;
+}
+
 .bg-vb-success {
   color: var(--bs-success);
   background-color: rgba(var(--bs-success-rgb), 0.1);

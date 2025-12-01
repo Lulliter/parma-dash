@@ -52,9 +52,10 @@ website:
       - dashboard.qmd
       - text: "Tema 1) Trend Demografici"
         href: dashboard/demographic_trends/index.qmd
-      - text: "Tema 2) Disabilità"
+      - text: "Tema 2.a) Disabilità"
         href: dashboard/disability/index.qmd
-
+      - text: "Tema 2.b) Non autosufficienza"
+        href: dashboard/non_autosufficienza/index.qmd
     - title: "Dati e Fonti"
       style: docked
       background: "#9f7d35"
@@ -69,7 +70,7 @@ website:
 format:
   html:
     toc: true
-    css: assets/styles/custom.scss
+    css: assets/styles/custom.css
     # theme: cosmo
     # # theme: styles/parma-theme.scss
     # highlight-style: github
