@@ -1,6 +1,6 @@
 ---
 title: "Dati specifici sulla disabilità"
-subtitle: "A partire da Analisi di contesto di Sinloc/OpenImpact"
+subtitle: "(Studio ispirato ad analisi di contesto effettuata da Sinloc/OpenImpact)"
 date: last-modified
 date-format: "DD-MMMM-YYYY"
 lang: it
@@ -39,7 +39,7 @@ suppress-bibliography: false
     + `a.1 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori assoluti in migliaia)`
     + `a.2 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori percentuali)`
   
-  + **Come si misura**: basato su una domanda auto-riferita nell'indagine multiscopo ISTAT sulle famiglie, che chiede se la persona ha limitazioni nelle attività abitualmente svolte a causa di problemi di salute (fisici, mentali o di altro tipo) e la gravità di tali limitazioni (gravi, non gravi, nessuna limitazione).
++ **Come si misura**: basato su una domanda auto-riferita nell'indagine multiscopo ISTAT sulle famiglie, che chiede se la persona ha limitazioni nelle attività abitualmente svolte a causa di problemi di salute (fisici, mentali o di altro tipo) e la gravità di tali limitazioni (gravi, non gravi, nessuna limitazione).
   + **Ambito**: Questo indicatore è disponibile per `regione`, `classi di età` (...), e `livello di limitazione` (limitazioni gravi, limitazioni non gravi) 
    + **Anno di riferimento**: I dati sono al **2023** (ma basati sui 2 anni precedenti), ma sarebbero dispoonibile dal 2009 
    - **Fonte**: 🟩 ISTAT (DisabilitàInCifre)-Multiscopo sulle famiglie: aspetti della vita quotidiana:parte generale (2022/2023)

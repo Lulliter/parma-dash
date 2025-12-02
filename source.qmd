@@ -1,8 +1,8 @@
 ---
 title: "FONTI DATI"
 # subtitle: "Materiale intermedio su dati geografici con R"
-date: last-modified
-date-format: "DD-MMMM-YYYY"
+# date: last-modified
+# date-format: "DD-MMMM-YYYY"
 lang: it
 
 format: html

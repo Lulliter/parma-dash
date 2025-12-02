@@ -10,7 +10,7 @@ format:
     css: ../../assets/styles/custom.scss
     # theme: flatly
     toc: true
-    toc-depth: 1
+    toc-depth: 2
     toc-location: left
     # toc-title: "Indice"
     include-in-header:
@@ -44,25 +44,27 @@ library(ggplot2)
 library(ggiraph)
 ```
 
-# Introduzione
+<!-- # Introduzione -->
 
-::: {.callout-warning}
+<!-- ::: {.callout-warning} -->
 
-DA RIVEDERE... 
- 
-  -   nesso con PS 2024-2027:
-  -   Linee Azione .......
-    
-:::
+<!-- DA RIVEDERE...  -->
+
+<!--   -   nesso con PS 2024-2027: -->
+<!--   -   Linee Azione ....... -->
+
+<!-- ::: -->
 
 
-> lo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione)
+<!-- > lo spirito generale era spostarsi da beneficienza a filantropia (investimento su una visione) -->
 
 <!-- che però non può che non partire dal bisogno reale -->
 
-# Trend distribuzione della popolazione per età
+# Trend demografici
 
-I dati illustrati in questa sezione sono stati estratti principalmente dal database ISTAT sugli indicatori demografici a livello provinciale, lungo il periodo 2002-2024.
+## Trend di distribuzione della popolazione per età
+
+I dati illustrati in questa sezione sono stati estratti principalmente dal database **ISTAT -- indicatori demografici a livello provinciale**, lungo il periodo 2002-2024.
 L'analisi mette a confronto la provincia di Parma con le altre province della regione, e con i valori medi dell'Emilia-Romagna e dell'Italia, al fine di evidenziare le peculiarità demografiche del territorio parmense.
 
 ### p01_e_m [ = Età Media] {.notitle}
@@ -190,7 +192,7 @@ p06_65piu_anni_interact
 
 ***
 
-# Trend crescita della popolazione per età
+## Trend crescita della popolazione per età
 
 ### p10_quoziente_di_natalità [ = Quoziente di natalità] {.notitle}
 ```{r}
@@ -317,7 +319,7 @@ p17_tasso_di_crescita_totale_interact
 
 
 
-# Trend indici strutturali della popolazione
+## Trend indici strutturali della popolazione
 
 Istat propone diversi indici sintetici per valutare la struttura demografica e le pressioni assistenziali sulla popolazione.
 
@@ -412,7 +414,7 @@ p04_i_d_a_interact
 
 ***
 
-# Trend composizione delle famiglie
+## Trend composizione delle famiglie
 
 ### p11_quoziente_di_nuzialità [ = Quoziente di nuzialità] {.notitle}
 ```{r}
@@ -509,7 +511,7 @@ p18_tasso_di_fecondità_totale_interact
 
 ***
 
-# Trend speranza di vita 
+## Trend speranza di vita 
 
 ### p15_speranza_di_vita_0 [ = Speranza di vita alla nascita] {.notitle}
 ```{r}
@@ -573,7 +575,7 @@ p16_speranza_di_vita_65_interact
 
 ***
 
-# Trend immigrazione
+## Trend immigrazione
 
 ### p12_saldo_migratorio_totale [ = Saldo migratorio totale] {.notitle}
 ```{r}
@@ -765,7 +767,11 @@ Il report presenta tre indici sintetici di potenziale fragilità, che sembrano c
 ### Indice potenziale fragilità demografica {.notitle}
 
 
-  + `Indice di potenziale fragilità demografica` (misurato combinando: `% 80ENNI E PIÙ`,`VARIAZIONE % POPOLAZIONE RESIDENTE`, `SALDO NATURALE MEDIO ANNUO (*1000)`) - potenziale maggiore nella fascia appenninica, dal basso ferrarese fino alla pianura ravennate e in alcuni comuni vicini al confine con la Lombardia nelle province di Piacenza, Parma e Reggio nell'Emilia
+  + `Indice di potenziale fragilità demografica` -- misurato combinando: 
+    + `% 80ENNI E PIÙ`,
+    + `VARIAZIONE % POPOLAZIONE RESIDENTE`,
+    + `SALDO NATURALE MEDIO ANNUO (*1000)`
+  - potenziale maggiore nella fascia appenninica, dal basso ferrarese fino alla pianura ravennate e in alcuni comuni vicini al confine con la Lombardia nelle province di Piacenza, Parma e Reggio nell'Emilia
 
 
 
@@ -785,8 +791,14 @@ png::readPNG(here::here("data", "maps", "indice_frag_demogr.png")) %>%
 
 ### Indice potenziale fragilità sociale{.notitle}
 
-  + `Indice di potenziale fragilità sociale` (misurato combinando: `% POPOLAZIONE RESIDENTE DI 65 ANNI E OLTRE IN FAMIGLIE UNIPERSONALI`, `RICAMBIO % MEDIO DELLA POPOLAZIONE STRANIERA`, `% POPOLAZIONE RESIDENTE STRANIERA IN ETÀ 0- 19 ANNI SULLA POPOLAZIONE RESIDENTE IN ETÀ 0-19 ANNI`, 
-`% LAUREATI IN ETÀ 25-49 ANNI SULLA POPOLAZIONE RESIDENTE DI 25-49 ANNI`, `% MINORI IN FAMIGLIE MONOGENITORIALI SUL TOTALE DEI MINORI RESIDENTI IN FAMIGLIA`)- livelli alti o medio alti nelle aree montane e a ridosso del Po.
+  + `Indice di potenziale fragilità sociale` -- misurato combinando: 
+    + `% POPOLAZIONE RESIDENTE DI 65 ANNI E OLTRE IN FAMIGLIE UNIPERSONALI`, 
+    + `RICAMBIO % MEDIO DELLA POPOLAZIONE STRANIERA`, 
+    + `% POPOLAZIONE RESIDENTE STRANIERA IN ETÀ 0- 19 ANNI SULLA POPOLAZIONE RESIDENTE IN ETÀ 0-19 ANNI`, 
+    + `% LAUREATI IN ETÀ 25-49 ANNI SULLA POPOLAZIONE RESIDENTE DI 25-49 ANNI`,
+    + `% MINORI IN FAMIGLIE MONOGENITORIALI SUL TOTALE DEI MINORI RESIDENTI IN FAMIGLIA`
+  - livelli alti o medio alti nelle aree montane e a ridosso del Po.
+  
 ```{r}
 #| label: ind_frag_sociale
 #| output: true
@@ -800,10 +812,13 @@ png::readPNG(here::here("data", "maps", "indice_frag_sociale.png")) %>%
 
 *** 
 
-
 ### Indice potenziale fragilità economica{.notitle}
 
-  + `Indice di potenziale fragilità economica` (misurato combinando: `% ABITAZIONI OCCUPATE IN AFFITTO`, `REDDITO IMPONIBILE MEDIO PER CONTRIBUENTE`, `% CONTRIBUENTI CON 0-10.000 EURO DI REDDITO COMPLESSIVO SU TOTALE CONTRIBUENTI`) - più intensa nelle province romagnole. 
+  + `Indice di potenziale fragilità economica` -- misurato combinando: 
+    + `% ABITAZIONI OCCUPATE IN AFFITTO`,
+    + `REDDITO IMPONIBILE MEDIO PER CONTRIBUENTE`,
+    - `% CONTRIBUENTI CON 0-10.000 EURO DI REDDITO COMPLESSIVO SU TOTALE CONTRIBUENTI`
+  - più intensa nelle province romagnole. 
 
 ```{r}
 #| label: ind_frag_economica
@@ -884,12 +899,15 @@ Il profilo composito di Parma suggerisce **strategie differenziate per territori
 
 # Prossimi passi possibili
 
-Questi dati costituiscono la **base di partenza** per comprendere l'evoluzione dei bisogni sul territorio. I prossimi passi possono svilupparsi in molte direzioni possibili, che potrebbero riguardare sia il lato della potenziale ***DOMANDA*** che dell'**OFFERTA** disponibile di servizi sociali e socio-sanitari. 
+I prossimi passi possono svilupparsi in molte direzioni possibili, e affontare domande rilevanti per la potenziale ***DOMANDA*** di servizi sociali e socio-sanitari. 
 
-Gli **aspetti demografici** potrebbero essere ulteriormente sviluppati, sia nell'ottica di previsione delle `evoluzioni nel futuro`, sia cercando una maggiore `disagregazione per area geografica` o `per età`. Ad esempio:
+Gli **aspetti demografici** che potrebbero essere ulteriormente sviluppati, includono:
 
-- Affiancare ai trend passati anche **proiezioni demografiche** già disponibili (**Fonte**: [ISTAT - Proiezioni demografiche per età](https://statistica.regione.emilia-romagna.it/dati/rappresentazioni-grafiche-dati/visualizzazione-proiezioni-demografiche-emilia-romagna))
-- Studiare più a fondo gli **indici di fragilità regionale**: questi infatti sono stati messi a punto attraverso studi condotti da esperti e quindi possono essere usati come riferimento 
-- Identificare gli ambiti territoriali con la maggiore incidenza di **fragilità locale**: approfondire i comuni montani con doppia criticità (invecchiamento + spopolamento)
-  - qui potrebbe essere utile confrontarsi con enti come Unione Montana Appennino Parma Est, ecc. 
-- Approfondire il fenomeno dei **flussi migratori**, e di come influisce sulle dinamiche demografiche locali, incrociandolo con dati territoriali sulla sul lavoro e sui servizi sociali. 
+- Affiancare ai trend passati anche **proiezioni demografiche future** già disponibili (**Fonte**: [ISTAT - Proiezioni demografiche per età](https://statistica.regione.emilia-romagna.it/dati/rappresentazioni-grafiche-dati/visualizzazione-proiezioni-demografiche-emilia-romagna))
+- Studiare più a fondo gli **indici di fragilità** dell'ER: questi infatti sono stati messi a punto attraverso studi condotti da esperti e quindi possono essere usati come riferimento 
+- Geolocalizzare gli indicatori in **ambiti territoriali di interesse** o più colpiti (e.g. **fragilità locale**) come `Unione Montana Appennino Parma Est`, o per `Distretto Sanitario`, ecc. 
+<!-- con doppia criticità (invecchiamento + spopolamento) -->
+- Approfondimenti di certi aspetti:
+  - **flussi migratori** e lavoro;
+  - evoluzione della **famiglia** e rapporti intergenerazionali; 
+  - effetto di shock (e.g. **COVID 19**) sui trend 

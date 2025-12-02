@@ -259,16 +259,31 @@ plot_mappa_difficolta <- function(
     subtitle <- "Persone di 65+ anni per regione"
   }
 
-  ggplot(mappa_data) +
-    geom_sf(aes(fill = percentuale), color = "white", linewidth = 0.3) +
-    scale_fill_gradient2(
+  # Invert color scale for "nessuna" (high % = good = blue)
+  if (difficolta == "nessuna") {
+    scale_colors <- scale_fill_gradient2(
+      low = "#c93b04",      # red for low % (problematic)
+      mid = "#ffffbf",
+      high = "#4575b4",     # blue for high % (positive)
+      midpoint = median(data$percentuale, na.rm = TRUE),
+      labels = label_percent(scale = 1),
+      name = "% su popolazione 65+"
+    )
+  } else {
+    # Normal scale for grave/moderata (high % = bad = red)
+    scale_colors <- scale_fill_gradient2(
       low = "#4575b4",
       mid = "#ffffbf",
       high = "#c93b04",
       midpoint = median(data$percentuale, na.rm = TRUE),
       labels = label_percent(scale = 1),
       name = "% su popolazione 65+"
-    ) +
+    )
+  }
+
+  ggplot(mappa_data) +
+    geom_sf(aes(fill = percentuale), color = "white", linewidth = 0.3) +
+    scale_colors +
     labs(
       title = sprintf("Mappa: %s", diff_labels[difficolta]),
       subtitle = subtitle,
@@ -338,6 +353,28 @@ plot_mappa_difficolta_interactive <- function(
     subtitle <- "Persone di 65+ anni per regione"
   }
 
+  # Invert color scale for "nessuna" (high % = good = blue)
+  if (difficolta == "nessuna") {
+    scale_colors <- scale_fill_gradient2(
+      low = "#d73027",      # red for low % (problematic)
+      mid = "#ffffbf",
+      high = "#4575b4",     # blue for high % (positive)
+      midpoint = median(data$percentuale, na.rm = TRUE),
+      labels = label_percent(scale = 1),
+      name = "% di persone di 65+ anni"
+    )
+  } else {
+    # Normal scale for grave/moderata (high % = bad = red)
+    scale_colors <- scale_fill_gradient2(
+      low = "#4575b4",
+      mid = "#ffffbf",
+      high = "#d73027",
+      midpoint = median(data$percentuale, na.rm = TRUE),
+      labels = label_percent(scale = 1),
+      name = "% di persone di 65+ anni"
+    )
+  }
+
   # Create ggplot with interactive geom
   p <- ggplot(mappa_data) +
     geom_sf_interactive(
@@ -345,14 +382,7 @@ plot_mappa_difficolta_interactive <- function(
       color = "white",
       linewidth = 0.3
     ) +
-    scale_fill_gradient2(
-      low = "#4575b4",
-      mid = "#ffffbf",
-      high = "#d73027",
-      midpoint = median(data$percentuale, na.rm = TRUE),
-      labels = label_percent(scale = 1),
-      name = "% di persone di 65+ anni"
-    ) +
+    scale_colors +
     labs(
       title = sprintf("Mappa: %s", diff_labels[difficolta]),
       subtitle = subtitle,

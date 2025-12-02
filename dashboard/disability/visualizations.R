@@ -96,7 +96,7 @@ colori_eta_5 <- c(
 colori_limitazioni <- c(
   "Senza limitazioni" = "#1a9850",
   "Limitazioni non gravi" = "#fee08b",
-  "Limitazioni gravi" = "#d73027",
+  "Limitazioni gravi" = "#c93b04",
   "Limitazioni (lieve o grave)" = "#f46d43",  # Orange (between non gravi and gravi)
   "Non indicato" = "#999999"
 )
@@ -211,13 +211,14 @@ plot_bar_compare <- function(
     geom_text(
       aes(label = sprintf("%.1f%%", percentuale)),
       position = position_dodge(width = 0.8),
-      vjust = -0.5,
-      size = 3
+      hjust = -0.2,      # Position to the right of bars (after coord_flip)
+      size = 3.2,        # Slightly larger
+      fontface = "bold"  # Bold for better readability with decimals
     ) +
     scale_fill_manual(values = palette) +
     scale_y_continuous(
       labels = label_percent(scale = 1, accuracy = 0.1),
-      expand = expansion(mult = c(0, 0.1))
+      expand = expansion(mult = c(0, 0.15))  # More space for labels on the right
     ) +
     coord_flip() +
     labs(
@@ -649,7 +650,7 @@ plot_mappa <- function(
     scale_fill_gradient2(
       low = "#4575b4",
       mid = "#ffffbf",
-      high = "#c94c4c",
+      high = "#d75c27",
       midpoint = median(data$percentuale, na.rm = TRUE),
       labels = label_percent(scale = 1),
       name = "%"

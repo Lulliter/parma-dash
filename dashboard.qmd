@@ -32,16 +32,13 @@ execute:
 
 Ogni pagina rappresenta **un modulo tematico** in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.
 
-**Dati per fotografare la fragilità e non autosufficienza**
-
 In questa sezione si osservano:
 
-1. L'analisi dei **trend demografici** 2002-2025, integrata con i dati comunali del Censimento 2023** e gli indici sintetici di fragilità della Regione ER, mostra come Parma abbia un profilo demografico piuttosto distintivo rispetto alla media regionale e nazionale, con alcune implicazioni interessanti per la programmazione dei servizi sociali.  
+1. L'analisi dei `trend demografici` (**ISTAT 2002-2025**), integrata con i dati comunali del **Censimento 2023** e gli `indici sintetici di fragilità` (Calcolati dalla **Regione ER**), mostra come Parma abbia un profilo demografico piuttosto distintivo rispetto alla media regionale e nazionale, con alcune implicazioni rilevanti per la programmazione dei servizi sociali.  
 
-2. Analisi su specifici indicatori di fragilità e non autosufficienza:
-  + a) Indicatore sulla **disabilità** ≈ _GALI_ (_Global Activity Limitation Indicator_) è una misura più generale di disabilità
-  + b) Indicatore sulla non **autosufficienza** ≈ _ADL /IADL_ (_Activities of Daily Living_ / _Instrumental Activities of Daily Living_) sono misure più specifiche (e operative)  delle limitazioni nelle attività quotidiane (vedi pagina dedicata). 
-  
+2. Analisi (**ISTAT e EHIS**) su specifici indicatori di `fragilità negli anziani`:
+  + a) Indicatore sulla `disabilità` ≈ _GALI_ (_Global Activity Limitation Indicator_) è una misura più generale di disabilità
+  + b) Indicatori sulla `non autosufficienza in attività quotidiane` ≈ _ADL /IADL_ (_Activities of Daily Living_ / _Instrumental Activities of Daily Living_) sono misure più specifiche (e operative)  delle limitazioni nelle attività quotidiane di cura della persona e/o di interazione con la realtà e la comunità.
    
 ::: {.callout-important  collapse="true"}
 ## Nota
