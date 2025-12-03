@@ -1,89 +1,112 @@
-# Parma analisi di contesto
+# Parma: analisi di dati di contesto
 
-## Organizazione del progetto
+## Purpose of the project
 
-+ Il progetto usa il pacchetto `targets` per organizzare il flusso di lavoro nelle cartelle con lavoro più tecnico e "cumpute-intensive", ad esempio `map/*.qmd` che funzionano grazie alle funzioni definite in `R/*.R`.
+Studying mission-relevant socio-economic data on Fondazione Cariparma's area of reach: Parma and it province.
 
-+ Invece il resto dei file `.qmd` (in root o in cartelle tipo `dashnoard/`) sono documenti di analisi, report, dashboard, ecc che usano il workflow solito di un `quarto` website..
+## Organizzazione del progetto
+[core content files]
 
+- `analysis/`: Compute-intensive Quarto documents with source data ingestions and intermediate artifact preparation (NOT rendered in website)
+  - `00_carica_shp_situas.qmd`: Load ISTAT shapefiles and SITUAS data
+  - `01_carica_cens.qmd`: Load census data
+  - `02_base_maps.qmd`: Create base maps  
 
-## TODO
+- `dashboard/`: Presentation or Dashboard Quarto documents (rendered in website)
+  - Organized by topic in subdirectories (e.g., `demographic_trends/`, `disability/`, 
+`non_autosufficienza/`)
+  - Each topic folder contains:
+    - `index.qmd`: Main dashboard document
+    - `data_load.R`: Data loading scripts
+    - `visualizations.R`: Visualization scripts  
 
-+ 🟩 arrivata a `analysis/02_base_maps.qmd` per il momento mi fermo
+- `data/`:
+  - `data_in/`: Raw input data with metadata
+    - `istat_shp_ITA/`: ISTAT shapefiles for Italian administrative boundaries
+    - `istat_ehis_2019/`: European Health Interview Survey 2019 data
+    - `ISTAT_DISAB_CIFRE/`: Disability statistics from ISTAT
+    - `ER_stats/`: Emilia-Romagna regional statistics
+    - Excel files: demographic indicators, municipal classifications, foreign residents
+  - `data_out/`: Processed `.rds` files from targets pipeline
+    - `ER_shp/`: Emilia-Romagna shapefiles and municipal/provincial code vectors
+    - `ITA_shp/`: Italy-level processed shapefiles
+    - `LB_shp/`: Local/municipal level shapefiles
+    - `istat_demo_2002_2024/`: Time series demographic indicators (2002-2024)
+    - `istat_EHIS_2019/`: Processed health survey data (ADL/IADL indicators)
+    - `istat_GALI_2023/`: GALI disability indicators (2023)
+    - `tbl/`: Processed tables
+    - Population data files: 2023 population by AGE, CITIZENSHIP, GENDER for ER/PR regions
+  - `maps/`: Generated map outputs to feed into `dashboard/*/index.qmd` files
+  - `plots/`: Generated plot outputs  
 
-+ 🟩 fatto `dashboard/demographic_trends/index.qmd` 
-  + rivedere messaggio con suggerimento prossimi passi 
+- `R/`: Function definitions (1 file = 1 function pattern)
+  - `istat_*.R`: Functions for ISTAT data APIs and shapefile processing
+  - `f_*.R`: Helper functions (formatting, plotting, mapping)
+  - `utilities.R`: General utilities (save dataframes, etc.)
 
-+ 🟨 ADESSO sono in `dashboard/disability/index.qmd` e annessi ... 
-  + 🟩 fatte diverse viz su 
-    + GALI (disabilità) per regione e classi di età -  aggiornamento annuale (ultimo: 2023)
-  + 🟨 da fare:  
-    +  ADL - ADL/IADL: aggiornamento tramite EHIS ogni 4-5 anni (ultimo: 2019)
-  
-+ Mappe (Qui vedo i dati del **2023** placed-based a livello comune)
-  + `analysis/_02_base_maps.qmd` usando 
-    - `data/data_out/comuni_ita_info_redux_sf.rds` JOINED con 
-    - `data/data_out/istat_pop_com_ER_2023_AGE.rds` | ... `CITIZENSHIP` |
-  + Capire se posso renderle interattive in modo piu facile (es `ggiraph`) tipo visualizzare il comune
-  + 🟦 aggiungo layer aree interne
-  + 🟦 aggiungo layer comunità montane
+- `bib/`: Bibliography files for citations
+  - `CRP_dash.bib`: Reference bibliography linked to Zotero
 
-  + statistiche in **serie storica 2002-2024** 
-    + cercare correlazione/discontinuita tra Parma / ER / Italia nei trend 
+- `source/`: Documentation on data sources and methodologies
+  - `demog-disab-data.qmd`: Documentation on demographic and disability data sources
+  - `istat-data.qmd`: Documentation on ISTAT data sources and APIs
 
-  + **piramide età** `data/data_out/istat_pop_com_ER_2023_AGE.rds`(FACETED x comune di ER) [https://rfortherestofus.com/2024/07/population-pyramid-part-1](https://rfortherestofus.com/2024/07/population-pyramid-part-1)
-
-
-## Introduzione
-
-
-## FASE I) PREPARAZIONE 
-
-1. Fissare gli Obiettivi 
-
-+ INGREDIENTS 
-  + good questions
-  + relevant data
-  + insightlul analysis
-  
-<!--First off, every project in data science has a customer. | you need to ask good questions about their data.  -->
-<!-- INGREDIENTS 
-  + good questions
-  + relevant data
-  + insightlul analysis -->
- 
-2. Esplorazione Dati disponibili
-
-<!-- OPTIONS 
-  + Flat Files (csv, tsv), HTML, XML, JSON, Relational Databases, Non-Relational Databases, APIs
--->
-
-3. Pulizia Dati
-
-4. Valutazione Dati
-<!-- Without a preliminary assessment (the 4th step), you may run into problems with outliers, biases, precision, specificity, or any number of other inherent aspects of the data. In order to uncover these and get to know the data better, the first step of post-wrangling data analysis is to calculate some descriptive statistics. -->
-
-## FASE II) PROGETTAZIONE
-
-5. Sviluppo piano
-<!-- You know where you’d like to go and a few ways to get there, but at every intersection there might be a road closed, bad traffic, or pavement that’s pocked and crumbling. You’ll have to make decisions as you arrive at these obstacles, but for now it’s enough to have a backup plan or two.
- -->
-
-6. Analisi dei dati
-
-
-7. Costruzioe software (PoC)
-
-<!-- If statistics is the framework for analyzing and drawing conclusions from the data, then software is the tool that puts this framework in action. 
- -->
-
-8. Ottimizzazione
-<!-- The 8th step in our process is to optimize a product with supplementary software. The software tools in our 7th step can be versatile, but they’re statistical by nature. Software can do much more than statistics. In particular, many tools are available that are designed to store, manage, and move data efficiently. -->
-
-## Risultati
-
-<!--  -->
-
+- `posts/`: Blog posts (rendered in website)
+  - Quarto blog format for project updates and insights
 
 ## TODO
+
+### Continuità info sui 10 assi dello strategico 24-27
+
+  > ...quelli andranno tenuti sotto controll 
+
++ 🔴 servizi sociali-disabilità
++ 🟠 servizi sociali-anziani
++ 🔴 ricerca innovazione
++ ...
+
+
+### Obiettivo di fondo per Piano Strategico del 2028 (da fare nel 2027)
+
+  > D.A.: Quali sono delle criticità che emergono oggi che il PS 2024-27 non aveva? 
+
+
+### Temi
+
+#### DISABILITA'
+> OIS: L’Assegno Unico Universale (AUU) è un sostegno economico per le famiglie con figli a carico, garantito a tutti i nuclei indipendentemente dalla condizione: (...) **per i figli con disabilità, il beneficio è senza limiti di età**  
+▪ L’importo dell’assegno associato alla presenza di figli con disabilità risulta più contenuto rispetto al dato nazionale**i nuclei con figli con disabilità, percepiscono un importo medio mensile inferiore a quello nazionale e regionale**
+
+
++ è vero che qui non c'è la presa in carico? (Elena Saccenti)
+  + [ReportER] ADI (x distretto)
+  + [ReportER] SMAC Disabili ≠ SMAC Anziani 
+  + [Inps] AUU - spaccato per "figli disabili"  
+  + [Istat Esplora Dati] https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0800SSW,1.0/SSW_SOCSE/DCIS_SPESESERSOC1
+
+#### TREND DEMOGRAFICI 
++ **piramide età** `data/data_out/istat_pop_com_ER_2023_AGE.rds`(FACETED x comune di ER) [https://rfortherestofus.com/2024/07/population-pyramid-part-1](https://rfortherestofus.com/2024/07/population-pyramid-part-1)
+
++ Territori marginalizzati // Mappe di ....
+  + 🟦 aggiungo layer `aree interne`
+  + 🟦 aggiungo layer `comunità montane`
+  + aggiungo layer `Distretti`
+
+> Andrea: però OKKIO perchè se vuoi mostrare la corrispondenza tra bisogni e territori, devi tener presente che molto di quelli che diamo a Parma (e.g. Ospedale, Università) poi serve in realtà tutta la prov. quindi non ci sarà una corrispondenza... 
+
+#### SANITA'
++ mobilità sanitaria
+  + fetta di stranieri
+  + in realta prima venivano di più di adesso... 
++ qualità 
++ liste d'attesa?
++ medici e infermieri? 
++ badanti che mancano dopo questa generazione non si troverannno più neanche quelle
+
+#### POVERTÀ ABITATIVA
+- case dlel'ospedale adesso vuote?
+- è un problema sia di quantità che di qualità
+
+#### LAVORO POVERO
+
 

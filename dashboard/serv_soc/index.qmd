@@ -1,0 +1,49 @@
+---
+title: "Servizi Sociali - [TITOLO DA DEFINIRE]"
+subtitle: "[Sottotitolo da definire]"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
+
+format:
+  html:
+    css: ../../assets/styles/custom.scss
+    # theme: flatly
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    toc-title: "Indice"
+    include-in-header:
+      - text: |
+          <style>
+          section.level3.notitle h3 {
+            display: none !important;
+          }
+          </style>
+
+execute:
+  eval: true
+  echo: false
+  warning: false
+  error: false
+  output: false
+
+bibliography: ../../bib/CRP_dash.bib
+suppress-bibliography: false
+---
+
+# Sezione 1: [Titolo da definire]
+
+[Contenuto da aggiungere]
+
+***
+
+# Sezione 2: [Titolo da definire]
+
+[Contenuto da aggiungere]
+
+***
+
+# Indicazioni per ulteriori approfondimenti
+
++ [Indicazioni da aggiungere]

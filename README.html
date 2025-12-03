@@ -47,90 +47,156 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="parma-analisi-di-contesto" class="level1">
-<h1>Parma analisi di contesto</h1>
-<section id="organizazione-del-progetto" class="level2">
-<h2 class="anchored" data-anchor-id="organizazione-del-progetto">Organizazione del progetto</h2>
+<section id="parma-analisi-di-dati-di-contesto" class="level1">
+<h1>Parma: analisi di dati di contesto</h1>
+<section id="purpose-of-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="purpose-of-the-project">Purpose of the project</h2>
+<p>Studying mission-relevant socio-economic data on Fondazione Cariparma’s area of reach: Parma and it province.</p>
+</section>
+<section id="organizzazione-del-progetto" class="level2">
+<h2 class="anchored" data-anchor-id="organizzazione-del-progetto">Organizzazione del progetto</h2>
+<p>[core content files]</p>
 <ul>
-<li><p>Il progetto usa il pacchetto <code>targets</code> per organizzare il flusso di lavoro nelle cartelle con lavoro più tecnico e “cumpute-intensive”, ad esempio <code>map/*.qmd</code> che funzionano grazie alle funzioni definite in <code>R/*.R</code>.</p></li>
-<li><p>Invece il resto dei file <code>.qmd</code> (in root o in cartelle tipo <code>dashnoard/</code>) sono documenti di analisi, report, dashboard, ecc che usano il workflow solito di un <code>quarto</code> website..</p></li>
+<li><code>analysis/</code>: Compute-intensive Quarto documents with source data ingestions and intermediate artifact preparation (NOT rendered in website)
+<ul>
+<li><code>00_carica_shp_situas.qmd</code>: Load ISTAT shapefiles and SITUAS data</li>
+<li><code>01_carica_cens.qmd</code>: Load census data</li>
+<li><code>02_base_maps.qmd</code>: Create base maps</li>
+</ul></li>
+<li><code>dashboard/</code>: Presentation or Dashboard Quarto documents (rendered in website)
+<ul>
+<li>Organized by topic in subdirectories (e.g., <code>demographic_trends/</code>, <code>disability/</code>, <code>non_autosufficienza/</code>)</li>
+<li>Each topic folder contains:
+<ul>
+<li><code>index.qmd</code>: Main dashboard document</li>
+<li><code>data_load.R</code>: Data loading scripts</li>
+<li><code>visualizations.R</code>: Visualization scripts</li>
+</ul></li>
+</ul></li>
+<li><code>data/</code>:
+<ul>
+<li><code>data_in/</code>: Raw input data with metadata
+<ul>
+<li><code>istat_shp_ITA/</code>: ISTAT shapefiles for Italian administrative boundaries</li>
+<li><code>istat_ehis_2019/</code>: European Health Interview Survey 2019 data</li>
+<li><code>ISTAT_DISAB_CIFRE/</code>: Disability statistics from ISTAT</li>
+<li><code>ER_stats/</code>: Emilia-Romagna regional statistics</li>
+<li>Excel files: demographic indicators, municipal classifications, foreign residents</li>
+</ul></li>
+<li><code>data_out/</code>: Processed <code>.rds</code> files from targets pipeline
+<ul>
+<li><code>ER_shp/</code>: Emilia-Romagna shapefiles and municipal/provincial code vectors</li>
+<li><code>ITA_shp/</code>: Italy-level processed shapefiles</li>
+<li><code>LB_shp/</code>: Local/municipal level shapefiles</li>
+<li><code>istat_demo_2002_2024/</code>: Time series demographic indicators (2002-2024)</li>
+<li><code>istat_EHIS_2019/</code>: Processed health survey data (ADL/IADL indicators)</li>
+<li><code>istat_GALI_2023/</code>: GALI disability indicators (2023)</li>
+<li><code>tbl/</code>: Processed tables</li>
+<li>Population data files: 2023 population by AGE, CITIZENSHIP, GENDER for ER/PR regions</li>
+</ul></li>
+<li><code>maps/</code>: Generated map outputs to feed into <code>dashboard/*/index.qmd</code> files</li>
+<li><code>plots/</code>: Generated plot outputs</li>
+</ul></li>
+<li><code>R/</code>: Function definitions (1 file = 1 function pattern)
+<ul>
+<li><code>istat_*.R</code>: Functions for ISTAT data APIs and shapefile processing</li>
+<li><code>f_*.R</code>: Helper functions (formatting, plotting, mapping)</li>
+<li><code>utilities.R</code>: General utilities (save dataframes, etc.)</li>
+</ul></li>
+<li><code>bib/</code>: Bibliography files for citations
+<ul>
+<li><code>CRP_dash.bib</code>: Reference bibliography linked to Zotero</li>
+</ul></li>
+<li><code>source/</code>: Documentation on data sources and methodologies
+<ul>
+<li><code>demog-disab-data.qmd</code>: Documentation on demographic and disability data sources</li>
+<li><code>istat-data.qmd</code>: Documentation on ISTAT data sources and APIs</li>
+</ul></li>
+<li><code>posts/</code>: Blog posts (rendered in website)
+<ul>
+<li>Quarto blog format for project updates and insights</li>
+</ul></li>
 </ul>
 </section>
 <section id="todo" class="level2">
 <h2 class="anchored" data-anchor-id="todo">TODO</h2>
+<section id="continuità-info-sui-10-assi-dello-strategico-24-27" class="level3">
+<h3 class="anchored" data-anchor-id="continuità-info-sui-10-assi-dello-strategico-24-27">Continuità info sui 10 assi dello strategico 24-27</h3>
+<blockquote class="blockquote">
+<p>…quelli andranno tenuti sotto controll</p>
+</blockquote>
 <ul>
-<li><p>arrivata a <code>analysis/02_base_maps.qmd</code> per il momento mi fermo</p></li>
-<li><p>ADESSO sono in <code>dashboard/01_tema_disabilità.qmd</code> e annessi …</p>
+<li>🔴 servizi sociali-disabilità</li>
+<li>🟠 servizi sociali-anziani</li>
+<li>🔴 ricerca innovazione</li>
+<li>…</li>
+</ul>
+</section>
+<section id="obiettivo-di-fondo-per-piano-strategico-del-2028-da-fare-nel-2027" class="level3">
+<h3 class="anchored" data-anchor-id="obiettivo-di-fondo-per-piano-strategico-del-2028-da-fare-nel-2027">Obiettivo di fondo per Piano Strategico del 2028 (da fare nel 2027)</h3>
+<blockquote class="blockquote">
+<p>D.A.: Quali sono delle criticità che emergono oggi che il PS 2024-27 non aveva?</p>
+</blockquote>
+</section>
+<section id="temi" class="level3">
+<h3 class="anchored" data-anchor-id="temi">Temi</h3>
+<section id="disabilita" class="level4">
+<h4 class="anchored" data-anchor-id="disabilita">DISABILITA’</h4>
+<blockquote class="blockquote">
+<p>OIS: L’Assegno Unico Universale (AUU) è un sostegno economico per le famiglie con figli a carico, garantito a tutti i nuclei indipendentemente dalla condizione: (…) <strong>per i figli con disabilità, il beneficio è senza limiti di età</strong><br>
+▪ L’importo dell’assegno associato alla presenza di figli con disabilità risulta più contenuto rispetto al dato nazionale<strong>i nuclei con figli con disabilità, percepiscono un importo medio mensile inferiore a quello nazionale e regionale</strong></p>
+</blockquote>
 <ul>
-<li><p>Mappe (Qui vedo i dati del <strong>2023</strong> placed-based a livello comune)</p></li>
-<li><p><code>analysis/_02_base_maps.qmd</code> usando</p>
+<li>è vero che qui non c’è la presa in carico? (Elena Saccenti)
 <ul>
-<li><code>data/data_out/comuni_ita_info_redux_sf.rds</code> JOINED con</li>
-<li><code>data/data_out/istat_pop_com_ER_2023_AGE.rds</code> | … <code>CITIZENSHIP</code> |</li>
+<li>[ReportER] ADI (x distretto)</li>
+<li>[ReportER] SMAC Disabili ≠ SMAC Anziani</li>
+<li>[Inps] AUU - spaccato per “figli disabili”<br>
+</li>
+<li>[Istat Esplora Dati] https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0800SSW,1.0/SSW_SOCSE/DCIS_SPESESERSOC1</li>
 </ul></li>
-<li><p>Capire se posso renderle interattive in modo piu facile (es <code>ggiraph</code>) tipo visualizzare il comune</p></li>
-<li><p>🟦 aggiungo layer aree interne</p></li>
-<li><p>🟦 aggiungo layer comunità montane</p></li>
-<li><p>statistiche in <strong>serie storica 2002-2024</strong></p>
+</ul>
+</section>
+<section id="trend-demografici" class="level4">
+<h4 class="anchored" data-anchor-id="trend-demografici">TREND DEMOGRAFICI</h4>
 <ul>
-<li>cercare correlazione/discontinuita tra Parma / ER / Italia nei trend</li>
-</ul></li>
 <li><p><strong>piramide età</strong> <code>data/data_out/istat_pop_com_ER_2023_AGE.rds</code>(FACETED x comune di ER) <a href="https://rfortherestofus.com/2024/07/population-pyramid-part-1">https://rfortherestofus.com/2024/07/population-pyramid-part-1</a></p></li>
+<li><p>Territori marginalizzati // Mappe di ….</p>
+<ul>
+<li>🟦 aggiungo layer <code>aree interne</code></li>
+<li>🟦 aggiungo layer <code>comunità montane</code></li>
+<li>aggiungo layer <code>Distretti</code></li>
 </ul></li>
 </ul>
+<blockquote class="blockquote">
+<p>Andrea: però OKKIO perchè se vuoi mostrare la corrispondenza tra bisogni e territori, devi tener presente che molto di quelli che diamo a Parma (e.g.&nbsp;Ospedale, Università) poi serve in realtà tutta la prov. quindi non ci sarà una corrispondenza…</p>
+</blockquote>
 </section>
-<section id="introduzione" class="level2">
-<h2 class="anchored" data-anchor-id="introduzione">Introduzione</h2>
-</section>
-<section id="fase-i-preparazione" class="level2">
-<h2 class="anchored" data-anchor-id="fase-i-preparazione">FASE I) PREPARAZIONE</h2>
-<ol type="1">
-<li>Fissare gli Obiettivi</li>
-</ol>
+<section id="sanita" class="level4">
+<h4 class="anchored" data-anchor-id="sanita">SANITA’</h4>
 <ul>
-<li>INGREDIENTS
+<li>mobilità sanitaria
 <ul>
-<li>good questions</li>
-<li>relevant data</li>
-<li>insightlul analysis</li>
+<li>fetta di stranieri</li>
+<li>in realta prima venivano di più di adesso…</li>
 </ul></li>
+<li>qualità</li>
+<li>liste d’attesa?</li>
+<li>medici e infermieri?</li>
+<li>badanti che mancano dopo questa generazione non si troverannno più neanche quelle</li>
 </ul>
-<!--First off, every project in data science has a customer. | you need to ask good questions about their data.  -->
-<!-- INGREDIENTS 
-  + good questions
-  + relevant data
-  + insightlul analysis -->
-<ol start="2" type="1">
-<li>Esplorazione Dati disponibili</li>
-</ol>
-<!-- OPTIONS 
-  + Flat Files (csv, tsv), HTML, XML, JSON, Relational Databases, Non-Relational Databases, APIs
--->
-<ol start="3" type="1">
-<li><p>Pulizia Dati</p></li>
-<li><p>Valutazione Dati <!-- Without a preliminary assessment (the 4th step), you may run into problems with outliers, biases, precision, specificity, or any number of other inherent aspects of the data. In order to uncover these and get to know the data better, the first step of post-wrangling data analysis is to calculate some descriptive statistics. --></p></li>
-</ol>
 </section>
-<section id="fase-ii-progettazione" class="level2">
-<h2 class="anchored" data-anchor-id="fase-ii-progettazione">FASE II) PROGETTAZIONE</h2>
-<ol start="5" type="1">
-<li><p>Sviluppo piano <!-- You know where you’d like to go and a few ways to get there, but at every intersection there might be a road closed, bad traffic, or pavement that’s pocked and crumbling. You’ll have to make decisions as you arrive at these obstacles, but for now it’s enough to have a backup plan or two.
- --></p></li>
-<li><p>Analisi dei dati</p></li>
-<li><p>Costruzioe software (PoC)</p></li>
-</ol>
-<!-- If statistics is the framework for analyzing and drawing conclusions from the data, then software is the tool that puts this framework in action. 
- -->
-<ol start="8" type="1">
-<li>Ottimizzazione <!-- The 8th step in our process is to optimize a product with supplementary software. The software tools in our 7th step can be versatile, but they’re statistical by nature. Software can do much more than statistics. In particular, many tools are available that are designed to store, manage, and move data efficiently. --></li>
-</ol>
+<section id="povertà-abitativa" class="level4">
+<h4 class="anchored" data-anchor-id="povertà-abitativa">POVERTÀ ABITATIVA</h4>
+<ul>
+<li>case dlel’ospedale adesso vuote?</li>
+<li>è un problema sia di quantità che di qualità</li>
+</ul>
 </section>
-<section id="risultati" class="level2">
-<h2 class="anchored" data-anchor-id="risultati">Risultati</h2>
-<!--  -->
+<section id="lavoro-povero" class="level4">
+<h4 class="anchored" data-anchor-id="lavoro-povero">LAVORO POVERO</h4>
 </section>
-<section id="todo-1" class="level2">
-<h2 class="anchored" data-anchor-id="todo-1">TODO</h2>
+</section>
 </section>
 </section>
 
