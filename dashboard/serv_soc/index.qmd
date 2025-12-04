@@ -1,8 +1,8 @@
 ---
-title: "Servizi Sociali - [TITOLO DA DEFINIRE]"
+title: "Prestazioni di servizi socio-assistenziali a livello di provincia per ER"
 subtitle: "[Sottotitolo da definire]"
-date: last-modified
-date-format: "DD-MMMM-YYYY"
+# date: last-modified
+# date-format: "DD-MMMM-YYYY"
 lang: it
 
 format:
@@ -32,18 +32,106 @@ bibliography: ../../bib/CRP_dash.bib
 suppress-bibliography: false
 ---
 
-# Sezione 1: [Titolo da definire]
+```{r}
+library(here)
+library(ggplot2)
+library(ggiraph)
+ 
+```
 
-[Contenuto da aggiungere]
+## Assistenza domiciliare - provincie ER nel tempo
+
+#### Percentuale di persone su popolazione di riferimento
+::: {layout-nrow=2}
+```{r}
+#| output: true
+readRDS(here("data/plots/p61_homecare_per_dis.rds"))
+readRDS(here("data/plots/p61_homecare_per_eld.rds"))
+```
+:::
+
+#### Percentuale di comuni che erogano il servizio
+::: {layout-nrow=2}
+```{r}
+#| output: true
+readRDS(here("data/plots/p62_homecare_perCOM_dis.rds"))
+readRDS(here("data/plots/p62_homecare_perCOM_eld.rds"))
+ 
+```
+:::
+
+## Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo
+
+#### Percentuale di persone su popolazione di riferimento
+::: {layout-nrow=2}
+```{r}
+#| output: true
+readRDS(here("data/plots/p61_homehealth_per_dis.rds"))
+readRDS(here("data/plots/p61_homehealth_per_eld.rds"))
+```
+:::
+
+#### Percentuale di comuni che erogano il servizio
+::: {layout-nrow=2}
+```{r}
+#| output: true
+readRDS(here("data/plots/p62_homehealth_perCOM_dis.rds"))
+readRDS(here("data/plots/p62_homehealth_perCOM_eld.rds"))
+```
+:::
+
+## Voucher, assegno di cura, buono  socio-sanitario - provincie ER nel tempo
+#### Percentuale di persone su popolazione di riferimento
+::: {layout-nrow=2}
+```{r}
+#| output: true
+
+readRDS(here("data/plots/p61_healthv_per_dis.rds"))
+readRDS(here("data/plots/p61_healthv_per_eld.rds"))
+```
+::: 
+
+#### Percentuale di comuni che erogano il servizio
+::: {layout-nrow=2}
+```{r}
+#| output: true
+
+readRDS(here("data/plots/p62_healthv_perCOM_dis.rds"))
+readRDS(here("data/plots/p62_healthv_perCOM_eld.rds"))
+```
+:::
+
 
 ***
 
-# Sezione 2: [Titolo da definire]
+## Dati al 2022 
 
-[Contenuto da aggiungere]
+### Assistenza domiciliare - provincie ER nel tempo
+```{r}
+#| output: true
 
-***
+readRDS(here("data/plots/p63_homecare_bar22_usr.rds"))
+```
 
-# Indicazioni per ulteriori approfondimenti
+### Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo
+```{r}
+#| output: true
 
-+ [Indicazioni da aggiungere]
+readRDS(here("data/plots/p63_homehealth_bar22_usr.rds"))
+```
+
+### Voucher, assegno di cura, buono  socio-sanitario - provincie ER nel tempo
+
+```{r}
+#| output: true
+
+readRDS(here("data/plots/p63_healthv_bar22_usr.rds"))
+```
+
+### Altri servizi socio-assistenziali - provincie ER nel tempo
+```{r}
+#| output: true
+
+readRDS(here("data/plots/p63_otherhome_bar22_usr.rds"))
+```
+
