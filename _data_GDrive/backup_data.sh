@@ -9,6 +9,10 @@
 # ===== PROCESSO DA LOCALE A GoogleDrive =====
 # cd ~/Github/R_farmacie
 
+# --- Parse arguments
+FORCE_BACKUP=false
+[[ "$1" == "--force" || "$1" == "-f" ]] && FORCE_BACKUP=true
+
 # --- Nome univoco del progetto/repo
 PROJECT_NAME=$(basename "$PWD") # "R_farmacie"
 # Path to GDrive Desktop folder
@@ -31,10 +35,36 @@ fi
 mkdir -p "$GDRIVE_REPO/data_input"
 mkdir -p "$GDRIVE_REPO/data_output"
 
+# Conflict detection (solo se non in modalità force)
+if ! $FORCE_BACKUP; then
+    echo "Controllo conflitti..."
+    CONFLICTS=$(rsync -aun --itemize-changes --exclude='README.md' \
+                data_input/ "$GDRIVE_REPO/data_input/" \
+                data_output/ "$GDRIVE_REPO/data_output/" \
+                2>/dev/null | grep '^\.f')
+
+    if [[ -n "$CONFLICTS" ]]; then
+        echo "⚠️  ATTENZIONE: file locali più vecchi di Google Drive (NON saranno copiati):"
+        echo "$CONFLICTS" | sed 's/^/  /'
+        echo ""
+        echo "Questi file su Google Drive sono più recenti della tua versione locale."
+        echo "Usa './backup_data.sh --force' per sovrascriverli comunque."
+        read "risposta?Continuare il backup (salta questi file)? (y/n) "
+        [[ "$risposta" != "y" ]] && exit 0
+    fi
+fi
+
 # Backup (esclude README.md)
 # OKKIO trailing "/" necessaria per copiare il contenuto delle cartelle
-rsync -av --exclude='README.md' data_input/ "$GDRIVE_REPO/data_input/"
-rsync -av --exclude='README.md' data_output/ "$GDRIVE_REPO/data_output/"
+if $FORCE_BACKUP; then
+    echo "Modalità FORCE: tutti i file saranno copiati"
+    rsync -av --itemize-changes --exclude='README.md' data_input/ "$GDRIVE_REPO/data_input/"
+    rsync -av --itemize-changes --exclude='README.md' data_output/ "$GDRIVE_REPO/data_output/"
+else
+    echo "Modalità normale: solo file locali più recenti saranno copiati"
+    rsync -avu --itemize-changes --exclude='README.md' data_input/ "$GDRIVE_REPO/data_input/"
+    rsync -avu --itemize-changes --exclude='README.md' data_output/ "$GDRIVE_REPO/data_output/"
+fi
 
 echo "Backup completato: $(date '+%Y-%m-%d %H:%M')"
 
@@ -43,6 +73,9 @@ echo "Backup completato: $(date '+%Y-%m-%d %H:%M')"
 # chmod +x shell/backup_data.sh
 # chmod +x shell/restore_data.sh
 #
+# USO:
+# ./backup_data.sh          # Normale: copia solo file locali più recenti
+# ./backup_data.sh --force  # Force: sovrascrive tutto su Google Drive
 #
 # --- MAC 1 (fine lavoro):
 # 1. git add .

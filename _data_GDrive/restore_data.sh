@@ -30,13 +30,31 @@ fi
 # Conferma
 LAST_MOD=$(stat -f "%Sm" -t "%Y-%m-%d %H:%M" "$GDRIVE_REPO/data_input" 2>/dev/null)
 echo "Ultimo backup: $LAST_MOD"
-read "risposta?Restore? (y/n) "
+
+# Conflict detection
+echo "Controllo conflitti..."
+CONFLICTS=$(rsync -aun --itemize-changes --exclude='README.md' \
+            "$GDRIVE_REPO/data_input/" data_input/ \
+            "$GDRIVE_REPO/data_output/" data_output/ \
+            2>/dev/null | grep '^\.f')
+
+if [[ -n "$CONFLICTS" ]]; then
+    echo "⚠️  ATTENZIONE: file locali più recenti di Google Drive (NON saranno sovrascritti):"
+    echo "$CONFLICTS" | sed 's/^/  /'
+    echo ""
+    echo "Questi file locali sembrano più recenti del backup su Google Drive."
+    echo "Possibile che tu abbia dimenticato di fare backup dall'altro Mac?"
+fi
+
+read "risposta?Procedere con restore? (y/n) "
 [[ "$risposta" != "y" ]] && exit 0
 
 # Restore (esclude README.md)
 # OKKIO trailing "/" necessaria per copiare il contenuto delle cartelle
-rsync -av --exclude='README.md' "$GDRIVE_REPO/data_input/" data_input/
-rsync -av --exclude='README.md' "$GDRIVE_REPO/data_output/" data_output/
+# --update (-u) = copia solo se il file di Google Drive è più recente del file locale
+# --itemize-changes (-i) = mostra dettagli di ogni file (anche quelli saltati)
+rsync -avu --itemize-changes --exclude='README.md' "$GDRIVE_REPO/data_input/" data_input/
+rsync -avu --itemize-changes --exclude='README.md' "$GDRIVE_REPO/data_output/" data_output/
 
 echo "Restore completato"
 

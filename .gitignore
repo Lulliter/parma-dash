@@ -3,7 +3,7 @@
 .Rhistory
 .RData
 .Ruserdata
-# Mac ....
+# Mac Finder....
 .DS_Store
 **/.DS_Store
 
@@ -37,7 +37,6 @@ data/data_in/**/*
 # OKKIO:
 # ------ `/**/*.md` matches Markdown files at ANY depth under data/data_in/
 # ------ `/*.md` matches Markdown files at 1st level under data/data_in/
-
 
 # ----- OUTPUT data
 # Ignore everything under data/data_out/ bc may be very BIG ...
