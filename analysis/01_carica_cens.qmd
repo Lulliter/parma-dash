@@ -76,9 +76,6 @@ urls_istat$pop_cens_all
 
 
 ### File (scarica) `dati_finali_com`
-
-OKKIO: non lo faccio andare se so che ho già i dati!!!!!
-
 CALL API per ottenere dati censimento 2023 SOLO per i `44` **comuni di Parma (PR)** e Emilia-Romagna (ER)
 ```{r}
 #| eval: false
@@ -87,6 +84,9 @@ CALL API per ottenere dati censimento 2023 SOLO per i `44` **comuni di Parma (PR
 CODICI_COMUNI_test_PR_PV <- c("034027","018110")
 CODICI_PROVINCIA_test_PR_PV <- c("34","18")
 ```
+
+
+> **NB**: C'e' una IF-THEN_ELSE che non riesegue la chiamata API se trova i dati per Parma gia' salvati in `data/data_out/istat_cens_2023/istat_pop_com_PR_2023.rds`!
 
 ```{r}
 #| label: istat_pop_com_PR_2023-TOOLONG
@@ -137,7 +137,7 @@ CODICI_TERRITORIO <- CODICI_COMUNI_ER_PR        # ---------- QUI SI DECIDE PERIM
 #  )
 
 # 3.b) [SMARTASS VERSION] Solo se istat_pop_com_PR_2023 NON esiste già nella cartella here(data, data_output) , allora scaricalo
-file_rds <- here::here("data", "data_out", "istat_pop_com_PR_2023.rds")
+file_rds <- here::here("data", "data_out", "istat_cens_2023", "istat_pop_com_PR_2023.rds")
 
 if (file.exists(file_rds)) {
   # Caso 1: il file ESISTE → leggo da disco
@@ -178,7 +178,7 @@ skimr::skim(dati_finali_com$GENDER)                # 3 unique
 skimr::skim(dati_finali_com$AGE_CLASS)             # 13 unique
   tabyl(dati_finali_com$AGE_CLASS)
 
-# # già eliminati
+# se scaricati di fresco UNCOMMENT già eliminati
 # skimr::skim(dati_finali_com$TIME_PERIOD)           # 1 unique (2023)
 # skimr::skim(dati_finali_com$NOTE_REF_AREA)         # >1 unique (034051_N1 o NA)
 #   tabyl(dati_finali_com$NOTE_REF_AREA)
@@ -191,7 +191,7 @@ skimr::skim(dati_finali_com$AGE_CLASS)             # 13 unique
 # skimr::skim(dati_finali_com$NOTE_AREA_CONTRY_CITIZEN)# 1 unique (ISO__ALL_N1)
 #   tabyl(dati_finali_com$NOTE_AREA_CONTRY_CITIZEN)
 # skimr::skim(dati_finali_com$CITIZENSHIP)           # 3 unique (TOTAL, ITL, FRGAPO)
-#   tabyl(dati_finali_com$CITIZENSHIP) 
+#   tabyl(dati_finali_com$CITIZENSHIP)
 ```
 
 #### Creo mini file per variabile categorica 
@@ -255,12 +255,12 @@ istat_pop_com_PR_2023_CITIZENSHIP <-  istat_pop_com_PR_2023 |>
 ```{r}
 #------------
 # In aggiunta io poi salvo
-CARTELLA_OUTPUT <- here("data", "data_out")
+CARTELLA_OUTPUT <- here("data", "data_out", "istat_cens_2023")
 
-# Faccio lista di oggetti che iniziano con istat_pop_com_PR_2023
+# Faccio lista di oggetti che iniziano con istat_pop_com_PR_2023 (4 oggetti)
 list_obj_istat_pop_com_PR_2023 <- ls(pattern = "^istat_pop_com_PR_2023")
 
-# Salvo ciascun oggetto della lista come RDS e CSV nella CARTELLA_OUTPUT
+# Salvo ciascun oggetto della lista come RDS (e CSV) nella CARTELLA_OUTPUT
 for (obj_name in list_obj_istat_pop_com_PR_2023) {
   obj <- get(obj_name)
   
@@ -279,7 +279,7 @@ for (obj_name in list_obj_istat_pop_com_PR_2023) {
 
 ### File (scarica) `dati_finali_com_ER`
 
-OKKIO: non lo faccio andare se so che ho già i dati!!!!!
+> **NB**: C'e' una IF-THEN_ELSE che non riesegue la chiamata API se trova i dati per Parma gia' salvati in `data/data_out/istat_cens_2023/istat_pop_com_ER_2023.rds`!
 
 CALL API per ottenere dati censimento 2023 per i `330` **comuni Emilia-Romagna (ER)**
 
@@ -314,7 +314,8 @@ CODICI_TERRITORIO2 <- CODICI_COMUNI_ER        # ---------- 330 comuni  QUI SI DE
 # )
 
 # 3.b) [SMARTASS VERSION] Solo se istat_pop_com_ER_2023 NON esiste già nella cartella here(data, data_output) , allora scaricalo
-file_rds_ER <- here::here("data", "data_out", "istat_pop_com_ER_2023.rds")
+file_rds_ER <- here::here("data", "data_out", "istat_cens_2023","istat_pop_com_ER_2023.rds")
+
 if (file.exists(file_rds_ER)) {
   # Caso 1: il file ESISTE → leggo da disco
   dati_finali_com_ER <- readRDS(file_rds_ER)
@@ -336,12 +337,12 @@ if (file.exists(file_rds_ER)) {
   ) 
   saveRDS(dati_finali_com_ER, file_rds_ER)
 } 
-
-# In pratica posso lasciar stare le colonne che non variano: MARITAL_STATUS, AREA_CONTRY_CITIZEN, USUAL_RESID_1Y, NOTE_AREA_CONTRY_CITIZEN, TIME_PERIOD, NOTE_REF_AREA  (che però ha NA)
 ```
 
 ##### Controllo file `dati_finali_com_ER`
 ```{r}
+# In pratica posso lasciar stare le colonne che non variano: MARITAL_STATUS, AREA_CONTRY_CITIZEN, USUAL_RESID_1Y, NOTE_AREA_CONTRY_CITIZEN, TIME_PERIOD, NOTE_REF_AREA  (che però ha NA)
+
 # check
 skimr::skim(dati_finali_com_ER$REF_AREA)              # 330 unique    
 skimr::skim(dati_finali_com_ER$INDICATOR)             # 2 unique
@@ -392,36 +393,47 @@ istat_pop_com_ER_2023 <- dati_finali_com_ER |>
 
 ##### Popolazione per classi di età per comuni di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
-# PEr ogni classe di età dovrei avere il 44 righe
+# Per ogni classe di età dovrei avere il 330 righe
 istat_pop_com_ER_2023_AGE <-  istat_pop_com_ER_2023 |>
-  dplyr::filter(INDICATOR == "RESPOP_AV" &  GENDER == "T" & 
-                  CITIZENSHIP == "TOTAL"
-                  )  
+  # AGE CLASS da tenere con valori che cambiano
+  dplyr::filter(INDICATOR == "RESPOP_AV" &  
+                  GENDER == "T" & 
+                  CITIZENSHIP == "TOTAL")  
+
+tabyl(istat_pop_com_ER_2023_AGE$AGE_CLASS)
 ```
 
 ##### Popolazione per sesso per comuni di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
 istat_pop_com_ER_2023_GENDER <-  istat_pop_com_ER_2023 |>
+  # GENDER da tenere con valori che cambiano
   dplyr::filter(INDICATOR == "RESPOP_AV" &  
                   AGE_CLASS == "TOTAL" &
-                  CITIZENSHIP == "TOTAL"
-                )
+                  CITIZENSHIP == "TOTAL")
+
+tabyl(istat_pop_com_ER_2023_GENDER$GENDER)
 ```
 
 ##### Popolazione per cittadinanza per comuni di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
 istat_pop_com_ER_2023_CITIZENSHIP <-  istat_pop_com_ER_2023 |>
+  # CITIZENSHIP da tenere con valori che cambiano
   dplyr::filter(INDICATOR == "RESPOP_AV" &  
-                  AGE_CLASS == "TOTAL" &  GENDER == "T"
-                )
+                  AGE_CLASS == "TOTAL" &  
+                  GENDER == "T")
+tabyl(istat_pop_com_ER_2023_CITIZENSHIP$CITIZENSHIP)
 ```
 
 ##### Salvo files `istat_pop_com_ER_2023_...`
 
 [Ridondante: SE ho solo riscaricato da prima]
 ```{r}
-# Faccio lista di oggetti che iniziano con istat_pop_com_ER_2023
+# Sempre in:
+# CARTELLA_OUTPUT <- here("data", "data_out", "istat_cens_2023")
+
+# Faccio lista di oggetti che iniziano con istat_pop_com_ER_2023 (4 oggetti)
 list_obj_istat_pop_com_ER_2023 <- ls(pattern = "^istat_pop_com_ER_2023")  
+
 # Salvo ciascun oggetto della lista come RDS e CSV nella CARTELLA_OUTPUT
 for (obj_name in list_obj_istat_pop_com_ER_2023) {
   obj <- get(obj_name)  
@@ -437,7 +449,7 @@ for (obj_name in list_obj_istat_pop_com_ER_2023) {
 
 ### File (crea) `dati_prov_ER_agg`
 
-Obiettivo, aggregare i dati di cui sopra per provincia (`COD_PROV`) in Emilia-Romagna
+Obiettivo, aggregare i dati di cui sopra, ma AGGREGATI per provincia (`COD_PROV`) in Emilia-Romagna
 
 + viene fatto "manualmente" basandosi sui dati comunali e sullo shapefile dei comuni per ottenere i codici provincia (COD_PROV)
 
@@ -481,16 +493,15 @@ dati_prov_ER <- istat_pop_com_ER_2023 |>
                 CC_UTS = as.character(CC_UTS)
                 )  
 
-
 # Controllo
 class(dati_prov_ER)
 sum(is.na(dati_prov_ER$COD_PROV)) # deve essere 0
 skimr::skim(dati_prov_ER)
 ```
 
-Poi sommo OBSVALUE per provincia (COD_PROV) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (GENDER, AGE_CLASS, CITIZENSHIP) 
+Poi sommo `OBSVALUE` per provincia (`COD_PROV`) per ottenere il totale provinciale, ma rispettando ogni categoria di variabili presenti (`GENDER`, `AGE_CLASS`, `CITIZENSHIP`) 
 
-COMUNE in pratica sparisce e ottengo il dato aggregato per provincia (COD_PROV)
+`COMUNE` in pratica sparisce e ottengo il dato aggregato per provincia (`COD_PROV`)
 
 ```{r}
 dati_prov_ER_agg <- dati_prov_ER |>
@@ -506,11 +517,15 @@ dati_prov_ER_agg <- dati_prov_ER |>
     OBS_VALUE = sum(OBS_VALUE, na.rm = TRUE),
     .groups   = "drop"
   )
+
+# Rinomino (x coerenza)
+istat_pop_prov_ER_2023 <- dati_prov_ER_agg
+tabyl(istat_pop_prov_ER_2023$COD_PROV) # 9 PROVINCIE
 ```                  
 
 ##### Popolazione per `classi di età` per PROVINCIA di Emilia-Romagna (ER) - Censimento 2023
 ```{r}
-# PEr ogni classe di età dovrei avere il 44 righe
+# Per ogni classe di età dovrei avere il 44 righe
 istat_pop_prov_ER_2023_AGE <-  dati_prov_ER_agg |>
   dplyr::filter(INDICATOR == "RESPOP_AV" &  GENDER == "T" & 
                   CITIZENSHIP == "TOTAL"
@@ -539,8 +554,9 @@ istat_pop_prov_ER_2023_CITIZENSHIP <-  dati_prov_ER_agg |>
 [Ridondante: SE ho solo riscaricato da prima]
 
 ```{r}
-# Faccio lista di oggetti che iniziano con istat_pop_prov_ER_2023
+# Faccio lista di oggetti che iniziano con istat_pop_prov_ER_2023 (4 oggetti)
 list_obj_istat_pop_prov_ER_2023 <- ls(pattern = "^istat_pop_prov_ER_2023")  
+
 # Salvo ciascun oggetto della lista come RDS e CSV nella CARTELLA_OUTPUT
 for (obj_name in list_obj_istat_pop_prov_ER_2023) {
   obj <- get(obj_name)  

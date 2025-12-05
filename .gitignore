@@ -1,9 +1,12 @@
-# ---- R & RStudio noise
+#----------------- R & RStudio noise
 .Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
+# Mac ....
 .DS_Store
+**/.DS_Store
+
 # knitr and R markdown default cache directories
 /*_cache/
 /cache/
@@ -12,63 +15,48 @@
 *.knit.md
 *.log
 
-# ---- VSCODE ----
+#----------------- VSCODE
 .vscode/
+.claude/
 
-# ---- Quarto output ----
+# ----------------- QUARTO WEBSITE 
 _site/
 _freeze/
 .quarto/
 _quarto/
+/.quarto/
 
+# ----------------- DATA FILES
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-
-# ----- Input data MAPS (might be big bc its GIS)
-# Ignore everything under data_in ...
-data/data_in/**
+# ----- INPUT data
+# Ignore everything under data_in bc may be very BIG ...
+data/data_in/**/*
 # ...BUT Keep Markdown and PDF files anywhere inside data_in
+!data/data_in/**/*.md
+!data/data_in/**/*.pdf
 # OKKIO:
 # ------ `/**/*.md` matches Markdown files at ANY depth under data/data_in/
 # ------ `/*.md` matches Markdown files at 1st level under data/data_in/
-!data/data_in/**/*.md
-# ex: `data/data_in/istat_shp_ITA_spiega.md`
-!data/data_in/**/*.pdf
-# Optional: keep the directory structure itself so Git doesn't drop empty dirs
-!data/data_in/
 
-# ----- IGNORE Derived data/exports (THE HEAVY ONES)
-# Vector datasets (ESRI Shapefile family)
-data/data_out/**/*.shp
-data/data_out/**/*.shx
-data/data_out/**/*.dbf
-data/data_out/**/*.prj
-data/data_out/**/*.cpg
-data/data_out/**/*.qpj
-data/data_out/**/*.sbn
-data/data_out/**/*.sbx
 
-# Other common heavy geodata
-data/data_out/**/*.geojson
-data/data_out/**/*.gpkg
-data/data_out/**/*.gdb/**
-data/data_out/**/*.zip
-
-# Qui possono pesare anche questi 
-data/data_out/**/*.rds
-data/data_out/**/*.csv
-
-# Keep any README/notes in export folders
+# ----- OUTPUT data
+# Ignore everything under data/data_out/ bc may be very BIG ...
+data/data_out/**/*
+# ...BUT Keep Markdown and PDF files anywhere inside data_in
 !data/data_out/**/*.md
 !data/data_out/**/*.pdf
 
-# keep the folder present even if empty/ignored
-!data/data_out/.gitkeep
-/.quarto/
+
+# ----- OUTPUT objects for DASHBOARD (keep)
+!data/maps/**/*
+!data/plots/**/*
 
 
-# Personal 
+# ----------------- Personal 
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# ----------------- Unnecessary
 zzz/**/*.*
 */zzz/**/*.*
 CLAUDE.md

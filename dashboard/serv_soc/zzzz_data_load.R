@@ -1,5 +1,5 @@
 # Esplorazione dati SERVIZI SOCIALI ----
-# Uses cleaned data from data_load_ALL_ER.R
+# Uses cleaned data from data_load.R
 # Exploratory visualizations to understand the data
 
 library(here)
@@ -9,7 +9,7 @@ library(stringr)
 library(ggplot2)
 
 # 1. LOAD CLEANED DATA ----
-# (Created by data_load_ALL_ER.R)
+# (Created by data_load.R)
 
 servsoc_ER_all <- readRDS(
   here("data/data_out/istat_SERVSOC_2011_2022/servsoc_ER_all_2011_2022.rds")

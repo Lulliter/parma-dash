@@ -425,19 +425,10 @@ comuni_ita_info_sf_VARDESC
 ## --- Salva oggetto con info comuni + descrizione variabili
 ```{r}
 # # Salva per riuso in altri qmd
-# salva_vardesc_rds <- function(df) {
-#   dir.create(here::here("data", "data_out", "tbl"), showWarnings = FALSE, recursive = TRUE)
-#   saveRDS(
-#     df,
-#     file = here::here("data", "data_out", "tbl", "comuni_ita_info_sf_VARDESC.rds")
-#   )
-#   invisible(df)
-# }
-
 source(here::here("R","utilities.R"))
 
 salva_vardesc_rds(comuni_ita_info_sf_VARDESC, 
-                  out_path = here::here("data", "data_out", "tbl", "comuni_ita_info_sf_VARDESC.rds")
+                  out_path = here::here("data", "data_out", "comuni_ita_info_sf_VARDESC.rds")
 )
 
 ```

@@ -699,3 +699,13 @@ lapply(plot_list, function(plot_name) {
     file = paste0("data/plots/", plot_name, ".rds")
   )
 })
+
+
+# 4. 🟧 TABLES with TERRITORI CONFRONTO --------------------------------------
+
+# Load combined confronto dataset (all territori)
+servsoc_cf_all <- readRDS(
+  here("data/data_out/istat_SERVSOC_2011_2022/servsoc_territ_2011_2022.rds")
+)
+
+

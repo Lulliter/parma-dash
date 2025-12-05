@@ -121,7 +121,7 @@ source(here("R","f_ft_formatting.R"))
 
 # leggi
 comuni_ita_info_sf_VARDESC <- readRDS(
-  here::here("data", "data_out", "tbl","comuni_ita_info_sf_VARDESC.rds")
+  here::here("data", "data_out", "comuni_ita_info_sf_VARDESC.rds")
 )
 
 # crea flextable

@@ -95,8 +95,8 @@ comuni_ita_info_redux_sf <- readRDS("~/Github/parma-dash/data/data_out/comuni_it
 
 ```{r}
 # leggi dati popolazione ISTAT 2023 per comuni Parma
-istat_pop_com_PR_2023 <- readRDS(here("data", "data_out", "istat_pop_com_PR_2023.rds"))
-istatistat_pop_com_ER_2023_prov <- readRDS(here("data", "data_out", "istat_pop_com_ER_2023_prov.rds"))
+istat_pop_com_PR_2023 <- readRDS(here("data", "data_out", "istat_cens_2023", "istat_pop_com_PR_2023.rds"))
+# istat_pop_com_ER_2023_prov <- readRDS(here("data", "data_out", "istat_pop_com_ER_2023_prov.rds"))
 ```
 
 
