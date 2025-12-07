@@ -300,6 +300,8 @@ p52_map_int_iadl_nessuna
 :::
 
 ::: {.callout-note collapse="true"}
+
+
 ## Osservazioni
 
 **Pattern geografico simile ma con intensità maggiore**: Le difficoltà nelle IADL seguono un gradiente geografico analogo alle ADL, ma con percentuali sistematicamente più elevate. L'**Emilia-Romagna** conferma una posizione critica, con valori superiori alla media del Nord. Le attività strumentali (fare la spesa, cucinare, gestire farmaci) richiedono maggiore autonomia cognitiva e fisica, e la loro compromissione rappresenta un segnale precoce di bisogno assistenziale.

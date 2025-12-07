@@ -253,7 +253,7 @@
     "href": "dashboard/serv_soc/index.html",
     "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
     "section": "",
-    "text": "Questa pagina riporta dati Istat osservati dal 2002 al 2022 su Interventi e servizi sociali dei comuni (link). I dati disponibili comprendono gli utenti (numeri assoluti e in percentuale sull apopolazione di riferimento) interessati e la spesa (disaggregata tra i vari soggetti)\nQui, il focus è su 3 servizi in particolare:",
+    "text": "Questa pagina riporta dati Istat osservati dal 2002 al 2022 su Interventi e servizi sociali dei comuni (link al dataset DCIS_SPESESERSOC1).\nQui, il focus è su 3 servizi in particolare:\nNB: I dati di questo database, riguardano solo la quota di servizi e interventi socio-assistenziali dei Comuni e delle loro forme associative al netto della compartecipazione del Servizio Sanitario Nazionale. In particolare, il servizio ADI, mostra solo la componente sociale dell’ADI (quota a carico dei Comuni), mentre la parte sanitaria gestiti interamente dall’AUSL non compare.",
     "crumbs": [
       "Dashboard",
       "Tema 2.c) Servizi Sociali dei Comuni"
@@ -365,7 +365,7 @@
     "href": "dashboard/serv_soc/index.html#osservazioni",
     "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
     "section": "Osservazioni",
-    "text": "Osservazioni\n…",
+    "text": "Osservazioni\n\nGli indicatori percentuali sugli utenti (PERUSTPOP) relativi a SAD e ADI appaiono molto bassi perché il dataset Istat, DCIS, rileva esclusivamente la componente sociale dei servizi domiciliari gestita dai Comuni. La parte sanitaria dell’ADI – che rappresenta la quota ampiamente maggioritaria delle prese in carico domiciliari – non è inclusa nella rilevazione.\nInoltre, la popolazione di riferimento utilizzata da ISTAT (over-65 per gli anziani; persone con gravi limitazioni &lt;65 per i disabili) è numericamente molto ampia. Di conseguenza, anche un numero modesto di utenti registrati dai Comuni produce valori percentuali prossimi allo zero.\nI livelli osservati per Parma sono allineati ai pattern regionali e nazionali e non riflettono la reale copertura dell’ADI sanitaria, che è significativamente più elevata.",
     "crumbs": [
       "Dashboard",
       "Tema 2.c) Servizi Sociali dei Comuni"

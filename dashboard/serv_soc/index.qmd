@@ -39,7 +39,7 @@ library(ggiraph)
 library(flextable)
 ```
 
-Questa pagina riporta dati Istat osservati dal 2002 al 2022 su **Interventi e servizi sociali dei comuni** ([link](https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0800SSW,1.0/SSW_SOCSE/DCIS_SPESESERSOC1)). I dati disponibili comprendono gli utenti (numeri assoluti e in percentuale sull apopolazione di riferimento) interessati e la spesa (disaggregata tra i vari soggetti)
+Questa pagina riporta dati **Istat** osservati dal 2002 al 2022 su **Interventi e servizi sociali dei comuni** ([link al dataset DCIS_SPESESERSOC1](https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0800SSW,1.0/SSW_SOCSE/DCIS_SPESESERSOC1)). 
 
 Qui, il focus è su 3 servizi in particolare:
 
@@ -56,6 +56,8 @@ Qui, il focus è su 3 servizi in particolare:
 3. **Voucher, assegno di cura, buono socio-sanitario** = sono trasferimenti monetari erogati per sostenere la cura domiciliare.
     - Può essere erogato da Comune o Regione
     - Servono a sostenere la cura a domicilio (da parte di caregiver familiari o professionali, a seconda della misura).
+
+NB: I dati di questo database, riguardano ***solo la quota di servizi e interventi socio-assistenziali dei Comuni*** e delle loro forme associative al netto della compartecipazione del Servizio Sanitario Nazionale. In particolare, il servizio `ADI`, mostra _solo la componente sociale dell’ADI_ (quota a carico dei Comuni), mentre la parte sanitaria gestiti interamente dall’AUSL non compare.
 
 
 ## Assistenza domiciliare - provincie ER nel tempo
@@ -242,10 +244,18 @@ tab_perustpop_healthv_2022
 
 ## Osservazioni
 
-...
+- Gli indicatori percentuali sugli utenti (`PERUSTPOP`) relativi a **SAD** e **ADI** appaiono molto bassi perché il dataset Istat, DCIS, rileva esclusivamente la componente sociale dei servizi domiciliari gestita dai Comuni. La parte sanitaria dell’ADI – che rappresenta la quota ampiamente maggioritaria delle prese in carico domiciliari – non è inclusa nella rilevazione. 
 
+- Inoltre, la `popolazione di riferimento` utilizzata da ISTAT (over-65 per gli anziani; persone con gravi limitazioni <65 per i disabili) è numericamente molto ampia. Di conseguenza, anche un numero modesto di utenti registrati dai Comuni produce valori percentuali prossimi allo zero. 
+
+- I `livelli osservati per Parma` sono allineati ai pattern regionali e nazionali e non riflettono la reale copertura dell’ADI sanitaria, che è significativamente più elevata.
 
 ***
 
 
-# Indicazioni per ulteriori approfondimenti
+# Possibili approfondimenti
+
+- Distinzione in Emilia-Romagna fra competenze AUSL e Comuni - molta ADI è solo sanitaria - per apprezzare la copertura reale.
+- Come viene contabilizzato il servizion SAD nell territorio di Parma, se erogato da Unioni Unioni/Consorzi, e eventuale sottostima di Istat
+- Identificare interventi domiciliari non conteggiati come “SAD”, perchè offerti in modalità diverse indirette (interventi personalizzati distrettuali, 
+contributi per caregiver, ecc.)
