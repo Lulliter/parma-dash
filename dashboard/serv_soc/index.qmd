@@ -1,6 +1,6 @@
 ---
 title: "Prestazioni di servizi socio-assistenziali a livello di provincia per ER"
-subtitle: "[Sottotitolo da definire]"
+subtitle: "[Utenti e spese per comune]"
 # date: last-modified
 # date-format: "DD-MMMM-YYYY"
 lang: it
@@ -238,3 +238,14 @@ tab_perustpop_healthv_2022
 ```
 
 :::
+
+
+## Osservazioni
+
+...
+
+
+***
+
+
+# Indicazioni per ulteriori approfondimenti
