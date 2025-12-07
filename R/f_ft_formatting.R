@@ -51,8 +51,7 @@ set_flextable_defaults(line_spacing = 1,
                        background.color = "#F2F2F2",
                        border.color =   "#A6A6A6" ,
                        border.width = .5,
-                       table.layout = "fixed", # or fixed
-                       width = 1 # use full width of page
+                       table.layout = "autofit" # adapts to content width (works for HTML & Word)
 )
 
 # Default numbers format like in Italy ----

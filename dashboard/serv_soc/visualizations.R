@@ -530,8 +530,14 @@ plot_prov_one_combo_ben <- function(
     coord_flip() +
     facet_wrap(~beneficiario, scales = "free_x", ncol = fixed_ncol) +
     labs(
-      title = str_wrap(paste0("SERVIZIO: ", service_name, " (", year, ")"), width = 60),
-      subtitle = str_wrap(paste0("TIPO INDICATORE: ", data_type_name), width = 70),
+      title = str_wrap(
+        paste0("SERVIZIO: ", service_name, " (", year, ")"),
+        width = 60
+      ),
+      subtitle = str_wrap(
+        paste0("TIPO INDICATORE: ", data_type_name),
+        width = 70
+      ),
       x = NULL,
       y = NULL,
       fill = NULL,
@@ -706,6 +712,227 @@ lapply(plot_list, function(plot_name) {
 # Load combined confronto dataset (all territori)
 servsoc_cf_all <- readRDS(
   here("data/data_out/istat_SERVSOC_2011_2022/servsoc_territ_2011_2022.rds")
+) |>
+  # change TERRITORIO value from ER to EmiliaRomagna
+  mutate(
+    TERRITORIO2 = if_else(TERRITORIO == "ER", "EmiliaRomagna", TERRITORIO)
+  ) |>
+  select(-TERRITORIO) |>
+  rename(TERRITORIO = TERRITORIO2)
+
+tabyl(servsoc_cf_all$DATA_TYPE) # solo percentuali
+tabyl(servsoc_cf_all$TERRITORIO)
+tabyl(servsoc_cf_all$CATEG_OF_BENEFICIARIES)
+tabyl(servsoc_cf_all$CATEGORY_OF_SERVICE)
+
+servsoc_cf_rdx <- servsoc_cf_all |>
+  filter(DATA_TYPE %in% c("PERUSTPOP", "PERMOS")) |>
+  filter(TERRITORIO %in% c("Parma", "EmiliaRomagna", "NordEst", "Italia")) |>
+  filter(CATEG_OF_BENEFICIARIES %in% c("DIS", "ELD", "FAM")) |>
+  filter(
+    CATEGORY_OF_SERVICE %in% c("HOMECARE", "HOMEHEALTH", "HEALTHV", "OTHERHOME")
+  ) |>
+  select(-FREQ, -KIND_PROVIDER, -OBS_STATUS, -NOTE_REF_AREA, -NOTE_DATA_TYPE)
+
+
+# Make a flextable that compares 1 TIME_PERIOD and 1 CATEGORY_OF_SERVICE across CATEG_OF_BENEFICIARIES
+# I want a function that lets me use TIME_PERIOD, CATEGORY_OF_SERVICE as arguments
+str(servsoc_cf_rdx)
+library(flextable)
+source(here("R/f_ft_formatting.R")) # set flextable defaults)
+# Funzione per creare flextable di confronto beneficiari ----
+crea_tabella_beneficiari <- function(data, periodo, servizio_cod, tipo_dato) {
+  # Filtra i dati per periodo, servizio e tipo dato selezionati
+  dati_filtrati <- data |>
+    filter(
+      TIME_PERIOD == periodo,
+      CATEGORY_OF_SERVICE == servizio_cod,
+      DATA_TYPE == tipo_dato
+    )
+
+  # Verifica che ci siano dati
+  if (nrow(dati_filtrati) == 0) {
+    stop("Nessun dato trovato per i parametri selezionati")
+  }
+
+  # Prepara i dati in formato wide (beneficiari come colonne)
+  tab_data <- dati_filtrati |>
+    select(TERRITORIO, beneficiario, OBS_VALUE) |>
+    pivot_wider(
+      names_from = beneficiario,
+      values_from = OBS_VALUE
+    ) |>
+    # Ordina i territori
+    mutate(
+      TERRITORIO = factor(
+        TERRITORIO,
+        levels = c("Parma", "EmiliaRomagna", "NordEst", "Italia")
+      )
+    ) |>
+    arrange(TERRITORIO) |>
+    mutate(TERRITORIO = as.character(TERRITORIO))
+
+  # Riordina le colonne dei beneficiari se esistono
+  ordine_beneficiari <- c("disabili", "anziani", "famiglia e minori")
+  colonne_presenti <- ordine_beneficiari[
+    ordine_beneficiari %in% names(tab_data)
+  ]
+
+  tab_data <- tab_data |>
+    select(TERRITORIO, all_of(colonne_presenti))
+
+  # Estrae informazioni per il titolo
+  nome_servizio <- dati_filtrati$servizio[1]
+  nome_tipo_dato <- dati_filtrati$data_type_it[1]
+
+  # Crea la flextable
+  ft <- flextable(tab_data) |>
+    # Formatta i valori numerici (tutte le colonne tranne la prima)
+    colformat_double(j = -1, digits = 1) |>
+    # Rinomina la colonna territorio
+    set_header_labels(TERRITORIO = "Territorio") |>
+    # Aggiunge titolo con servizio, anno e tipo dato
+    add_header_lines(
+      values = paste0(
+        "SERVIZIO: ",
+        nome_servizio,
+        "\n",
+        "DATO: ",
+        nome_tipo_dato,
+        " - ",
+        periodo
+      )
+    ) |>
+    # Auto-adjust column widths for optimal display
+    autofit(add_w = 0.1, add_h = 0)
+
+  # Color Parma row in gold for visibility
+  if ("Parma" %in% tab_data$TERRITORIO) {
+    idx_parma <- which(tab_data$TERRITORIO == "Parma")
+    ft <- color(ft, i = idx_parma, color = "#CC8800")
+  }
+
+  # Evidenzia Parma < EmiliaRomagna in rosso chiaro
+  if (
+    "Parma" %in% tab_data$TERRITORIO && "EmiliaRomagna" %in% tab_data$TERRITORIO
+  ) {
+    idx_parma <- which(tab_data$TERRITORIO == "Parma")
+    idx_er <- which(tab_data$TERRITORIO == "EmiliaRomagna")
+
+    for (col in colonne_presenti) {
+      val_parma <- tab_data[[col]][idx_parma]
+      val_er <- tab_data[[col]][idx_er]
+
+      if (!is.na(val_parma) && !is.na(val_er) && val_parma < val_er) {
+        ft <- bg(ft, i = idx_parma, j = col, bg = "#ffcccc")
+      }
+    }
+  }
+
+  return(ft)
+}
+
+# Esempio di utilizzo PERUSTPOP
+crea_tabella_beneficiari(
+  data = servsoc_cf_rdx,
+  periodo = 2022,
+  servizio_cod = "HOMECARE",
+  tipo_dato = "PERUSTPOP"
 )
 
+crea_tabella_beneficiari(
+  data = servsoc_cf_rdx,
+  periodo = 2022,
+  servizio_cod = "HOMEHEALTH",
+  tipo_dato = "PERUSTPOP"
+)
 
+crea_tabella_beneficiari(
+  data = servsoc_cf_rdx,
+  periodo = 2022,
+  servizio_cod = "HEALTHV",
+  tipo_dato = "PERUSTPOP"
+)
+# crea_tabella_beneficiari(
+#   data = servsoc_cf_rdx,
+#   periodo = 2022,
+#   servizio_cod = "OTHERHOME",
+#   tipo_dato = "PERUSTPOP"
+# )
+
+# Esempio di utilizzoPERMOS
+crea_tabella_beneficiari(
+  data = servsoc_cf_rdx,
+  periodo = 2022,
+  servizio_cod = "HOMECARE",
+  tipo_dato = "PERMOS"
+)
+
+crea_tabella_beneficiari(
+  data = servsoc_cf_rdx,
+  periodo = 2022,
+  servizio_cod = "HOMEHEALTH",
+  tipo_dato = "PERMOS"
+)
+
+crea_tabella_beneficiari(
+  data = servsoc_cf_rdx,
+  periodo = 2022,
+  servizio_cod = "HEALTHV",
+  tipo_dato = "PERMOS"
+)
+# crea_tabella_beneficiari(
+#   data = servsoc_cf_rdx,
+#   periodo = 2022,
+#   servizio_cod = "OTHERHOME",
+#   tipo_dato = "PERMOS"
+# )
+
+# Save example tables as rds in data/tables/
+table_list <- list(
+  tab_perustpop_homecare_2022 = crea_tabella_beneficiari(
+    data = servsoc_cf_rdx,
+    periodo = 2022,
+    servizio_cod = "HOMECARE",
+    tipo_dato = "PERUSTPOP"
+  ),
+  tab_perustpop_homehealth_2022 = crea_tabella_beneficiari(
+    data = servsoc_cf_rdx,
+    periodo = 2022,
+    servizio_cod = "HOMEHEALTH",
+    tipo_dato = "PERUSTPOP"
+  ),
+  tab_perustpop_healthv_2022 = crea_tabella_beneficiari(
+    data = servsoc_cf_rdx,
+    periodo = 2022,
+    servizio_cod = "HEALTHV",
+    tipo_dato = "PERUSTPOP"
+  ),
+  tab_permos_homecare_2022 = crea_tabella_beneficiari(
+    data = servsoc_cf_rdx,
+    periodo = 2022,
+    servizio_cod = "HOMECARE",
+    tipo_dato = "PERMOS"
+  ),
+  tab_permos_homehealth_2022 = crea_tabella_beneficiari(
+    data = servsoc_cf_rdx,
+    periodo = 2022,
+    servizio_cod = "HOMEHEALTH",
+    tipo_dato = "PERMOS"
+  ),
+  tab_permos_healthv_2022 = crea_tabella_beneficiari(
+    data = servsoc_cf_rdx,
+    periodo = 2022,
+    servizio_cod = "HEALTHV",
+    tipo_dato = "PERMOS"
+  )
+)
+# Save each table as an rds file using saveRDS
+lapply(names(table_list), function(table_name) {
+  saveRDS(
+    object = table_list[[table_name]],
+    file = paste0("data/tbl/", table_name, ".rds")
+  )
+})
+
+# END OF SCRIPT ----
