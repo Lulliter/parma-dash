@@ -59,6 +59,101 @@ Qui, il focus è su 3 servizi in particolare:
 
 NB: I dati di questo database, riguardano ***solo la quota di servizi e interventi socio-assistenziali dei Comuni*** e delle loro forme associative al netto della compartecipazione del Servizio Sanitario Nazionale. In particolare, il servizio `ADI`, mostra _solo la componente sociale dell’ADI_ (quota a carico dei Comuni), mentre la parte sanitaria gestiti interamente dall’AUSL non compare.
 
+***
+
+## Dati al 2022 - Confronto con territori di riferimento
+
+Qui si osserva **PERUSTPOP**, ovvero `“Percentuale di utenti sulla popolazione di riferimento”`, cioè il rapporto percentuale tra il numero dei beneficiari del servizio e la popolazione target dell’area di utenza (anziani, disabili, minori, ecc.).
+
+<!-- Insert tabs to put 3 flextables  -->
+
+:::{.panel-tabset}
+
+### SAD
+```{r}
+#| output: asis
+
+# Carica prima l'oggetto
+tab_perustpop_homecare_2022 <- readRDS(here(
+  "data/tbl/tab_perustpop_homecare_2022.rds"
+))
+tab_perustpop_homecare_2022
+```
+
+### ADI
+```{r}
+#| output: asis
+
+tab_perustpop_homehealth_2022 <- readRDS(here(
+  "data/tbl/tab_perustpop_homehealth_2022.rds"
+))
+tab_perustpop_homehealth_2022
+```
+
+### Voucher, etc.
+```{r}
+#| output: asis
+
+tab_perustpop_healthv_2022 <- readRDS(here(
+  "data/tbl/tab_perustpop_healthv_2022.rds"
+))
+tab_perustpop_healthv_2022
+```
+
+:::
+
+## Dati al 2022 - Confronto con territori di riferimento
+
+Qui si osserva **PERMOS**, ovvero `“Percentuale di comuni che offrono il servizio sul totale comuni”`, cioè una misura della diffusione territoriale del servizio: quanti Comuni lo hanno attivato nell'area territoriale di riferimento.
+
+<!-- Insert tabs to put 3 flextables  -->
+
+:::{.panel-tabset}
+
+### SAD
+```{r}
+#| output: asis
+
+# Carica prima l'oggetto
+tab_perustpop_homecare_2022 <- readRDS(here(
+  "data/tbl/tab_permos_homecare_2022.rds"
+))
+tab_perustpop_homecare_2022
+```
+
+### ADI
+```{r}
+#| output: asis
+
+tab_perustpop_homehealth_2022 <- readRDS(here(
+  "data/tbl/tab_permos_homehealth_2022.rds"
+))
+tab_perustpop_homehealth_2022
+```
+
+### Voucher, etc.
+```{r}
+#| output: asis
+
+tab_perustpop_healthv_2022 <- readRDS(here(
+  "data/tbl/tab_permos_healthv_2022.rds"
+))
+tab_perustpop_healthv_2022
+```
+
+:::
+
+
+## Osservazioni
+
+- Gli indicatori percentuali sugli utenti (`PERUSTPOP`) relativi a **SAD** e **ADI** appaiono molto bassi perché il dataset Istat, DCIS, rileva esclusivamente la componente sociale dei servizi domiciliari gestita dai Comuni. La parte sanitaria dell’ADI – che rappresenta la quota ampiamente maggioritaria delle prese in carico domiciliari – non è inclusa nella rilevazione. 
+
+- Inoltre, la `popolazione di riferimento` utilizzata da ISTAT (over-65 per gli anziani; persone con gravi limitazioni <65 per i disabili) è numericamente molto ampia. Di conseguenza, anche un numero modesto di utenti registrati dai Comuni produce valori percentuali prossimi allo zero. 
+
+- I `livelli osservati per Parma` sono allineati ai pattern regionali e nazionali e non riflettono la reale copertura dell’ADI sanitaria, che è significativamente più elevata.
+
+***
+
 
 ## Assistenza domiciliare - provincie ER nel tempo
 
@@ -157,98 +252,6 @@ readRDS(here("data/plots/p63_otherhome_bar22_usr.rds"))
 ```
 
 
-***
-
-## Dati al 2022 - Confronto con territori di riferimento
-
-Qui si osserva **PERUSTPOP**, ovvero `“Percentuale di utenti sulla popolazione di riferimento”`, cioè il rapporto percentuale tra il numero dei beneficiari del servizio e la popolazione target dell’area di utenza (anziani, disabili, minori, ecc.).
-
-<!-- Insert tabs to put 3 flextables  -->
-
-:::{.panel-tabset}
-
-### SAD
-```{r}
-#| output: asis
-
-# Carica prima l'oggetto
-tab_perustpop_homecare_2022 <- readRDS(here(
-  "data/tbl/tab_perustpop_homecare_2022.rds"
-))
-tab_perustpop_homecare_2022
-```
-
-### ADI
-```{r}
-#| output: asis
-
-tab_perustpop_homehealth_2022 <- readRDS(here(
-  "data/tbl/tab_perustpop_homehealth_2022.rds"
-))
-tab_perustpop_homehealth_2022
-```
-
-### Voucher, etc.
-```{r}
-#| output: asis
-
-tab_perustpop_healthv_2022 <- readRDS(here(
-  "data/tbl/tab_perustpop_healthv_2022.rds"
-))
-tab_perustpop_healthv_2022
-```
-
-:::
-
-## Dati al 2022 - Confronto con territori di riferimento
-
-Qui si osserva **PERMOS**, ovvero `“Percentuale di comuni che offrono il servizio sul totale comuni”`, cioè una misura della diffusione territoriale del servizio: quanti Comuni lo hanno attivato nell'area territoriale di riferimento.
-
-<!-- Insert tabs to put 3 flextables  -->
-
-:::{.panel-tabset}
-
-### SAD
-```{r}
-#| output: asis
-
-# Carica prima l'oggetto
-tab_perustpop_homecare_2022 <- readRDS(here(
-  "data/tbl/tab_permos_homecare_2022.rds"
-))
-tab_perustpop_homecare_2022
-```
-
-### ADI
-```{r}
-#| output: asis
-
-tab_perustpop_homehealth_2022 <- readRDS(here(
-  "data/tbl/tab_permos_homehealth_2022.rds"
-))
-tab_perustpop_homehealth_2022
-```
-
-### Voucher, etc.
-```{r}
-#| output: asis
-
-tab_perustpop_healthv_2022 <- readRDS(here(
-  "data/tbl/tab_permos_healthv_2022.rds"
-))
-tab_perustpop_healthv_2022
-```
-
-:::
-
-
-## Osservazioni
-
-- Gli indicatori percentuali sugli utenti (`PERUSTPOP`) relativi a **SAD** e **ADI** appaiono molto bassi perché il dataset Istat, DCIS, rileva esclusivamente la componente sociale dei servizi domiciliari gestita dai Comuni. La parte sanitaria dell’ADI – che rappresenta la quota ampiamente maggioritaria delle prese in carico domiciliari – non è inclusa nella rilevazione. 
-
-- Inoltre, la `popolazione di riferimento` utilizzata da ISTAT (over-65 per gli anziani; persone con gravi limitazioni <65 per i disabili) è numericamente molto ampia. Di conseguenza, anche un numero modesto di utenti registrati dai Comuni produce valori percentuali prossimi allo zero. 
-
-- I `livelli osservati per Parma` sono allineati ai pattern regionali e nazionali e non riflettono la reale copertura dell’ADI sanitaria, che è significativamente più elevata.
 
 ***
 
@@ -256,6 +259,8 @@ tab_perustpop_healthv_2022
 # Possibili approfondimenti
 
 - Distinzione in Emilia-Romagna fra competenze AUSL e Comuni - molta ADI è solo sanitaria - per apprezzare la copertura reale.
+- Regione Emilia-Romagna — Rendicontazione FNA ([Fondo Non Autosufficienza](https://salute.regione.emilia-romagna.it/ssr/organizzazione/fondo-regionale-per-la-non-autosufficienza?utm_source=chatgpt.com))
 - Come viene contabilizzato il servizion SAD nell territorio di Parma, se erogato da Unioni Unioni/Consorzi, e eventuale sottostima di Istat
 - Identificare interventi domiciliari non conteggiati come “SAD”, perchè offerti in modalità diverse indirette (interventi personalizzati distrettuali, 
 contributi per caregiver, ecc.)
+  - vedi [ER - Le persone non autosufficienti - Sezione D: l'offerta dei servizi](https://salute.regione.emilia-romagna.it/siseps/reporter/reporter-indicatori/piani-di-zona/persone-non-autosufficienti-offerta-servizi?utm_source=chatgpt.com)
