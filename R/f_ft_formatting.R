@@ -12,7 +12,7 @@ library(systemfonts)
 #   filter(str_detect(family,  "Condensed"))  |>
 #   select(name, family, style)
 
-# --- Step 1: set target font with safe fallbacks -----------------------------
+# 1) set target font with safe fallbacks -----------------------------
 # verify a font exists on *your* system
 f_has_font <- function(family) {
   suppressWarnings({
@@ -47,7 +47,7 @@ f_pick_font <- function(
 target_font <- f_pick_font()
 message("Using font: ", target_font)
 
-# --- Step 2: set flextable defaults -----------------------------------------
+# 2) set flextable defaults -----------------------------------------
 set_flextable_defaults(
   line_spacing = 1,
   #scroll =           # NULL or a list if you want to add a scroll-box
@@ -66,17 +66,17 @@ set_flextable_defaults(
   table.layout = "autofit" # adapts to content width (works for HTML & Word)
 )
 
-# Default numbers format like in Italy ----
+# ___ Default numbers format like in Italy ----
 set_flextable_defaults(
   digits = 2,
   decimal.mark = ",",
   big.mark = "."
 )
 
-# --- 2) Border style ----
+# ___ Border style ----
 brdr_in <- fp_border_default(color = "#4c4c4c", width = 0.25)
 
-# --- 3) Funzione CUSTOM per tabelle in Word ----
+# 3) Funzione CUSTOM per tabelle in Word ----
 # f_ft_word <- function(ft) {
 #   ft |>
 #     set_table_properties(

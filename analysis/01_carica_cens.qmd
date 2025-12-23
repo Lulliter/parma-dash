@@ -1,6 +1,6 @@
 ---
 title: "Mappe e Codici confini amministrativi ISTAT"
-subtitle: "Materiale intermedio su dati geografici con R"
+subtitle: "Materiale intermedio su dati censimento 2023 per comune"
 date: last-modified
 date-format: "DD-MMMM-YYYY"
 lang: it
@@ -25,6 +25,8 @@ execute:
   
 bibliography: ../bib/CRP_dash.bib
 suppress-bibliography: false
+nocite: |
+  @istatPopolazioneResidenteClassi2023
 ---
 
 ## R packg
@@ -56,9 +58,11 @@ library(flextable, quietly = TRUE)
 ## Carica dati Censimento
 
 **FONTE**: [IstatData](https://esploradati.istat.it/databrowser/#/it/censpop) is the new Istat data warehouse.\
-**QUERY STRUTTURA**: [Link](https://esploradati.istat.it/SDMXWS/rest/dataflow/IT1/DF_DCSS_POP_DEMCITMIG_TV_2/1.0/?detail=Full&references=Descendants) 
-**QUERY DATI**: [Link] = `urls_istat$pop_cens_all`
-**DATA AGGIORNAMENTO**: Censimento 2023 **COME OTTENUTO**: Download dati ISTAT CENSIMENTO via API SDMX (vedi `R/f_istat_scarica_cens.R`) **CONTENUTO**: + Dataset ID = "IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0"
+**QUERY STRUTTURA**: [Link](https://esploradati.istat.it/SDMXWS/rest/dataflow/IT1/DF_DCSS_POP_DEMCITMIG_TV_2/1.0/?detail=Full&references=Descendants)\
+**QUERY DATI**: [Link] = `urls_istat$pop_cens_all`\
+**DATA AGGIORNAMENTO**: Censimento 2023\
+**COME OTTENUTO**: Download dati ISTAT CENSIMENTO via API SDMX (vedi `R/f_istat_scarica_cens.R`)\
+**CONTENUTO**: + Dataset ID = "IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0"\
 
 + Qui uso una funzione R (`f_scarica_istat_blocchi()`) che ho scritto per **scaricare i dati censuari per comune** via API SDMX. In pratica, partendo da un url con dentro tutti i comuni italiani, mi consente di selezionare solo i comuni che mi interessano (es. quelli di Parma o di Emilia-Romagna), dividere la richiesta in blocchi (per evitare timeout/limiti di richiesta) e salvare i dati in locale in formato RDS e CSV.
 
@@ -572,7 +576,55 @@ for (obj_name in list_obj_istat_pop_prov_ER_2023) {
 ```
 
 
-# 🟧 NEXT 
+<!-- # 🟧 NEXT -->
 
-targets seguendo https://chatgpt.com/share/691b4e48-1360-800f-9025-437822330b82
+<!-- targets seguendo https://chatgpt.com/share/691b4e48-1360-800f-9025-437822330b82 -->
+
+---
+
+## Fonti
+
+**ISTAT - EsploraDati (IstatData)**\
+- **Contenuto**: Dati del Censimento permanente della popolazione 2023\
+- **Dataset ID**: `IT1,DF_DCSS_POP_DEMCITMIG_TV_2,1.0`\
+- **Variabili principali**: Popolazione residente per comune, disaggregata per sesso, classi di età decennali, cittadinanza, stato civile\
+- **Accesso**: Web service SDMX API\
+  - Portale: [https://esploradati.istat.it/databrowser/#/it/censpop](https://esploradati.istat.it/databrowser/#/it/censpop)\
+  - Query struttura: [Dataflow API](https://esploradati.istat.it/SDMXWS/rest/dataflow/IT1/DF_DCSS_POP_DEMCITMIG_TV_2/1.0/?detail=Full&references=Descendants)\
+  - Query URL definite in: `data/istat_queries.yml`\
+- **Metodo di acquisizione**: Estrazione via API SDMX tramite funzioni custom `f_scarica_istat()` e `f_scarica_istat_blocchi()` (vedi `R/f_istat_scarica_cens.R`)\
+- **Data di riferimento**: Censimento 2023\
+
+---
+
+## Oggetti creati
+
+File salvati in `data/data_out/istat_cens_2023/`:
+
+### Dati comunali - Provincia di Parma (44 comuni)
+
+| File | Descrizione |
+|------|-------------|
+| `istat_pop_com_PR_2023.rds` | Dati censuari completi per comuni di Parma |
+| `istat_pop_com_PR_2023_AGE.rds` | Popolazione per classi di età decennali |
+| `istat_pop_com_PR_2023_GENDER.rds` | Popolazione per sesso (M, F, T) |
+| `istat_pop_com_PR_2023_CITIZENSHIP.rds` | Popolazione per cittadinanza (italiana, straniera, totale) |
+
+### Dati comunali - Emilia-Romagna (330 comuni)
+
+| File | Descrizione |
+|------|-------------|
+| `istat_pop_com_ER_2023.rds` | Dati censuari completi per comuni ER |
+| `istat_pop_com_ER_2023_AGE.rds` | Popolazione per classi di età decennali |
+| `istat_pop_com_ER_2023_GENDER.rds` | Popolazione per sesso (M, F, T) |
+| `istat_pop_com_ER_2023_CITIZENSHIP.rds` | Popolazione per cittadinanza |
+
+### Dati provinciali - Emilia-Romagna (9 province)
+
+| File | Descrizione |
+|------|-------------|
+| `istat_pop_prov_ER_2023.rds` | Dati censuari aggregati per provincia |
+| `istat_pop_prov_ER_2023_AGE.rds` | Popolazione per classi di età decennali |
+| `istat_pop_prov_ER_2023_GENDER.rds` | Popolazione per sesso (M, F, T) |
+| `istat_pop_prov_ER_2023_CITIZENSHIP.rds` | Popolazione per cittadinanza |
 

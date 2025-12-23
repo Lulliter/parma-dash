@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dati di contesto sul territorio di Parma – Parma analisi di contesto</title>
+<title>Parma analisi di contesto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -96,11 +116,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./dashboard.html"> 
-<span class="menu-text">Dashboard</span></a>
+<span class="menu-text">Dati di contesto</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./source.html"> 
-<span class="menu-text">Dati e Fonti</span></a>
+<span class="menu-text">Fonti</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./posts.html"> 
@@ -124,36 +144,267 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#temi-rilevanti" id="toc-temi-rilevanti" class="nav-link active" data-scroll-target="#temi-rilevanti">Temi rilevanti</a>
+  <ul class="collapse">
+  <li><a href="#i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare" id="toc-i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare" class="nav-link" data-scroll-target="#i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare">1) I cambiamenti della società e gli impatti per il sistema di welfare</a>
+  <ul class="collapse">
+  <li><a href="#evidenze-domanda" id="toc-evidenze-domanda" class="nav-link" data-scroll-target="#evidenze-domanda">Evidenze domanda</a></li>
+  <li><a href="#fonti" id="toc-fonti" class="nav-link" data-scroll-target="#fonti">Fonti</a></li>
+  <li><a href="#vis-fond-cariparma" id="toc-vis-fond-cariparma" class="nav-link" data-scroll-target="#vis-fond-cariparma">VIS Fond Cariparma</a></li>
+  <li><a href="#questioni-emergenti" id="toc-questioni-emergenti" class="nav-link" data-scroll-target="#questioni-emergenti">Questioni emergenti</a></li>
+  </ul></li>
+  <li><a href="#i-cambiamenti-del-territorio-e-dellambiente" id="toc-i-cambiamenti-del-territorio-e-dellambiente" class="nav-link" data-scroll-target="#i-cambiamenti-del-territorio-e-dellambiente">2) I cambiamenti del territorio e dell’ambiente</a>
+  <ul class="collapse">
+  <li><a href="#evidenze" id="toc-evidenze" class="nav-link" data-scroll-target="#evidenze">Evidenze</a></li>
+  <li><a href="#fonti-1" id="toc-fonti-1" class="nav-link" data-scroll-target="#fonti-1">Fonti</a></li>
+  <li><a href="#vis-fond-cariparma-1" id="toc-vis-fond-cariparma-1" class="nav-link" data-scroll-target="#vis-fond-cariparma-1">VIS Fond Cariparma</a></li>
+  <li><a href="#questioni-emergenti-1" id="toc-questioni-emergenti-1" class="nav-link" data-scroll-target="#questioni-emergenti-1">Questioni emergenti</a></li>
+  </ul></li>
+  <li><a href="#persone-e-istituzioni" id="toc-persone-e-istituzioni" class="nav-link" data-scroll-target="#persone-e-istituzioni">3) Persone e istituzioni</a>
+  <ul class="collapse">
+  <li><a href="#evidenze-1" id="toc-evidenze-1" class="nav-link" data-scroll-target="#evidenze-1">Evidenze</a></li>
+  <li><a href="#fonti-2" id="toc-fonti-2" class="nav-link" data-scroll-target="#fonti-2">Fonti</a></li>
+  <li><a href="#vis-fond-cariparma-2" id="toc-vis-fond-cariparma-2" class="nav-link" data-scroll-target="#vis-fond-cariparma-2">VIS Fond Cariparma</a></li>
+  </ul></li>
+  <li><a href="#area-sostenibiulità-economica" id="toc-area-sostenibiulità-economica" class="nav-link" data-scroll-target="#area-sostenibiulità-economica">4) Area Sostenibiulità economica</a>
+  <ul class="collapse">
+  <li><a href="#evidenze-2" id="toc-evidenze-2" class="nav-link" data-scroll-target="#evidenze-2">Evidenze</a></li>
+  <li><a href="#fonti-3" id="toc-fonti-3" class="nav-link" data-scroll-target="#fonti-3">Fonti</a></li>
+  <li><a href="#vis-fond-cariparma-3" id="toc-vis-fond-cariparma-3" class="nav-link" data-scroll-target="#vis-fond-cariparma-3">VIS Fond Cariparma</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#temi-indiretti" id="toc-temi-indiretti" class="nav-link" data-scroll-target="#temi-indiretti">Temi indiretti</a></li>
+  <li><a href="#i-3-ambiti-di-intervento-trasversali" id="toc-i-3-ambiti-di-intervento-trasversali" class="nav-link" data-scroll-target="#i-3-ambiti-di-intervento-trasversali">I 3 ambiti di intervento trasversali:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Dati di contesto sul territorio di Parma</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <p>[ ⚠️ Work in progress … ⚠️ ]</p>
+<!-- OBIETTIVO: -->
+<!-- 1) capire quali sono le fonti  -->
+<!-- 2) tirare fuori “indicatori di contesto” (su bisogni e ai fenomeni rilevanti che costituiscono le premesse stesse agli obiettivi strategici) da tenere sotto controllo negli anni (anche se la sola azione della Fondazione possa avere degli impatti misurabili) 
+<!-- 3) intercettare nuove difficolltà emergenti-->
+<section id="temi-rilevanti" class="level1">
+<h1>Temi rilevanti</h1>
+<section id="i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare" class="level2">
+<h2 class="anchored" data-anchor-id="i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare">1) I cambiamenti della società e gli impatti per il sistema di welfare</h2>
+<blockquote class="blockquote">
+<p>Linea d’Azione: Società e sfide per il welfare<br>
+- PS: ridurre disuguaglianze</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Contributo: tutti i bandi Ambiti intervento<br>
++ Favorire le reti a supporto dei caregiver<br>
++ Favorire la ricomposizione di informazioni (sui fenomeni o sui servizi)<br>
++ Favorire le reti nella comunità e logiche di “piattaforme sociali”</p>
+</blockquote>
+<section id="evidenze-domanda" class="level3">
+<h3 class="anchored" data-anchor-id="evidenze-domanda">Evidenze domanda</h3>
+<ul>
+<li>I <strong>trend Demografia</strong> (passato e presente)
+<ul>
+<li>INVECCHIAMENTO
+<ul>
+<li>Indice di vecchiaia</li>
+<li>Indice di dipendenza</li>
+<li>Tasso di natalità</li>
+<li>Età media</li>
+<li>65+ non autosufficienti</li>
+</ul></li>
+<li>FAMIGLIA
+<ul>
+<li>dimensione media</li>
+<li>famiglie unipersonali</li>
+</ul></li>
+<li>IMMIGRAZIONE
+<ul>
+<li>saldo naturale | migratorio | totale</li>
+</ul></li>
+</ul></li>
+<li>Il <strong>profilo socio-economico</strong>
+<ul>
+<li><em>Povertà lavorativa</em> (“lavoro povero”)</li>
+<li>Povertà alimentare</li>
+<li>Povertà sanitaria (*)</li>
+<li>Povertà abitativa</li>
+</ul></li>
+<li><strong>La rete socio-sanitaria</strong>
+<ul>
+<li>domanda di servizi socio-sanitari
+<ul>
+<li>indici di fragilità sociale</li>
+</ul></li>
+<li>(*) offerta di servizi socio-sanitari
+<ul>
+<li>Assistenza agli anziani</li>
+<li><em>rinuncia a prestazioni sanitarie per motivi di economici per gli over 65</em></li>
+</ul></li>
+<li>Assistenza ai disabili</li>
+<li><em>Spesa sanitaria (pubblica e assicurativa) bassa in Italia rispetto ad altri paesi OCSEe in riduzione</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="fonti" class="level3">
+<h3 class="anchored" data-anchor-id="fonti">Fonti</h3>
+<ul>
+<li>Bocconi
+<ul>
+<li>Letizia Mencarini, Uni Bocconi - <a href="https://dondena.unibocconi.eu/">Carlo Dondena Center for Research on Social Dynamics and Public Policy</a> - <em>L’ITALIA NELLA «TRAPPOLA DEMOGRAFICA»</em></li>
+<li>Gianluigi Bovini, AUSER Bologna - …</li>
+<li>Francesco Longo, SDA Bocconi - <em>SSN: SCENARIO E AGENDA DI POLICY</em></li>
+</ul></li>
+<li>Acer Parma (Loretta Losi) <span class="citation" data-cites="r.c.Acer22Milioni2025">(<a href="#ref-r.c.Acer22Milioni2025" role="doc-biblioref">R. C. 2025</a>)</span></li>
+<li>Assessorato Politiche Sociali Comune di Parma (Ettore Brianti)</li>
+</ul>
+</section>
+<section id="vis-fond-cariparma" class="level3">
+<h3 class="anchored" data-anchor-id="vis-fond-cariparma">VIS Fond Cariparma</h3>
+<ul>
+<li><em>Outcome 1</em>: Maggiore accessibilità a servizi e progetti</li>
+<li><em>Outcome 2</em>: Aumento della capacità di lettura dei fenomeni e delle sfide sociali</li>
+<li><em>Outcome 3</em>: Percezione di miglioramento dell’accesso alle informazioni</li>
+<li><em>Outcome 4</em>: Incremento della collaborazione tra attori del welfare</li>
+</ul>
+</section>
+<section id="questioni-emergenti" class="level3">
+<h3 class="anchored" data-anchor-id="questioni-emergenti">Questioni emergenti</h3>
+<hr>
+</section>
+</section>
+<section id="i-cambiamenti-del-territorio-e-dellambiente" class="level2">
+<h2 class="anchored" data-anchor-id="i-cambiamenti-del-territorio-e-dellambiente">2) I cambiamenti del territorio e dell’ambiente</h2>
+<blockquote class="blockquote">
+<p>Linea d’Azione: Trasformazioni urbane e del territorio<br>
+- PS: Accompagnare le trasformazioni del territorio</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Ambiti intervento<br>
++ Promuovere modelli di governance territoriale partecipativi<br>
++ Promuovere le connessioni tra politiche e competenze urbanistiche, sociali e culturali<br>
++ Supportare le potenzialità del patrimonio di Parma (beni, luoghi e tradizioni)</p>
+</blockquote>
+<section id="evidenze" class="level3">
+<h3 class="anchored" data-anchor-id="evidenze">Evidenze</h3>
+<ul>
+<li><em>territori marginalizzati</em></li>
+<li><em>aree interne</em></li>
+<li>domanda/offerta di affitti</li>
+</ul>
+</section>
+<section id="fonti-1" class="level3">
+<h3 class="anchored" data-anchor-id="fonti-1">Fonti</h3>
+</section>
+<section id="vis-fond-cariparma-1" class="level3">
+<h3 class="anchored" data-anchor-id="vis-fond-cariparma-1">VIS Fond Cariparma</h3>
+<ul>
+<li><em>Outcome 5</em>: Maggiore coesione sociale</li>
+<li><em>Outcome 6</em>: Valorizzazione del patrimonio culturale e territoriale</li>
+<li><em>Outcome 7</em>: Incremento di pratiche di governance partecipativa e partenariati territoriali</li>
+</ul>
+</section>
+<section id="questioni-emergenti-1" class="level3">
+<h3 class="anchored" data-anchor-id="questioni-emergenti-1">Questioni emergenti</h3>
+<!-- si evolve il concetto dell'abitare ...   -->
+<hr>
+</section>
+</section>
+<section id="persone-e-istituzioni" class="level2">
+<h2 class="anchored" data-anchor-id="persone-e-istituzioni">3) Persone e istituzioni</h2>
+<blockquote class="blockquote">
+<p>Linea d’Azione: Sviluppo del capitale umano e innovazione<br>
+- PS: Rafforzare le persone e le istituzioni</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Ambiti intervento + Supportare nuove conoscenze e nuove competenze<br>
++ Promuovere la capacità di programmare e progettare<br>
++ Sostenere le iniziative con azioni di accompagnamento e capacity building</p>
+</blockquote>
+<!-- non basta erogare risorse: occorre rafforzare chi le riceve affinché possa
+operare in modo sempre più efficace e autonomo  -->
+<section id="evidenze-1" class="level3">
+<h3 class="anchored" data-anchor-id="evidenze-1">Evidenze</h3>
+</section>
+<section id="fonti-2" class="level3">
+<h3 class="anchored" data-anchor-id="fonti-2">Fonti</h3>
+</section>
+<section id="vis-fond-cariparma-2" class="level3">
+<h3 class="anchored" data-anchor-id="vis-fond-cariparma-2">VIS Fond Cariparma</h3>
+<ul>
+<li><em>Outcome 8</em>: Incrementata cultura dell’apprendimento continuo e riconoscimento competenze</li>
+<li><em>Outcome 9</em>: Incremento al supporto delle competenze professionali</li>
+</ul>
+</section>
+</section>
+<section id="area-sostenibiulità-economica" class="level2">
+<h2 class="anchored" data-anchor-id="area-sostenibiulità-economica">4) Area Sostenibiulità economica</h2>
+<blockquote class="blockquote">
+<p>Linea d’Azione: Sostegno (r)esistente - PS:</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Ambiti intervento + Supportare attività di comunità attraverso interventi resistenti continuativi + Supportare attività tradizionali legate all’identità della comunità stessa</p>
+</blockquote>
+<!-- non basta erogare risorse: occorre rafforzare chi le riceve affinché possa
+operare in modo sempre più efficace e autonomo  -->
+<section id="evidenze-2" class="level3">
+<h3 class="anchored" data-anchor-id="evidenze-2">Evidenze</h3>
+</section>
+<section id="fonti-3" class="level3">
+<h3 class="anchored" data-anchor-id="fonti-3">Fonti</h3>
+</section>
+<section id="vis-fond-cariparma-3" class="level3">
+<h3 class="anchored" data-anchor-id="vis-fond-cariparma-3">VIS Fond Cariparma</h3>
+<ul>
+<li><em>Outcome 10</em>: Rafforzata sostenibilità e autonomia delle realtà radicate sul territorio</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="temi-indiretti" class="level1">
+<h1>Temi indiretti</h1>
+<!-- Vedi Rapporto OIS 11 dic 2025  -->
+<blockquote class="blockquote">
+<p>dimensioni oggi non rilevate sistematicamente:</p>
+</blockquote>
+<ol type="1">
+<li>la maturità valutativa degli enti,</li>
+<li>la natura delle collaborazioni attivate,</li>
+<li>l’effetto leva finanziaria,</li>
+<li>la sostenibilità economica delle organizzazioni,</li>
+<li>l’evoluzione delle capacità organizzative</li>
+</ol>
+</section>
+<section id="i-3-ambiti-di-intervento-trasversali" class="level1">
+<h1>I 3 ambiti di intervento trasversali:</h1>
+<ol type="1">
+<li>Valorazzare il capitale umano e sociale: <em>questo avviene soprattutto con la collaborazione</em></li>
+</ol>
+<ul>
+<li>Maggiore coesione sociale (s icollega a disuguaglianze, contesto di isolameto, frammentazione, famiglia unipersonale, corpi intermedi che si indeboliscono …)</li>
+</ul>
+<ol start="2" type="1">
+<li>Generare consapevolezza, partecipazione e protagonismo</li>
+<li>Valorizzare l’innovazione</li>
+</ol>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-r.c.Acer22Milioni2025" class="csl-entry" role="listitem">
+R. C. 2025. <span>“Acer, 22 Milioni Di Euro Per Il Recupero Di Case Vuote.”</span> <em>Gazzetta Di Parma</em>, December.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

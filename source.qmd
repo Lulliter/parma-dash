@@ -21,14 +21,31 @@ execute:
   echo: false # x mostrare codice anche in file docx
   warning: false
   error: false
-  output: false
+  output: true
 #   
-# bibliography: bib/CRP_dash.bib
-# suppress-bibliography: false
+bibliography: bib/CRP_dash.bib
+csl: bib/chicago-author-date.csl
+suppress-bibliography: false
+nocite: |
+  @istatConfiniUnitaAmministrative2025
+  @istatsituasReport73Comuni2025
 ---
 
 
 [ ⚠️ Work in progress ... ⚠️ ]
 
 
-Descrizione dettagliata delle fonti dati utilizzate nei moduli tematici del dashboard. 
+
+<!-- @istatConfiniUnitaAmministrative2025 -->
+<!-- @istatsituasReport73Comuni2025 -->
+
+```{r}
+library(RefManageR)
+BibOptions(style = "markdown", bib.style = "authoryear")
+bib <- ReadBib("bib/CRP_dash.bib")
+
+bib[["istatConfiniUnitaAmministrative2025"]]  # vedi il contenuto “crudo”
+print(bib["istatConfiniUnitaAmministrative2025"])  # vedi la versione formattata
+```
+
+## Altro 

@@ -1,6 +1,6 @@
-# SCARICO E PREPARO I DATI SUL TEMA DELLA DISABILITÀ PRESI DA LMIO FILE EXCEL 
-# DATI DEMO ISTAT TREND 2002-2024 (`data/data_in/indic_demogr_prov_trend.xlsx`) 
-# e salvo in `data/data_out/indic_demogr_prov_trend/*`  
+# SCARICO E PREPARO I DATI SUi TREND DEMOGRAFICI
+# DATI DEMO ISTAT TREND 2002-2024 (`data/data_in/indic_demogr_prov_trend.xlsx`)
+# e salvo in `data/data_out/indic_demogr_prov_trend/*`
 
 # Load pckgs /  functions ----
 library(readxl)
@@ -79,7 +79,6 @@ età_media_al_parto <- import_istat_simple_sheet(
 )
 
 
-
 # 🟩 Fogli (strani) speranza di vita -----
 ## ___ speranza_di_vita_0 ----
 speranza_di_vita_0 <- import_istat_speranza(
@@ -112,14 +111,16 @@ indicatori_di_struttura <- import_istat_complex_sheet(
 str(indicatori_di_struttura)
 
 # 🟦 SALVO -------
-# Use purrr to save all objects in the Glob Env as df to RDS files in data_out/istat_demo_2002_2024/*.rds 
-
+# Use purrr to save all objects in the Glob Env as df to RDS files in data_out/istat_demo_2002_2024/*.rds
 
 # Ottengo tutti gli oggetti nell'environment globale
 all_objects <- ls(envir = .GlobalEnv)
 
 # Filtro solo i dataframe
-df_names <- all_objects[purrr::map_lgl(all_objects, ~ is.data.frame(get(.x, envir = .GlobalEnv)))]
+df_names <- all_objects[purrr::map_lgl(
+  all_objects,
+  ~ is.data.frame(get(.x, envir = .GlobalEnv))
+)]
 
 # Creo la directory output se non esiste
 output_dir <- here::here("data", "data_out", "istat_demo_2002_2024")

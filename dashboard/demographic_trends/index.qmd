@@ -28,8 +28,8 @@ execute:
   error: false
   output: false
   
-bibliography: ../../bib/CRP_dash.bib
-suppress-bibliography: false
+# bibliography: ../../bib/CRP_dash.bib
+# suppress-bibliography: false
 ---
 
 

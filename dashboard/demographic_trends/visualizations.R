@@ -329,6 +329,7 @@ p03_i_d_s <- plot_indicatore_demografico(
   file_name = "p03_i_d_s.rds"
 )
 p03_i_d_s
+
 # Plot: p04_i_d_a  [= Indice di dipendenza anziani] ----
 p04_i_d_a <- plot_indicatore_demografico(
   dataset = data,

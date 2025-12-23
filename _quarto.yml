@@ -30,10 +30,10 @@ website:
     pinned: true
     left:
       - text: Home
-        href: index.qmd
-      - text: Dashboard
+        href: index.qmd # Qui elenco i temi trattati
+      - text: Dati di contesto
         href: dashboard.qmd # Qui metterò una sotto pagina per ogni tema
-      - text: Dati e Fonti
+      - text: Fonti
         href: source.qmd # Qui metterò una sotto pagina per ogni fonte di dati (riflettendo i temi)
       - text: Blog
         href: posts.qmd
@@ -45,7 +45,7 @@ website:
 
 # --- Structure of the sidebar (if any)
   sidebar:
-    - title: "Dashboard"
+    - title: "Dashboard" # "Dati di contesto"
       style: docked
       background: "#9f7d35"
       contents:

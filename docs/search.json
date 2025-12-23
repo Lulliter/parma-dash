@@ -25,9 +25,9 @@
     "href": "source.html",
     "title": "FONTI DATI",
     "section": "",
-    "text": "[ ⚠️ Work in progress … ⚠️ ]\nDescrizione dettagliata delle fonti dati utilizzate nei moduli tematici del dashboard.",
+    "text": "[ ⚠️ Work in progress … ⚠️ ]\nIstat (2025). _Confini Delle Unità Amministrative a Fini Statistici_.\nShapefiles Dei Confini Amministrativi\n\n\nIstat (2025). _Confini Delle Unità Amministrative a Fini Statistici_.\nShapefiles Dei Confini Amministrativi",
     "crumbs": [
-      "Dati e Fonti",
+      "Fonti",
       "FONTI DATI"
     ]
   },
@@ -39,131 +39,91 @@
     "text": "[ ⚠️ Work in progress … ⚠️ ]"
   },
   {
-    "objectID": "dashboard/non_autosufficienza/index.html",
-    "href": "dashboard/non_autosufficienza/index.html",
-    "title": "Dati specifici sulla (non) autosufficienza",
+    "objectID": "dashboard/serv_soc/index.html",
+    "href": "dashboard/serv_soc/index.html",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
     "section": "",
-    "text": "DI COSA SI TRATTA: questi 2 principali indicatori catturano più specificamente limitazioni nelle attività quotidiane, e quindi sono direttamente correlabili alla necessità di assistenza e supporto. In particolare:\n\nDLA (Activities of Daily Living): misurano la capacità di una persona di svolgere attività quotidiane di cura della persona: mangiare, vestirsi, lavarsi, usare il bagno, spostarsi e trasferirsi.\nIADL (Instrumental Activities of Daily Living): misurano la capacità di svolgere attività quotidiane più complesse come fare la spesa, preparare i pasti, gestire i farmaci, usare il telefono, fare le pulizie e gestire le finanze.\n\nCome si misurano: lo studio EHIS (European Health Interview Survey) condotto dall’ISTAT, include domande specifiche sulle difficoltà incontrate dalle persone nelle attività di cura personale e domestiche.\n\nAmbito: Disponibile per regione, sesso, classi di età (…), e livelli di indicatore...\n\nAnno di riferimento: I dati sono al 2022 (ma basati sul 2019)\n\nFonte: 🟩 ISTAT Indagine europea sulla salute (EHIS) (2022 ma dati sul 2019)\n\nLink: Istat - EHIS, 2022 (su dati 2019)",
+    "text": "Questa pagina riporta dati Istat osservati dal 2002 al 2022 su Interventi e servizi sociali dei comuni (link al dataset DCIS_SPESESERSOC1).\nQui, il focus è su 3 servizi in particolare:\nNB: I dati di questo database, riguardano solo la quota di servizi e interventi socio-assistenziali dei Comuni e delle loro forme associative al netto della compartecipazione del Servizio Sanitario Nazionale. In particolare, il servizio ADI, mostra solo la componente sociale dell’ADI (quota a carico dei Comuni), mentre la parte sanitaria gestiti interamente dall’AUSL non compare.",
     "crumbs": [
-      "Dashboard",
-      "Tema 2.b) Non autosufficienza"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche",
-    "href": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche",
-    "title": "Dati specifici sulla (non) autosufficienza",
-    "section": "Quali sono queste attività e a che età diventano critiche?",
-    "text": "Quali sono queste attività e a che età diventano critiche?\nI grafici a bilanciere enfatizzano la differenza tra le due fasce d’età, mostrando visivamente l’entità del “salto” tra 65-74 e 75+ per livello di difficolà incontrato.\n\np55_dumbbell_adl_grave [ADL - Difficoltà gravi per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAumento esponenziale dopo i 75 anni: Le difficoltà gravi nelle attività di cura personale mostrano un incremento drammatico tra 65-74 e 75+. Alcune attività mostrano gap superiori ai 10-15 punti percentuali, evidenziando come l’assistenza intensiva diventi critica proprio dopo i 75 anni. Questo dato è essenziale per dimensionare i servizi di assistenza domiciliare e residenziale.\n\n\n\n\n\n\n\np56_dumbbell_adl_moderata [ADL - Difficoltà moderate per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nDifficoltà moderate: segnale precoce di fragilità: Le difficoltà moderate rappresentano una “zona grigia” fondamentale per interventi preventivi. Il loro aumento tra le due fasce d’età indica una progressione verso la non autosufficienza che può essere rallentata con supporti adeguati (ausili, riabilitazione, assistenza domiciliare leggera).",
+    "objectID": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento",
+    "href": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Dati al 2022 - Confronto con territori di riferimento",
+    "text": "Dati al 2022 - Confronto con territori di riferimento\nQui si osserva PERUSTPOP, ovvero “Percentuale di utenti sulla popolazione di riferimento”, cioè il rapporto percentuale tra il numero dei beneficiari del servizio e la popolazione target dell’area di utenza (anziani, disabili, minori, ecc.).\n\n\nSADADIVoucher, etc.\n\n\nSERVIZIO: assistenza domiciliare socio-assistenzialeDATO: utenti sulla popolazione di riferimento (%) - 2022Territoriodisabilianzianifamiglia e minoriParma2,42,40,1EmiliaRomagna2,21,30,1NordEst2,21,50,1Italia5,01,00,2\n\n\nSERVIZIO: assistenza domiciliare integrata con servizi sanitariDATO: utenti sulla popolazione di riferimento (%) - 2022TerritoriodisabilianzianiParma0,00,1EmiliaRomagna0,90,7NordEst2,71,9Italia1,40,5\n\n\nSERVIZIO: voucher, assegno di cura, buono socio-sanitarioDATO: utenti sulla popolazione di riferimento (%) - 2022TerritoriodisabilianzianiParma1,60,4EmiliaRomagna1,30,3NordEst4,81,1Italia3,30,4",
     "crumbs": [
-      "Dashboard",
-      "Tema 2.b) Non autosufficienza"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche-1",
-    "href": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche-1",
-    "title": "Dati specifici sulla (non) autosufficienza",
-    "section": "Quali sono queste attività e a che età diventano critiche?",
-    "text": "Quali sono queste attività e a che età diventano critiche?\nI grafici a bilanciere enfatizzano la differenza tra le due fasce d’età, mostrando visivamente l’entità del “salto” tra 65-74 e 75+ per livello di difficolà incontrato.\n\np57_dumbbell_iadl_grave [IADL - Difficoltà gravi per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLe attività domestiche come indicatore di autonomia complessiva: Le IADL gravi mostrano un pattern simile alle ADL ma con percentuali generalmente più elevate già nella fascia 65-74. Alcune attività strumentali (gestione farmaci, preparazione pasti complessi, gestione finanze) richiedono integrità cognitiva oltre che fisica, rappresentando indicatori precoci di fragilità multipla.\n\n\n\n\n\n\np58_dumbbell_iadl_moderata [IADL - Difficoltà moderate per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAmpia fascia con bisogni di supporto strumentale: Le difficoltà moderate nelle IADL coinvolgono una quota significativa della popolazione anziana. Questo suggerisce un ampio bacino di utenza per servizi di supporto domiciliare leggero, consegna pasti, telemedicina per gestione farmaci, e altri interventi che favoriscono l’autonomia abitativa ritardando l’istituzionalizzazione.",
+    "objectID": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento-1",
+    "href": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento-1",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Dati al 2022 - Confronto con territori di riferimento",
+    "text": "Dati al 2022 - Confronto con territori di riferimento\nQui si osserva PERMOS, ovvero “Percentuale di comuni che offrono il servizio sul totale comuni”, cioè una misura della diffusione territoriale del servizio: quanti Comuni lo hanno attivato nell’area territoriale di riferimento.\n\n\nSADADIVoucher, etc.\n\n\nSERVIZIO: assistenza domiciliare socio-assistenzialeDATO: comuni che offrono il servizio (%) - 2022Territoriodisabilianzianifamiglia e minoriParma84,197,738,6EmiliaRomagna69,482,430,3NordEst53,491,132,6Italia68,485,447,1\n\n\nSERVIZIO: assistenza domiciliare integrata con servizi sanitariDATO: comuni che offrono il servizio (%) - 2022TerritoriodisabilianzianiParma18,218,2EmiliaRomagna34,244,2NordEst29,446,5Italia33,238,0\n\n\nSERVIZIO: voucher, assegno di cura, buono socio-sanitarioDATO: comuni che offrono il servizio (%) - 2022TerritoriodisabilianzianiParma22,722,7EmiliaRomagna37,932,4NordEst74,271,5Italia59,949,6",
     "crumbs": [
-      "Dashboard",
-      "Tema 2.b) Non autosufficienza"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/demographic_trends/index.html",
-    "href": "dashboard/demographic_trends/index.html",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "I dati illustrati in questa sezione sono stati estratti principalmente dal database ISTAT – indicatori demografici a livello provinciale, lungo il periodo 2002-2024. L’analisi mette a confronto la provincia di Parma con le altre province della regione, e con i valori medi dell’Emilia-Romagna e dell’Italia, al fine di evidenziare le peculiarità demografiche del territorio parmense.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età media è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma in controtendenza sulla natalità: la quota di popolazione giovane (0-14 anni) è aumentata di 1 punto percentuale (dall’11.4% al 12.4%), mentre l’Emilia-Romagna è rimasta stabile (+0.1pp) e l’Italia è diminuita di 2.3 punti. Parma presenta oggi 0.6pp in più rispetto alla media regionale, suggerendo una maggiore tenuta della componente giovanile con potenziali implicazioni positive per i servizi educativi e il ricambio generazionale.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nTenuta della popolazione in età lavorativa: la fascia 15-64 anni è diminuita di 1.4 punti percentuali (da 65.4% a 64.0%), meno rispetto all’Emilia-Romagna (-2.6pp a 63.3%) e all’Italia (-3.7pp a 63.4%). Parma mantiene una quota leggermente superiore (+0.7pp vs ER), con implicazioni positive per la sostenibilità del sistema di welfare.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più lento a Parma: la quota di over 65 è cresciuta di soli 0.4 punti percentuali (da 23.2% a 23.6%), contro i +2.5pp dell’Emilia-Romagna (24.9%) e i +6pp dell’Italia (24.7%). Parma mantiene una popolazione anziana relativamente più contenuta (-1.3pp vs ER), con implicazioni dirette sulla domanda di servizi socio-sanitari e assistenziali.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCalo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.\n\n\n\n\n\n\n\nIstat propone diversi indici sintetici per valutare la struttura demografica e le pressioni assistenziali sulla popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nIn un quadro decisamente preoccupante, Parma si distingue con un trend leggermente più favorevole: mentre l’indice di vecchiaia è diminuito del 6.8% (da 204 a 190), in Emilia-Romagna è aumentato del 9.6% (a 211) e in Italia del 57.6% (a 208). Nel 2025 Parma presenta un indice inferiore di 20 punti rispetto alla media regionale, evidenziando un processo di invecchiamento significativamente più contenuto.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita più contenuta a Parma: l’indice è aumentato del 6.0% (a 56.2), contro il +12.2% dell’Emilia-Romagna (58.0) e il +17.7% dell’Italia (57.8), mantenendosi 1.8 punti sotto la media regionale. Questo indica una minore pressione sulla popolazione in età lavorativa.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma mostra un invecchiamento più contenuto: l’indice di dipendenza anziani è cresciuto solo del 3.7% (da 35.6 a 36.9), contro il +15.9% dell’Emilia-Romagna (39.4) e il +39.8% dell’Italia (39.0). Al 2025 Parma mantiene un indice inferiore di 2.5 punti rispetto all’ER, segnalando un carico assistenziale legato alla popolazione anziana più sostenibile.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCalo dei matrimoni: il quoziente di nuzialità è diminuito del 35% a Parma (da 4.0 a 2.6 per mille), trend simile a quello regionale e nazionale, riflettendo i cambiamenti nei modelli di formazione delle coppie.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nPosticipazione della maternità: l’età media al parto è aumentata di 2.1 anni (da 30.3 a 32.4), allineata al trend regionale e nazionale. Questo fenomeno ha implicazioni sui servizi di supporto alla genitorialità e sulla fertilità complessiva.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nFecondità: numero medio di figli per donna in età fertile. Il trend mostra l’evoluzione della natalità al netto dell’effetto della struttura per età della popolazione, indicatore cruciale per valutare la sostenibilità demografica di lungo periodo.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLongevità in crescita: la speranza di vita alla nascita mostra un trend di crescita costante nel periodo, con Parma che si mantiene allineata ai valori regionali e nazionali, indicatore di buone condizioni di vita e accesso ai servizi sanitari.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAnni da vivere dopo i 65: l’indicatore mostra il numero medio di anni che restano da vivere a 65 anni, parametro chiave per stimare la durata del bisogno assistenziale nella popolazione anziana. Il trend è in crescita, riflettendo il miglioramento delle condizioni di salute degli anziani.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nForte attrattività migratoria: nonostante il calo dal 2002, Parma mantiene un saldo migratorio totale di 8.4 per mille (2024), più che doppio rispetto alla media nazionale (4.1) e superiore alla media regionale (8.1). La differenza di +4.3 punti vs Italia evidenzia una significativa capacità di attrazione, fattore chiave per compensare il calo naturale della popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMobilità interna: il saldo migratorio interno (tra comuni italiani) è positivo a Parma (+3.0 per mille nel 2024), segnalando un’attrattività rispetto ad altre aree del Paese, anche se in calo rispetto al 2002 (+6.0).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nImmigrazione dall’estero: il saldo migratorio con l’estero è stabile a Parma (+5.4 per mille), allineato all’ER ma superiore alla media nazionale (+4.1). L’immigrazione internazionale costituisce una componente strutturale della dinamica demografica parmense.",
+    "objectID": "dashboard/serv_soc/index.html#osservazioni",
+    "href": "dashboard/serv_soc/index.html#osservazioni",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Osservazioni",
+    "text": "Osservazioni\n\nGli indicatori percentuali sugli utenti (PERUSTPOP) relativi a SAD e ADI appaiono molto bassi perché il dataset Istat, DCIS, rileva esclusivamente la componente sociale dei servizi domiciliari gestita dai Comuni. La parte sanitaria dell’ADI – che rappresenta la quota ampiamente maggioritaria delle prese in carico domiciliari – non è inclusa nella rilevazione.\nInoltre, la popolazione di riferimento utilizzata da ISTAT (over-65 per gli anziani; persone con gravi limitazioni &lt;65 per i disabili) è numericamente molto ampia. Di conseguenza, anche un numero modesto di utenti registrati dai Comuni produce valori percentuali prossimi allo zero.\nI livelli osservati per Parma sono allineati ai pattern regionali e nazionali e non riflettono la reale copertura dell’ADI sanitaria, che è significativamente più elevata.",
     "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/demographic_trends/index.html#trend-di-distribuzione-della-popolazione-per-età",
-    "href": "dashboard/demographic_trends/index.html#trend-di-distribuzione-della-popolazione-per-età",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "I dati illustrati in questa sezione sono stati estratti principalmente dal database ISTAT – indicatori demografici a livello provinciale, lungo il periodo 2002-2024. L’analisi mette a confronto la provincia di Parma con le altre province della regione, e con i valori medi dell’Emilia-Romagna e dell’Italia, al fine di evidenziare le peculiarità demografiche del territorio parmense.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età media è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma in controtendenza sulla natalità: la quota di popolazione giovane (0-14 anni) è aumentata di 1 punto percentuale (dall’11.4% al 12.4%), mentre l’Emilia-Romagna è rimasta stabile (+0.1pp) e l’Italia è diminuita di 2.3 punti. Parma presenta oggi 0.6pp in più rispetto alla media regionale, suggerendo una maggiore tenuta della componente giovanile con potenziali implicazioni positive per i servizi educativi e il ricambio generazionale.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nTenuta della popolazione in età lavorativa: la fascia 15-64 anni è diminuita di 1.4 punti percentuali (da 65.4% a 64.0%), meno rispetto all’Emilia-Romagna (-2.6pp a 63.3%) e all’Italia (-3.7pp a 63.4%). Parma mantiene una quota leggermente superiore (+0.7pp vs ER), con implicazioni positive per la sostenibilità del sistema di welfare.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più lento a Parma: la quota di over 65 è cresciuta di soli 0.4 punti percentuali (da 23.2% a 23.6%), contro i +2.5pp dell’Emilia-Romagna (24.9%) e i +6pp dell’Italia (24.7%). Parma mantiene una popolazione anziana relativamente più contenuta (-1.3pp vs ER), con implicazioni dirette sulla domanda di servizi socio-sanitari e assistenziali.",
+    "objectID": "dashboard/serv_soc/index.html#assistenza-domiciliare---provincie-er-nel-tempo",
+    "href": "dashboard/serv_soc/index.html#assistenza-domiciliare---provincie-er-nel-tempo",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Assistenza domiciliare - provincie ER nel tempo",
+    "text": "Assistenza domiciliare - provincie ER nel tempo\n\nPercentuale di persone su popolazione di riferimento\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPercentuale di comuni che erogano il servizio",
     "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/demographic_trends/index.html#trend-crescita-della-popolazione-per-età",
-    "href": "dashboard/demographic_trends/index.html#trend-crescita-della-popolazione-per-età",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "Osservazioni\n\n\n\n\n\nCalo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.",
+    "objectID": "dashboard/serv_soc/index.html#assistenza-domiciliare-integrata-con-servizi-sanitari---provincie-er-nel-tempo",
+    "href": "dashboard/serv_soc/index.html#assistenza-domiciliare-integrata-con-servizi-sanitari---provincie-er-nel-tempo",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo",
+    "text": "Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo\n\nPercentuale di persone su popolazione di riferimento\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPercentuale di comuni che erogano il servizio",
     "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/demographic_trends/index.html#trend-indici-strutturali-della-popolazione",
-    "href": "dashboard/demographic_trends/index.html#trend-indici-strutturali-della-popolazione",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "Istat propone diversi indici sintetici per valutare la struttura demografica e le pressioni assistenziali sulla popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nIn un quadro decisamente preoccupante, Parma si distingue con un trend leggermente più favorevole: mentre l’indice di vecchiaia è diminuito del 6.8% (da 204 a 190), in Emilia-Romagna è aumentato del 9.6% (a 211) e in Italia del 57.6% (a 208). Nel 2025 Parma presenta un indice inferiore di 20 punti rispetto alla media regionale, evidenziando un processo di invecchiamento significativamente più contenuto.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita più contenuta a Parma: l’indice è aumentato del 6.0% (a 56.2), contro il +12.2% dell’Emilia-Romagna (58.0) e il +17.7% dell’Italia (57.8), mantenendosi 1.8 punti sotto la media regionale. Questo indica una minore pressione sulla popolazione in età lavorativa.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma mostra un invecchiamento più contenuto: l’indice di dipendenza anziani è cresciuto solo del 3.7% (da 35.6 a 36.9), contro il +15.9% dell’Emilia-Romagna (39.4) e il +39.8% dell’Italia (39.0). Al 2025 Parma mantiene un indice inferiore di 2.5 punti rispetto all’ER, segnalando un carico assistenziale legato alla popolazione anziana più sostenibile.",
+    "objectID": "dashboard/serv_soc/index.html#voucher-assegno-di-cura-buono-socio-sanitario---provincie-er-nel-tempo",
+    "href": "dashboard/serv_soc/index.html#voucher-assegno-di-cura-buono-socio-sanitario---provincie-er-nel-tempo",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Voucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo",
+    "text": "Voucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo\n\nPercentuale di persone su popolazione di riferimento\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPercentuale di comuni che erogano il servizio",
     "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
-    "objectID": "dashboard/demographic_trends/index.html#trend-composizione-delle-famiglie",
-    "href": "dashboard/demographic_trends/index.html#trend-composizione-delle-famiglie",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "Osservazioni\n\n\n\n\n\nCalo dei matrimoni: il quoziente di nuzialità è diminuito del 35% a Parma (da 4.0 a 2.6 per mille), trend simile a quello regionale e nazionale, riflettendo i cambiamenti nei modelli di formazione delle coppie.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nPosticipazione della maternità: l’età media al parto è aumentata di 2.1 anni (da 30.3 a 32.4), allineata al trend regionale e nazionale. Questo fenomeno ha implicazioni sui servizi di supporto alla genitorialità e sulla fertilità complessiva.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nFecondità: numero medio di figli per donna in età fertile. Il trend mostra l’evoluzione della natalità al netto dell’effetto della struttura per età della popolazione, indicatore cruciale per valutare la sostenibilità demografica di lungo periodo.",
+    "objectID": "dashboard/serv_soc/index.html#dati-al-2022---confronto-provincie-er",
+    "href": "dashboard/serv_soc/index.html#dati-al-2022---confronto-provincie-er",
+    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "section": "Dati al 2022 - Confronto provincie ER",
+    "text": "Dati al 2022 - Confronto provincie ER\n\nAssistenza domiciliare socio-assistenziale\n\n\n\n\n\n\n\n\n\n\n\nAssistenza domiciliare integrata con servizi sanitari\n\n\n\n\n\n\n\n\n\n\n\nVoucher, assegno di cura, buono socio-sanitario\n\n\n\n\n\n\n\n\n\n\n\nAltri servizi socio-assistenziali - provincie ER nel tempo",
     "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
-    ]
-  },
-  {
-    "objectID": "dashboard/demographic_trends/index.html#trend-speranza-di-vita",
-    "href": "dashboard/demographic_trends/index.html#trend-speranza-di-vita",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "Osservazioni\n\n\n\n\n\nLongevità in crescita: la speranza di vita alla nascita mostra un trend di crescita costante nel periodo, con Parma che si mantiene allineata ai valori regionali e nazionali, indicatore di buone condizioni di vita e accesso ai servizi sanitari.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAnni da vivere dopo i 65: l’indicatore mostra il numero medio di anni che restano da vivere a 65 anni, parametro chiave per stimare la durata del bisogno assistenziale nella popolazione anziana. Il trend è in crescita, riflettendo il miglioramento delle condizioni di salute degli anziani.",
-    "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
-    ]
-  },
-  {
-    "objectID": "dashboard/demographic_trends/index.html#trend-immigrazione",
-    "href": "dashboard/demographic_trends/index.html#trend-immigrazione",
-    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
-    "section": "",
-    "text": "Osservazioni\n\n\n\n\n\nForte attrattività migratoria: nonostante il calo dal 2002, Parma mantiene un saldo migratorio totale di 8.4 per mille (2024), più che doppio rispetto alla media nazionale (4.1) e superiore alla media regionale (8.1). La differenza di +4.3 punti vs Italia evidenzia una significativa capacità di attrazione, fattore chiave per compensare il calo naturale della popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMobilità interna: il saldo migratorio interno (tra comuni italiani) è positivo a Parma (+3.0 per mille nel 2024), segnalando un’attrattività rispetto ad altre aree del Paese, anche se in calo rispetto al 2002 (+6.0).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nImmigrazione dall’estero: il saldo migratorio con l’estero è stabile a Parma (+5.4 per mille), allineato all’ER ma superiore alla media nazionale (+4.1). L’immigrazione internazionale costituisce una componente strutturale della dinamica demografica parmense.",
-    "crumbs": [
-      "Dashboard",
-      "Tema 1) Trend Demografici"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is the about page for Parma Dash."
-  },
-  {
-    "objectID": "dashboard.html",
-    "href": "dashboard.html",
-    "title": "ANALISI PER TEMI",
-    "section": "",
-    "text": "Ogni pagina rappresenta un modulo tematico in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.\nIn questa sezione si osservano:\n\nL’analisi dei trend demografici (ISTAT 2002-2025), integrata con i dati comunali del Censimento 2023 e gli indici sintetici di fragilità (Calcolati dalla Regione ER), mostra come Parma abbia un profilo demografico piuttosto distintivo rispetto alla media regionale e nazionale, con alcune implicazioni rilevanti per la programmazione dei servizi sociali.\nAnalisi (ISTAT e EHIS) su specifici indicatori di fragilità negli anziani:\n\n\n\nIndicatore sulla disabilità ≈ GALI (Global Activity Limitation Indicator) è una misura più generale di disabilità\n\n\nIndicatori sulla non autosufficienza in attività quotidiane ≈ ADL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living) sono misure più specifiche (e operative) delle limitazioni nelle attività quotidiane di cura della persona e/o di interazione con la realtà e la comunità.\n\n\n\n\n\n\n\n\nNota\n\n\n\n\n\nI dati sulla domanda di servizi sociali e sanitari sono spesso frammentati, non aggiornati e/o non disponibili a livello comunale.",
-    "crumbs": [
-      "Dashboard",
-      "ANALISI PER TEMI"
+      "Dati di contesto",
+      "Tema 2.c) Servizi Sociali dei Comuni"
     ]
   },
   {
@@ -173,7 +133,7 @@
     "section": "",
     "text": "COSA RAPPRESENTA: l’indicatore di disabilità osservato (che corrisponde all’indicatore GALI - Global Activity Limitation Indicator) è:\n\n`a. Persone con disabilità\n\na.1 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori assoluti in migliaia)\na.2 Persone per gravità delle limitazioni nelle attività abitualmente svolte (valori percentuali)\n\n\nCome si misura: basato su una domanda auto-riferita nell’indagine multiscopo ISTAT sulle famiglie, che chiede se la persona ha limitazioni nelle attività abitualmente svolte a causa di problemi di salute (fisici, mentali o di altro tipo) e la gravità di tali limitazioni (gravi, non gravi, nessuna limitazione).\n\nAmbito: Questo indicatore è disponibile per regione, classi di età (…), e livello di limitazione (limitazioni gravi, limitazioni non gravi)\nAnno di riferimento: I dati sono al 2023 (ma basati sui 2 anni precedenti), ma sarebbero dispoonibile dal 2009\nFonte: 🟩 ISTAT (DisabilitàInCifre)-Multiscopo sulle famiglie: aspetti della vita quotidiana:parte generale (2022/2023)\nLink: Istat - Disabilità in cifre \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nEmilia-Romagna sopra la media nazionale per limitazioni gravi: L’ER registra il 5.0% della popolazione con limitazioni gravi (in linea con l’Italia), ma superiore al Nord-est (4.5%). Il gap è più marcato negli anziani 75+: l’ER ha 19.5% contro il 17.6% del Nord-est, con una differenza di +1.9 punti percentuali. Questo indica un maggior bisogno di assistenza intensiva nella popolazione anziana regionale.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLimitazioni non gravi: ER al di sopra della media: L’Emilia-Romagna presenta 17.1% della popolazione con limitazioni non gravi, superiore sia al Nord-est (16.4%) che all’Italia (16.2%). La differenza è particolarmente evidente nei 65-74 anni dove l’ER raggiunge 31.7% contro il 27.8% del Nord-est (+3.9pp). Ciò suggerisce un’ampia fascia di popolazione con bisogni di supporto moderato.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAllargando il confronto a ambiti territoriali comparabili, l’analisi conferma come l’Emilia-Romagna (e il Nord-est in generale) siano tra le aree con maggiore percentuale di anziani (tutti gli over 65) che sopportano qualche condizioni di limitazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nForte gradiente per età nelle limitazioni gravi: L’incidenza cresce esponenzialmente con l’età: da circa 1-2% nei giovani a 19-20% nei 75+. L’Emilia-Romagna mantiene un profilo simile all’Italia in tutte le fasce d’età (seconda solo al Friuli-Venezia Giulia per incidenza della disabilità). Le altre regioni del Nord-est mostrano valori sistematicamente più bassi. Questo grafico permette di apprezzare l’urgenza di servizi graduati per intensità di assistenza.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLimitazioni non gravi già rilevanti nei 45-64 anni: Mentre le limitazioni gravi restano contenute sotto i 65 anni, quelle non gravi iniziano a crescere significativamente già nella fascia 45-64 anni (circa 10-15%), raggiungendo 30-35% nei 65-74 anni. L’ER si posiziona stabilmente sopra la media in tutte le fasce, indicando un bisogno diffuso di interventi preventivi e di forme di sostegno leggero.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAnziani 65+: quasi un quarto con limitazioni (gravi o non gravi): Considerando tutte le limitazioni aggregate (gravi + non gravi), l’Emilia-Romagna raggiunge il 23.0% della popolazione anziana (65+), allineata alla media nazionale ma superiore alle regioni vicine del Nord-est (21.2%). Considerando l’intera popolazione, l’ER ha 11.0% con limitazioni, valore più alto tra i territori confrontati. Questi dati evidenziano una significativa domanda di servizi di supporto, dalla prevenzione all’assistenza intensiva.\n\n\n\n\n\n\n\n\nLo strumento delle mappe consente di visualizzare la distribuzione geografica delle limitazioni per tutte le regioni italiane. Colpisce notare che, una regione altamente paragonabile all’Emilia-Romagna come la Lombardia, mostra valori più bassi in tutte le fasce d’età, suggerendo differenze strutturali nei fattori di rischio o nell’accesso ai servizi di prevenzione e cura.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0-44 anni45-64 anni65-74 anni75+ anni\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nForte variabilità geografica nelle limitazioni gravi: Le mappe rivelano importanti differenze territoriali. In tutte le fasce d’età, la Sardegna presenta i valori più elevati (fino a 27.3% nei 75+), mentre il Nord-est (Veneto, Trentino) mostra le migliori condizioni. L’Emilia-Romagna si posiziona: - 0-44 anni: ER al massimo nazionale (1.7%) - dato anomalo da verificare - 45-64 anni: ER in posizione intermedia (3.5% vs range 2.7-6.6%) - 65-74 anni: ER sopra la media (6.7% vs range 4.0-12.1%) - 75+ anni: ER in posizione medio-alta (19.5% vs range 14.7-27.3%)\nIl gradiente Nord-Sud è evidente, con implicazioni per la programmazione sanitaria e sociale a livello nazionale.",
     "crumbs": [
-      "Dashboard",
+      "Dati di contesto",
       "Tema 2.a) Disabilità"
     ]
   },
@@ -184,7 +144,7 @@
     "section": "",
     "text": "Osservazioni\n\n\n\n\n\nEmilia-Romagna sopra la media nazionale per limitazioni gravi: L’ER registra il 5.0% della popolazione con limitazioni gravi (in linea con l’Italia), ma superiore al Nord-est (4.5%). Il gap è più marcato negli anziani 75+: l’ER ha 19.5% contro il 17.6% del Nord-est, con una differenza di +1.9 punti percentuali. Questo indica un maggior bisogno di assistenza intensiva nella popolazione anziana regionale.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLimitazioni non gravi: ER al di sopra della media: L’Emilia-Romagna presenta 17.1% della popolazione con limitazioni non gravi, superiore sia al Nord-est (16.4%) che all’Italia (16.2%). La differenza è particolarmente evidente nei 65-74 anni dove l’ER raggiunge 31.7% contro il 27.8% del Nord-est (+3.9pp). Ciò suggerisce un’ampia fascia di popolazione con bisogni di supporto moderato.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAllargando il confronto a ambiti territoriali comparabili, l’analisi conferma come l’Emilia-Romagna (e il Nord-est in generale) siano tra le aree con maggiore percentuale di anziani (tutti gli over 65) che sopportano qualche condizioni di limitazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nForte gradiente per età nelle limitazioni gravi: L’incidenza cresce esponenzialmente con l’età: da circa 1-2% nei giovani a 19-20% nei 75+. L’Emilia-Romagna mantiene un profilo simile all’Italia in tutte le fasce d’età (seconda solo al Friuli-Venezia Giulia per incidenza della disabilità). Le altre regioni del Nord-est mostrano valori sistematicamente più bassi. Questo grafico permette di apprezzare l’urgenza di servizi graduati per intensità di assistenza.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLimitazioni non gravi già rilevanti nei 45-64 anni: Mentre le limitazioni gravi restano contenute sotto i 65 anni, quelle non gravi iniziano a crescere significativamente già nella fascia 45-64 anni (circa 10-15%), raggiungendo 30-35% nei 65-74 anni. L’ER si posiziona stabilmente sopra la media in tutte le fasce, indicando un bisogno diffuso di interventi preventivi e di forme di sostegno leggero.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAnziani 65+: quasi un quarto con limitazioni (gravi o non gravi): Considerando tutte le limitazioni aggregate (gravi + non gravi), l’Emilia-Romagna raggiunge il 23.0% della popolazione anziana (65+), allineata alla media nazionale ma superiore alle regioni vicine del Nord-est (21.2%). Considerando l’intera popolazione, l’ER ha 11.0% con limitazioni, valore più alto tra i territori confrontati. Questi dati evidenziano una significativa domanda di servizi di supporto, dalla prevenzione all’assistenza intensiva.",
     "crumbs": [
-      "Dashboard",
+      "Dati di contesto",
       "Tema 2.a) Disabilità"
     ]
   },
@@ -195,23 +155,179 @@
     "section": "",
     "text": "Lo strumento delle mappe consente di visualizzare la distribuzione geografica delle limitazioni per tutte le regioni italiane. Colpisce notare che, una regione altamente paragonabile all’Emilia-Romagna come la Lombardia, mostra valori più bassi in tutte le fasce d’età, suggerendo differenze strutturali nei fattori di rischio o nell’accesso ai servizi di prevenzione e cura.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0-44 anni45-64 anni65-74 anni75+ anni\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nForte variabilità geografica nelle limitazioni gravi: Le mappe rivelano importanti differenze territoriali. In tutte le fasce d’età, la Sardegna presenta i valori più elevati (fino a 27.3% nei 75+), mentre il Nord-est (Veneto, Trentino) mostra le migliori condizioni. L’Emilia-Romagna si posiziona: - 0-44 anni: ER al massimo nazionale (1.7%) - dato anomalo da verificare - 45-64 anni: ER in posizione intermedia (3.5% vs range 2.7-6.6%) - 65-74 anni: ER sopra la media (6.7% vs range 4.0-12.1%) - 75+ anni: ER in posizione medio-alta (19.5% vs range 14.7-27.3%)\nIl gradiente Nord-Sud è evidente, con implicazioni per la programmazione sanitaria e sociale a livello nazionale.",
     "crumbs": [
-      "Dashboard",
+      "Dati di contesto",
       "Tema 2.a) Disabilità"
+    ]
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "ANALISI PER TEMI",
+    "section": "",
+    "text": "Ogni pagina rappresenta un modulo tematico in cui si approfondisce un aspetto rilevante per avere una visione più completa dei bisogni del territorio.\nIn questa sezione si osservano:\n\nL’analisi dei trend demografici (ISTAT 2002-2025), integrata con i dati comunali del Censimento 2023 e gli indici sintetici di fragilità (Calcolati dalla Regione ER), mostra come Parma abbia un profilo demografico piuttosto distintivo rispetto alla media regionale e nazionale, con alcune implicazioni rilevanti per la programmazione dei servizi sociali.\nAnalisi (ISTAT e EHIS) su specifici indicatori di fragilità negli anziani:\n\n\n\nIndicatore sulla disabilità ≈ GALI (Global Activity Limitation Indicator) è una misura più generale di disabilità\n\n\nIndicatori sulla non autosufficienza in attività quotidiane ≈ ADL /IADL (Activities of Daily Living / Instrumental Activities of Daily Living) sono misure più specifiche (e operative) delle limitazioni nelle attività quotidiane di cura della persona e/o di interazione con la realtà e la comunità.\n\n\n\n\n\n\n\n\nNota\n\n\n\n\n\nI dati sulla domanda di servizi sociali e sanitari sono spesso frammentati, non aggiornati e/o non disponibili a livello comunale.",
+    "crumbs": [
+      "Dati di contesto",
+      "ANALISI PER TEMI"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for Parma Dash."
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html",
+    "href": "dashboard/demographic_trends/index.html",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "I dati illustrati in questa sezione sono stati estratti principalmente dal database ISTAT – indicatori demografici a livello provinciale, lungo il periodo 2002-2024. L’analisi mette a confronto la provincia di Parma con le altre province della regione, e con i valori medi dell’Emilia-Romagna e dell’Italia, al fine di evidenziare le peculiarità demografiche del territorio parmense.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età media è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma in controtendenza sulla natalità: la quota di popolazione giovane (0-14 anni) è aumentata di 1 punto percentuale (dall’11.4% al 12.4%), mentre l’Emilia-Romagna è rimasta stabile (+0.1pp) e l’Italia è diminuita di 2.3 punti. Parma presenta oggi 0.6pp in più rispetto alla media regionale, suggerendo una maggiore tenuta della componente giovanile con potenziali implicazioni positive per i servizi educativi e il ricambio generazionale.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nTenuta della popolazione in età lavorativa: la fascia 15-64 anni è diminuita di 1.4 punti percentuali (da 65.4% a 64.0%), meno rispetto all’Emilia-Romagna (-2.6pp a 63.3%) e all’Italia (-3.7pp a 63.4%). Parma mantiene una quota leggermente superiore (+0.7pp vs ER), con implicazioni positive per la sostenibilità del sistema di welfare.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più lento a Parma: la quota di over 65 è cresciuta di soli 0.4 punti percentuali (da 23.2% a 23.6%), contro i +2.5pp dell’Emilia-Romagna (24.9%) e i +6pp dell’Italia (24.7%). Parma mantiene una popolazione anziana relativamente più contenuta (-1.3pp vs ER), con implicazioni dirette sulla domanda di servizi socio-sanitari e assistenziali.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCalo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.\n\n\n\n\n\n\n\nIstat propone diversi indici sintetici per valutare la struttura demografica e le pressioni assistenziali sulla popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nIn un quadro decisamente preoccupante, Parma si distingue con un trend leggermente più favorevole: mentre l’indice di vecchiaia è diminuito del 6.8% (da 204 a 190), in Emilia-Romagna è aumentato del 9.6% (a 211) e in Italia del 57.6% (a 208). Nel 2025 Parma presenta un indice inferiore di 20 punti rispetto alla media regionale, evidenziando un processo di invecchiamento significativamente più contenuto.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita più contenuta a Parma: l’indice è aumentato del 6.0% (a 56.2), contro il +12.2% dell’Emilia-Romagna (58.0) e il +17.7% dell’Italia (57.8), mantenendosi 1.8 punti sotto la media regionale. Questo indica una minore pressione sulla popolazione in età lavorativa.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma mostra un invecchiamento più contenuto: l’indice di dipendenza anziani è cresciuto solo del 3.7% (da 35.6 a 36.9), contro il +15.9% dell’Emilia-Romagna (39.4) e il +39.8% dell’Italia (39.0). Al 2025 Parma mantiene un indice inferiore di 2.5 punti rispetto all’ER, segnalando un carico assistenziale legato alla popolazione anziana più sostenibile.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCalo dei matrimoni: il quoziente di nuzialità è diminuito del 35% a Parma (da 4.0 a 2.6 per mille), trend simile a quello regionale e nazionale, riflettendo i cambiamenti nei modelli di formazione delle coppie.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nPosticipazione della maternità: l’età media al parto è aumentata di 2.1 anni (da 30.3 a 32.4), allineata al trend regionale e nazionale. Questo fenomeno ha implicazioni sui servizi di supporto alla genitorialità e sulla fertilità complessiva.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nFecondità: numero medio di figli per donna in età fertile. Il trend mostra l’evoluzione della natalità al netto dell’effetto della struttura per età della popolazione, indicatore cruciale per valutare la sostenibilità demografica di lungo periodo.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLongevità in crescita: la speranza di vita alla nascita mostra un trend di crescita costante nel periodo, con Parma che si mantiene allineata ai valori regionali e nazionali, indicatore di buone condizioni di vita e accesso ai servizi sanitari.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAnni da vivere dopo i 65: l’indicatore mostra il numero medio di anni che restano da vivere a 65 anni, parametro chiave per stimare la durata del bisogno assistenziale nella popolazione anziana. Il trend è in crescita, riflettendo il miglioramento delle condizioni di salute degli anziani.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nForte attrattività migratoria: nonostante il calo dal 2002, Parma mantiene un saldo migratorio totale di 8.4 per mille (2024), più che doppio rispetto alla media nazionale (4.1) e superiore alla media regionale (8.1). La differenza di +4.3 punti vs Italia evidenzia una significativa capacità di attrazione, fattore chiave per compensare il calo naturale della popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMobilità interna: il saldo migratorio interno (tra comuni italiani) è positivo a Parma (+3.0 per mille nel 2024), segnalando un’attrattività rispetto ad altre aree del Paese, anche se in calo rispetto al 2002 (+6.0).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nImmigrazione dall’estero: il saldo migratorio con l’estero è stabile a Parma (+5.4 per mille), allineato all’ER ma superiore alla media nazionale (+4.1). L’immigrazione internazionale costituisce una componente strutturale della dinamica demografica parmense.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html#trend-di-distribuzione-della-popolazione-per-età",
+    "href": "dashboard/demographic_trends/index.html#trend-di-distribuzione-della-popolazione-per-età",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "I dati illustrati in questa sezione sono stati estratti principalmente dal database ISTAT – indicatori demografici a livello provinciale, lungo il periodo 2002-2024. L’analisi mette a confronto la provincia di Parma con le altre province della regione, e con i valori medi dell’Emilia-Romagna e dell’Italia, al fine di evidenziare le peculiarità demografiche del territorio parmense.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più graduale a Parma: l’età media è cresciuta di 1 anno (da 45.3 a 46.3 anni nel periodo 2002-2025), mentre in Emilia-Romagna è aumentata di 2.2 anni (47.1) e in Italia di 4.9 anni (46.8). Parma risulta leggermente più giovane della media regionale (-0.8 anni).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma in controtendenza sulla natalità: la quota di popolazione giovane (0-14 anni) è aumentata di 1 punto percentuale (dall’11.4% al 12.4%), mentre l’Emilia-Romagna è rimasta stabile (+0.1pp) e l’Italia è diminuita di 2.3 punti. Parma presenta oggi 0.6pp in più rispetto alla media regionale, suggerendo una maggiore tenuta della componente giovanile con potenziali implicazioni positive per i servizi educativi e il ricambio generazionale.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nTenuta della popolazione in età lavorativa: la fascia 15-64 anni è diminuita di 1.4 punti percentuali (da 65.4% a 64.0%), meno rispetto all’Emilia-Romagna (-2.6pp a 63.3%) e all’Italia (-3.7pp a 63.4%). Parma mantiene una quota leggermente superiore (+0.7pp vs ER), con implicazioni positive per la sostenibilità del sistema di welfare.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nInvecchiamento più lento a Parma: la quota di over 65 è cresciuta di soli 0.4 punti percentuali (da 23.2% a 23.6%), contro i +2.5pp dell’Emilia-Romagna (24.9%) e i +6pp dell’Italia (24.7%). Parma mantiene una popolazione anziana relativamente più contenuta (-1.3pp vs ER), con implicazioni dirette sulla domanda di servizi socio-sanitari e assistenziali.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html#trend-crescita-della-popolazione-per-età",
+    "href": "dashboard/demographic_trends/index.html#trend-crescita-della-popolazione-per-età",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "Osservazioni\n\n\n\n\n\nCalo della natalità più contenuto a Parma: il quoziente di natalità è diminuito del 20.2% (da 8.4 a 6.7 per mille), contro il -29.2% dell’Emilia-Romagna (6.3) e il -33% dell’Italia (6.3). Parma mantiene al 2024 un tasso superiore di 0.4 punti rispetto alla media regionale e nazionale, confermando una maggiore vitalità demografica.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMiglioramento della mortalità: il quoziente è diminuito del 12.7% (da 12.6 a 11.0 per mille), mentre in Italia è aumentato del 12.2% (da 9.8 a 11.0). Al 2024 Parma si allinea al valore nazionale ma parte da una posizione migliore rispetto all’inizio del periodo, con ER stabile (+0.9%).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nSaldo naturale negativo ma migliore: la crescita naturale (differenza tra nati e morti) è negativa a Parma (-4.3 per mille nel 2024), ma meno negativa rispetto all’Emilia-Romagna (-5.0) e all’Italia (-4.8). Questo indicatore sintetizza il deficit naturale che caratterizza tutti i territori, parzialmente compensato dall’immigrazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita complessiva della popolazione: questo indicatore sintetizza l’effetto combinato di saldo naturale (nascite-morti) e saldo migratorio. Il trend mostra come l’immigrazione compensi parzialmente il deficit naturale, mantenendo una dinamica demografica complessivamente positiva o stabile.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html#trend-indici-strutturali-della-popolazione",
+    "href": "dashboard/demographic_trends/index.html#trend-indici-strutturali-della-popolazione",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "Istat propone diversi indici sintetici per valutare la struttura demografica e le pressioni assistenziali sulla popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nIn un quadro decisamente preoccupante, Parma si distingue con un trend leggermente più favorevole: mentre l’indice di vecchiaia è diminuito del 6.8% (da 204 a 190), in Emilia-Romagna è aumentato del 9.6% (a 211) e in Italia del 57.6% (a 208). Nel 2025 Parma presenta un indice inferiore di 20 punti rispetto alla media regionale, evidenziando un processo di invecchiamento significativamente più contenuto.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nCrescita più contenuta a Parma: l’indice è aumentato del 6.0% (a 56.2), contro il +12.2% dell’Emilia-Romagna (58.0) e il +17.7% dell’Italia (57.8), mantenendosi 1.8 punti sotto la media regionale. Questo indica una minore pressione sulla popolazione in età lavorativa.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nParma mostra un invecchiamento più contenuto: l’indice di dipendenza anziani è cresciuto solo del 3.7% (da 35.6 a 36.9), contro il +15.9% dell’Emilia-Romagna (39.4) e il +39.8% dell’Italia (39.0). Al 2025 Parma mantiene un indice inferiore di 2.5 punti rispetto all’ER, segnalando un carico assistenziale legato alla popolazione anziana più sostenibile.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html#trend-composizione-delle-famiglie",
+    "href": "dashboard/demographic_trends/index.html#trend-composizione-delle-famiglie",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "Osservazioni\n\n\n\n\n\nCalo dei matrimoni: il quoziente di nuzialità è diminuito del 35% a Parma (da 4.0 a 2.6 per mille), trend simile a quello regionale e nazionale, riflettendo i cambiamenti nei modelli di formazione delle coppie.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nPosticipazione della maternità: l’età media al parto è aumentata di 2.1 anni (da 30.3 a 32.4), allineata al trend regionale e nazionale. Questo fenomeno ha implicazioni sui servizi di supporto alla genitorialità e sulla fertilità complessiva.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nFecondità: numero medio di figli per donna in età fertile. Il trend mostra l’evoluzione della natalità al netto dell’effetto della struttura per età della popolazione, indicatore cruciale per valutare la sostenibilità demografica di lungo periodo.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html#trend-speranza-di-vita",
+    "href": "dashboard/demographic_trends/index.html#trend-speranza-di-vita",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "Osservazioni\n\n\n\n\n\nLongevità in crescita: la speranza di vita alla nascita mostra un trend di crescita costante nel periodo, con Parma che si mantiene allineata ai valori regionali e nazionali, indicatore di buone condizioni di vita e accesso ai servizi sanitari.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAnni da vivere dopo i 65: l’indicatore mostra il numero medio di anni che restano da vivere a 65 anni, parametro chiave per stimare la durata del bisogno assistenziale nella popolazione anziana. Il trend è in crescita, riflettendo il miglioramento delle condizioni di salute degli anziani.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/demographic_trends/index.html#trend-immigrazione",
+    "href": "dashboard/demographic_trends/index.html#trend-immigrazione",
+    "title": "Demografia: trend da osservare per comprendere l’evoluzione dei bisogni e domanda di servizi sociali",
+    "section": "",
+    "text": "Osservazioni\n\n\n\n\n\nForte attrattività migratoria: nonostante il calo dal 2002, Parma mantiene un saldo migratorio totale di 8.4 per mille (2024), più che doppio rispetto alla media nazionale (4.1) e superiore alla media regionale (8.1). La differenza di +4.3 punti vs Italia evidenzia una significativa capacità di attrazione, fattore chiave per compensare il calo naturale della popolazione.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nMobilità interna: il saldo migratorio interno (tra comuni italiani) è positivo a Parma (+3.0 per mille nel 2024), segnalando un’attrattività rispetto ad altre aree del Paese, anche se in calo rispetto al 2002 (+6.0).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nImmigrazione dall’estero: il saldo migratorio con l’estero è stabile a Parma (+5.4 per mille), allineato all’ER ma superiore alla media nazionale (+4.1). L’immigrazione internazionale costituisce una componente strutturale della dinamica demografica parmense.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 1) Trend Demografici"
+    ]
+  },
+  {
+    "objectID": "dashboard/non_autosufficienza/index.html",
+    "href": "dashboard/non_autosufficienza/index.html",
+    "title": "Dati specifici sulla (non) autosufficienza",
+    "section": "",
+    "text": "DI COSA SI TRATTA: questi 2 principali indicatori catturano più specificamente limitazioni nelle attività quotidiane, e quindi sono direttamente correlabili alla necessità di assistenza e supporto. In particolare:\n\nDLA (Activities of Daily Living): misurano la capacità di una persona di svolgere attività quotidiane di cura della persona: mangiare, vestirsi, lavarsi, usare il bagno, spostarsi e trasferirsi.\nIADL (Instrumental Activities of Daily Living): misurano la capacità di svolgere attività quotidiane più complesse come fare la spesa, preparare i pasti, gestire i farmaci, usare il telefono, fare le pulizie e gestire le finanze.\n\nCome si misurano: lo studio EHIS (European Health Interview Survey) condotto dall’ISTAT, include domande specifiche sulle difficoltà incontrate dalle persone nelle attività di cura personale e domestiche.\n\nAmbito: Disponibile per regione, sesso, classi di età (…), e livelli di indicatore...\n\nAnno di riferimento: I dati sono al 2022 (ma basati sul 2019)\n\nFonte: 🟩 ISTAT Indagine europea sulla salute (EHIS) (2022 ma dati sul 2019)\n\nLink: Istat - EHIS, 2022 (su dati 2019)",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 2.b) Non autosufficienza"
+    ]
+  },
+  {
+    "objectID": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche",
+    "href": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche",
+    "title": "Dati specifici sulla (non) autosufficienza",
+    "section": "Quali sono queste attività e a che età diventano critiche?",
+    "text": "Quali sono queste attività e a che età diventano critiche?\nI grafici a bilanciere enfatizzano la differenza tra le due fasce d’età, mostrando visivamente l’entità del “salto” tra 65-74 e 75+ per livello di difficolà incontrato.\n\np55_dumbbell_adl_grave [ADL - Difficoltà gravi per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAumento esponenziale dopo i 75 anni: Le difficoltà gravi nelle attività di cura personale mostrano un incremento drammatico tra 65-74 e 75+. Alcune attività mostrano gap superiori ai 10-15 punti percentuali, evidenziando come l’assistenza intensiva diventi critica proprio dopo i 75 anni. Questo dato è essenziale per dimensionare i servizi di assistenza domiciliare e residenziale.\n\n\n\n\n\n\n\np56_dumbbell_adl_moderata [ADL - Difficoltà moderate per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nDifficoltà moderate: segnale precoce di fragilità: Le difficoltà moderate rappresentano una “zona grigia” fondamentale per interventi preventivi. Il loro aumento tra le due fasce d’età indica una progressione verso la non autosufficienza che può essere rallentata con supporti adeguati (ausili, riabilitazione, assistenza domiciliare leggera).",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 2.b) Non autosufficienza"
+    ]
+  },
+  {
+    "objectID": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche-1",
+    "href": "dashboard/non_autosufficienza/index.html#quali-sono-queste-attività-e-a-che-età-diventano-critiche-1",
+    "title": "Dati specifici sulla (non) autosufficienza",
+    "section": "Quali sono queste attività e a che età diventano critiche?",
+    "text": "Quali sono queste attività e a che età diventano critiche?\nI grafici a bilanciere enfatizzano la differenza tra le due fasce d’età, mostrando visivamente l’entità del “salto” tra 65-74 e 75+ per livello di difficolà incontrato.\n\np57_dumbbell_iadl_grave [IADL - Difficoltà gravi per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nLe attività domestiche come indicatore di autonomia complessiva: Le IADL gravi mostrano un pattern simile alle ADL ma con percentuali generalmente più elevate già nella fascia 65-74. Alcune attività strumentali (gestione farmaci, preparazione pasti complessi, gestione finanze) richiedono integrità cognitiva oltre che fisica, rappresentando indicatori precoci di fragilità multipla.\n\n\n\n\n\n\np58_dumbbell_iadl_moderata [IADL - Difficoltà moderate per età]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOsservazioni\n\n\n\n\n\nAmpia fascia con bisogni di supporto strumentale: Le difficoltà moderate nelle IADL coinvolgono una quota significativa della popolazione anziana. Questo suggerisce un ampio bacino di utenza per servizi di supporto domiciliare leggero, consegna pasti, telemedicina per gestione farmaci, e altri interventi che favoriscono l’autonomia abitativa ritardando l’istituzionalizzazione.",
+    "crumbs": [
+      "Dati di contesto",
+      "Tema 2.b) Non autosufficienza"
     ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Dati di contesto sul territorio di Parma",
+    "title": "Temi rilevanti",
     "section": "",
     "text": "[ ⚠️ Work in progress … ⚠️ ]"
   },
   {
+    "objectID": "index.html#i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare",
+    "href": "index.html#i-cambiamenti-della-società-e-gli-impatti-per-il-sistema-di-welfare",
+    "title": "Temi rilevanti",
+    "section": "1) I cambiamenti della società e gli impatti per il sistema di welfare",
+    "text": "1) I cambiamenti della società e gli impatti per il sistema di welfare\n\nLinea d’Azione: Società e sfide per il welfare\n- PS: ridurre disuguaglianze\n\n\nContributo: tutti i bandi Ambiti intervento\n+ Favorire le reti a supporto dei caregiver\n+ Favorire la ricomposizione di informazioni (sui fenomeni o sui servizi)\n+ Favorire le reti nella comunità e logiche di “piattaforme sociali”\n\n\nEvidenze domanda\n\nI trend Demografia (passato e presente)\n\nINVECCHIAMENTO\n\nIndice di vecchiaia\nIndice di dipendenza\nTasso di natalità\nEtà media\n65+ non autosufficienti\n\nFAMIGLIA\n\ndimensione media\nfamiglie unipersonali\n\nIMMIGRAZIONE\n\nsaldo naturale | migratorio | totale\n\n\nIl profilo socio-economico\n\nPovertà lavorativa (“lavoro povero”)\nPovertà alimentare\nPovertà sanitaria (*)\nPovertà abitativa\n\nLa rete socio-sanitaria\n\ndomanda di servizi socio-sanitari\n\nindici di fragilità sociale\n\n(*) offerta di servizi socio-sanitari\n\nAssistenza agli anziani\nrinuncia a prestazioni sanitarie per motivi di economici per gli over 65\n\nAssistenza ai disabili\nSpesa sanitaria (pubblica e assicurativa) bassa in Italia rispetto ad altri paesi OCSEe in riduzione\n\n\n\n\nFonti\n\nBocconi\n\nLetizia Mencarini, Uni Bocconi - Carlo Dondena Center for Research on Social Dynamics and Public Policy - L’ITALIA NELLA «TRAPPOLA DEMOGRAFICA»\nGianluigi Bovini, AUSER Bologna - …\nFrancesco Longo, SDA Bocconi - SSN: SCENARIO E AGENDA DI POLICY\n\nAcer Parma (Loretta Losi) (R. C. 2025)\nAssessorato Politiche Sociali Comune di Parma (Ettore Brianti)\n\n\n\nVIS Fond Cariparma\n\nOutcome 1: Maggiore accessibilità a servizi e progetti\nOutcome 2: Aumento della capacità di lettura dei fenomeni e delle sfide sociali\nOutcome 3: Percezione di miglioramento dell’accesso alle informazioni\nOutcome 4: Incremento della collaborazione tra attori del welfare\n\n\n\nQuestioni emergenti"
+  },
+  {
+    "objectID": "index.html#i-cambiamenti-del-territorio-e-dellambiente",
+    "href": "index.html#i-cambiamenti-del-territorio-e-dellambiente",
+    "title": "Temi rilevanti",
+    "section": "2) I cambiamenti del territorio e dell’ambiente",
+    "text": "2) I cambiamenti del territorio e dell’ambiente\n\nLinea d’Azione: Trasformazioni urbane e del territorio\n- PS: Accompagnare le trasformazioni del territorio\n\n\nAmbiti intervento\n+ Promuovere modelli di governance territoriale partecipativi\n+ Promuovere le connessioni tra politiche e competenze urbanistiche, sociali e culturali\n+ Supportare le potenzialità del patrimonio di Parma (beni, luoghi e tradizioni)\n\n\nEvidenze\n\nterritori marginalizzati\naree interne\ndomanda/offerta di affitti\n\n\n\nFonti\n\n\nVIS Fond Cariparma\n\nOutcome 5: Maggiore coesione sociale\nOutcome 6: Valorizzazione del patrimonio culturale e territoriale\nOutcome 7: Incremento di pratiche di governance partecipativa e partenariati territoriali\n\n\n\nQuestioni emergenti"
+  },
+  {
+    "objectID": "index.html#persone-e-istituzioni",
+    "href": "index.html#persone-e-istituzioni",
+    "title": "Temi rilevanti",
+    "section": "3) Persone e istituzioni",
+    "text": "3) Persone e istituzioni\n\nLinea d’Azione: Sviluppo del capitale umano e innovazione\n- PS: Rafforzare le persone e le istituzioni\n\n\nAmbiti intervento + Supportare nuove conoscenze e nuove competenze\n+ Promuovere la capacità di programmare e progettare\n+ Sostenere le iniziative con azioni di accompagnamento e capacity building\n\n\n\nEvidenze\n\n\nFonti\n\n\nVIS Fond Cariparma\n\nOutcome 8: Incrementata cultura dell’apprendimento continuo e riconoscimento competenze\nOutcome 9: Incremento al supporto delle competenze professionali"
+  },
+  {
+    "objectID": "index.html#area-sostenibiulità-economica",
+    "href": "index.html#area-sostenibiulità-economica",
+    "title": "Temi rilevanti",
+    "section": "4) Area Sostenibiulità economica",
+    "text": "4) Area Sostenibiulità economica\n\nLinea d’Azione: Sostegno (r)esistente - PS:\n\n\nAmbiti intervento + Supportare attività di comunità attraverso interventi resistenti continuativi + Supportare attività tradizionali legate all’identità della comunità stessa\n\n\n\nEvidenze\n\n\nFonti\n\n\nVIS Fond Cariparma\n\nOutcome 10: Rafforzata sostenibilità e autonomia delle realtà radicate sul territorio"
+  },
+  {
     "objectID": "posts/2025-10-13-first-post.html",
     "href": "posts/2025-10-13-first-post.html",
-    "title": "First Blog Post",
+    "title": "Input per bilancio di missione",
     "section": "",
-    "text": "Welcome to the Parma Dash blog!\nThis is your first post. Feel free to add more posts in the posts/ directory."
+    "text": "I cambiamenti della società e gli impatti per il sistema di welfare\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPiù librerie, più musei, più strutture, più verde urbano ecc\n\n\n\n\nCAPITALE SOCIALE: Tessuto sociale vitale con un terzo settore numeroso e ben rappresentato\nRICERCA E INNOVAZIONE Ricerca e innovazione"
   },
   {
     "objectID": "source/demog-disab-data.html",
@@ -249,126 +365,52 @@
     "text": "Fonti dati - Disabilità e Non Autosufficienza\n🟩 GIÀ DISPONIBILI\n\nISTAT - Demo: Indicatori demografici anziani\n\nURL: https://demo.istat.it/tavole/?t=indicatori&l=it\nUso: % 80enni e più, Anziani soli 65+\n\nER Stats - Fragilità: Mappe potenziale fragilità comunale (2023)\n\nFile: data/data_in/ER_stats/fragilit_prov_com_2023.xlsx\nStudio completo\nLivello: Comunale (Emilia-Romagna)\n\nER Stats - Stato di Salute: Indagine salute popolazione (2023-2024)\n\nFile: data/data_in/ER_stats/stato_salute_reg_20232024.xlsx\nIndicatori: Persone in buona salute, malattie croniche\nLivello: Regionale/Provinciale\n\nISTAT - Aspetti vita quotidiana: Prevalenza disabilità per età e genere\n\nURL: https://www.istat.it/it/archivio/91926\nAnno: 2022\nLivello: Regionale\n\nISTAT - Disabilità in Cifre: Dati disabilità in Italia\n\nURL: https://www.istat.it/it/archivio/236301\nLivello: Regionale/Nazionale\n\n\n🟧 DA ACQUISIRE\n\nISTAT - EHIS (European Health Interview Survey): ADL e IADL (2019)\n\nLimitazioni attività base e strumentali\nLivello: Regionale\n\nSSR Emilia-Romagna: “Il Sostegno del caregiver in ER” (2020)\n\nCaregiver familiari: 530k in ER, 120k con &gt;20h/settimana\nGiovani caregiver: ~26k under 25 in ER\nRapporti DSM (Dipartimenti Salute Mentale)\n\nAgenzia Regionale Lavoro ER: Rapporti inclusione lavorativa persone disabili\n\nCollocamento mirato L.68/99\nUltimo monitoraggio disponibile: 2018\n\nMIUR - Anagrafe studenti: Dati alunni con disabilità per provincia\n\nRapporto alunni/insegnante sostegno\nDato non pubblico, da richiedere\n\nINPS: Dati su beneficiari indennità di accompagnamento e invalidità civile\nAltri riferimenti:\n\nArticolo Vita: “Giovani caregiver, se il lavoro di cura mette a rischio il futuro” (17.07.2024) https://www.vita.it/giovani-caregiver-se-il-lavoro-di-cura-mette-a-rischio-il-futuro/"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html",
-    "href": "dashboard/serv_soc/index.html",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
+    "objectID": "posts/2025-10-13-first-post.html#territorio-e-ambiente-che-cambia",
+    "href": "posts/2025-10-13-first-post.html#territorio-e-ambiente-che-cambia",
+    "title": "Input per bilancio di missione",
     "section": "",
-    "text": "Questa pagina riporta dati Istat osservati dal 2002 al 2022 su Interventi e servizi sociali dei comuni (link al dataset DCIS_SPESESERSOC1).\nQui, il focus è su 3 servizi in particolare:\nNB: I dati di questo database, riguardano solo la quota di servizi e interventi socio-assistenziali dei Comuni e delle loro forme associative al netto della compartecipazione del Servizio Sanitario Nazionale. In particolare, il servizio ADI, mostra solo la componente sociale dell’ADI (quota a carico dei Comuni), mentre la parte sanitaria gestiti interamente dall’AUSL non compare.",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
+    "text": "Più librerie, più musei, più strutture, più verde urbano ecc"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html#assistenza-domiciliare-integrata-con-servizi-sanitari---provincie-er-nel-tempo",
-    "href": "dashboard/serv_soc/index.html#assistenza-domiciliare-integrata-con-servizi-sanitari---provincie-er-nel-tempo",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo",
-    "text": "Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo\n\nPercentuale di persone su popolazione di riferimento\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPercentuale di comuni che erogano il servizio",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
+    "objectID": "posts/2025-10-13-first-post.html#persone-e-istituzioni",
+    "href": "posts/2025-10-13-first-post.html#persone-e-istituzioni",
+    "title": "Input per bilancio di missione",
+    "section": "",
+    "text": "CAPITALE SOCIALE: Tessuto sociale vitale con un terzo settore numeroso e ben rappresentato\nRICERCA E INNOVAZIONE Ricerca e innovazione"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html#voucher",
-    "href": "dashboard/serv_soc/index.html#voucher",
-    "title": "Servizi Sociali - [TITOLO DA DEFINIRE]",
-    "section": "Voucher",
-    "text": "Voucher\n\nPercentuale di persone su popolazione di riferimento"
+    "objectID": "posts/2025-12-22-bil-miss.html",
+    "href": "posts/2025-12-22-bil-miss.html",
+    "title": "Input per bilancio di missione",
+    "section": "",
+    "text": "indicatori_di_struttura$indicatore    n percent\n                          Età media 3240    0.25\n       Indice di dipendenza anziani 3240    0.25\n   Indice di dipendenza strutturale 3240    0.25\n                Indice di vecchiaia 3240    0.25"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html#voucher-assegno-di-cura-buono-socio-sanitario---provincie-er-nel-tempo",
-    "href": "dashboard/serv_soc/index.html#voucher-assegno-di-cura-buono-socio-sanitario---provincie-er-nel-tempo",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Voucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo",
-    "text": "Voucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo\n\nPercentuale di persone su popolazione di riferimento\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPercentuale di comuni che erogano il servizio",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
+    "objectID": "posts/2025-12-22-bil-miss.html#territorio-e-ambiente-che-cambia",
+    "href": "posts/2025-12-22-bil-miss.html#territorio-e-ambiente-che-cambia",
+    "title": "Input per bilancio di missione",
+    "section": "3. Territorio e ambiente che cambia",
+    "text": "3. Territorio e ambiente che cambia\n\nServizi\nPiù librerie, più musei, più strutture, più verde urbano ecc"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html#assistenza-domiciliare---provincie-er-nel-tempo-1",
-    "href": "dashboard/serv_soc/index.html#assistenza-domiciliare---provincie-er-nel-tempo-1",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Assistenza domiciliare - provincie ER nel tempo",
-    "text": "Assistenza domiciliare - provincie ER nel tempo\n\nDisabili | 2022"
+    "objectID": "posts/2025-12-22-bil-miss.html#persone-e-istituzioni",
+    "href": "posts/2025-12-22-bil-miss.html#persone-e-istituzioni",
+    "title": "Input per bilancio di missione",
+    "section": "4. Persone e istituzioni",
+    "text": "4. Persone e istituzioni\nCAPITALE SOCIALE: Tessuto sociale vitale con un terzo settore numeroso e ben rappresentato\nRICERCA E INNOVAZIONE Ricerca e innovazione\n\nIA e automazione"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html#assistenza-domiciliare-integrata-con-servizi-sanitari---provincie-er-nel-tempo-1",
-    "href": "dashboard/serv_soc/index.html#assistenza-domiciliare-integrata-con-servizi-sanitari---provincie-er-nel-tempo-1",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo",
-    "text": "Assistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo\n\nDisabili | 2022"
+    "objectID": "posts/2025-12-22-bil-miss.html#scenario-demografico",
+    "href": "posts/2025-12-22-bil-miss.html#scenario-demografico",
+    "title": "Input per bilancio di missione",
+    "section": "1. Scenario demografico",
+    "text": "1. Scenario demografico\nAumento della popolazione anziana e longevità\n\nEtà media\n\n\n\n\n\n\n\n\n\n\n\nIndice di vecchiaia\n\n\n\n\n\n\n\n\n\n\n\nSperanza di vita a 65 anni\n\n\n\n\n\n\n\n\n\n\n\nIndice di dipendenza anziani\n\n\n\n\n\n\n\n\n\n\n\nIndice di dipendenza strutturale\n\n\n\n\n\n\n\n\n\n\n\nCrescita naturale della popolazione\n\n\n\n\n\n\n\n\n\n\n\nSaldo migratorio"
   },
   {
-    "objectID": "dashboard/serv_soc/index.html#voucher-assegno-di-cura-buono-socio-sanitario---provincie-er-nel-tempo-1",
-    "href": "dashboard/serv_soc/index.html#voucher-assegno-di-cura-buono-socio-sanitario---provincie-er-nel-tempo-1",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Voucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo",
-    "text": "Voucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo\n\nDisabili | 2022"
-  },
-  {
-    "objectID": "dashboard/serv_soc/index.html#dati-al-2022",
-    "href": "dashboard/serv_soc/index.html#dati-al-2022",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Dati al 2022",
-    "text": "Dati al 2022\n\nAssistenza domiciliare - provincie ER nel tempo\n\n\n\n\n\n\n\n\n\n\n\nAssistenza domiciliare integrata con servizi sanitari - provincie ER nel tempo\n\n\n\n\n\n\n\n\n\n\n\nVoucher, assegno di cura, buono socio-sanitario - provincie ER nel tempo\n\n\n\n\n\n\n\n\n\n\n\nAltri servizi socio-assistenziali - provincie ER nel tempo"
-  },
-  {
-    "objectID": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento",
-    "href": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Dati al 2022 - Confronto con territori di riferimento",
-    "text": "Dati al 2022 - Confronto con territori di riferimento\nQui si osserva PERUSTPOP, ovvero “Percentuale di utenti sulla popolazione di riferimento”, cioè il rapporto percentuale tra il numero dei beneficiari del servizio e la popolazione target dell’area di utenza (anziani, disabili, minori, ecc.).\n\n\nSADADIVoucher, etc.\n\n\nSERVIZIO: assistenza domiciliare socio-assistenzialeDATO: utenti sulla popolazione di riferimento (%) - 2022Territoriodisabilianzianifamiglia e minoriParma2,42,40,1EmiliaRomagna2,21,30,1NordEst2,21,50,1Italia5,01,00,2\n\n\nSERVIZIO: assistenza domiciliare integrata con servizi sanitariDATO: utenti sulla popolazione di riferimento (%) - 2022TerritoriodisabilianzianiParma0,00,1EmiliaRomagna0,90,7NordEst2,71,9Italia1,40,5\n\n\nSERVIZIO: voucher, assegno di cura, buono socio-sanitarioDATO: utenti sulla popolazione di riferimento (%) - 2022TerritoriodisabilianzianiParma1,60,4EmiliaRomagna1,30,3NordEst4,81,1Italia3,30,4",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
-  },
-  {
-    "objectID": "dashboard/serv_soc/index.html#dati-al-2022---confronto-provincie-er",
-    "href": "dashboard/serv_soc/index.html#dati-al-2022---confronto-provincie-er",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Dati al 2022 - Confronto provincie ER",
-    "text": "Dati al 2022 - Confronto provincie ER\n\nAssistenza domiciliare socio-assistenziale\n\n\n\n\n\n\n\n\n\n\n\nAssistenza domiciliare integrata con servizi sanitari\n\n\n\n\n\n\n\n\n\n\n\nVoucher, assegno di cura, buono socio-sanitario\n\n\n\n\n\n\n\n\n\n\n\nAltri servizi socio-assistenziali - provincie ER nel tempo",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
-  },
-  {
-    "objectID": "dashboard/serv_soc/index.html#assistenza-domiciliare---provincie-er-nel-tempo",
-    "href": "dashboard/serv_soc/index.html#assistenza-domiciliare---provincie-er-nel-tempo",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Assistenza domiciliare - provincie ER nel tempo",
-    "text": "Assistenza domiciliare - provincie ER nel tempo\n\nPercentuale di persone su popolazione di riferimento\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPercentuale di comuni che erogano il servizio",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
-  },
-  {
-    "objectID": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento-1",
-    "href": "dashboard/serv_soc/index.html#dati-al-2022---confronto-con-territori-di-riferimento-1",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Dati al 2022 - Confronto con territori di riferimento",
-    "text": "Dati al 2022 - Confronto con territori di riferimento\nQui si osserva PERMOS, ovvero “Percentuale di comuni che offrono il servizio sul totale comuni”, cioè una misura della diffusione territoriale del servizio: quanti Comuni lo hanno attivato nell’area territoriale di riferimento.\n\n\nSADADIVoucher, etc.\n\n\nSERVIZIO: assistenza domiciliare socio-assistenzialeDATO: comuni che offrono il servizio (%) - 2022Territoriodisabilianzianifamiglia e minoriParma84,197,738,6EmiliaRomagna69,482,430,3NordEst53,491,132,6Italia68,485,447,1\n\n\nSERVIZIO: assistenza domiciliare integrata con servizi sanitariDATO: comuni che offrono il servizio (%) - 2022TerritoriodisabilianzianiParma18,218,2EmiliaRomagna34,244,2NordEst29,446,5Italia33,238,0\n\n\nSERVIZIO: voucher, assegno di cura, buono socio-sanitarioDATO: comuni che offrono il servizio (%) - 2022TerritoriodisabilianzianiParma22,722,7EmiliaRomagna37,932,4NordEst74,271,5Italia59,949,6",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
-  },
-  {
-    "objectID": "dashboard/serv_soc/index.html#osservazioni",
-    "href": "dashboard/serv_soc/index.html#osservazioni",
-    "title": "Prestazioni di servizi socio-assistenziali a livello di provincia per ER",
-    "section": "Osservazioni",
-    "text": "Osservazioni\n\nGli indicatori percentuali sugli utenti (PERUSTPOP) relativi a SAD e ADI appaiono molto bassi perché il dataset Istat, DCIS, rileva esclusivamente la componente sociale dei servizi domiciliari gestita dai Comuni. La parte sanitaria dell’ADI – che rappresenta la quota ampiamente maggioritaria delle prese in carico domiciliari – non è inclusa nella rilevazione.\nInoltre, la popolazione di riferimento utilizzata da ISTAT (over-65 per gli anziani; persone con gravi limitazioni &lt;65 per i disabili) è numericamente molto ampia. Di conseguenza, anche un numero modesto di utenti registrati dai Comuni produce valori percentuali prossimi allo zero.\nI livelli osservati per Parma sono allineati ai pattern regionali e nazionali e non riflettono la reale copertura dell’ADI sanitaria, che è significativamente più elevata.",
-    "crumbs": [
-      "Dashboard",
-      "Tema 2.c) Servizi Sociali dei Comuni"
-    ]
+    "objectID": "posts/2025-12-22-bil-miss.html#economia-e-disuguaglianze",
+    "href": "posts/2025-12-22-bil-miss.html#economia-e-disuguaglianze",
+    "title": "Input per bilancio di missione",
+    "section": "2. Economia e disuguaglianze",
+    "text": "2. Economia e disuguaglianze\n\n\nDisuguaglianze economiche (geolocalizzazione della fragilità)\n\n\nLavoro povero"
   }
 ]

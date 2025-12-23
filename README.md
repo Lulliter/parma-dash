@@ -66,6 +66,21 @@ Studying mission-relevant socio-economic data on Fondazione Cariparma's area of 
 + 🔴 ricerca innovazione
 + ...
 
+#### 🟩 QUI BES x dominio
+
+`"data/data_in/BES/"`
+
+**Indicatori per singolo territorio**
+
+https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0930TER,1.0/BES_T/IT1,DF_BES_TERRIT_0,1.0
+
++ IST FORMAZ 
++ Lavoro e conciliazione vita-lavoro 
++ BEn Econ 
++ Qualità dei servizi,
++ ecc 
+
+
 
 ### Obiettivo di fondo per Piano Strategico del 2028 (da fare nel 2027)
 

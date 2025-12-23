@@ -1,5 +1,183 @@
 ---
-title: "Dati di contesto sul territorio di Parma"
+title: ""
+bibliography: bib/CRP_dash.bib
+suppress-bibliography: false
 ---
 
 [ ⚠️ Work in progress ... ⚠️ ]
+
+<!-- OBIETTIVO: -->
+
+<!-- 1) capire quali sono le fonti  -->
+<!-- 2) tirare fuori “indicatori di contesto” (su bisogni e ai fenomeni rilevanti che costituiscono le premesse stesse agli obiettivi strategici) da tenere sotto controllo negli anni (anche se la sola azione della Fondazione possa avere degli impatti misurabili) 
+<!-- 3) intercettare nuove difficolltà emergenti-->
+
+
+# Temi rilevanti
+
+
+## 1) I cambiamenti della società e gli impatti per il sistema di welfare
+
+> Linea d'Azione: Società e sfide per il welfare  
+   - PS: ridurre disuguaglianze  
+   
+> Contributo: tutti i bandi 
+> Ambiti intervento   
+  + Favorire le reti a supporto dei caregiver  
+  + Favorire la ricomposizione di informazioni (sui fenomeni o sui servizi)  
+  + Favorire le reti nella comunità e logiche di “piattaforme sociali”  
+
+
+### Evidenze domanda
+
++ I **trend Demografia** (passato e presente)
+  + INVECCHIAMENTO 
+    + Indice di vecchiaia
+    + Indice di dipendenza
+    + Tasso di natalità
+    - Età media
+    - 65+ non autosufficienti
+  + FAMIGLIA
+    - dimensione media
+    - famiglie unipersonali
+  + IMMIGRAZIONE
+    + saldo naturale | migratorio | totale
+  
++ Il **profilo socio-economico**
+  + _Povertà lavorativa_ ("lavoro povero")
+  + Povertà alimentare
+  + Povertà sanitaria (*)
+  + Povertà abitativa
+
++ **La rete socio-sanitaria**
+  + domanda di servizi socio-sanitari
+    - indici di fragilità sociale
+  + (*) offerta di servizi socio-sanitari
+    + Assistenza agli anziani
+     + _rinuncia a prestazioni sanitarie per motivi di economici per gli over 65_
+   + Assistenza ai disabili
+    + _Spesa sanitaria (pubblica e assicurativa) bassa in Italia rispetto ad altri paesi OCSEe in riduzione_
+  
+
+### Fonti
+
++ Bocconi
+  + Letizia Mencarini, Uni Bocconi - [Carlo Dondena Center for Research on Social Dynamics and Public Policy](https://dondena.unibocconi.eu/) - _L’ITALIA NELLA «TRAPPOLA DEMOGRAFICA»_
+  + Gianluigi Bovini, AUSER Bologna - ...
+  + Francesco Longo, SDA Bocconi - _SSN: SCENARIO E AGENDA DI POLICY_
+ 
++ Acer Parma (Loretta Losi) [@r.c.Acer22Milioni2025]
++ Assessorato Politiche Sociali Comune di Parma (Ettore Brianti)
+
+
+
+### VIS Fond Cariparma
+
++ *Outcome 1*: Maggiore accessibilità a servizi e progetti
++ *Outcome 2*: Aumento della capacità di lettura dei fenomeni e delle sfide sociali
++ *Outcome 3*: Percezione di miglioramento dell'accesso alle informazioni
++ *Outcome 4*: Incremento della collaborazione tra attori del welfare
+
+
+### Questioni emergenti
+
+
+
+---
+
+## 2) I cambiamenti del territorio e dell’ambiente
+
+
+> Linea d'Azione: Trasformazioni urbane e del territorio  
+   - PS: Accompagnare le trasformazioni del territorio  
+
+> Ambiti intervento   
+  + Promuovere modelli di governance territoriale partecipativi  
+  + Promuovere le connessioni tra politiche e competenze urbanistiche, sociali e culturali  
+  + Supportare le potenzialità del patrimonio di Parma (beni, luoghi e tradizioni)  
+
+
+### Evidenze 
+  + _territori marginalizzati_
+  + _aree interne_
+  + domanda/offerta di affitti
+  
+  
+### Fonti
+  
+### VIS Fond Cariparma
+
++ *Outcome 5*: Maggiore coesione sociale
++ *Outcome 6*: Valorizzazione del patrimonio culturale e territoriale
++ *Outcome 7*: Incremento di pratiche di governance partecipativa e partenariati territoriali
+
+### Questioni emergenti
+
+<!-- si evolve il concetto dell'abitare ...   -->  
+
+---
+
+## 3) Persone e istituzioni
+
+> Linea d'Azione: Sviluppo del capitale umano e innovazione  
+   - PS: Rafforzare le persone e le istituzioni  
+
+> Ambiti intervento
+  + Supportare nuove conoscenze e nuove competenze  
+  + Promuovere la capacità di programmare e progettare  
+  + Sostenere le iniziative con azioni di accompagnamento e capacity building  
+
+<!-- non basta erogare risorse: occorre rafforzare chi le riceve affinché possa
+operare in modo sempre più efficace e autonomo  -->
+
+### Evidenze 
+
+### Fonti
+
+### VIS Fond Cariparma
+
++ *Outcome 8*: Incrementata cultura dell'apprendimento continuo e riconoscimento competenze
++ *Outcome 9*: Incremento al supporto delle competenze professionali
+
+## 4) Area Sostenibiulità economica 
+
+> Linea d'Azione: Sostegno (r)esistente
+   - PS:  
+
+> Ambiti intervento
+  + Supportare attività di comunità attraverso interventi resistenti continuativi
+  + Supportare attività tradizionali legate all'identità della comunità stessa
+
+<!-- non basta erogare risorse: occorre rafforzare chi le riceve affinché possa
+operare in modo sempre più efficace e autonomo  -->
+
+### Evidenze 
+
+### Fonti
+
+### VIS Fond Cariparma
+
++ *Outcome 10*: Rafforzata sostenibilità e autonomia delle realtà radicate sul territorio
+
+
+# Temi indiretti 
+
+<!-- Vedi Rapporto OIS 11 dic 2025  -->
+
+> dimensioni oggi non rilevate sistematicamente: 
+
+1. la maturità valutativa degli enti, 
+2. la natura delle collaborazioni attivate, 
+3. l'effetto leva finanziaria, 
+4. la sostenibilità economica delle organizzazioni, 
+5. l'evoluzione delle capacità organizzative
+
+
+# I 3 ambiti di intervento trasversali:
+
+1. Valorazzare il capitale umano e sociale: _questo avviene soprattutto con la collaborazione_
+  + Maggiore coesione sociale (s icollega a disuguaglianze, contesto di isolameto, frammentazione, famiglia unipersonale, corpi intermedi che si indeboliscono ...)
+2. Generare consapevolezza, partecipazione e protagonismo
+3. Valorizzare l'innovazione 
+
+ 

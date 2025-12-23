@@ -61,25 +61,30 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>00_carica_shp_situas.qmd</code>: Load ISTAT shapefiles and SITUAS data</li>
 <li><code>01_carica_cens.qmd</code>: Load census data</li>
-<li><code>02_base_maps.qmd</code>: Create base maps</li>
+<li><code>02_base_maps.qmd</code>: Create base maps
+<ul>
+<li>qui si potrebbe fare più mappe usando i dati per COM / PROV + censimento AGE (classi decennali), CITIZENSHIP, GENDER</li>
+</ul></li>
 </ul></li>
 <li><code>dashboard/</code>: Presentation or Dashboard Quarto documents (rendered in website)
 <ul>
-<li>Organized by topic in subdirectories (e.g., <code>demographic_trends/</code>, <code>disability/</code>, <code>non_autosufficienza/</code>)</li>
+<li>Organized by topic in subdirectories (e.g., <code>demographic_trends/</code>, <code>disability/</code>, <code>non_autosufficienza/</code>, <code>servsoc</code>, etc.)</li>
 <li>Each topic folder contains:
 <ul>
-<li><code>index.qmd</code>: Main dashboard document</li>
 <li><code>data_load.R</code>: Data loading scripts</li>
-<li><code>visualizations.R</code>: Visualization scripts</li>
+<li><code>visualizations.R</code>: Visualization scripts<br>
+</li>
+<li><code>index.qmd</code>: Main dashboard document to present findings</li>
 </ul></li>
 </ul></li>
 <li><code>data/</code>:
 <ul>
 <li><code>data_in/</code>: Raw input data with metadata
 <ul>
-<li><code>istat_shp_ITA/</code>: ISTAT shapefiles for Italian administrative boundaries</li>
-<li><code>istat_ehis_2019/</code>: European Health Interview Survey 2019 data</li>
+<li><code>istat_shp_ITA/</code>: ISTAT shapefiles for ALL Italian administrative boundaries</li>
+<li><code>istat_ehis_2019/</code>: European Health Interview Survey (2019 data – pubb in 2022)</li>
 <li><code>ISTAT_DISAB_CIFRE/</code>: Disability statistics from ISTAT</li>
+<li><code>ISTAT_SERVSOC</code>: Social services (SUPPLY SIDE) cube statistics from ISTAT (2002-2022 – pubb in 2025)</li>
 <li><code>ER_stats/</code>: Emilia-Romagna regional statistics</li>
 <li>Excel files: demographic indicators, municipal classifications, foreign residents</li>
 </ul></li>
@@ -89,10 +94,10 @@ ul.task-list li input[type="checkbox"] {
 <li><code>ITA_shp/</code>: Italy-level processed shapefiles</li>
 <li><code>LB_shp/</code>: Local/municipal level shapefiles</li>
 <li><code>istat_demo_2002_2024/</code>: Time series demographic indicators (2002-2024)</li>
+<li><code>istat_cens_2023/</code>: Processed 2023 population census data (AGE, GENDER, CITIZENSHIP) for ER/PR regions</li>
 <li><code>istat_EHIS_2019/</code>: Processed health survey data (ADL/IADL indicators)</li>
 <li><code>istat_GALI_2023/</code>: GALI disability indicators (2023)</li>
-<li><code>tbl/</code>: Processed tables</li>
-<li>Population data files: 2023 population by AGE, CITIZENSHIP, GENDER for ER/PR regions</li>
+<li>Processed utilities tables (<code>comuni_ita_info_redux_sf.rds</code>, <code>comuni_ita_info_sf_VARDESC.rds</code>, <code>istat_metadati_20251105.rds</code>)</li>
 </ul></li>
 <li><code>maps/</code>: Generated map outputs to feed into <code>dashboard/*/index.qmd</code> files</li>
 <li><code>plots/</code>: Generated plot outputs</li>
@@ -131,6 +136,19 @@ ul.task-list li input[type="checkbox"] {
 <li>🔴 ricerca innovazione</li>
 <li>…</li>
 </ul>
+<section id="qui-bes-x-dominio" class="level4">
+<h4 class="anchored" data-anchor-id="qui-bes-x-dominio">🟩 QUI BES x dominio</h4>
+<p><code>"data/data_in/BES/"</code></p>
+<p><strong>Indicatori per singolo territorio</strong></p>
+<p>https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0930TER,1.0/BES_T/IT1,DF_BES_TERRIT_0,1.0</p>
+<ul>
+<li>IST FORMAZ</li>
+<li>Lavoro e conciliazione vita-lavoro</li>
+<li>BEn Econ</li>
+<li>Qualità dei servizi,</li>
+<li>ecc</li>
+</ul>
+</section>
 </section>
 <section id="obiettivo-di-fondo-per-piano-strategico-del-2028-da-fare-nel-2027" class="level3">
 <h3 class="anchored" data-anchor-id="obiettivo-di-fondo-per-piano-strategico-del-2028-da-fare-nel-2027">Obiettivo di fondo per Piano Strategico del 2028 (da fare nel 2027)</h3>

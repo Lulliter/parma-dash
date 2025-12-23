@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -96,11 +115,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./dashboard.html"> 
-<span class="menu-text">Dashboard</span></a>
+<span class="menu-text">Dati di contesto</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./source.html" aria-current="page"> 
-<span class="menu-text">Dati e Fonti</span></a>
+<span class="menu-text">Fonti</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./posts.html"> 
@@ -147,8 +166,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#altro" id="toc-altro" class="nav-link active" data-scroll-target="#altro">Altro</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -173,11 +198,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>[ ⚠️ Work in progress … ⚠️ ]</p>
-<p>Descrizione dettagliata delle fonti dati utilizzate nei moduli tematici del dashboard.</p>
+<!-- @istatConfiniUnitaAmministrative2025 -->
+<!-- @istatsituasReport73Comuni2025 -->
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Istat (2025). _Confini Delle Unità Amministrative a Fini Statistici_.
+Shapefiles Dei Confini Amministrativi</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Istat (2025). _Confini Delle Unità Amministrative a Fini Statistici_.
+Shapefiles Dei Confini Amministrativi</code></pre>
+</div>
+</div>
+<section id="altro" class="level2">
 
 
 
-</main> <!-- /main -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Altro</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-istatConfiniUnitaAmministrative2025" class="csl-entry" role="listitem">
+Istat. 2025. <em>Confini Delle Unità Amministrative a Fini Statistici</em>. Shapefiles Dei Confini Amministrativi.
+</div>
+<div id="ref-istatsituasReport73Comuni2025" class="csl-entry" role="listitem">
+Istat SITUAS. 2025. <em>Report 73: <span>Comuni</span> - <span>Caratteristiche</span> Del Territorio</em>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

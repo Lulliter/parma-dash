@@ -24,13 +24,17 @@ execute:
   output: false
   
 bibliography: ../bib/CRP_dash.bib # ../ serve x target (in quarto era gia risolto da yml)
+csl: ../bib/chicago-author-date.csl
 suppress-bibliography: false
+nocite: |
+  @istatConfiniUnitaAmministrative2025
+  @istatsituasReport73Comuni2025
 ---
 
 <!-- # 😫 tutto da ripensare  -->
 <!-- https://chatgpt.com/share/69131e82-4ac8-800f-a8b8-8ea511714f30 -->
 
-## R packg
+# R packg
 
 ```{r}
 #| label: setup
@@ -60,10 +64,10 @@ library(flextable, quietly = TRUE)
 
 ## __ Carica `.shp files` ISTAT
 
-**FONTE**: vedi `data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md`
-**DATA AGGIORNAMENTO**: 01/01/2025
-**COME OTTENUTO**: presi da download manuale (vedi `_istat_shp_ITA_spiega.md`)
-**CONTENUTO**:
+**FONTE**: vedi `data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md`  
+**DATA AGGIORNAMENTO**: 01/01/2025  
+**COME OTTENUTO**: presi da download manuale (vedi `_istat_shp_ITA_spiega.md`)  
+**CONTENUTO**:  
   + Shapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)
 
 
@@ -114,13 +118,13 @@ regioni_ita      <- st_transform(regioni_ita, crs = crs_target)
 
 ## __ Carica caratteristiche comuni SITUAS 
 
-**FONTE**: ISTAT SITUAS - Servizi di pubblicazione dati territoriali 
-**DATA AGGIORNAMENTO**: quella in cui si scaricano i dati 
-**COME OTTENUTO**:  usando funzione per scaricare dati da SITUAS con API (`R/istat_situas_get.R`)
-**CONTENUTO**:
-  + AMBITI GEOGRAFICI: Unità amministrative (Comuni)
-  + In questo caso mi serve il **Report 73	Comuni - Caratteristiche del territorio**
-  + Qui c'è la lista dei report territoriali [https://situas.istat.it/web/#/apiDetail](https://situas.istat.it/web/#/apiDetail)
+**FONTE**: ISTAT SITUAS - Servizi di pubblicazione dati territoriali   
+**DATA AGGIORNAMENTO**: quella in cui si scaricano i dati (default: data odierna)
+**COME OTTENUTO**:  usando funzione per scaricare dati da SITUAS con API (`R/istat_situas_get.R`)  
+**CONTENUTO**:  
+  + AMBITI GEOGRAFICI: Unità amministrative (Comuni)  
+  + In questo caso mi serve il **"Report 73	Comuni - Caratteristiche del territorio"**  
+  + Qui c'è la lista dei report territoriali [https://situas.istat.it/web/#/apiDetail](https://situas.istat.it/web/#/apiDetail)  
 
 
 ```{r}
@@ -275,6 +279,7 @@ write_codici_vec(
 
 # 3) Join Caratt Comuni (SITUAS) + Shp comuni (ISTAT)
 
+La funzione `istat_situas_join_comuni_sf()` fa il join e salva in file rds in `data/data_out/comuni_ita_info_redux_sf.rds` una versione ridotta con solo le colonne utili.
 ```{r}
 #| label: join-comuni-shp
 
@@ -297,7 +302,6 @@ class(comuni_ita_info_sf)
 class(comuni_ita_info_redux_sf)
 # [1] "sf" "data.frame"
 ```
-
 
 Based on codice  alfanumerico = `PRO_COM_T`
 
@@ -427,9 +431,85 @@ comuni_ita_info_sf_VARDESC
 # # Salva per riuso in altri qmd
 source(here::here("R","utilities.R"))
 
-salva_vardesc_rds(comuni_ita_info_sf_VARDESC, 
+salva_vardesc_rds(comuni_ita_info_sf_VARDESC,
                   out_path = here::here("data", "data_out", "comuni_ita_info_sf_VARDESC.rds")
 )
 
 ```
+
+# Fonti
+
+I dati utilizzati in questo documento provengono dalle seguenti fonti ufficiali ISTAT:
+
+## Limiti amministrativi (Shapefiles)
+
+**ISTAT - Confini delle unità amministrative a fini statistici**
+- **Contenuto**: Shapefiles dei confini amministrativi italiani al 01/01/2025 (Comuni, Province/Città Metropolitane, Regioni, Ripartizioni geografiche)
+- **Formato**: Shapefile WGS84
+- **Data di riferimento**: 01/01/2025
+- **Disponibile presso**: `data/data_in/istat_shp_ITA/`
+- **Sito web**: [https://www.istat.it/it/archivio/222527](https://www.istat.it/it/archivio/222527)
+- **Note**: Per dettagli sul download e la struttura dei file, vedi `data/data_in/istat_shp_ITA/_istat_shp_ITA_spiega.md`
+
+## Caratteristiche territoriali dei comuni
+
+**ISTAT SITUAS - Servizi di pubblicazione dati territoriali**
+- **Contenuto**: Report 73 - Comuni: Caratteristiche del territorio
+- **Ambito geografico**: Unità amministrative (Comuni)
+- **Data di aggiornamento**: Data di estrazione via API (odierna)
+- **Accesso**: Web service API
+  - URL base: `https://situas-servizi.istat.it/publish/`
+  - Endpoint report: `https://situas-servizi.istat.it/publish/anagrafica_report_metadato_web?pfun=73`
+- **Documentazione API**: [https://situas.istat.it/web/#/apiDetail](https://situas.istat.it/web/#/apiDetail)
+- **Variabili principali**: Codici amministrativi, zone altimetriche, zone costiere, grado di urbanizzazione (DEGURBA), ecoregioni, caratteristiche insulari e litoranee
+
+## Metodo di acquisizione
+
+- **Shapefiles**: Download manuale dal portale ISTAT, elaborazione tramite funzione `istat_shp_get()` (vedi `R/istat_shp_get.R`)
+- **Dati SITUAS**: Estrazione automatica via API tramite funzioni `f_scarica_situas_dati()` e `f_scarica_situas_metadati()` (vedi `R/istat_situas_get.R`)
+- **Join dati**: Unione shapefile + dati SITUAS tramite codice comunale alfanumerico (`PRO_COM_T`) con funzione `istat_situas_join_comuni_sf()` (vedi `R/istat_situas_join_comuni_sf.R`)
+
+---
+
+# Oggetti creati
+
+Questo documento crea e salva i seguenti oggetti per l'utilizzo in altri script:
+
+## File salvati su disco
+
+### File RDS (data/data_out/)
+
+| File | Contenuto | Utilizzo |
+|------|-----------|----------|
+| `comuni_ita_info_redux_sf.rds` | Join shapefile + SITUAS (versione ridotta) | Oggetto principale per analisi comunali |
+| `comuni_ita_info_sf_VARDESC.rds` | Dizionario variabili | Documentazione delle colonne |
+
+### Shapefile regionali salvati
+
+**Emilia-Romagna** (`data/data_out/ER_shp/`):
+- `ER_comuni_sf.rds` - Comuni ER
+- `ER_provincie_sf.rds` - Province ER
+- `ER_regioni_sf.rds` - Regione ER
+- `ER_PR_comuni_sf.rds` - Comuni provincia Parma
+- `ER_PR_provincie_sf.rds` - Provincia Parma
+
+**Lombardia** (`data/data_out/LB_shp/`):
+- `LB_comuni_sf.rds` - Comuni Lombardia
+- `LB_provincie_sf.rds` - Province Lombardia
+- `LB_regioni_sf.rds` - Regione Lombardia
+- `LB_PV_comuni_sf.rds` - Comuni provincia Pavia
+- `LB_PV_provincie_sf.rds` - Provincia Pavia
+
+### Liste di codici (vettori R)
+
+**Emilia-Romagna** (`data/data_out/ER_shp/`):
+- `lista_COD_PROV_er_vec.R` → vettore `CODICI_PROV_ER`
+- `lista_PRO_COM_T_er_vec.R` → vettore `CODICI_COMUNI_ER`
+- `lista_PRO_COM_T_er_pr_vec.R` → vettore `CODICI_COMUNI_ER_PR`
+
+**Lombardia** (`data/data_out/LB_shp/`):
+- `lista_COD_PROV_lb_vec.R` → vettore `CODICI_PROV_LB`
+- `lista_PRO_COM_T_lb_vec.R` → vettore `CODICI_COMUNI_LB`
+- `lista_PRO_COM_T_lb_pv_vec.R` → vettore `CODICI_COMUNI_LB_PV`
+
 
