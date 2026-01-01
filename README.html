@@ -68,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><code>dashboard/</code>: Presentation or Dashboard Quarto documents (rendered in website)
 <ul>
-<li>Organized by topic in subdirectories (e.g., <code>demographic_trends/</code>, <code>disability/</code>, <code>non_autosufficienza/</code>, <code>servsoc</code>, etc.)</li>
+<li>Organized by topic in subdirectories (e.g., <code>demographic_trends/</code>, <code>disability/</code>, <code>non_autosufficienza/</code>, <code>servsoc</code>, <code>bes</code>, etc.)</li>
 <li>Each topic folder contains:
 <ul>
 <li><code>data_load.R</code>: Data loading scripts</li>
@@ -81,6 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>data_in/</code>: Raw input data with metadata
 <ul>
+<li><code>BES/</code>: Benessere Equo e Sostenibile (BES) indicators from ISTAT (2003-2023/24)</li>
 <li><code>istat_shp_ITA/</code>: ISTAT shapefiles for ALL Italian administrative boundaries</li>
 <li><code>istat_ehis_2019/</code>: European Health Interview Survey (2019 data – pubb in 2022)</li>
 <li><code>ISTAT_DISAB_CIFRE/</code>: Disability statistics from ISTAT</li>
@@ -90,6 +91,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><code>data_out/</code>: Processed <code>.rds</code> files from targets pipeline
 <ul>
+<li><code>bes_istat/</code>: Processed BES indicators time series (2003-2023/24)</li>
 <li><code>ER_shp/</code>: Emilia-Romagna shapefiles and municipal/provincial code vectors</li>
 <li><code>ITA_shp/</code>: Italy-level processed shapefiles</li>
 <li><code>LB_shp/</code>: Local/municipal level shapefiles</li>
@@ -136,17 +138,10 @@ ul.task-list li input[type="checkbox"] {
 <li>🔴 ricerca innovazione</li>
 <li>…</li>
 </ul>
-<section id="qui-bes-x-dominio" class="level4">
-<h4 class="anchored" data-anchor-id="qui-bes-x-dominio">🟩 QUI BES x dominio</h4>
-<p><code>"data/data_in/BES/"</code></p>
-<p><strong>Indicatori per singolo territorio</strong></p>
-<p>https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0930TER,1.0/BES_T/IT1,DF_BES_TERRIT_0,1.0</p>
+<section id="rivedere-struttura-e-generazione-dei-grafici" class="level4">
+<h4 class="anchored" data-anchor-id="rivedere-struttura-e-generazione-dei-grafici">Rivedere struttura e generazione dei grafici</h4>
 <ul>
-<li>IST FORMAZ</li>
-<li>Lavoro e conciliazione vita-lavoro</li>
-<li>BEn Econ</li>
-<li>Qualità dei servizi,</li>
-<li>ecc</li>
+<li>C’e’ un po’ casino perche quello che e’ <code>data_output/</code> poi diventa <code>data_input/</code>, poi magari c’e’ un plot che viene generato in analysis/ e salvato in plots/ e poi richiamato in dashboard/…</li>
 </ul>
 </section>
 </section>
@@ -213,6 +208,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="lavoro-povero" class="level4">
 <h4 class="anchored" data-anchor-id="lavoro-povero">LAVORO POVERO</h4>
+</section>
+<section id="imprenditorialità" class="level4">
+<h4 class="anchored" data-anchor-id="imprenditorialità">Imprenditorialità</h4>
+<ul>
+<li>startup innovative</li>
+<li>imprese sociali</li>
+<li>AI e automazione</li>
+</ul>
 </section>
 </section>
 </section>

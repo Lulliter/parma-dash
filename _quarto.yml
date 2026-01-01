@@ -58,6 +58,8 @@ website:
         href: dashboard/non_autosufficienza/index.qmd
       - text: "Tema 2.c) Servizi Sociali dei Comuni"
         href: dashboard/serv_soc/index.qmd
+      - text: "Tema 3) Benessere Equo e solidale"
+        href: dashboard/bes/index.qmd
     - title: "Dati e Fonti"
       style: docked
       background: "#9f7d35"

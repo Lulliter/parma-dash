@@ -14,7 +14,7 @@ Studying mission-relevant socio-economic data on Fondazione Cariparma's area of 
     - qui si potrebbe fare più mappe usando i dati per COM / PROV + censimento AGE (classi decennali), CITIZENSHIP, GENDER
 
 - `dashboard/`: Presentation or Dashboard Quarto documents (rendered in website)
-  - Organized by topic in subdirectories (e.g., `demographic_trends/`, `disability/`, `non_autosufficienza/`, `servsoc`, etc.)
+  - Organized by topic in subdirectories (e.g., `demographic_trends/`, `disability/`, `non_autosufficienza/`, `servsoc`, `bes`, etc.)
   - Each topic folder contains:
     - `data_load.R`: Data loading scripts
     - `visualizations.R`: Visualization scripts  
@@ -22,6 +22,7 @@ Studying mission-relevant socio-economic data on Fondazione Cariparma's area of 
 
 - `data/`:
   - `data_in/`: Raw input data with metadata
+    - `BES/`: Benessere Equo e Sostenibile (BES) indicators from ISTAT (2003-2023/24)
     - `istat_shp_ITA/`: ISTAT shapefiles for ALL Italian administrative boundaries
     - `istat_ehis_2019/`: European Health Interview Survey (2019 data -- pubb in 2022)
     - `ISTAT_DISAB_CIFRE/`: Disability statistics from ISTAT
@@ -29,6 +30,7 @@ Studying mission-relevant socio-economic data on Fondazione Cariparma's area of 
     - `ER_stats/`: Emilia-Romagna regional statistics
     - Excel files: demographic indicators, municipal classifications, foreign residents
   - `data_out/`: Processed `.rds` files from targets pipeline
+    - `bes_istat/`: Processed BES indicators time series (2003-2023/24)
     - `ER_shp/`: Emilia-Romagna shapefiles and municipal/provincial code vectors
     - `ITA_shp/`: Italy-level processed shapefiles
     - `LB_shp/`: Local/municipal level shapefiles
@@ -66,21 +68,9 @@ Studying mission-relevant socio-economic data on Fondazione Cariparma's area of 
 + 🔴 ricerca innovazione
 + ...
 
-#### 🟩 QUI BES x dominio
+#### Rivedere struttura e generazione dei grafici
 
-`"data/data_in/BES/"`
-
-**Indicatori per singolo territorio**
-
-https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0930TER,1.0/BES_T/IT1,DF_BES_TERRIT_0,1.0
-
-+ IST FORMAZ 
-+ Lavoro e conciliazione vita-lavoro 
-+ BEn Econ 
-+ Qualità dei servizi,
-+ ecc 
-
-
++ C'e' un po' casino perche quello che e' `data_output/` poi diventa `data_input/`, poi magari c'e' un plot che viene generato in analysis/ e salvato in plots/ e poi richiamato in dashboard/...
 
 ### Obiettivo di fondo per Piano Strategico del 2028 (da fare nel 2027)
 
@@ -125,4 +115,10 @@ https://esploradati.istat.it/databrowser/#/it/dw/categories/IT1,Z0930TER,1.0/BES
 
 #### LAVORO POVERO
 
+
+#### Imprenditorialità 
+
+- startup innovative
+- imprese sociali
+- AI e automazione
 
