@@ -19,12 +19,15 @@
 .vscode/
 .claude/
 
-# ----------------- QUARTO WEBSITE 
+# ----------------- QUARTO WEBSITE
 _site/
 _freeze/
 .quarto/
 _quarto/
 /.quarto/
+# Artefatti generati da quarto_render() sul README
+README.html
+README_files/
 
 # ----------------- DATA FILES
 
@@ -51,7 +54,7 @@ data/data_out/**/*
 !data/plots/**/*
 
 
-# ----------------- Personal 
+# ----------------- Personal
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
 
@@ -59,3 +62,6 @@ data/data_out/**/*
 zzz/**/*.*
 */zzz/**/*.*
 CLAUDE.md
+.positai
+
+**/*.quarto_ipynb

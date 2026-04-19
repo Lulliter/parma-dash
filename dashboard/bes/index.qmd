@@ -7,24 +7,36 @@ lang: it
 
 format:
   html:
-    theme: flatly #spacelab
-    # css: utils/style.css
-    code-fold: true # redundant bc echo false 
-    toc-depth: 3
-    toc_float: true
+    css: ../../assets/styles/custom.scss
+    # theme: flatly    # commentato xche dentro il sito eredita il tema globale
+    toc: true
+    toc-depth: 2
     toc-location: left
-    toc-title: Indice
-    embed-resources: true # external dependencies embedded (Not in ..._files/)
-  docx:
-    toc: false
-    toc-depth: 3
     toc-title: "Indice"
-    highlight-style: tango #github
-    embed-resources: true
-    page-width: 9
-    fig-width: 8  # per usare tutta la larghezza della pagina!!!
-    fig-height: 6
-    dpi: 300
+    # embed-resources: true   # NON attivare dentro il sito (rompe CSS condiviso).
+                              # Per un HTML autocontenuto da condividere fuori dal sito:
+                              # quarto::quarto_render("dashboard/bes/index.qmd",
+                              #                       output_format = "html",
+                              #                       quarto_args = c("--embed-resources"))
+    include-in-header:
+      - text: |
+          <style>
+          section.level3.notitle h3 {
+            display: none !important;
+          }
+          </style>
+  # --- Output docx (commentato — ripristinabile togliendo i "#")
+  # docx:
+  #   toc: false
+  #   toc-depth: 3
+  #   toc-title: "Indice"
+  #   highlight-style: tango
+  #   embed-resources: true
+  #   page-width: 9
+  #   fig-width: 8
+  #   fig-height: 6
+  #   dpi: 300
+
 execute:
   eval: true
   echo: false # x mostrare codice anche in file docx

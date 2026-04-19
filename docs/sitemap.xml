@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lulliter.github.io/parma-dash/source/istat-data.html</loc>
-    <lastmod>2025-12-05T10:24:30.651Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/source.html</loc>
-    <lastmod>2025-12-10T13:31:52.266Z</lastmod>
-  </url>
-  <url>
     <loc>https://lulliter.github.io/parma-dash/index.html</loc>
-    <lastmod>2026-01-01T20:26:17.387Z</lastmod>
+    <lastmod>2026-04-19T15:11:37.164Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/dashboard/non_autosufficienza/index.html</loc>
@@ -21,16 +13,8 @@
     <lastmod>2025-12-22T11:22:21.958Z</lastmod>
   </url>
   <url>
-    <loc>https://lulliter.github.io/parma-dash/dashboard.html</loc>
-    <lastmod>2025-12-02T11:22:17.994Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/about.html</loc>
-    <lastmod>2025-10-13T10:19:04.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://lulliter.github.io/parma-dash/dashboard/bes/index.html</loc>
-    <lastmod>2026-01-01T20:43:04.029Z</lastmod>
+    <lastmod>2026-04-19T15:16:03.879Z</lastmod>
   </url>
   <url>
     <loc>https://lulliter.github.io/parma-dash/dashboard/disability/index.html</loc>
@@ -39,13 +23,5 @@
   <url>
     <loc>https://lulliter.github.io/parma-dash/dashboard/serv_soc/index.html</loc>
     <lastmod>2025-12-07T19:04:34.493Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/posts.html</loc>
-    <lastmod>2025-12-02T12:03:17.327Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lulliter.github.io/parma-dash/source/demog-disab-data.html</loc>
-    <lastmod>2025-11-27T21:40:25.538Z</lastmod>
   </url>
 </urlset>

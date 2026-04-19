@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -26,14 +26,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="README_files/libs/clipboard/clipboard.min.js"></script>
 <script src="README_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="README_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="README_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="README_files/libs/quarto-html/popper.min.js"></script>
 <script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="README_files/libs/quarto-html/anchor.min.js"></script>
 <link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="README_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="README_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="README_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="README_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -114,14 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>CRP_dash.bib</code>: Reference bibliography linked to Zotero</li>
 </ul></li>
-<li><code>source/</code>: Documentation on data sources and methodologies
+<li><code>source/</code>: Documentation on data sources and methodologies (NOT rendered in website — doc interna)
 <ul>
 <li><code>demog-disab-data.qmd</code>: Documentation on demographic and disability data sources</li>
 <li><code>istat-data.qmd</code>: Documentation on ISTAT data sources and APIs</li>
-</ul></li>
-<li><code>posts/</code>: Blog posts (rendered in website)
-<ul>
-<li>Quarto blog format for project updates and insights</li>
 </ul></li>
 </ul>
 </section>
@@ -274,13 +271,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

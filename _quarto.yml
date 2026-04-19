@@ -6,6 +6,10 @@ project:
     - "!assets/parma_colours.qmd"
     - "!analysis/**/*.qmd"   # ma NON quelli nella sottocartella analysis/ xche sono intermedi
     - "!zzz/**/*.qmd"   # e NON uelli cdella sottocartella zzz/
+    - "!**/zzz/**/*.qmd"  # per escludere qualsiasi zzz/ a qualunque profondità !!!!
+    - "!source/**/*.qmd"   # source/ contiene doc interna sulle fonti, non pagine del sito
+    # NB: i file che iniziano con "_" (es. R/_fonts.qmd) sono partial di Quarto e
+    #     non vengono renderizzati per convenzione.
 
 website:
   bread-crumbs: true   
@@ -25,50 +29,27 @@ website:
 #      Made with {{< fa brands r-project >}} and ![]({{< var quarto-icon >}}){width=75px} <br> 
     background: "#E5EBEE"
   
-# --- Structure of the navbar
+# --- Structure of the navbar (opzione A: temi direttamente in navbar)
   navbar:
     pinned: true
     left:
       - text: Home
-        href: index.qmd # Qui elenco i temi trattati
-      - text: Dati di contesto
-        href: dashboard.qmd # Qui metterò una sotto pagina per ogni tema
-      - text: Fonti
-        href: source.qmd # Qui metterò una sotto pagina per ogni fonte di dati (riflettendo i temi)
-      - text: Blog
-        href: posts.qmd
-        
+        href: index.qmd
+      - text: "Trend Demografici"
+        href: dashboard/demographic_trends/index.qmd
+      - text: "Disabilità"
+        href: dashboard/disability/index.qmd
+      - text: "Non autosufficienza"
+        href: dashboard/non_autosufficienza/index.qmd
+      - text: "Servizi Sociali"
+        href: dashboard/serv_soc/index.qmd
+      - text: "BES"
+        href: dashboard/bes/index.qmd
+
     right:
       - icon: github
         aria-label: github
         href: https://github.com/Lulliter/parma-dash
-
-# --- Structure of the sidebar (if any)
-  sidebar:
-    - title: "Dashboard" # "Dati di contesto"
-      style: docked
-      background: "#9f7d35"
-      contents:
-      - dashboard.qmd
-      - text: "Tema 1) Trend Demografici"
-        href: dashboard/demographic_trends/index.qmd
-      - text: "Tema 2.a) Disabilità"
-        href: dashboard/disability/index.qmd
-      - text: "Tema 2.b) Non autosufficienza"
-        href: dashboard/non_autosufficienza/index.qmd
-      - text: "Tema 2.c) Servizi Sociali dei Comuni"
-        href: dashboard/serv_soc/index.qmd
-      - text: "Tema 3) Benessere Equo e solidale"
-        href: dashboard/bes/index.qmd
-    - title: "Dati e Fonti"
-      style: docked
-      background: "#9f7d35"
-      contents:
-      - source.qmd
- #     - text: "Dati Istat estratti da IstatData (SDMX)"
- #       href: source/istat-data.qmd
- #     - text: "Dati su trend demografici e disabilità"
- #       href: source/demog-disab-data.qmd
 
 # --- Default options for all pages
 format:
