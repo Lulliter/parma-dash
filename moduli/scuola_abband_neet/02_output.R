@@ -183,7 +183,7 @@ plot_ritardo_trend_pr_er <- ritardo_trend_prep |>
   f_theme_scuola() +
   theme(strip.text = element_text(size = rel(1), face = "bold")) +
   labs(
-    title = str_wrap(glue("Alunni in ritardo scolastico per ordine di scuola (trend {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)})"), 55),
+    title = str_wrap(glue("Alunni in ritardo scolastico per ordine di scuola (trend a.s. {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)})"), 55),
     subtitle = "In % degli iscritti dell'ordine",
     caption = CAP_MIM, x = "", y = ""
   )

@@ -31,7 +31,7 @@ CAP <- f_caption_fonte("USR Emilia-Romagna, fact sheet 'Studenti e studenti con 
 
 ANNO_PRIMO <- 2016  # primo a.s. della serie (2016/17)
 ANNO_ULTIMO <- 2024 # a.s. 2024/25 (dato provvisorio)
-PERIODO_AS <- glue("a.s. {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)}")
+PERIODO_AS <- glue("trend a.s. {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)}") # usato solo nei titoli dei grafici di trend
 
 # 1. Carica dati pronti ----------------------------------------------------
 disab_trend_prov_er <- readRDS(file.path(dir_mod, "disab_trend_prov_er.rds"))

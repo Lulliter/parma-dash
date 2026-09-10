@@ -47,7 +47,7 @@ ANNO_ULTIMO <- 2024 # a.s. 2024/25, per il grafico dei comuni
 TOP_N_COMUNI <- 15
 SOGLIA_RIF_STRANIERI <- 0.20 # linea di riferimento nei grafici per comune
 
-PERIODO_AS <- glue("a.s. {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)}")
+PERIODO_AS <- glue("trend a.s. {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)}") # usato solo nei titoli dei grafici di trend
 
 
 # 1. Carica dati pronti ----------------------------------------------------

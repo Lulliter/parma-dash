@@ -231,6 +231,8 @@ f_bottoni_dati("paritarie_plessi_comuni_pr", dir_scuola, rds = "mappa_paritarie_
 
 **La scuola paritaria della provincia serve soprattutto l'infanzia**: dei 104 plessi paritari, 80 sono scuole dell'infanzia, diffuse capillarmente in 21 comuni. Negli altri ordini la paritaria è un fenomeno concentrato: 24 plessi in soli 5 comuni (Parma 15, Salsomaggiore 4, Fidenza 3, Busseto e Traversetolo 1). In diversi comuni le paritarie restano un **presidio importante** e, talora, l'unica o la principale offerta locale.  
 
+_NB: La mappa conta i plessi presenti nell'anagrafe MIM, anche quelli senza iscritti (es. le primarie di Bore e Valmozzola, formalmente attive ma senza alunni nei dati): "0" = plessi tutti statali, in grigio i comuni senza alcun plesso dell'ordine._
+
 :::
 
 
