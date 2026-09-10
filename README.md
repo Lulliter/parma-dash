@@ -17,6 +17,8 @@ analisi e presentazione) a una struttura modulare a due strati:
 2. **`sito/`** — spazio di composizione: combina gli output dei moduli secondo le esigenze
    del momento (i temi vivono qui e possono essere ridefiniti senza toccare i moduli)
 
+> Regole complete del "contratto" tra strati, convenzioni di codifica e stato della migrazione: [`_TODO.qmd`](_TODO.qmd).
+
 Rispetto a prima, il flusso dei dati diventa a senso unico:
 
 ```
@@ -58,6 +60,6 @@ Scorciatoia: `source("build.R")` rigenera gli `output/` di tutti i moduli e inva
 
 # TODO
 
-+ 🔨 Migrazione per tema in corso... [`_TODO.md`](_TODO.md)
+🔨 Migrazione per tema in corso. Il diario di lavoro — piano, regole, convenzioni di codifica e stato tema per tema — sta in [`_TODO.qmd`](_TODO.qmd), che si renderizza a mano (`_TODO.html`) e resta fuori dal sito.
 
 ----------

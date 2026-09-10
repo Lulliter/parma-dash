@@ -90,6 +90,10 @@ scuole_anagrafe_er <- bind_rows(
          comune = descrizionecomune,
          codice_catastale = codicecomunescuola,
          grado = descrizionetipologiagradoistruzionescuola,
+         # solo statali: NORMALE | PERCORSO II LIVELLO (serali) | CPIA | SPEC. PER
+         # CARCERARI | C/O IST. OSPEDALIERO | convitti | DI MONTAGNA; paritarie = NA
+         # (aggiunta 2026-09-10: serve a escludere i serali dal ritardo scolastico)
+         caratteristica = descrizionecaratteristicascuola,
          gestione)
 
 # checks

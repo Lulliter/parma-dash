@@ -1,13 +1,65 @@
-# Piano di ristrutturazione del repo
+---
+title: "Piano di ristrutturazione del repo"
+subtitle: "Indice della migrazione e appunti di lavoro in corso"
+date: last-modified
+date-format: "DD-MMMM-YYYY"
+lang: it
 
-> Creato: 2026-07-17 — Questo file è l'indice della migrazione: spuntare le caselle man mano.
-> NB 2026-07-17: pulizia già fatta — rimossi `_targets/`, `presentazione/`, `ZZZ_old/`,
-> `source/`, `analysis/`, `data/`, `_data_GDrive/` (tutto nel backup e/o in git history).
-> Della vecchia struttura resta solo `dashboard/` (5 temi) come materiale da migrare.
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    toc-expand: 2
+    embed-resources: true   # niente cartella _TODO_files/
+  docx:
+    toc: true
+    toc-depth: 3
+    toc-title: "Indice"
+    highlight-style: tango
+    page-width: 9
 
-# Obiettivo
+execute:
+  eval: true
+  echo: false
+  warning: false
+  error: false
+  output: false
+---
 
-Passare da una struttura organizzata per macro-temi (con confini poco netti tra dati,
+# Setup 
+
+```{r}
+#| label: anteprima
+#| eval: false
+
+# --- Anteprima: renderizza e apre nel browser (lancio a mano, ignorato nel render)
+quarto::quarto_render(here::here("_TODO.qmd"), output_format = "html")
+browseURL(here::here("_TODO.html"))
+
+# --- Versione Word (da lanciare solo quando serve il file da girare)
+# quarto::quarto_render(here::here("_TODO.qmd"), output_format = "docx")
+```
+
+::: {.callout-note collapse="true"}
+#### Come si usa questo file
+
+Creato: 2026-07-17 — Questo file è l'indice della migrazione: spuntare le caselle man mano.
+NB 2026-07-17: pulizia già fatta — rimossi `_targets/`, `presentazione/`, `ZZZ_old/`,
+`source/`, `analysis/`, `data/`, `_data_GDrive/` (tutto nel backup e/o in git history).
+Della vecchia struttura resta solo `dashboard/` (5 temi) come materiale da migrare.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Vedi anche il README
+
+Vista d'insieme del progetto, note di riproducibilità e ricostruzione dei dati: [`README.md`](README.md). Le sezioni "Obiettivo" e "Struttura repo" qui sotto sono le stesse del README: se cambiano, vanno allineate in tutti e due.
+:::
+
+# Intro 
+
+
+L'**obiettivo** è passare da una struttura organizzata per macro-temi (con confini poco netti tra dati,
 analisi e presentazione) a una struttura modulare a due strati:
 
 1. **`moduli/`** — unità di analisi autonome: `input` → `output` (grafico / tabella) + `blurb` (commenti x divulgazione)
@@ -23,7 +75,11 @@ dati/grezzi/ ──▶ ingestione/ ──▶ dati/puliti/ ──▶ moduli/*/out
               (se mono-modulo salto ingestione/)
 ```
 
-# Struttura repo
+
+{{< pagebreak >}}
+
+
+## Struttura del repo
 
 ```
 analisi_contesto/
@@ -43,7 +99,7 @@ analisi_contesto/
     └── temi/               # una pagina per tema, ricombinabile a piacere
 ```
 
-# Regole (il "contratto" tra strati)
+## Regole 
 
 + Flusso di **elaborazione dati** a senso unico: `dati/grezzi → (ingestione/) → dati/puliti → moduli/*/output → sito`
     + Ogni modulo scrive **solo** nel proprio `output/`
@@ -58,54 +114,44 @@ analisi_contesto/
     + Mai `source()` orizzontali tra moduli: se serve a due, si promuove. In `R/`: 1 file = 1 funzione, nome file = nome funzione (prefissi: `istat_*` fonti, `f_*` helper viz/formato, `utilities.R` briciole) 
     + Così `R/` contiene solo funzioni con ≥2 utilizzatori, tutte vive
 
-# Indice di migrazione (per tema)
++ **Convenzioni di codifica**
+  + Spostate in [`CLAUDE.md`](CLAUDE.md) il 2026-09-02 (sono istruzioni permanenti, non voci da spuntare). Stile di tabelle e grafici: skill `formatting-r` + `R/formatting.R`.
 
-Ordine consigliato: prima le fondamenta, poi un tema alla volta. Per ogni tema:
-copiare `_template_modulo/`, portare dentro codice da `dashboard/<tema>/`,
-recuperare gli input dal backup mettendoli in `dati/grezzi/` (per fonte).
-I vecchi qmd di `analysis/` si recuperano dal backup o da git history.
+## Steps del processo
 
-## 0. Fondamenta organizzative
+### a) Automatizzazione flusso
 
 - [ ] Esisteva una parziale `_targets.R` (nel repo vecchio) ma sarà da ripensare — targets o semplici script di ingestione — almeno per scarico di dati da aggiornare periodicamente (IStat, SITUAS, ecc.)
++ [x] Per la creazione di un modulo, seguo un template: `_template_modulo/` (copiato in `moduli/<nome_modulo>/` e rinominato). Contiene 01_dati.R, 02_output.R, blurb.md, output/ (vuoto).
++ [ ] Una volta fatto ol modulo, da lì posso prendere spunto per inserire nel relativo file `sito/temi/....qmd` del sito. Il tema è un file qmd che legge i moduli e li combina in una pagina.
 
 
-> **TEMI RIDEFINITI da Luisa il 2026-07-17** (sostituiscono i 5 temi della vecchia
-> dashboard), in ordine di priorità. Principio: **l'aggiornamento avviene per FONTE**
-> (ingestione/ e moduli/), i temi sono composizione in `sito/`. Il vecchio tema "BES"
-> smette di essere un tema a sé: i suoi indicatori si spalmano sui temi come fonte.
-> Per ogni tema: fonti già in casa vs da cercare.
 
-## 1. Aggiornamento delle fonti sui temi rilevanti
+::: {.callout-important collapse="true"}
+#### Temi ridefiniti il 2026-07-17
 
-- [ ] [ONGOING] Da fare man mano che consulto le fonti -> organizzate in `moduli/`, con blurb e output pronti per il sito.  
-  + Dettagli di come vengono organizzati i dati e ripensati i contenuti alla sezione "Temi" più in basso. 
+**TEMI RIDEFINITI da Luisa il 2026-07-17** (sostituiscono i 5 temi della vecchia
+dashboard), in ordine di priorità. Principio: **l'aggiornamento avviene per FONTE**
+(ingestione/ e moduli/), i temi sono composizione in `sito/`. Il vecchio tema "BES"
+smette di essere un tema a sé: i suoi indicatori si spalmano sui temi come fonte.
+Per ogni tema: fonti già in casa vs da cercare.
+:::
+
+### b) Aggiornamento delle fonti sui temi rilevanti
+
+- [ ] [ONGOING] Da fare man mano che consulto le fonti -> file di pulizia organizzati in `moduli/` (se mono modulo) o in `ingestione/` (se multi-modulo). 
 
 
-## 2. Riorganizzazione dei Temi e preparazione pagine sito
+### c) Riorganizzazione dei Temi e preparazione pagine sito
 
 - [ ] [ONGOING] Costruire `sito/` (index + una pagina per tema che include output e blurb dei moduli)
   + Dettagli di come vengono organizzati i dati e ripensati i contenuti alla sezione "Temi" più in basso. 
 - [x] Sistema di download tabelle: FATTO e collaudato su `trend_demogr.qmd` e `scuola.qmd` (2026-07-21). Ogni grafico ha 2 bottoni CSV+Excel sotto-destra, via `R/f_bottoni_dati.R` + `R/f_scarica_dati.R` (dipendenza: `downloadthis`). Decisioni fissate: csv INTERNAZIONALE (virgola+punto, BOM) con titolo/fonte come righe `#` in testa; Excel = formato "sicuro" per gli italiani (tipi preservati) con foglio "Metadati"; nome file `<pagina>_<progressivo>`. NB patchwork: titolo/fonte stanno in `plot_annotation` (gestito da f_bottoni_dati).
   - [ ] Applicare ai moduli/pagine FUTURI (retrofit): ogni modulo salva un `.csv` per grafico accanto al `.rds` (v. Convenzioni)
  
-# Convenzioni di codifica
-
-- Nomi file e cartelle: minuscoli, parole separate da `_`
-- Lingua: italiano coerente (loanword ormai standard tipo "output" ok)
-- Codice: R base + tidyverse (purrr sì, lambda `\()` no), pipe nativa `|>`, commenti sugli step principali
-- Stile codice: OK che sia sintetico, ma deve essere insieme leggibile da umano che vuole comunque ripercorrerlo e sta facendo analisi interattivamente (troppa astrazioen o una if function che compatta troppi passaggi mi rende difficile capire cosa succede). D'altra parte non vogliamo un codice verboso e ridondante, quindi: commenti sintetici, nomi oggetti chiari, funzioni brevi e con un solo compito.
-- Ogni script: intestazione con `Input:`/`Output:` + sezione `# Parametri ---` in testa (anni, path, soglie: tutto ciò che si cambia all'aggiornamento annuale)
-- TUTTE le funzioni si chiamano `f_...` (anche quelle locali negli script); script di pipeline con verbi inglesi brevi: `get_` / `clean_` / `prep_`
-- Output datati nel contenuto (fonte e anno nel blurb), non nel nome file
-- Nome file `.rds`/`.csv` salvato = nome dell'oggetto R che contiene (niente passaggi di riconoscimento in più)
-- Grafici di trend: SEMPRE linea + pallino (deciso 2026-07-18); nei confronti multi-territorio i pallini vanno solo sulle linee evidenziate
-- Negli script di output: preparazione dati del grafico SEPARATA dal grafico, con oggetto `<nome>_prep` prima di `plot_<nome>`/`mappa_<nome>` (2026-07-18)
-- Serie di grafici omogenei (es. mappe tematiche): guidate da una tabella `tribble` "1 riga = 1 grafico", con classi/disegno/salvataggio automatici
-- Ogni modulo salva un `.csv` per grafico accanto al `.rds` (stesso nome, o tabella condivisa da più grafici): serve ai bottoni di scarico dati nelle pagine di `sito/` (2026-07-21)
-- Ogni pagina del sito avrà un chunk in testa come in `trend_demog.qmd` (`#| label: anteprima`) per consentirmi di visualizzare interattivamente 
-
 ---
+
+{{< pagebreak >}}
 
 # Temi 
 
@@ -135,89 +181,130 @@ I macro temi corrispondono + o - alle pagine del `sito/`. GLi item elencati corr
   - [ ] 80+ STORICO per confronto con previsioni: nell'xls indicatori c'è solo 0-14/15-64/65+ → scaricare da demo.istat.it la popolazione per singole età (serie storica; provare pochi anni per volta se il sito non regge il download unico)
   - [ ] SPERANZA DI VITA PREVISTA al 2050: non è nei file scaricati; esiste tra le ipotesi delle previsioni ISTAT ma a livello REGIONALE → nuovo download da demo.istat.it (la storica è già nei trend, p15/p16)
 
+#### sito  
+- [x] `sito/temi/trend_demogr.qmd`
+- [x] `sito/temi/trend_demogr_previs.qmd`
+ 
+ 
+___
 
-**Pagine `sito/temi/`**: 
-
-- [ ] (DA ARRICCHIRE) `sito/temi/trend_demogr.qmd`
-- [ ] (DA ARRICCHIRE) `sito/temi/trend_demogr_previs.qmd`
  
 ## 2.a Scuola e formazione (c'è un inizio; arricchire con fonti LOCALI)
 > Non affrontato nello strategico PS 2024-2027, ma da presentare come "Driver di crescita e realizzazione delle persone" 
 
-**Ricognizione/Aggiornamento FONTI**: 
-Fonti in casa: `istat_alunni_disab` (a.s. 2024-25, dettaglio max REGIONE) ✓.
-
-+ [ ] Abbandono scolastico [Eurostat? / Openpolis](https://www.openpolis.it/labbandono-scolastico-un-problema-in-crescita-per-alcuni-paesi-ue/)
-+ [ ] Dispersione scolastica e NEET [Studio IPRASE Trentino ma bello](https://www.iprase.tn.it/news/comunicati/dispersione-scolastica-e-giovani-neet-presentati-i-risultati-della-ricerca-sullalto)
-+ [ ] Orientamento dei giovani e formazione professionale e transizione scuola-lavoro - Istituto Giuseppe TOniolo 
-+ [ ] Il ruolo della scuola come sussidio al welfare territoriale
-
 **Ripensamento MODULI (connessi a fonti)**: (bisogni Fondazione: trend generali + fragilità:
-abbandoni, NEET, formazione continua, % stranieri per comune, studenti disabili;
-mismatch domanda-formazione rimandato → fonte Excelsior, ponte col tema Lavoro):
+abbandoni, NEET, formazione continua, % stranieri per comune, studenti disabili; mismatch domanda-formazione rimandato → fonte Excelsior, ponte col tema Lavoro):
 
-- [x] Open data MIM (dati.istruzione.it, IODL, CSV per SINGOLA SCUOLA):
-      SCARICATO in `dati/grezzi/mim_open_data/` (64 csv: iscritti + cittadinanza
-      2015/16→2024/25, anagrafi 2015/16→2026/27) e ingerito; URL e percorso
-      leggibile in `_metadati.md`
-- [ ] ISTAT BES dei territori (ed. 2025): tavole PROVINCIALI con NEET, uscita
-      precoce e formazione continua (stime campionarie, ok come ordine di
-      grandezza) → DA SCARICARE per `istruz_formaz_neet`:
-      https://www.istat.it/statistiche-per-temi/focus/benessere-e-sostenibilita/bes-dei-territori/
-- [ ] USR-ER: report annuali alunni con disabilità con dettaglio provinciale →
-      DA SCARICARE per `scuola_disab`: https://www.istruzioneer.gov.it/dati/open-data/
-      (nel catalogo MIM un dataset disabilità per scuola NON è stato trovato
-      con certezza — verificare col motore interno)
-- [ ] Regione ER anagrafe studenti: successo/regolarità per provincia + iscritti
-      INFANZIA (validazione e completamento) → DA ACQUISIRE:
-      https://scuola.regione.emilia-romagna.it/anagrafi-regionali
+
+### modulo `scuola_iscritti` 
+(trend PR per ordine scuola, italiani E stranieri incl. % per comune; fonte MIM)
+
+**Ricognizione/Aggiornamento FONTI**: 
+
+- [x] Open data MIM (dati.istruzione.it, IODL, CSV per SINGOLA SCUOLA): SCARICATO in `dati/grezzi/mim_open_data/` (64 csv: iscritti + cittadinanza 2015/16→2024/25, anagrafi 2015/16→2026/27) e ingerito; URL e percorso leggibile in `_metadati.md`
+- [x] `ingestione/02_prep_mim_studenti.R` ESEGUITO e collaudato (2026-07-19): produce `dati/puliti/mim_iscritti/` (scuole_anagrafe_er, scuole_anagrafe_storico_er, scuole_iscritti_er, scuole_iscritti_cittadinanza_er); transcodifica comuni sul codice catastale (327/327), nome comune ufficiale ISTAT
+- [x] Studenti disabili (dettaglio provinciale, USR-ER): FATTO nel modulo `scuola_disabilita` (2026-09-10)
+- [ ] I totali iscritti includono i corsi serali ("PERCORSO II LIVELLO"), CPIA, sedi carcerarie e ospedaliere (a Parma ~530 alunni nei serali, 2024/25): decidere se escluderli come fa `scuola_abband_neet` (colonna `caratteristica` in `scuole_anagrafe_er`, dal 2026-09-10)
+- [ ] _Fonte da acquisire_: iscritti scuola dell'INFANZIA (il MIM non li rileva; l'anagrafe studenti Regione ER sì) — servono per completare trend e quote paritarie, che nell'infanzia sono il segmento capillare
+- [ ] _Fonte da acquisire_:  Risultati test invalsi e grado di scolarizzazione   
+  - vedi [bellissimo grafico di  Luca Bonzanni](https://public.flourish.studio/visualisation/29981721/)
+  
+### modulo `scuola_disabilita`
+(regionale, dati in casa + USR-ER prov.)
+**Ricognizione/Aggiornamento FONTI**: 
+
+- [x] Fonti in casa: `dati/grezzi/istat_alunni_disab` (a.s. 2024-25, dettaglio max REGIONE) ✓. Usata la Tavola 1 (serie nazionale) e i numeri regionali sul sostegno nel testo
+- [x] USR-ER: fact sheet annuali alunni con disabilità con dettaglio provinciale (2017/18 → 2024/25) SCARICATI e trascritti in `usr_er_alunni_disab.csv` (2026-09-10); modulo `scuola_disabilita` collaudato: 3 grafici + blurb, sezione in `sito/temi/_scuola.qmd`. (Nel catalogo MIM un dataset disabilità per scuola NON è stato trovato con certezza — verificare col motore interno)
+- [ ] Al prossimo fact sheet USR-ER (uscita ~settembre): aggiungere le righe al csv (nuovo a.s. = provvisorio, precedente = definitivo), aggiornare `ANNO_ULTIMO` in `02_output.R` e il blurb
+- [ ] Approfondimenti sulle ipotesi del blurb: disabilità × cittadinanza (fonte da trovare: MIM/ISTAT non incrociano a livello provinciale) ed effetto post-pandemia (confrontare con la serie ISTAT nazionale per ordine)
+- [ ] Regione ER anagrafe studenti: successo/regolarità per provincia + iscritti INFANZIA (validazione e completamento) → DA ACQUISIRE: https://scuola.regione.emilia-romagna.it/anagrafi-regionali
 - [ ] ISTAT nidi/prima infanzia (posti autorizzati per comune, report feb 2026)
       → DA SCARICARE:
       https://www.istat.it/comunicato-stampa/offerta-di-nidi-e-servizi-integrativi-per-la-prima-infanzia-anno-educativo-2023-2024/
 
-**Ripensamento MODULI (connessi a fonti)**: `scuola_iscritti` (trend PR per ordine
-scuola, italiani E stranieri incl. % per comune; fonte MIM), `istruz_formaz_neet`
-(NEET/abbandoni/formazione continua PR vs province ER; fonte BES dei territori),
-`scuola_disab` (regionale, dati in casa + USR-ER prov.)
+ 
+### modulo `scuola_abband_neet`
+(NEET/abbandoni/formazione continua PR vs province ER; fonte BES dei territori)
 
-- [x] `ingestione/02_prep_mim_studenti.R` ESEGUITO e collaudato (2026-07-19):
-      produce `dati/puliti/mim_iscritti/` (scuole_anagrafe_er, scuole_anagrafe_storico_er,
-      scuole_iscritti_er, scuole_iscritti_cittadinanza_er); transcodifica comuni
-      sul codice catastale (327/327), nome comune ufficiale ISTAT
-- [x] Modulo `scuola_iscritti` COLLAUDATO 2026-07-19: trend iscritti (totale +
-      pannelli statale/paritaria), trend PLESSI con infanzia fino al 2026/27,
-      % stranieri (province con media ER, comuni top+min con soglia 20%),
-      3 mappe comunali + 2 mappe paritarie faceted (plessi con infanzia /
-      iscritti senza); blurb scritto coi findings
-- [ ] _Fonte da acquisire_: iscritti scuola dell'INFANZIA (il MIM non li rileva; l'anagrafe studenti Regione ER sì) — servono per completare trend e quote paritarie, che nell'infanzia sono il segmento capillare
-- [ ] _Fonte da acquisire_:  Risultati test invalsi e grado di scolarizzazione  
-- [ ] _Fonte da acquisire_:  Studenti disabili (dettaglio provinciale, USR-ER)  
+**Ricognizione/Aggiornamento FONTI**: 
 
-**Pagine `sito/temi/`**: 
+- [x] ISTAT BES dei territori (ed. 2025): SCARICATO in `dati/grezzi/istat_bes_territori/` (2026-09-10, tavola unica tutti i domini, province per sesso, 2004→2024; l'uscita precoce NON è provinciale) → ingerito con `ingestione/04_prep_istat_bes.R`; fonte MULTI-modulo: https://www.istat.it/statistiche-per-temi/focus/benessere-e-sostenibilita/bes-dei-territori/
++ [ ] Abbandono scolastico [Eurostat? / Openpolis](https://www.openpolis.it/labbandono-scolastico-un-problema-in-crescita-per-alcuni-paesi-ue/)
++ [ ] Dispersione scolastica e NEET [Studio IPRASE Trentino ma bello](https://www.iprase.tn.it/news/comunicati/dispersione-scolastica-e-giovani-neet-presentati-i-risultati-della-ricerca-sullalto)
 
-- [ ] (DA ARRICCHIRE) Pagina `sito/temi/scuola.qmd` ma 
-  - [ ] da arricchire con dati sopra
-  - [ ] riscrivere blurb con i dati aggiornati  
++ [ ] Il ruolo della scuola come sussidio al welfare territoriale
 
+- [x] 2026-09-10 modulo collaudato: ritardo scolastico (MIM per età, serali/CPIA esclusi) + NEET e competenze non adeguate (BES dei territori, via `ingestione/04_prep_istat_bes.R` → `dati/puliti/istat_bes/`); 4 grafici + mappa; pagina `sito/temi/_scuola_dispersione.qmd`
+- [ ] Approfondimenti (le domande sono in pagina; qui le fonti): ELET/abbandono provinciale → anagrafe studenti RER (regolarità, successo) o esiti scrutini per scuola nel catalogo MIM (da verificare); dispersione implicita → INVALSI grado 13 (file `dati/grezzi/invalsi/Traguardi_MS2026.xlsx`, solo regionale); ritardo × cittadinanza e dopo-Covid alle medie → incrocio per plesso di `scuole_iscritti_er` (età) con `scuole_iscritti_cittadinanza_er`; coorti → anagrafe RER + iscritti IeFP (`rer_formaz_lavoro`); seconda chance → modulo `formaz_rientri`
+ 
+#### sito  
 
-## 2.a ...formazione e innovazione 
+- [x] (Fatto) `sito/temi/scuola.qmd` (incluso outputs da 1) `moduli/scuola_iscritti` + 2) `moduli/scuola_disabilita`)
+- [ ] (Da completare?) aggiungere risultati (e.g. INVALSI)? 
+  
+
+## 2.b ...formazione GIOVANI (lavoro e innovazione)
 
 > Ponte con tema lavoro e se il territorio sta perdendo terreno sull'innovazione (es. startup, brevetti, ecc.)
 > PS 2024:2027 imprescindibile saper fare rete tra istruzione superiore / università / aziende e comunità 
   > - Focus sui giovani (Parma capitale dei giovani 2026) e sul mismatch domanda-formazione 
+  > - sguardo su chi va all'estero (quanti come e perchè) 
 
 **Ricognizione/Aggiornamento FONTI**: 
-
++ [ ] Orientamento dei giovani e formazione professionale e transizione scuola-lavoro - Istituto Giuseppe TOniolo 
 - [ ] startup, brevetti, cervelli in fuga e attrattività, ecc. (REgione e bandi?) 
 - [ ] mismatch domanda-formazione, nuove forme con cui si cerca il lavoro (es. Excelsior, Osservatori INPS, ecc.)
 + [ ] PMI che introducono innovazione ( Fonte: dati European Commission, 2023)
 + [ ] Investimenti in R&D OECD? 
++ [ ] Secondo Welfare. Ripartenze possibili: NEET e transizioni interrotte tra i giovani adulti [Internet]. 2026 [cited 2026 Sept 8]. https://www.secondowelfare.it/wp-content/uploads/2026/07/Rapporto-FAST-3_Neet_Percorsi-di-Secondo-Welfare-e-Fondazione-Lottomatica.pdf. Accessed 8 Sept 2026
 
 **Ripensamento MODULI (connessi a fonti)**:
+### modulo `formaz_e_rientro` (idea 2026-09-10)
+- [ ] Chi rientra in formazione: corsi serali (percorsi di II livello), CPIA, IeFP (offerta in `dati/grezzi/rer_formaz_lavoro`). I dati MIM per scuola ci sono già (anagrafe `caratteristica` + iscritti per età); a Parma i serali sono ~530 alunni. Ponte tra scuola e lavoro
 - [ ] Modulo `istruz_formaz_neet` (scaricare tavole BesT provinciali) → avrà una PAGINA separata (neet/abbandoni/formazione continua)
 
-**Pagine `sito/temi/`**: 
-- [ ] (DA FARE) `sito/temi/istruz_formaz_neet.qmd`
+
+
+
+### modulo `formaz_e_match_lavoro` (idea 2026-09-10)` 
+- [ ]  ??? 
+
+
+#### sito  
+
+- [x] 2026-09-10 outline `sito/temi/_giovani_lavoro.qmd` (dopo la scuola → cosa funziona → cosa non funziona → chi resta fuori; grafici previsti nei commenti). Fonti da acquisire per riempirla: Excelsior (difficoltà di reperimento per profilo, PR), AlmaLaurea/AlmaDiploma o Regione ER (esiti occupazionali per percorso), ITS e IeFP iscritti (Regione ER), INPS Osservatori (contratti giovani), ISTAT cancellazioni per l'estero 20-34 per provincia; già in casa dal BES: passaggio all'università, laureati 25-39, formazione continua, NEET per sesso, occupazione giovanile (dominio Lavoro)
+___
+
+
+## 🌟 SANITA (tutto da fare)
+> C'è un nesso potenziale con trasporto sociale / welfare connesso 
+
+Spunti nelle 4 DIRETTRICI [FORUM PA Sanità 2026](https://www.forumpa.it/sanita/forum-pa-sanita-2026-quattro-direttrici-per-costruire-il-sistema-salute-del-futuro/)
+
+1. La sanità di `prossimità digitale`: modelli territoriali e percorsi di cura integrati
+2. Misurare il valore: modelli di `Performance Management e valutazione` degli esiti per il SSN
+3. `Dati e infrastrutture abilitanti`: dal patrimonio informativo alla generazione di valore per il sistema salute
+  - Fascicolo Sanitario Elettronico 2.0, 
+  - Cartella Clinica Elettronica, 
+  - Piattaforma Nazionale Telemedicina e 
+  - infrastrutture dati (Ecosistema dei Dati Sanitari – EDS)
+Il Regolamento sull’European Health Data Space è entrato in vigore il 26 marzo 2025  
+  
+4. Strutture Sanitarie del futuro: ripensare `spazi e servizi a partire dall’esperienza del paziente`
+
+**Ricognizione/Aggiornamento FONTI**: 
+- [ ] xxxx
+
+
+
+**Ripensamento MODULI (connessi a fonti)**:
+
+- [ ] xxxx
+
+
+
+___
+
 
 ## 3. Lavoro e redditi da lavoro (tutto da fare)
 > Non affrontato nello strategico PS 2024-2027, ma da presentare come "Driver di riscatto economico-sociale" 
@@ -237,10 +324,7 @@ ISTAT ASIA (imprese/addetti), CCIAA/Excelsior (domanda di lavoro).
 
 - [ ] xxxx
 
-**Pagine `sito/temi/`**: 
-
-- [ ] (DA ARRICCHIRE)  
-- [ ] (DA FARE)  
+ 
 
 
 
@@ -264,12 +348,7 @@ Fonti candidate: INPS (AUU, ADI/sostegni), MEF IRPEF (distribuzione, redditi bas
 - [ ] xxxx
 - [ ] Modulo `mappe_territori` (aree interne, comunità montane, distretti) - da arricchire/rivedere, e confrontare con mappe indici fragilià RE-R
 
-
-**Pagine `sito/temi/`**: 
-
-- [ ] (DA ARRICCHIRE)  
-- [ ] (DA FARE)  
-
+ 
 
 ## 5. La fragilità e i bisogni sul territorio 
 
@@ -287,17 +366,11 @@ Fonti in casa: `istat_sae_glf_2019` ✓ (stime GLF provinciali), aree interne/zo
 - [ ] verde urbano e spazi pubblici, comportamenti sostenibili
 
 
-
-
 **Ripensamento MODULI (connessi a fonti)**:
 
 - [ ] Moduli: `disab_gali`, `disab_ehis_adl`, `anziani_soli`?, `territori_remoti`
       (da definire in ricognizione)
-
-**Pagine `sito/temi/`**: 
-
-- [ ] (DA ARRICCHIRE)  
-- [ ] (DA FARE)  
+ 
 
 
 ## 6. Capitale istituzionale e sociale (istituzioni pubbliche, terzo settore, capitale relazionale)
@@ -316,10 +389,13 @@ BES (partecipazione civica, relazioni). Salvabile: `analysis/03_carica_bes.qmd` 
 - [ ]  Terzo settore e capitale relazionale (RUNTS, censimento nonprofit, BES indicatori partecipazione civica)
 - 
 
-**Ripensamento MODULI (connessi a fonti)**:
+<!-- **Ripensamento MODULI (connessi a fonti)**: -->
 
-- [ ] Modulo `servsoc_spesa_istat` (cubo 2002-2022, dal backup)
-- [ ] Modulo `bes_indicatori` (selezione domini pertinenti)
+<!-- - [ ] Modulo `servsoc_spesa_istat` (cubo 2002-2022, dal backup) -->
+<!-- - [ ] Modulo `bes_indicatori` (selezione domini pertinenti) -->
+
+ 
+---
 
 
 # Guardare esempi di altri 

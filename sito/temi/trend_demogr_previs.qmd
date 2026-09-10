@@ -10,13 +10,6 @@ format:
     toc: true
     toc-depth: 2
     toc-location: left
-    include-in-header:
-      - text: |
-          <style>
-          section.level3.notitle h3 {
-            display: none !important;
-          }
-          </style>
 
 execute:
   eval: true
@@ -60,15 +53,16 @@ source(here::here("R", "f_girafe.R"))  # girafe standard: tooltip + hover bordea
 dir_previs <- here::here("moduli", "demo_trend_previs", "output")
 ```
 
-# Previsioni demografiche al 2050
+## In sintesi
 
-> Parma è prevista in crescita (+6,9% di abitanti al 2050), in controtendenza rispetto all'Italia (-7,3%); ma l'invecchiamento accelera: al 2050 quasi 1 abitante su 3 avrà 65 anni o più.
++ Parma è prevista in crescita (+6,9% di abitanti al 2050), in controtendenza rispetto all'Italia (-7,3%).
+
++ L'invecchiamento però accelera: al 2050 quasi un abitante su tre avrà 65 anni o più.
 
 <!-- frasi dal blurb di moduli/demo_trend_previs -->
 
 I dati di questa pagina vengono dalle **previsioni ISTAT della popolazione 2024-2050** (base 1.1.2024, solo scenario mediano), a livello provinciale. L'analisi confronta la provincia di Parma con le altre province della regione, con l'Emilia-Romagna e con l'Italia. Come tutte le proiezioni, l'incertezza cresce allontanandosi dall'anno base. Le serie storiche osservate (2002-2026) sono nella pagina [**Trend Demografici**](trend_demogr.qmd).
 
-### p01_pop_indice [ = Popolazione prevista, 2024=100] {.notitle}
 ```{r}
 #| label: p01_pop_indice
 #| output: true
@@ -95,7 +89,6 @@ f_bottoni_dati("p01_pop_indice", dir_previs)
 
 ***
 
-### p02_pop_totale [ = Popolazione prevista, valori assoluti] {.notitle}
 ```{r}
 #| label: p02_pop_totale
 #| output: true
@@ -116,7 +109,6 @@ f_bottoni_dati("p02_pop_totale", dir_previs)
 
 ***
 
-### p03_piramide_pr [ = Piramide dell'età 2050 vs 2024] {.notitle}
 ```{r}
 #| label: p03_piramide_pr
 #| output: true
@@ -144,7 +136,6 @@ f_bottoni_dati("p03_piramide_pr", dir_previs)
 
 ***
 
-### p04_quota_anziani [ = Quota 65+ e 80+] {.notitle}
 ```{r}
 #| label: p04_quota_anziani
 #| output: true
@@ -171,7 +162,6 @@ f_bottoni_dati("p04_quota_anziani", dir_previs)
 
 ***
 
-### p05_anziani_assoluti [ = 65+ e 80+ in valore assoluto, Parma / ER / Italia] {.notitle}
 ```{r}
 #| label: p05a_anziani_parma
 #| output: true
@@ -232,7 +222,6 @@ f_bottoni_dati("p05c_anziani_italia", dir_previs)
 
 ***
 
-### p06_dipendenza_anziani [ = Indice di dipendenza anziani] {.notitle}
 ```{r}
 #| label: p06_dipendenza_anziani
 #| output: true
@@ -259,7 +248,6 @@ f_bottoni_dati("p06_dipendenza_anziani", dir_previs)
 
 ***
 
-### p07_nati_morti [ = Nati e morti previsti] {.notitle}
 ```{r}
 #| label: p07_nati_morti
 #| output: true
@@ -288,3 +276,12 @@ f_bottoni_dati("p07_nati_morti", dir_previs)
 ## Nota di metodo
 Previsioni ISTAT base 1.1.2024, **solo scenario mediano** (i file pubblicati per comuni e province non riportano gli scenari alternativi). Gli aggregati Emilia-Romagna e Italia sono somme delle province (i file ISTAT non contengono totali). I dati comunali esistono solo per i comuni con almeno 5.000 abitanti (22 su 44 in provincia di Parma) e non sono usati in questa pagina.
 :::
+
+## Possibili approfondimenti
+
+Le domande a cui questa pagina non risponde ancora, e su cui l'Osservatorio intende lavorare:
+
+1. Cosa implicano queste previsioni per i servizi: quante classi in meno, quanti posti in più nelle strutture per anziani, dove.
+2. I comuni: quali territori della provincia sono previsti in crescita e quali in declino, e con quale struttura per età.
+3. Quanto sono robuste: come cambierebbe il quadro con scenari migratori diversi da quello mediano.
+

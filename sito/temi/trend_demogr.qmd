@@ -12,13 +12,6 @@ format:
     toc-depth: 2
     toc-location: left
     # toc-title: "Indice"
-    include-in-header:
-      - text: |
-          <style>
-          section.level3.notitle h3 {
-            display: none !important;
-          }
-          </style>
 
 execute:
   eval: true
@@ -84,10 +77,11 @@ dir_piram <- here::here("moduli", "pop_piramide_eta", "output")
 
 <!-- che però non può che non partire dal bisogno reale -->
 
-# Trend demografici
+## In sintesi
 
-> Parma invecchia più lentamente della regione e dell'Italia (l'età media è salita di +1,1 anni nel periodo 2002-2026, contro +2,4 dell'Emilia-Romagna e +5,2 dell'Italia).
-> La crescita naturale è negativa (-4,4 per mille nel 2025) ma compensata dal saldo migratorio, in particolare con l'estero (+6,7 per mille), strutturalmente sopra la media nazionale.
++ Parma invecchia più lentamente della regione e dell'Italia: l'età media è salita di 1,1 anni tra 2002 e 2026, contro +2,4 in Emilia-Romagna e +5,2 in Italia.
+
++ La crescita naturale è negativa (-4,4 per mille nel 2025), ma la popolazione tiene grazie al saldo migratorio, soprattutto con l'estero (+6,7 per mille), stabilmente sopra la media nazionale.
 
 <!-- frasi dal blurb di moduli/demo_trend_indicatori -->
 
@@ -96,7 +90,6 @@ dir_piram <- here::here("moduli", "pop_piramide_eta", "output")
 I dati illustrati in questa sezione sono stati estratti principalmente dal database **ISTAT -- indicatori demografici a livello provinciale**, lungo il periodo 2002-2025/26.
 L'analisi mette a confronto la provincia di Parma con le altre province della regione, e con i valori medi dell'Emilia-Romagna e dell'Italia, al fine di evidenziare le peculiarità demografiche del territorio parmense.
 
-### p01_e_m [ = Età Media] {.notitle}
 ```{r}
 #| label: p01_e_m
 #| output: true
@@ -123,7 +116,6 @@ f_bottoni_dati("p01_e_m", dir_demo)
 
 ***
 
-### p06_0_14_anni [ = Popolazione 0-14 anni] {.notitle}
 ```{r}
 #| label: p06_0_14_anni
 #| output: true
@@ -150,7 +142,6 @@ f_bottoni_dati("p06_0_14_anni", dir_demo)
 
 ***
 
-### p06_15_64_anni [ = Popolazione 15-64 anni] {.notitle}
 ```{r}
 #| label: p06_15_64_anni
 #| output: true
@@ -177,7 +168,6 @@ f_bottoni_dati("p06_15_64_anni", dir_demo)
 
 ***
 
-### p06_65piu_anni [ = Popolazione 65+ anni] {.notitle}
 ```{r}
 #| label: p06_65piu_anni
 #| output: true
@@ -206,7 +196,6 @@ f_bottoni_dati("p06_65piu_anni", dir_demo)
 
 ## Trend crescita della popolazione per età
 
-### p10_quoziente_di_natalità [ = Quoziente di natalità] {.notitle}
 ```{r}
 #| label: p10_quoziente_di_natalità
 #| output: true
@@ -233,7 +222,6 @@ f_bottoni_dati("p10_quoziente_di_natalità", dir_demo)
 
 ***
 
-### p09_quoziente_di_mortalità [ = Quoziente di mortalità] {.notitle}
 ```{r}
 #| label: p09_quoziente_di_mortalità
 #| output: true
@@ -261,7 +249,6 @@ f_bottoni_dati("p09_quoziente_di_mortalità", dir_demo)
 ***
 
 
-### p07_crescita_naturale [ = Crescita naturale] {.notitle}
 ```{r}
 #| label: p07_crescita_naturale
 #| output: true
@@ -288,7 +275,6 @@ f_bottoni_dati("p07_crescita_naturale", dir_demo)
 
 ***
 
-### p17_tasso_di_crescita_totale [ = Tasso di crescita totale] {.notitle}
 ```{r}
 #| label: p17_tasso_di_crescita_totale
 #| output: true
@@ -322,7 +308,6 @@ Se confrontate in termini relativi, le distribuzioni per età mostrano che gli i
 
 <!-- frasi dal blurb di moduli/pop_piramide_eta (Censimento 2024) -->
 
-### piramide_pr_vs_er {.notitle}
 ```{r}
 #| label: piramide_pr_vs_er
 #| output: true
@@ -340,7 +325,6 @@ f_bottoni_dati("piramide_pr_vs_er", dir_piram)
 ```
 :::
 
-### piramide_pr_vs_it {.notitle}
 ```{r}
 #| label: piramide_pr_vs_it
 #| output: true
@@ -358,7 +342,6 @@ f_bottoni_dati("piramide_pr_vs_it", dir_piram)
 ```
 :::
 
-### piramide_pr_cittadinanza {.notitle}
 ```{r}
 #| label: piramide_pr_cittadinanza
 #| output: true
@@ -383,7 +366,6 @@ f_bottoni_dati("piramide_pr_cittadinanza", dir_piram)
 
 Istat propone diversi indici sintetici per valutare la struttura demografica e le pressioni assistenziali sulla popolazione.
 
-### p02_i_v [ = Indice di vecchiaia] {.notitle} 
 ```{r}
 #| label: p02_i_v
 #| output: true
@@ -410,7 +392,6 @@ f_bottoni_dati("p02_i_v", dir_demo)
 
 ***
 
-### p03_i_d_s [ = Indice di dipendenza strutturale] {.notitle}
 ```{r}
 #| label: p03_i_d_s
 #| output: true
@@ -436,7 +417,6 @@ f_bottoni_dati("p03_i_d_s", dir_demo)
 
 ***
 
-### p04_i_d_a  [= Indice di dipendenza anziani] {.notitle}
 ```{r}
 #| label: p04_i_d_a
 #| output: true
@@ -465,7 +445,6 @@ f_bottoni_dati("p04_i_d_a", dir_demo)
 
 ## Trend composizione delle famiglie
 
-### p11_quoziente_di_nuzialità [ = Quoziente di nuzialità] {.notitle}
 ```{r}
 #| label: p11_quoziente_di_nuzialità
 #| output: true
@@ -492,7 +471,6 @@ f_bottoni_dati("p11_quoziente_di_nuzialità", dir_demo)
 
 ***
 
-### p08_età_media_al_parto [ = Età media al parto] {.notitle}
 
 ```{r}
 #| label: p08_età_media_al_parto
@@ -520,7 +498,6 @@ f_bottoni_dati("p08_età_media_al_parto", dir_demo)
 
 ***
 
-### p18_tasso_di_fecondità_totale [ = Tasso di fecondità totale] {.notitle}
 
 ```{r}
 #| label: p18_tasso_di_fecondità_totale
@@ -550,7 +527,6 @@ f_bottoni_dati("p18_tasso_di_fecondità_totale", dir_demo)
 
 ## Trend speranza di vita 
 
-### p15_speranza_di_vita_0 [ = Speranza di vita alla nascita] {.notitle}
 ```{r}
 #| label: p15_speranza_di_vita_0
 #| output: true
@@ -577,7 +553,6 @@ f_bottoni_dati("p15_speranza_di_vita_0", dir_demo)
 
 ***
 
-### p16_speranza_di_vita_65 [ = Speranza di vita a 65 anni] {.notitle}
 ```{r}
 #| label: p16_speranza_di_vita_65
 #| output: true
@@ -606,7 +581,6 @@ f_bottoni_dati("p16_speranza_di_vita_65", dir_demo)
 
 ## Trend immigrazione
 
-### p12_saldo_migratorio_totale [ = Saldo migratorio totale] {.notitle}
 ```{r}
 #| label: p12_saldo_migratorio_totale
 #| output: true
@@ -632,7 +606,6 @@ f_bottoni_dati("p12_saldo_migratorio_totale", dir_demo)
 
 
 
-### p13_saldo_migratorio_interno [ = Saldo migratorio interno] {.notitle}
 ```{r}
 #| label: p13_saldo_migratorio_interno
 #| output: true
@@ -659,7 +632,6 @@ f_bottoni_dati("p13_saldo_migratorio_interno", dir_demo)
 
 ***
 
-### p14_saldo_migratorio_con_l_estero [ = Saldo migratorio con l'estero] {.notitle}
 ```{r}
 #| label: p14_saldo_migratorio_con_l_estero
 #| output: true
@@ -695,3 +667,13 @@ Gli indicatori di FLUSSO (natalità, saldi, fecondità…) si riferiscono all'an
 ## E in futuro?
 La pagina [**Previsioni al 2050**](trend_demogr_previs.qmd) prosegue questi trend con le previsioni ISTAT della popolazione 2024-2050 (scenario mediano): popolazione attesa, piramide dell'età, quota e numero di anziani, dipendenza e saldo naturale.
 :::
+
+## Possibili approfondimenti
+
+Le domande a cui questa pagina non risponde ancora, e su cui l'Osservatorio intende lavorare:
+
+1. Dentro la provincia: quali comuni crescono e quali si spopolano, e cosa distingue la montagna dalla pianura e dalla città.
+2. Chi arriva: da dove vengono i nuovi residenti, quanti sono giovani e famiglie, e quanto pesano le seconde generazioni nate qui.
+3. Vivere soli: quanti anziani vivono soli e dove, e come cambia la domanda di cura e di prossimità.
+4. La natalità: perché continua a scendere anche dove la popolazione cresce, e cosa dicono i confronti con le province vicine.
+

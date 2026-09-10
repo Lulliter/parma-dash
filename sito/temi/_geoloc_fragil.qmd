@@ -12,13 +12,6 @@ format:
     toc-depth: 2
     toc-location: left
     # toc-title: "Indice"
-    include-in-header:
-      - text: |
-          <style>
-          section.level3.notitle h3 {
-            display: none !important;
-          }
-          </style>
 
 execute:
   eval: true
@@ -102,7 +95,6 @@ finché i rds non saranno rigenerati.
 Il quadro demografico provinciale evidenzia alcune peculiarità rispetto alla media regionale e nazionale, ma può nascondere alcune significative differenze interne al territorio.  
 Di seguito sono presentati alcuni dati provenienti dall'ultimo censimento della popolazione (2023), osservati a livello comunale e incrociati con delle classificazioni territoriali (zona altimetrica e grado di urbanizzazione).
 
-### map_urb_over60 [% over60 v grado urbanizz] {.notitle}
 
 ```{r}
 #| label: map_urb_over60
@@ -125,7 +117,6 @@ map_urb_over70_interactive
 **La distribuzione territoriale della popolazione anziana** (over 70 anni) mostra una significativa **eterogeneità tra i comuni della provincia**. I comuni di montagna e collina presentano generalmente percentuali più elevate di popolazione anziana, evidenziando aree di potenziale fragilità che richiedono servizi socio-sanitari dedicati.
 ::: 
 
-### Popolazione giovane (under 30) {.notitle}
 ```{r}
 #| label: map_urb_Under30
 #| eval: false
@@ -149,7 +140,6 @@ map_urb_Under30_interactive
 
 ***
 
-### Confronto geografico per zona altimetrica {.notitle}
 
 ```{r}
 #| label: map_alt_under30_fac

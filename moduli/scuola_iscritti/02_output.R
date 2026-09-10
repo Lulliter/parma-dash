@@ -31,6 +31,9 @@ source(here("R", "f_aggiungi_classe.R"))
 source(here("R", "f_disegna_mappa.R"))
 source(here("R", "f_salva_mappa.R"))
 source(here("R", "f_pal5.R"))
+# promosse a R/ il 2026-09-10 (usate anche da scuola_disabilita)
+source(here("R", "f_lab_as.R"))
+source(here("R", "f_theme_scuola.R"))
 
 # Parametri ---------------------------------------------------------------
 dir_mod <- here("moduli", "scuola_iscritti", "output")
@@ -44,29 +47,8 @@ ANNO_ULTIMO <- 2024 # a.s. 2024/25, per il grafico dei comuni
 TOP_N_COMUNI <- 15
 SOGLIA_RIF_STRANIERI <- 0.20 # linea di riferimento nei grafici per comune
 
-# etichetta di un anno scolastico dal suo anno di inizio: 2015 → "2015/16"
-f_lab_as <- function(anno) paste0(anno, "/", (anno + 1) %% 100)
 PERIODO_AS <- glue("a.s. {f_lab_as(ANNO_PRIMO)}-{f_lab_as(ANNO_ULTIMO)}")
 
-# Tema comune dei grafici del modulo
-f_theme_scuola <- function() {
-  theme_minimal(base_size = 15) + # font grandi: girafe rimpicciolisce
-    theme(
-      panel.grid.major = element_line(color = "grey90", linewidth = rel(0.3)),
-      panel.grid.minor = element_blank(),
-      axis.text.x = element_text(angle = 45, hjust = 1, size = rel(0.85)),
-      # titolo = element_text NORMALE: il textbox come titolo veniva tagliato
-      # in cima nel device svg di ggiraph (dsvg misura male l'altezza);
-      # il textbox resta solo sul sottotitolo, che è più lungo e deve andare
-      # a capo da solo
-      plot.title = element_text(size = rel(1.3), face = "bold", margin = margin(b = 10)),
-      plot.subtitle = ggtext::element_textbox_simple(
-        size = rel(0.95), lineheight = 1.2, margin = margin(b = 10)
-      ),
-      legend.title = element_blank(),
-      legend.position = "bottom"
-    )
-}
 
 # 1. Carica dati pronti ----------------------------------------------------
 iscritti_trend_pr <- readRDS(file.path(dir_mod, "iscritti_trend_pr.rds"))
@@ -87,7 +69,7 @@ plot_iscritti_ordine_pr <- iscritti_trend_pr |>
   geom_line_interactive(aes(tooltip = ordine_scuola, data_id = ordine_scuola),
                         linewidth = rel(1.2)) +
   geom_point_interactive(aes(tooltip = alunni), size = 1.6) +
-  scale_x_continuous(breaks = 2015:ANNO_ULTIMO) +
+  scale_x_continuous(breaks = ANNO_PRIMO:ANNO_ULTIMO, labels = f_lab_as(ANNO_PRIMO:ANNO_ULTIMO)) + # etichette a.s. già calcolate (al render f_lab_as non c'è)
   scale_y_continuous(labels = function(x) scales::number(x, big.mark = ".", decimal.mark = ",")) +
   # gradazione unica (verde = giovani): chiaro = piccoli → scuro = grandi
   scale_color_manual(values = c(
@@ -98,7 +80,7 @@ plot_iscritti_ordine_pr <- iscritti_trend_pr |>
   f_theme_scuola() +
   labs(
     title = str_wrap(glue("Iscritti nelle scuole della provincia di Parma ({PERIODO_AS})"), 55),
-    subtitle = "Statali + paritarie, per ordine di scuola; a.s. indicato con l'anno di inizio",
+    subtitle = "Statali + paritarie, per ordine di scuola",
     caption = CAP, x = "", y = ""
   )
 
@@ -121,7 +103,7 @@ f_pannello_gestione <- function(gest, pal3) {
     geom_line_interactive(aes(tooltip = ordine_scuola, data_id = paste(gest, ordine_scuola)),
                           linewidth = rel(1.1)) +
     geom_point_interactive(aes(tooltip = alunni), size = 1.6) + # linea + pallino: standard trend
-    scale_x_continuous(breaks = 2015:ANNO_ULTIMO) +
+    scale_x_continuous(breaks = ANNO_PRIMO:ANNO_ULTIMO, labels = f_lab_as(ANNO_PRIMO:ANNO_ULTIMO)) + # etichette a.s. già calcolate (al render f_lab_as non c'è)
     scale_y_continuous(labels = function(x) scales::number(x, big.mark = ".", decimal.mark = ",")) +
     scale_color_manual(values = c(
       "Primaria"            = pal3[1],
@@ -171,13 +153,15 @@ f_pannello_plessi <- function(gest, pal4) {
     filter(gestione == gest) |>
     mutate(ordine_scuola = factor(ordine_scuola, levels = ordini_plessi_lbl))
 
+  anni <- seq(min(df$anno_inizio), max(df$anno_inizio)) # fino al 2026/27 (anagrafi)
+
   df |>
     ggplot(aes(x = anno_inizio, y = n_plessi,
                color = ordine_scuola, group = ordine_scuola)) +
     geom_line_interactive(aes(tooltip = ordine_scuola, data_id = paste(gest, ordine_scuola)),
                           linewidth = rel(1.1)) +
     geom_point_interactive(aes(tooltip = n_plessi), size = 1.6) +
-    scale_x_continuous(breaks = seq(min(df$anno_inizio), max(df$anno_inizio))) +
+    scale_x_continuous(breaks = anni, labels = f_lab_as(anni)) +
     scale_color_manual(values = c(
       "Infanzia"            = pal4[1],
       "Primaria"            = pal4[2],
@@ -244,7 +228,7 @@ plot_stranieri_prov_er <- stranieri_prov_prep |>
     data = function(df) df |> filter(highlight),
     aes(tooltip = scales::percent(quota_stranieri, accuracy = 0.1)), size = 1.8
   ) +
-  scale_x_continuous(breaks = 2015:ANNO_ULTIMO) +
+  scale_x_continuous(breaks = ANNO_PRIMO:ANNO_ULTIMO, labels = f_lab_as(ANNO_PRIMO:ANNO_ULTIMO)) + # etichette a.s. già calcolate (al render f_lab_as non c'è)
   scale_y_continuous(labels = function(x) scales::percent(x, accuracy = 1)) +
   scale_alpha_manual(values = c(0.35, 1), guide = "none") +
   # come nei trend demografici: Parma gialla, regione verde, altre grigie

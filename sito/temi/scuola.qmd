@@ -1,6 +1,6 @@
 ---
-title: "Scuola e formazione nella provincia di Parma"
-subtitle: "Iscritti, presenze straniere e geografia scolastica (dati MIM, a.s. 2015/16-2024/25)"
+title: "La realtà della scuola nella provincia di Parma"
+subtitle: "Iscritti, geografia scolastica, alunni con potenziale fragilità..."
 date: last-modified
 date-format: "DD-MMMM-YYYY"
 lang: it
@@ -10,13 +10,6 @@ format:
     toc: true
     toc-depth: 2
     toc-location: left
-    include-in-header:
-      - text: |
-          <style>
-          section.level3.notitle h3 {
-            display: none !important;
-          }
-          </style>
 
 execute:
   eval: true
@@ -34,10 +27,9 @@ quarto::quarto_render(here::here("sito", "temi", paste0(pagina, ".qmd")))
 browseURL(here::here("docs", "sito", "temi", paste0(pagina, ".html")))
 ```
 
-<!-- BOZZA 2026-07-18: pagina del tema Scuola, composta dagli output del modulo
-     scuola_iscritti. Qui si aggiungeranno le stime sugli studenti con
-     disabilità (modulo scuola_disab); NEET/abbandoni/formazione continua
-     andranno su una pagina propria (modulo istruz_formaz_neet). -->
+<!-- Pagina del tema Scuola, composta dagli output dei moduli scuola_iscritti
+     (2026-07-18) e scuola_disabilita (2026-09-10). NEET/abbandoni/formazione
+     continua andranno su una pagina propria (modulo istruz_formaz_neet). -->
 
 ```{r}
 #| label: setup
@@ -52,6 +44,7 @@ library(glue)
 library(downloadthis) # per i bottoni di scarico dati
 
 dir_scuola <- here::here("moduli", "scuola_iscritti", "output")
+dir_disab <- here::here("moduli", "scuola_disabilita", "output")
 
 # Scarico dati: bottoni CSV + Excel sotto ogni grafico (funzioni generali in R/;
 # titolo e fonte del grafico finiscono nel foglio "Metadati" dell'Excel).
@@ -61,20 +54,30 @@ source(here::here("R", "f_bottoni_dati.R"))
 source(here::here("R", "f_girafe.R"))  # girafe standard: tooltip + hover bordeaux
 ```
 
-> Le scuole della provincia di Parma (statali e paritarie, esclusa l'infanzia)
-> contano quasi 52 mila iscritti nell'a.s. 2024/25. Quasi un alunno su quattro
-> ha cittadinanza non italiana, con punte comunali molto più alte (Langhirano
-> ~49%, Busseto ~39%): la scuola è il primo luogo dove si vede la Parma che
-> cambia. La scuola paritaria della provincia accoglie soprattutto i bambini dell’infanzia: 
-> dei 104 plessi paritari, 80 sono scuole dell’infanzia, presenti in 21 comuni
+## In sintesi 
 
-<!-- nota dal blurb di moduli/scuola_iscritti;
-     TODO: verificare i numeri dopo il collaudo del modulo (il 52 mila è
-     da confermare: 49.570 sono le sole statali) -->
++ Le scuole della provincia di Parma (statali e paritarie, esclusa l'infanzia) contano 52.276 iscritti (a.s. 2024/25). Il **calo demografico** si inizia a manifestare a partire dalla primaria e dalla secondaria di I grado, mentre la secondaria di II grado cresce ancora (l'onda dei nati fino al 2010 che risale i cicli).
+
+<!-- 
+readRDS(here::here("moduli", "scuola_iscritti", "output", "iscritti_trend_pr.rds")) |>
+  dplyr::filter(anno_inizio == 2024) |>
+  dplyr::summarise(alunni = sum(alunni), .by = gestione)
+# A tibble: 2 × 2
+  gestione  alunni
+  <chr>      <int>
+1 paritaria   2706
+2 statale    49570
+-->
++ La scuola **paritaria della provincia** (frequentata da circa il 5% degli alunni) accoglie soprattutto i bambini dell’infanzia, spesso presidiando aree più remote. Dei 104 plessi paritari, 80 sono scuole dell’infanzia, presenti in 21 comuni
+
++ Quasi un alunno su quattro ha **cittadinanza non italiana**, con punte comunali molto più alte (Langhirano ~49%, Busseto ~39%): la scuola è il primo luogo dove si vede la Parma che cambia.
+
++ Dall'a.s. 2016/17, a Parma come in Emilia-Romagna, sono cresciuti gli alunni con **certificazioni di disabilità** - con una crescita impressionante (circa il 40% nelle scuole statali) a fronte di un numero stabile di iscritti. 
+ 
+
 
 ## Gli iscritti: quanti sono e come cambiano
 
-### plot_iscritti_ordine_pr {.notitle}
 ```{r}
 #| label: plot_iscritti_ordine_pr
 #| output: true
@@ -93,11 +96,10 @@ f_bottoni_dati("iscritti_trend_pr", dir_scuola, rds = "plot_iscritti_ordine_pr")
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 Il calo demografico è entrato in classe dal basso: primaria e secondaria di I grado perdono iscritti negli ultimi 5 anni, mentre la secondaria di II grado cresce ancora (l'onda dei nati fino al 2010 che risale i cicli). 
 :::
 
-### plot_iscritti_ordine_gestione_pr {.notitle}
 ```{r}
 #| label: plot_iscritti_ordine_gestione_pr
 #| output: true
@@ -116,12 +118,11 @@ f_bottoni_dati("iscritti_trend_pr", dir_scuola, rds = "plot_iscritti_ordine_gest
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 
 Il numero di iscritti alle scuole paritarie è relativamente più alto nella fascia 6-11 anni (primaria) - o forse ancora più nell'infanzia (qui non rappresentata) - mentre cala all'avanzare dell'ordine di scuola.
 :::
 
-### plot_plessi_ordine_gestione_pr {.notitle}
 ```{r}
 #| label: plot_plessi_ordine_gestione_pr
 #| output: true
@@ -141,18 +142,122 @@ f_bottoni_dati("plessi_trend_pr", dir_scuola, rds = "plot_plessi_ordine_gestione
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 
-La rete dei plessi è rimasta **stabile per tutto il decennio** (la serie,
-dall'anagrafe scuole, include l'infanzia e arriva all'a.s. 2026/27): le statali
-sono quasi immobili, con un lieve calo di primarie e superiori dal 2022, e le
-~80 materne paritarie sono costanti. Il calo degli iscritti, per ora, non si è
-tradotto in chiusure di scuole.
+La rete dei plessi è rimasta stabile per tutto il decennio (la serie, dall'anagrafe scuole, include l'infanzia e arriva all'a.s. 2026/27): le statali sono quasi immobili, con un lieve calo di primarie e superiori dal 2022, e le ~80 materne paritarie sono costanti. **Il calo degli iscritti, per ora, non si è tradotto in chiusure di scuole**.
 :::
+
+## La geografia scolastica dei comuni
+
+Le tre mappe leggono dove stanno le scuole (plessi), quanti alunni
+servono, e dove si concentrano le presenze straniere.
+
+```{r}
+#| label: mappa_n_plessi_comuni_pr
+#| output: true
+#| fig-width: 8
+#| fig-height: 6
+
+f_girafe(readRDS(file.path(dir_scuola, "mappa_n_plessi_comuni_pr.rds")))
+```
+
+::: {.text-end}
+```{r}
+#| label: dl_mappa_n_plessi_comuni_pr
+#| output: true
+f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "mappa_n_plessi_comuni_pr")
+```
+:::
+
+```{r}
+#| label: mappa_alunni_comuni_pr
+#| output: true
+#| fig-width: 8
+#| fig-height: 6
+
+f_girafe(readRDS(file.path(dir_scuola, "mappa_alunni_comuni_pr.rds")))
+```
+
+::: {.text-end}
+```{r}
+#| label: dl_mappa_alunni_comuni_pr
+#| output: true
+f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "mappa_alunni_comuni_pr")
+```
+:::
+
+```{r}
+#| label: mappa_quota_stranieri_comuni_pr
+#| output: true
+#| fig-width: 8
+#| fig-height: 6
+
+f_girafe(readRDS(file.path(dir_scuola, "mappa_quota_stranieri_comuni_pr.rds")))
+```
+
+::: {.text-end}
+```{r}
+#| label: dl_mappa_quota_stranieri_comuni_pr
+#| output: true
+f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "mappa_quota_stranieri_comuni_pr")
+```
+:::
+
+::: {.callout-note collapse="true"}
+### Osservazioni
+
+La geografia scolastica ricalca quella demografica: plessi e alunni si concentrano su Parma città e sui comuni maggiori, mentre in montagna la rete si dirada — Bore e Valmozzola non hanno scuole primarie o secondarie e i loro ragazzi si spostano altrove. La presenza di stranieri riflette, su base scolastica, le concentrazioni già viste nelle mappe demografiche.
+:::
+
+```{r}
+#| label: mappa_paritarie_plessi_pr
+#| output: true
+#| fig-width: 9
+#| fig-height: 8
+
+f_girafe(readRDS(file.path(dir_scuola, "mappa_paritarie_plessi_pr.rds")))
+```
+
+::: {.text-end}
+```{r}
+#| label: dl_mappa_paritarie_plessi_pr
+#| output: true
+f_bottoni_dati("paritarie_plessi_comuni_pr", dir_scuola, rds = "mappa_paritarie_plessi_pr")
+```
+:::
+
+::: {.callout-note collapse="true"}
+### Osservazioni
+
+**La scuola paritaria della provincia serve soprattutto l'infanzia**: dei 104 plessi paritari, 80 sono scuole dell'infanzia, diffuse capillarmente in 21 comuni. Negli altri ordini la paritaria è un fenomeno concentrato: 24 plessi in soli 5 comuni (Parma 15, Salsomaggiore 4, Fidenza 3, Busseto e Traversetolo 1). In diversi comuni le paritarie restano un **presidio importante** e, talora, l'unica o la principale offerta locale.  
+
+:::
+
+
+<!-- ```{r} -->
+<!-- #| label: mappa_paritarie_iscritti_pr -->
+<!-- #| output: true -->
+<!-- #| fig-width: 9 -->
+<!-- #| fig-height: 8 -->
+
+<!-- f_girafe(readRDS(file.path(dir_scuola, "mappa_paritarie_iscritti_pr.rds"))) -->
+<!-- ``` -->
+
+<!-- ::: {.text-end} -->
+<!-- ```{r} -->
+<!-- #| label: dl_mappa_paritarie_iscritti_pr -->
+<!-- #| output: true -->
+<!-- f_bottoni_dati("paritarie_comuni_pr", dir_scuola, rds = "mappa_paritarie_iscritti_pr") -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- ::: {.callout-note collapse="true"} -->
+<!-- ### Osservazioni -->
+<!-- Per gli iscritti **La scuola paritaria** non è disponibile il dato (molto significativo) sull'infanzia: la fonte da acquisire è l'anagrafe studenti della Regione ER.  -->
+<!-- ::: -->
 
 ## Gli alunni con cittadinanza non italiana
 
-### plot_stranieri_prov_er {.notitle}
 ```{r}
 #| label: plot_stranieri_prov_er
 #| output: true
@@ -171,15 +276,14 @@ f_bottoni_dati("stranieri_trend_prov_er", dir_scuola, rds = "plot_stranieri_prov
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 
 L'incidenza degli alunni con cittadinanza non italiana è **cresciuta lungo
 tutto il decennio** in tutta la regione, e Parma si colloca nella fascia alta
-delle province. <!-- TODO: confermare il valore PR 2024/25 e il confronto con
-la media ER leggendo il grafico (nota: 22,7% misurato sulle sole statali) -->
+delle province: nell'a.s. 2024/25 è seconda dopo Piacenza (21,7% contro 25,3%),
+sopra la media regionale del 18,8%.
 :::
 
-### plot_stranieri_comuni_pr {.notitle}
 ```{r}
 #| label: plot_stranieri_comuni_pr
 #| output: true
@@ -199,7 +303,6 @@ f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "plot_stranieri_comuni_pr")
 
 <br>
 
-### plot_stranieri_comuni_pr_min {.notitle}
 ```{r}
 #| label: plot_stranieri_comuni_pr_min
 #| output: true
@@ -218,7 +321,7 @@ f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "plot_stranieri_comuni_pr_m
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 
 L'eterogeneità comunale è fortissima: nei comuni della pedecollina e della
 bassa a forte domanda di lavoro l'incidenza supera di molto la soglia del 20%
@@ -226,140 +329,84 @@ bassa a forte domanda di lavoro l'incidenza supera di molto la soglia del 20%
 soprattutto nei comuni dell'Appennino.
 :::
 
-## La geografia scolastica dei comuni
 
-Le tre mappe leggono insieme dove stanno le scuole (plessi), quanti alunni
-servono e dove si concentrano le presenze straniere.
+## Gli alunni con disabilità
 
-### mappa_n_plessi_comuni_pr {.notitle}
+I dati sono dell'Ufficio scolastico regionale e riguardano le sole scuole statali (infanzia inclusa); contano gli alunni certificati, non la prevalenza delle condizioni.
+
 ```{r}
-#| label: mappa_n_plessi_comuni_pr
+#| label: plot_disab_trend_prov_er
 #| output: true
-#| fig-width: 8
-#| fig-height: 6
+#| fig-width: 9
+#| fig-height: 7
 
-f_girafe(readRDS(file.path(dir_scuola, "mappa_n_plessi_comuni_pr.rds")))
+f_girafe(readRDS(file.path(dir_disab, "plot_disab_trend_prov_er.rds")))
 ```
 
 ::: {.text-end}
 ```{r}
-#| label: dl_mappa_n_plessi_comuni_pr
+#| label: dl_plot_disab_trend_prov_er
 #| output: true
-f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "mappa_n_plessi_comuni_pr")
+f_bottoni_dati("disab_trend_prov_er", dir_disab, rds = "plot_disab_trend_prov_er")
 ```
 :::
 
-### mappa_alunni_comuni_pr {.notitle}
 ```{r}
-#| label: mappa_alunni_comuni_pr
+#| label: plot_disab_indice_pr_er
 #| output: true
-#| fig-width: 8
+#| fig-width: 9
 #| fig-height: 6
 
-f_girafe(readRDS(file.path(dir_scuola, "mappa_alunni_comuni_pr.rds")))
+f_girafe(readRDS(file.path(dir_disab, "plot_disab_indice_pr_er.rds")))
 ```
 
 ::: {.text-end}
 ```{r}
-#| label: dl_mappa_alunni_comuni_pr
+#| label: dl_plot_disab_indice_pr_er
 #| output: true
-f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "mappa_alunni_comuni_pr")
-```
-:::
-
-### mappa_quota_stranieri_comuni_pr {.notitle}
-```{r}
-#| label: mappa_quota_stranieri_comuni_pr
-#| output: true
-#| fig-width: 8
-#| fig-height: 6
-
-f_girafe(readRDS(file.path(dir_scuola, "mappa_quota_stranieri_comuni_pr.rds")))
-```
-
-::: {.text-end}
-```{r}
-#| label: dl_mappa_quota_stranieri_comuni_pr
-#| output: true
-f_bottoni_dati("scuola_comuni_pr", dir_scuola, rds = "mappa_quota_stranieri_comuni_pr")
+f_bottoni_dati("disab_trend_prov_er", dir_disab, rds = "plot_disab_indice_pr_er")
 ```
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 
-La geografia scolastica ricalca quella demografica: plessi e alunni si
-concentrano su Parma città e sui comuni maggiori, mentre in montagna la rete si
-dirada — **Bore e Valmozzola non hanno scuole primarie o secondarie** e i loro
-ragazzi si spostano altrove. La mappa della % stranieri ripropone su base
-scolastica le concentrazioni già viste nelle mappe demografiche.
+**Gli alunni con disabilità crescono mentre la scuola non cresce**: nelle statali della provincia sono passati da ~1.500 (a.s. 2016/17) a ~2.150 (a.s. 2024/25), +41%, con gli alunni totali fermi attorno a 54 mila; la quota è salita dal 2,8% al 3,9%. Parma resta **sotto la media regionale** (4,4%) lungo tutta la serie, con un andamento parallelo alle altre province: la dinamica è regionale e nazionale (ISTAT, tutte le scuole: dal 2,6% del 2014/15 al 4,8% del 2024/25).
+
+_NB: Il dato conta le certificazioni, non i bisogni: più certificazioni possono voler dire più riconoscimento e più sostegno. Va letto come segnale di fragilità *potenziale* della popolazione scolastica._
 :::
 
-### mappa_paritarie_plessi_pr {.notitle}
 ```{r}
-#| label: mappa_paritarie_plessi_pr
+#| label: plot_disab_grado_pr_er
 #| output: true
 #| fig-width: 9
-#| fig-height: 8
+#| fig-height: 6
 
-f_girafe(readRDS(file.path(dir_scuola, "mappa_paritarie_plessi_pr.rds")))
+f_girafe(readRDS(file.path(dir_disab, "plot_disab_grado_pr_er.rds")))
 ```
 
 ::: {.text-end}
 ```{r}
-#| label: dl_mappa_paritarie_plessi_pr
+#| label: dl_plot_disab_grado_pr_er
 #| output: true
-f_bottoni_dati("paritarie_plessi_comuni_pr", dir_scuola, rds = "mappa_paritarie_plessi_pr")
-```
-:::
-
-### mappa_paritarie_iscritti_pr {.notitle}
-```{r}
-#| label: mappa_paritarie_iscritti_pr
-#| output: true
-#| fig-width: 9
-#| fig-height: 8
-
-f_girafe(readRDS(file.path(dir_scuola, "mappa_paritarie_iscritti_pr.rds")))
-```
-
-::: {.text-end}
-```{r}
-#| label: dl_mappa_paritarie_iscritti_pr
-#| output: true
-f_bottoni_dati("paritarie_comuni_pr", dir_scuola, rds = "mappa_paritarie_iscritti_pr")
+f_bottoni_dati("disab_grado_prov_er", dir_disab, rds = "plot_disab_grado_pr_er")
 ```
 :::
 
 ::: {.callout-note collapse="true"}
-## Osservazioni
+### Osservazioni
 
-**La scuola paritaria della provincia vive quasi tutta nell'infanzia**: dei 104
-plessi paritari, 80 sono scuole dell'infanzia, presenti in 21 comuni — le
-storiche materne paritarie (in gran parte parrocchiali/FISM) sono l'unico
-segmento capillare. Negli altri ordini la paritaria è un fenomeno concentrato:
-24 plessi in soli 5 comuni (Parma 15, Salsomaggiore 4, Fidenza 3, Busseto e
-Traversetolo 1), per circa 2.700 iscritti nell'a.s. 2024/25.   
+**La concentrazione è nel primo ciclo**: a Parma primaria (4,8%) e secondaria di I grado (4,5%) hanno quote più alte di infanzia (3,1%) e secondaria di II grado (3,2%), con lo stesso profilo della regione.
 
-_Nota di metodo_:
-questa mappa usa l'**anagrafe delle scuole** (conta i plessi, e include
-l'infanzia); i grafici sugli iscritti invece non possono includere l'infanzia,
-perché l'Anagrafe Nazionale degli Studenti la esclude. Per gli iscritti
-all'infanzia la fonte da acquisire è l'anagrafe studenti della Regione ER.
-In diversi comuni le paritarie restano comunque un **presidio importante** —
-soprattutto per l'infanzia, dove in alcuni casi sono l'unica o la principale
-offerta locale (si vedano i comuni in classe "oltre 50%" nella mappa dei plessi).
+Sul versante del **sostegno**, il quadro regionale ISTAT (a.s. 2024/25, tutte le scuole) dice che in Emilia-Romagna il 30,8% degli insegnanti di sostegno viene dalle liste curricolari, senza specializzazione (Italia 22,1%), e che il 7,2% non era ancora assegnato al 10 ottobre (Italia 10,2%). Gli alunni con bisogni educativi speciali non riconducibili a disabilità sono il 12,0% (Italia 9,0%).
 :::
 
-## Studenti con disabilità
+## Possibili approfondimenti
 
-<!-- SEGNAPOSTO: qui arriveranno gli output del modulo scuola_disab
-     (tavole ISTAT regionali già in dati/grezzi/istat_alunni_disab +
-     dettaglio provinciale USR-ER). Vedi CLAUDE_TODO, tema Scuola. -->
+Le domande a cui questa pagina non risponde ancora, e su cui l'Osservatorio intende lavorare:
 
-::: {.callout-warning}
-## Sezione in preparazione
-
-I dati sugli alunni con disabilità (ISTAT e USR Emilia-Romagna) saranno
-aggiunti con il modulo `scuola_disab`.
-:::
+1. La scuola dell'infanzia, oggi fuori da questi dati: quanti bambini la frequentano, dove, e quale ruolo hanno le paritarie.
+2. Disabilità e origine: quanto la crescita delle certificazioni riguarda i bambini arrivati dall'estero, dove difficoltà linguistiche e disturbi possono confondersi.
+3. L'effetto della pandemia: quanto del salto di certificazioni dopo il 2020 è un recupero di diagnosi rimandate e quanto un aumento reale dei bisogni.
+4. Il sostegno: insegnanti specializzati, assistenti e risorse sono all'altezza della crescita degli alunni certificati?
+5. Chi rischia di restare indietro: ritardo scolastico, abbandoni e NEET sono l'oggetto della pagina dedicata ai giovani a rischio dispersione.

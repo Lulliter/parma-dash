@@ -1,0 +1,241 @@
+anno_inizio,provincia,grado,alunni,alunni_disab,quota_disab,tipo_dato
+2016,Bologna,Infanzia,12870,239,0.01857031857031857,definitivo
+2016,Bologna,Primaria,41940,1352,0.03223652837386743,definitivo
+2016,Bologna,Secondaria I grado,24520,985,0.040171288743882545,definitivo
+2016,Bologna,Secondaria II grado,37841,1024,0.027060595650220662,definitivo
+2016,Emilia-Romagna,Infanzia,54495,978,0.017946600605560144,definitivo
+2016,Emilia-Romagna,Primaria,192202,5999,0.031211954089967846,definitivo
+2016,Emilia-Romagna,Secondaria I grado,114831,4202,0.03659290609678571,definitivo
+2016,Emilia-Romagna,Secondaria II grado,187020,4859,0.02598117848358464,definitivo
+2016,Ferrara,Infanzia,2940,71,0.02414965986394558,definitivo
+2016,Ferrara,Primaria,13248,473,0.035703502415458936,definitivo
+2016,Ferrara,Secondaria I grado,8119,368,0.0453257790368272,definitivo
+2016,Ferrara,Secondaria II grado,14788,444,0.030024344062753585,definitivo
+2016,Forlì-Cesena,Infanzia,6407,92,0.014359294521616982,definitivo
+2016,Forlì-Cesena,Primaria,17517,435,0.024833019352628875,definitivo
+2016,Forlì-Cesena,Secondaria I grado,10662,265,0.024854623897955355,definitivo
+2016,Forlì-Cesena,Secondaria II grado,17960,278,0.015478841870824054,definitivo
+2016,Modena,Infanzia,10303,195,0.018926526254488985,definitivo
+2016,Modena,Primaria,32109,1114,0.034694322464106635,definitivo
+2016,Modena,Secondaria I grado,19334,650,0.03361953036102203,definitivo
+2016,Modena,Secondaria II grado,33376,918,0.027504793863854266,definitivo
+2016,Parma,Infanzia,4607,76,0.01649663555459084,definitivo
+2016,Parma,Primaria,18762,519,0.027662296130476494,definitivo
+2016,Parma,Secondaria I grado,10860,392,0.03609576427255985,definitivo
+2016,Parma,Secondaria II grado,19267,531,0.027560076815280013,definitivo
+2016,Piacenza,Infanzia,4410,83,0.018820861678004536,definitivo
+2016,Piacenza,Primaria,12004,336,0.027990669776741087,definitivo
+2016,Piacenza,Secondaria I grado,7331,216,0.029463920338289457,definitivo
+2016,Piacenza,Secondaria II grado,11782,315,0.02673569852317094,definitivo
+2016,Ravenna,Infanzia,4625,77,0.016648648648648647,definitivo
+2016,Ravenna,Primaria,16486,477,0.0289336406648065,definitivo
+2016,Ravenna,Secondaria I grado,9871,362,0.036673082767703376,definitivo
+2016,Ravenna,Secondaria II grado,15198,370,0.024345308593235953,definitivo
+2016,Reggio Emilia,Infanzia,4143,67,0.016171856142891624,definitivo
+2016,Reggio Emilia,Primaria,25520,869,0.03405172413793103,definitivo
+2016,Reggio Emilia,Secondaria I grado,15268,677,0.04434110558029866,definitivo
+2016,Reggio Emilia,Secondaria II grado,22218,625,0.028130344765505445,definitivo
+2016,Rimini,Infanzia,4190,78,0.018615751789976133,definitivo
+2016,Rimini,Primaria,14616,424,0.029009304871373837,definitivo
+2016,Rimini,Secondaria I grado,8866,287,0.03237085495150011,definitivo
+2016,Rimini,Secondaria II grado,14590,354,0.024263193968471555,definitivo
+2017,Bologna,Infanzia,12464,204,0.016367137355584083,provvisorio
+2017,Bologna,Primaria,41550,1312,0.03157641395908544,provvisorio
+2017,Bologna,Secondaria I grado,24868,973,0.03912658838668168,provvisorio
+2017,Bologna,Secondaria II grado,38354,1135,0.02959274130468791,provvisorio
+2017,Emilia-Romagna,Infanzia,52946,932,0.017602840630075927,provvisorio
+2017,Emilia-Romagna,Primaria,190796,6050,0.031709260152204446,provvisorio
+2017,Emilia-Romagna,Secondaria I grado,115995,4273,0.03683779473253158,provvisorio
+2017,Emilia-Romagna,Secondaria II grado,189122,5289,0.027966074808853544,provvisorio
+2017,Ferrara,Infanzia,2859,70,0.02448408534452606,provvisorio
+2017,Ferrara,Primaria,13093,466,0.035591537462766366,provvisorio
+2017,Ferrara,Secondaria I grado,8140,382,0.04692874692874693,provvisorio
+2017,Ferrara,Secondaria II grado,14712,484,0.03289831430125068,provvisorio
+2017,Forlì-Cesena,Infanzia,6214,89,0.014322497586095913,provvisorio
+2017,Forlì-Cesena,Primaria,17486,435,0.024877044492737047,provvisorio
+2017,Forlì-Cesena,Secondaria I grado,10801,282,0.026108693639477827,provvisorio
+2017,Forlì-Cesena,Secondaria II grado,18105,319,0.017619442143054404,provvisorio
+2017,Modena,Infanzia,9996,175,0.01750700280112045,provvisorio
+2017,Modena,Primaria,31983,1067,0.03336147328268142,provvisorio
+2017,Modena,Secondaria I grado,19500,689,0.035333333333333335,provvisorio
+2017,Modena,Secondaria II grado,34027,917,0.02694918740999794,provvisorio
+2017,Parma,Infanzia,4565,85,0.018619934282584884,provvisorio
+2017,Parma,Primaria,18761,558,0.029742551036725122,provvisorio
+2017,Parma,Secondaria I grado,11003,362,0.032900118149595564,provvisorio
+2017,Parma,Secondaria II grado,19819,524,0.02643927544275695,provvisorio
+2017,Piacenza,Infanzia,4418,84,0.019013128112267994,provvisorio
+2017,Piacenza,Primaria,11878,341,0.028708536790705504,provvisorio
+2017,Piacenza,Secondaria I grado,7306,243,0.03326033397207775,provvisorio
+2017,Piacenza,Secondaria II grado,12005,314,0.026155768429820907,provvisorio
+2017,Ravenna,Infanzia,4427,82,0.018522701603794895,provvisorio
+2017,Ravenna,Primaria,16307,512,0.03139755933034893,provvisorio
+2017,Ravenna,Secondaria I grado,10005,342,0.034182908545727135,provvisorio
+2017,Ravenna,Secondaria II grado,15541,408,0.02625313686377968,provvisorio
+2017,Reggio Emilia,Infanzia,3939,69,0.017517136329017517,provvisorio
+2017,Reggio Emilia,Primaria,25210,894,0.03546211820706069,provvisorio
+2017,Reggio Emilia,Secondaria I grado,15377,694,0.045132340508551735,provvisorio
+2017,Reggio Emilia,Secondaria II grado,21756,815,0.037460930318073175,provvisorio
+2017,Rimini,Infanzia,4064,74,0.018208661417322834,provvisorio
+2017,Rimini,Primaria,14528,465,0.03200715859030837,provvisorio
+2017,Rimini,Secondaria I grado,8995,306,0.03401889938854919,provvisorio
+2017,Rimini,Secondaria II grado,14803,373,0.02519759508207796,provvisorio
+2020,Bologna,Infanzia,11805,243,0.020584498094027955,provvisorio
+2020,Bologna,Primaria,39996,1521,0.03802880288028803,provvisorio
+2020,Bologna,Secondaria I grado,25503,1051,0.04121083794063444,provvisorio
+2020,Bologna,Secondaria II grado,39653,1333,0.03361662421506569,provvisorio
+2020,Emilia-Romagna,Infanzia,49189,1148,0.023338551302120394,provvisorio
+2020,Emilia-Romagna,Primaria,181562,7255,0.0399588019519503,provvisorio
+2020,Emilia-Romagna,Secondaria I grado,119553,4817,0.04029175344826144,provvisorio
+2020,Emilia-Romagna,Secondaria II grado,196883,6250,0.03174474180096809,provvisorio
+2020,Ferrara,Infanzia,2752,69,0.02507267441860465,provvisorio
+2020,Ferrara,Primaria,12112,576,0.047556142668428,provvisorio
+2020,Ferrara,Secondaria I grado,8209,421,0.05128517480813741,provvisorio
+2020,Ferrara,Secondaria II grado,15494,602,0.03885374983864722,provvisorio
+2020,Forlì-Cesena,Infanzia,5631,106,0.01882436512164802,provvisorio
+2020,Forlì-Cesena,Primaria,16769,511,0.030472896416005726,provvisorio
+2020,Forlì-Cesena,Secondaria I grado,10951,347,0.03168660396310839,provvisorio
+2020,Forlì-Cesena,Secondaria II grado,19350,380,0.019638242894056846,provvisorio
+2020,Modena,Infanzia,9100,249,0.027362637362637363,provvisorio
+2020,Modena,Primaria,30194,1383,0.045803802079883424,provvisorio
+2020,Modena,Secondaria I grado,20167,857,0.042495165369167455,provvisorio
+2020,Modena,Secondaria II grado,35330,1113,0.03150297197848854,provvisorio
+2020,Parma,Infanzia,4324,100,0.02312673450508788,provvisorio
+2020,Parma,Primaria,18281,571,0.031234615174224604,provvisorio
+2020,Parma,Secondaria I grado,11587,455,0.03926814533528955,provvisorio
+2020,Parma,Secondaria II grado,20426,596,0.02917849799275433,provvisorio
+2020,Piacenza,Infanzia,4202,109,0.025940028557829606,provvisorio
+2020,Piacenza,Primaria,11654,462,0.03964304101596019,provvisorio
+2020,Piacenza,Secondaria I grado,7469,264,0.035346097201767304,provvisorio
+2020,Piacenza,Secondaria II grado,12317,379,0.030770479824632622,provvisorio
+2020,Ravenna,Infanzia,4185,108,0.025806451612903226,provvisorio
+2020,Ravenna,Primaria,15308,626,0.040893650378886856,provvisorio
+2020,Ravenna,Secondaria I grado,10564,400,0.03786444528587656,provvisorio
+2020,Ravenna,Secondaria II grado,16361,538,0.03288307560662551,provvisorio
+2020,Reggio Emilia,Infanzia,3486,69,0.019793459552495698,provvisorio
+2020,Reggio Emilia,Primaria,23522,1037,0.04408638721197177,provvisorio
+2020,Reggio Emilia,Secondaria I grado,15660,657,0.04195402298850575,provvisorio
+2020,Reggio Emilia,Secondaria II grado,22851,919,0.040217058334427375,provvisorio
+2020,Rimini,Infanzia,3704,95,0.02564794816414687,provvisorio
+2020,Rimini,Primaria,13726,568,0.041381320122395454,provvisorio
+2020,Rimini,Secondaria I grado,9443,365,0.038652970454304776,provvisorio
+2020,Rimini,Secondaria II grado,15101,390,0.025826104231507847,provvisorio
+2021,Bologna,Infanzia,11392,189,0.01659058988764045,provvisorio
+2021,Bologna,Primaria,39060,1483,0.03796722990271378,provvisorio
+2021,Bologna,Secondaria I grado,25054,1062,0.042388440967510176,provvisorio
+2021,Bologna,Secondaria II grado,40091,1413,0.035244818038961366,provvisorio
+2021,Emilia-Romagna,Infanzia,47784,995,0.02082286957977566,provvisorio
+2021,Emilia-Romagna,Primaria,176719,7339,0.04152920738573668,provvisorio
+2021,Emilia-Romagna,Secondaria I grado,119012,5077,0.04265956374147145,provvisorio
+2021,Emilia-Romagna,Secondaria II grado,201095,6585,0.032745717198339096,provvisorio
+2021,Ferrara,Infanzia,2709,70,0.025839793281653745,provvisorio
+2021,Ferrara,Primaria,11655,566,0.048562848562848565,provvisorio
+2021,Ferrara,Secondaria I grado,8325,434,0.05213213213213213,provvisorio
+2021,Ferrara,Secondaria II grado,15708,627,0.03991596638655462,provvisorio
+2021,Forlì-Cesena,Infanzia,5361,92,0.017160977429584032,provvisorio
+2021,Forlì-Cesena,Primaria,16252,528,0.032488309131183855,provvisorio
+2021,Forlì-Cesena,Secondaria I grado,10920,358,0.032783882783882785,provvisorio
+2021,Forlì-Cesena,Secondaria II grado,19847,438,0.022068826522900188,provvisorio
+2021,Modena,Infanzia,8891,184,0.020695084917332133,provvisorio
+2021,Modena,Primaria,29376,1313,0.04469635076252723,provvisorio
+2021,Modena,Secondaria I grado,20050,908,0.045286783042394016,provvisorio
+2021,Modena,Secondaria II grado,36272,1149,0.031677326863696516,provvisorio
+2021,Parma,Infanzia,4294,111,0.02585002328830927,provvisorio
+2021,Parma,Primaria,17939,635,0.03539773677462512,provvisorio
+2021,Parma,Secondaria I grado,11555,462,0.03998269147555171,provvisorio
+2021,Parma,Secondaria II grado,21122,628,0.029732032951425055,provvisorio
+2021,Piacenza,Infanzia,4193,101,0.024087765323157644,provvisorio
+2021,Piacenza,Primaria,11503,470,0.04085890637225072,provvisorio
+2021,Piacenza,Secondaria I grado,7669,324,0.042248011474768546,provvisorio
+2021,Piacenza,Secondaria II grado,12439,388,0.03119221802395691,provvisorio
+2021,Ravenna,Infanzia,4151,105,0.025295109612141653,provvisorio
+2021,Ravenna,Primaria,14872,648,0.04357181280258203,provvisorio
+2021,Ravenna,Secondaria I grado,10459,414,0.039583134142843486,provvisorio
+2021,Ravenna,Secondaria II grado,16772,597,0.03559503935129978,provvisorio
+2021,Reggio Emilia,Infanzia,3255,52,0.01597542242703533,provvisorio
+2021,Reggio Emilia,Primaria,22816,1044,0.045757363253856945,provvisorio
+2021,Reggio Emilia,Secondaria I grado,15534,741,0.047701815372730785,provvisorio
+2021,Reggio Emilia,Secondaria II grado,23177,905,0.039047331406135394,provvisorio
+2021,Rimini,Infanzia,3538,91,0.025720746184284906,provvisorio
+2021,Rimini,Primaria,13246,652,0.049222406764306205,provvisorio
+2021,Rimini,Secondaria I grado,9446,374,0.03959347872115181,provvisorio
+2021,Rimini,Secondaria II grado,15667,440,0.028084508840237443,provvisorio
+2022,Bologna,Infanzia,11065,188,0.016990510619069137,provvisorio
+2022,Bologna,Primaria,38296,1504,0.03927303112596616,provvisorio
+2022,Bologna,Secondaria I grado,24814,1040,0.041911823970339324,provvisorio
+2022,Bologna,Secondaria II grado,41377,1406,0.033980230562873096,provvisorio
+2022,Emilia-Romagna,Infanzia,46551,1052,0.022598870056497175,provvisorio
+2022,Emilia-Romagna,Primaria,173444,7582,0.043714397730679644,provvisorio
+2022,Emilia-Romagna,Secondaria I grado,117454,5152,0.04386398079248046,provvisorio
+2022,Emilia-Romagna,Secondaria II grado,203045,6802,0.033499963062375335,provvisorio
+2022,Ferrara,Infanzia,2691,81,0.030100334448160536,provvisorio
+2022,Ferrara,Primaria,11495,581,0.05054371465854719,provvisorio
+2022,Ferrara,Secondaria I grado,8239,430,0.05219079985435126,provvisorio
+2022,Ferrara,Secondaria II grado,16037,660,0.04115482945688096,provvisorio
+2022,Forlì-Cesena,Infanzia,5176,98,0.01893353941267388,provvisorio
+2022,Forlì-Cesena,Primaria,15881,545,0.03431773817769662,provvisorio
+2022,Forlì-Cesena,Secondaria I grado,10854,378,0.03482587064676617,provvisorio
+2022,Forlì-Cesena,Secondaria II grado,20086,466,0.0232002389724186,provvisorio
+2022,Modena,Infanzia,8708,196,0.022508038585209004,provvisorio
+2022,Modena,Primaria,28643,1381,0.048214223370457006,provvisorio
+2022,Modena,Secondaria I grado,19902,917,0.046075771279268415,provvisorio
+2022,Modena,Secondaria II grado,36278,1227,0.03382215116599592,provvisorio
+2022,Parma,Infanzia,4139,97,0.023435612466779415,provvisorio
+2022,Parma,Primaria,17876,666,0.03725665697023943,provvisorio
+2022,Parma,Secondaria I grado,11401,432,0.03789141303394439,provvisorio
+2022,Parma,Secondaria II grado,21284,653,0.030680323247509866,provvisorio
+2022,Piacenza,Infanzia,4132,84,0.02032913843175218,provvisorio
+2022,Piacenza,Primaria,11506,470,0.04084825308534677,provvisorio
+2022,Piacenza,Secondaria I grado,7374,337,0.0457011120151885,provvisorio
+2022,Piacenza,Secondaria II grado,12385,404,0.03262010496568429,provvisorio
+2022,Ravenna,Infanzia,4045,131,0.03238566131025958,provvisorio
+2022,Ravenna,Primaria,14591,694,0.04756356658213968,provvisorio
+2022,Ravenna,Secondaria I grado,10323,442,0.042817010558946045,provvisorio
+2022,Ravenna,Secondaria II grado,16964,590,0.034779533128979016,provvisorio
+2022,Reggio Emilia,Infanzia,3162,53,0.016761543327008223,provvisorio
+2022,Reggio Emilia,Primaria,22061,1042,0.04723267304292643,provvisorio
+2022,Reggio Emilia,Secondaria I grado,15211,746,0.04904345539412267,provvisorio
+2022,Reggio Emilia,Secondaria II grado,23120,941,0.04070069204152249,provvisorio
+2022,Rimini,Infanzia,3433,124,0.036120011651616664,provvisorio
+2022,Rimini,Primaria,13095,699,0.05337915234822451,provvisorio
+2022,Rimini,Secondaria I grado,9336,430,0.04605826906598115,provvisorio
+2022,Rimini,Secondaria II grado,15514,455,0.029328348588371793,provvisorio
+2024,Bologna,Infanzia,10918,235,0.02152408866092691,provvisorio
+2024,Bologna,Primaria,37174,1679,0.04516597621993867,provvisorio
+2024,Bologna,Secondaria I grado,24076,1122,0.04660242565210168,provvisorio
+2024,Bologna,Secondaria II grado,40919,1435,0.035069283218064955,provvisorio
+2024,Emilia-Romagna,Infanzia,45023,1314,0.029185083179708148,provvisorio
+2024,Emilia-Romagna,Primaria,166993,8848,0.05298425682513638,provvisorio
+2024,Emilia-Romagna,Secondaria I grado,114049,5784,0.05071504353391963,provvisorio
+2024,Emilia-Romagna,Secondaria II grado,204972,7410,0.036151279199110126,provvisorio
+2024,Ferrara,Infanzia,2612,102,0.03905053598774885,provvisorio
+2024,Ferrara,Primaria,11045,691,0.06256224535989136,provvisorio
+2024,Ferrara,Secondaria I grado,7859,465,0.05916783305764092,provvisorio
+2024,Ferrara,Secondaria II grado,16674,746,0.04474031426172484,provvisorio
+2024,Forlì-Cesena,Infanzia,4780,132,0.027615062761506277,provvisorio
+2024,Forlì-Cesena,Primaria,15200,627,0.04125,provvisorio
+2024,Forlì-Cesena,Secondaria I grado,10655,442,0.041482871891130924,provvisorio
+2024,Forlì-Cesena,Secondaria II grado,20564,566,0.0275238280490177,provvisorio
+2024,Modena,Infanzia,8460,260,0.030732860520094562,provvisorio
+2024,Modena,Primaria,27386,1551,0.056634776893303145,provvisorio
+2024,Modena,Secondaria I grado,19379,1016,0.052427885855823315,provvisorio
+2024,Modena,Secondaria II grado,36624,1387,0.03787134119702927,provvisorio
+2024,Parma,Infanzia,4126,129,0.031265147842947164,provvisorio
+2024,Parma,Primaria,17426,831,0.04768736370939975,provvisorio
+2024,Parma,Secondaria I grado,11193,505,0.04511748414187439,provvisorio
+2024,Parma,Secondaria II grado,21607,682,0.03156384505021521,provvisorio
+2024,Piacenza,Infanzia,4114,104,0.025279533300923675,provvisorio
+2024,Piacenza,Primaria,11370,610,0.05364995602462621,provvisorio
+2024,Piacenza,Secondaria I grado,7559,395,0.052255589363672444,provvisorio
+2024,Piacenza,Secondaria II grado,12583,472,0.03751092744178654,provvisorio
+2024,Ravenna,Infanzia,3745,155,0.04138851802403204,provvisorio
+2024,Ravenna,Primaria,14119,891,0.06310645229832142,provvisorio
+2024,Ravenna,Secondaria I grado,9799,508,0.05184202469639759,provvisorio
+2024,Ravenna,Secondaria II grado,17211,659,0.038289466039161,provvisorio
+2024,Reggio Emilia,Infanzia,3070,87,0.028338762214983715,provvisorio
+2024,Reggio Emilia,Primaria,20960,1217,0.05806297709923664,provvisorio
+2024,Reggio Emilia,Secondaria I grado,14702,837,0.056931029791865054,provvisorio
+2024,Reggio Emilia,Secondaria II grado,23023,956,0.041523693697606744,provvisorio
+2024,Rimini,Infanzia,3198,110,0.03439649781113196,provvisorio
+2024,Rimini,Primaria,12313,751,0.06099244700722813,provvisorio
+2024,Rimini,Secondaria I grado,8827,494,0.055964653902798235,provvisorio
+2024,Rimini,Secondaria II grado,15767,507,0.03215576837698991,provvisorio

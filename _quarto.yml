@@ -51,7 +51,11 @@ website:
         href: sito/temi/trend_demogr_previs.qmd
       - text: "Scuola e istruzione"
         href: sito/temi/scuola.qmd
-     # Voci da riattivare quando le pagine esistono, es.:
+      - text: "Rischio dispersione scolastica"
+        href: sito/temi/scuola_dispersione.qmd
+      - text: "Giovani e lavoro"
+        href: sito/temi/giovani_lavoro.qmd
+      # Voci da riattivare quando le pagine esistono, es.:
       # - text: "Disabilità"
       #   href: sito/temi/disabilita.qmd
     right:
